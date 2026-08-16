@@ -1,0 +1,11 @@
+# Global Configuration Constraints for Yahoo Finance Pipeline
+# Default fallback exchange mapping logic if not specified in your CSV
+
+# config/settings.yaml
+start_date: "2025-01-01"
+end_date: "2026-08-01"
+default_exchange: "NSE"
+
+# TELEGRAM BOT WEBHOOK GATEWAY SETTINGS
+telegram_bot_token: "8899515831:AAFLbDwp0sk6K9Q6C_IGOSuRpltx92_ssPM"
+telegram_chat_id: "5162645225"

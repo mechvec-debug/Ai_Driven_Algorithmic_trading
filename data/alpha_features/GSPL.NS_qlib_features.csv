@@ -1,0 +1,1 @@
+date,open,high,low,close,volume,daily_return,rolling_volatility_ann,var_95_threshold,qlib_momentum_5d,qlib_mean_reversion_20d,qlib_vol_normalized_return,target_forward_return_5d
