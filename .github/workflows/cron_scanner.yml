@@ -1,19 +1,24 @@
+
 # .github/workflows/cron_scanner.yml
 name: Automated NSE/BSE Quantitative Daily Scanner
 
 on:
   schedule:
-    # Triggers Monday through Friday at 11:00 AM UTC (which maps directly to 4:30 PM IST after market hours)
     - cron: '0 11 * * 1-5'
-  workflow_dispatch: # Allows you to trigger the run manually from the GitHub website whenever you want
+  workflow_dispatch: 
 
 jobs:
   run-quant-pipeline:
     runs-on: ubuntu-latest
-
+    
+    # FIX: Add these explicit lines to grant write permissions to the automation bot
+    permissions:
+      contents: write
+    
     steps:
     - name: 1. Clone Current Repository Context
       uses: actions/checkout@v4
+# ... (Leave the remaining steps below exactly as they are)
 
     - name: 2. Set Up Virtual Python Environment
       uses: actions/setup-python@v5
