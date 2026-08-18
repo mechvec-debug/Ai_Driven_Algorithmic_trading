@@ -29,15 +29,19 @@ jobs:
     - name: 4. Execute Main Analytics Core Engine
       env:
         # Securely inject your Telegram secrets from your GitHub Settings panel
-        TELEGRAM_BOT_TOKEN: ${{ secrets.8899515831:AAFLbDwp0sk6K9Q6C_IGOSuRpltx92_ssPM }}
-        TELEGRAM_CHAT_ID: ${{ secrets.5162645225 }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       run: |
         python main.py
 
-    - name: 5. Commit and Push Overwritten JSON Signal Data File
+    - name: 5. Configure Git Credentials
       run: |
         git config --global user.name "GitHub Automation Runner"
         git config --global user.email "actions@github.com"
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+    - name: 6. Commit and Push Overwritten JSON Signal Data File
+      run: |
         git add data/output/latest_market_signals.json
         # Only commits and pushes if changes exist to avoid empty runtime build loops
         git diff --quiet && git diff --staged --quiet || (git commit -m "Automated Overwrite: Latest Market Signals [Skip CI]" && git push)
