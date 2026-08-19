@@ -1,19 +1,19 @@
 {
-    "last_updated": "2026-08-18 11:29:19.120428",
+    "last_updated": "2026-08-19 11:30:03.286913",
     "signals": [
         {
             "ticker": "ESCORTS",
             "close_price": 3086.0,
-            "ann_volatility_pct": 18.12748453806593,
-            "daily_var_95_pct": -3.39561893997607,
-            "qlib_alpha_score": 0.0109806551483324,
-            "action_status": "BUY"
+            "ann_volatility_pct": 17.44266893069365,
+            "daily_var_95_pct": -3.39669705834209,
+            "qlib_alpha_score": 0.0047501993816436,
+            "action_status": "HOLD"
         },
         {
             "ticker": "RELINFRA",
             "close_price": 60.040000915527344,
             "ann_volatility_pct": 31.72596305541347,
-            "daily_var_95_pct": -4.99769035211036,
+            "daily_var_95_pct": -4.99769831679511,
             "qlib_alpha_score": 0.0514322501238917,
             "action_status": "BUY"
         },
@@ -27,10 +27,10 @@
         },
         {
             "ticker": "SIEMENS",
-            "close_price": 3760.0,
-            "ann_volatility_pct": 19.62344626875833,
-            "daily_var_95_pct": -3.40586547718589,
-            "qlib_alpha_score": -0.0084015392676483,
+            "close_price": 3658.800048828125,
+            "ann_volatility_pct": 17.4074493469965,
+            "daily_var_95_pct": -3.4097210144492602,
+            "qlib_alpha_score": -0.0077855711124217,
             "action_status": "HOLD"
         },
         {
@@ -44,9 +44,9 @@
         {
             "ticker": "SOBHA",
             "close_price": 1372.199951171875,
-            "ann_volatility_pct": 23.93431535543408,
-            "daily_var_95_pct": -3.55817335862587,
-            "qlib_alpha_score": 0.0731850162213814,
+            "ann_volatility_pct": 24.82762016475694,
+            "daily_var_95_pct": -3.56553247222985,
+            "qlib_alpha_score": 0.0959406492602752,
             "action_status": "BUY"
         },
         {
@@ -59,75 +59,75 @@
         },
         {
             "ticker": "JBMA",
-            "close_price": 658.3499755859375,
-            "ann_volatility_pct": 25.23954314759489,
-            "daily_var_95_pct": -4.08551863040213,
-            "qlib_alpha_score": 0.0217971009207327,
+            "close_price": 678.4500122070312,
+            "ann_volatility_pct": 23.31029949944689,
+            "daily_var_95_pct": -4.08957585778896,
+            "qlib_alpha_score": 0.0335306287964081,
             "action_status": "BUY"
         },
         {
             "ticker": "JINDALSTEL",
-            "close_price": 1102.4000244140625,
-            "ann_volatility_pct": 23.17949659267688,
-            "daily_var_95_pct": -2.62181771666735,
-            "qlib_alpha_score": -0.0104267699546296,
+            "close_price": 1093.699951171875,
+            "ann_volatility_pct": 26.48238493859147,
+            "daily_var_95_pct": -2.64483047058796,
+            "qlib_alpha_score": 0.0002878651989486,
             "action_status": "HOLD"
         },
         {
             "ticker": "SUNDRMFAST",
-            "close_price": 977.4500122070312,
-            "ann_volatility_pct": 15.70119411823048,
-            "daily_var_95_pct": -2.6006142316424103,
-            "qlib_alpha_score": 0.0263129923903966,
+            "close_price": 966.1500244140624,
+            "ann_volatility_pct": 14.75424240645097,
+            "daily_var_95_pct": -2.60951181734869,
+            "qlib_alpha_score": 0.0143166438989963,
             "action_status": "BUY"
         },
         {
             "ticker": "GMMPFAUDLR",
             "close_price": 864.4000244140625,
-            "ann_volatility_pct": 30.616372689514858,
-            "daily_var_95_pct": -2.9235745923178897,
-            "qlib_alpha_score": -0.0135511569487662,
+            "ann_volatility_pct": 30.88883973061853,
+            "daily_var_95_pct": -2.92580351628834,
+            "qlib_alpha_score": -0.0014231339598768,
             "action_status": "HOLD"
         },
         {
             "ticker": "COALINDIA",
             "close_price": 414.1499938964844,
-            "ann_volatility_pct": 16.92808649924077,
-            "daily_var_95_pct": -2.16945656121053,
-            "qlib_alpha_score": 0.0005849321562239,
+            "ann_volatility_pct": 17.584380453997937,
+            "daily_var_95_pct": -2.17153736779717,
+            "qlib_alpha_score": -0.0001169578701043,
             "action_status": "HOLD"
         },
         {
             "ticker": "MEDPLUS",
-            "close_price": 704.9500122070312,
-            "ann_volatility_pct": 48.92944320692541,
-            "daily_var_95_pct": -2.87949782846913,
-            "qlib_alpha_score": 0.1117895901153116,
+            "close_price": 714.75,
+            "ann_volatility_pct": 38.14992101844365,
+            "daily_var_95_pct": -2.88198575545308,
+            "qlib_alpha_score": 0.1385626033200495,
             "action_status": "BUY"
         },
         {
             "ticker": "HIKAL",
-            "close_price": 221.30999755859372,
-            "ann_volatility_pct": 41.84689910512087,
-            "daily_var_95_pct": -4.37027885404376,
-            "qlib_alpha_score": 0.0525759349377568,
+            "close_price": 216.9900054931641,
+            "ann_volatility_pct": 41.78550811747913,
+            "daily_var_95_pct": -4.37287464437131,
+            "qlib_alpha_score": 0.1059211949586602,
             "action_status": "BUY"
         },
         {
             "ticker": "MARKSANS",
-            "close_price": 258.3500061035156,
-            "ann_volatility_pct": 46.36694112275487,
-            "daily_var_95_pct": -3.8505886456542897,
-            "qlib_alpha_score": 0.0844498692409145,
+            "close_price": 258.6000061035156,
+            "ann_volatility_pct": 44.53859631771588,
+            "daily_var_95_pct": -3.8526837638737703,
+            "qlib_alpha_score": 0.1009752356245903,
             "action_status": "BUY"
         },
         {
             "ticker": "FINPIPE",
-            "close_price": 162.3699951171875,
-            "ann_volatility_pct": 21.682491608461447,
-            "daily_var_95_pct": -3.08003808977684,
-            "qlib_alpha_score": 0.0060487902745751,
-            "action_status": "HOLD"
+            "close_price": 162.91000366210938,
+            "ann_volatility_pct": 22.05175412056301,
+            "daily_var_95_pct": -3.08052114267776,
+            "qlib_alpha_score": 0.0414556692705738,
+            "action_status": "BUY"
         },
         {
             "ticker": "RATNAMANI",
@@ -139,10 +139,10 @@
         },
         {
             "ticker": "ARE&M",
-            "close_price": 910.4500122070312,
-            "ann_volatility_pct": 26.61548103622357,
-            "daily_var_95_pct": -2.85504697102395,
-            "qlib_alpha_score": 0.0395234265495161,
+            "close_price": 906.8499755859376,
+            "ann_volatility_pct": 27.81242201149033,
+            "daily_var_95_pct": -2.85526254955274,
+            "qlib_alpha_score": 0.0278981634992783,
             "action_status": "BUY"
         },
         {
@@ -155,10 +155,10 @@
         },
         {
             "ticker": "SHREECEM",
-            "close_price": 26055.0,
-            "ann_volatility_pct": 22.34244779389828,
-            "daily_var_95_pct": -2.18686591248346,
-            "qlib_alpha_score": -0.0084143605086013,
+            "close_price": 26455.0,
+            "ann_volatility_pct": 24.69316093776852,
+            "daily_var_95_pct": -2.19261747264471,
+            "qlib_alpha_score": 0.0037278657968313,
             "action_status": "HOLD"
         },
         {
@@ -203,18 +203,18 @@
         },
         {
             "ticker": "PAGEIND",
-            "close_price": 40375.0,
-            "ann_volatility_pct": 20.51528207454869,
-            "daily_var_95_pct": -2.53262237238271,
-            "qlib_alpha_score": -0.0093109869646182,
+            "close_price": 41085.0,
+            "ann_volatility_pct": 28.152551038236602,
+            "daily_var_95_pct": -2.53389092722374,
+            "qlib_alpha_score": 0.0031040476781722,
             "action_status": "HOLD"
         },
         {
             "ticker": "CEATLTD",
-            "close_price": 3429.89990234375,
-            "ann_volatility_pct": 36.58921074351064,
-            "daily_var_95_pct": -3.9458555219322995,
-            "qlib_alpha_score": 0.066484347231535,
+            "close_price": 3464.0,
+            "ann_volatility_pct": 43.650474766461414,
+            "daily_var_95_pct": -3.95680244899812,
+            "qlib_alpha_score": 0.1329346980583794,
             "action_status": "BUY"
         },
         {
@@ -235,35 +235,35 @@
         },
         {
             "ticker": "PRINCEPIPE",
-            "close_price": 264.0,
-            "ann_volatility_pct": 24.202925232708438,
-            "daily_var_95_pct": -3.9367436502758903,
-            "qlib_alpha_score": 0.0304363756428611,
+            "close_price": 262.6499938964844,
+            "ann_volatility_pct": 28.57663674748104,
+            "daily_var_95_pct": -3.94464902515344,
+            "qlib_alpha_score": 0.0392689545356925,
             "action_status": "BUY"
         },
         {
             "ticker": "FORTIS",
-            "close_price": 945.0,
-            "ann_volatility_pct": 18.17363881166496,
-            "daily_var_95_pct": -2.77816114170012,
-            "qlib_alpha_score": 0.0039527774341185,
-            "action_status": "HOLD"
+            "close_price": 948.8499755859376,
+            "ann_volatility_pct": 21.61775996138257,
+            "daily_var_95_pct": -2.77850088127901,
+            "qlib_alpha_score": 0.0276585332598742,
+            "action_status": "BUY"
         },
         {
             "ticker": "LTTS",
-            "close_price": 3555.39990234375,
-            "ann_volatility_pct": 33.06483294726221,
-            "daily_var_95_pct": -3.2764253358215703,
-            "qlib_alpha_score": -0.0008191828056893,
-            "action_status": "HOLD"
+            "close_price": 3559.10009765625,
+            "ann_volatility_pct": 34.90353137934425,
+            "daily_var_95_pct": -3.2812307763243598,
+            "qlib_alpha_score": 0.0310786895464805,
+            "action_status": "BUY"
         },
         {
             "ticker": "VAIBHAVGBL",
             "close_price": 266.3599853515625,
-            "ann_volatility_pct": 37.08942101134777,
-            "daily_var_95_pct": -3.70283013892536,
-            "qlib_alpha_score": 0.0402080050196413,
-            "action_status": "BUY"
+            "ann_volatility_pct": 35.972852268055625,
+            "daily_var_95_pct": -3.70488932145589,
+            "qlib_alpha_score": -0.0012304419924972,
+            "action_status": "HOLD"
         },
         {
             "ticker": "ANURAS",
@@ -275,10 +275,10 @@
         },
         {
             "ticker": "SHARDACROP",
-            "close_price": 819.75,
-            "ann_volatility_pct": 29.29324150414052,
-            "daily_var_95_pct": -5.618192883794499,
-            "qlib_alpha_score": 0.0299558543023474,
+            "close_price": 820.0,
+            "ann_volatility_pct": 30.25581466737355,
+            "daily_var_95_pct": -5.6224133031387,
+            "qlib_alpha_score": 0.0435759126006893,
             "action_status": "BUY"
         },
         {
@@ -291,18 +291,18 @@
         },
         {
             "ticker": "GANECOS",
-            "close_price": 1183.800048828125,
-            "ann_volatility_pct": 55.93923942635851,
-            "daily_var_95_pct": -4.03781279497365,
-            "qlib_alpha_score": -0.0051678517230293,
+            "close_price": 1204.949951171875,
+            "ann_volatility_pct": 53.9792861493713,
+            "daily_var_95_pct": -4.04186162331152,
+            "qlib_alpha_score": -0.0053985780890353,
             "action_status": "HOLD"
         },
         {
             "ticker": "NOCIL",
-            "close_price": 164.1699981689453,
-            "ann_volatility_pct": 33.17946997589734,
-            "daily_var_95_pct": -3.4347346803995302,
-            "qlib_alpha_score": 0.0161763558054921,
+            "close_price": 159.67999267578125,
+            "ann_volatility_pct": 32.472859709432974,
+            "daily_var_95_pct": -3.4412837619495997,
+            "qlib_alpha_score": 0.0387391200768145,
             "action_status": "BUY"
         },
         {
@@ -323,11 +323,11 @@
         },
         {
             "ticker": "PFIZER",
-            "close_price": 4823.89990234375,
-            "ann_volatility_pct": 20.70222182350902,
-            "daily_var_95_pct": -2.52086748244638,
-            "qlib_alpha_score": -0.0122632135381348,
-            "action_status": "HOLD"
+            "close_price": 4801.2998046875,
+            "ann_volatility_pct": 21.14911963957619,
+            "daily_var_95_pct": -2.52119491578311,
+            "qlib_alpha_score": 0.011198542418936,
+            "action_status": "BUY"
         },
         {
             "ticker": "NUVOCO",
@@ -339,26 +339,26 @@
         },
         {
             "ticker": "PERSISTENT",
-            "close_price": 5549.0,
-            "ann_volatility_pct": 32.24471226743099,
-            "daily_var_95_pct": -3.69313548210601,
-            "qlib_alpha_score": -0.0031920195473993,
-            "action_status": "HOLD"
+            "close_price": 5514.7001953125,
+            "ann_volatility_pct": 37.51267795116197,
+            "daily_var_95_pct": -3.99296730365738,
+            "qlib_alpha_score": 0.0254303760163008,
+            "action_status": "BUY"
         },
         {
             "ticker": "LIKHITHA",
-            "close_price": 220.8000030517578,
-            "ann_volatility_pct": 32.35099749974027,
-            "daily_var_95_pct": -3.79469060371385,
-            "qlib_alpha_score": 0.0617828756527238,
+            "close_price": 219.75,
+            "ann_volatility_pct": 32.39679791690032,
+            "daily_var_95_pct": -3.8048810868341603,
+            "qlib_alpha_score": 0.0421712808334624,
             "action_status": "BUY"
         },
         {
             "ticker": "ROSSARI",
-            "close_price": 504.2999877929688,
-            "ann_volatility_pct": 35.00006218368321,
-            "daily_var_95_pct": -3.1190220231983297,
-            "qlib_alpha_score": 0.0850347600083389,
+            "close_price": 507.5499877929688,
+            "ann_volatility_pct": 34.99448486581864,
+            "daily_var_95_pct": -3.12080494436241,
+            "qlib_alpha_score": 0.1008232022668675,
             "action_status": "BUY"
         },
         {
@@ -371,10 +371,10 @@
         },
         {
             "ticker": "RALLIS",
-            "close_price": 217.13999938964844,
-            "ann_volatility_pct": 32.093750188354555,
-            "daily_var_95_pct": -3.7507830911103803,
-            "qlib_alpha_score": 0.0695866913668545,
+            "close_price": 217.00999450683597,
+            "ann_volatility_pct": 33.2006468347562,
+            "daily_var_95_pct": -3.75090326556265,
+            "qlib_alpha_score": 0.0629364380045791,
             "action_status": "BUY"
         },
         {
@@ -388,9 +388,9 @@
         {
             "ticker": "SYNGENE",
             "close_price": 385.8999938964844,
-            "ann_volatility_pct": 23.848340373607748,
-            "daily_var_95_pct": -3.15953816581199,
-            "qlib_alpha_score": 0.0265585109372854,
+            "ann_volatility_pct": 25.34788406503552,
+            "daily_var_95_pct": -3.1655427616131595,
+            "qlib_alpha_score": 0.0313537444764984,
             "action_status": "BUY"
         },
         {
@@ -404,9 +404,9 @@
         {
             "ticker": "CROMPTON",
             "close_price": 260.20001220703125,
-            "ann_volatility_pct": 31.487567170565526,
-            "daily_var_95_pct": -2.77469391724446,
-            "qlib_alpha_score": 0.0253847941573139,
+            "ann_volatility_pct": 30.97937252525268,
+            "daily_var_95_pct": -2.77728794585589,
+            "qlib_alpha_score": 0.0405756311978346,
             "action_status": "BUY"
         },
         {
@@ -427,42 +427,42 @@
         },
         {
             "ticker": "GPPL",
-            "close_price": 150.27000427246094,
-            "ann_volatility_pct": 19.3163345491519,
-            "daily_var_95_pct": -3.2554964843651,
-            "qlib_alpha_score": 0.0133351574759632,
+            "close_price": 150.61000061035156,
+            "ann_volatility_pct": 19.85165549444731,
+            "daily_var_95_pct": -3.25601851946098,
+            "qlib_alpha_score": 0.0285442229554451,
             "action_status": "BUY"
         },
         {
             "ticker": "AMBUJACEM",
             "close_price": 432.2000122070313,
-            "ann_volatility_pct": 25.681383722248807,
-            "daily_var_95_pct": -2.78209325360819,
-            "qlib_alpha_score": 0.0314006969191351,
+            "ann_volatility_pct": 28.72786450125221,
+            "daily_var_95_pct": -2.83153255225856,
+            "qlib_alpha_score": 0.023756335995561,
             "action_status": "BUY"
         },
         {
             "ticker": "SYMPHONY",
-            "close_price": 688.2000122070312,
-            "ann_volatility_pct": 22.91069890914021,
-            "daily_var_95_pct": -3.3630084759516503,
-            "qlib_alpha_score": 0.0333900235447734,
+            "close_price": 683.5,
+            "ann_volatility_pct": 22.72783977590587,
+            "daily_var_95_pct": -3.3668591841064,
+            "qlib_alpha_score": 0.0337624306098289,
             "action_status": "BUY"
         },
         {
             "ticker": "APOLLO",
             "close_price": 389.8999938964844,
-            "ann_volatility_pct": 39.89099546263838,
-            "daily_var_95_pct": -5.01353435350564,
-            "qlib_alpha_score": 0.0088764902570519,
-            "action_status": "HOLD"
+            "ann_volatility_pct": 41.62985667760365,
+            "daily_var_95_pct": -5.01519558308141,
+            "qlib_alpha_score": 0.0103981897804885,
+            "action_status": "BUY"
         },
         {
             "ticker": "APOLLOHOSP",
-            "close_price": 8957.0,
-            "ann_volatility_pct": 13.014124292507958,
-            "daily_var_95_pct": -1.6566131621036002,
-            "qlib_alpha_score": 0.0023280903980467,
+            "close_price": 8988.0,
+            "ann_volatility_pct": 13.72138205747473,
+            "daily_var_95_pct": -1.6573423708056998,
+            "qlib_alpha_score": 0.008124576844956,
             "action_status": "HOLD"
         },
         {
@@ -475,18 +475,18 @@
         },
         {
             "ticker": "MAHLOG",
-            "close_price": 409.5,
-            "ann_volatility_pct": 34.44290503414527,
-            "daily_var_95_pct": -3.5299469791396696,
-            "qlib_alpha_score": -0.0696529352104532,
+            "close_price": 402.6499938964844,
+            "ann_volatility_pct": 36.45172290984956,
+            "daily_var_95_pct": -3.5436418938595304,
+            "qlib_alpha_score": -0.0088044204499,
             "action_status": "HOLD"
         },
         {
             "ticker": "SKIPPER",
             "close_price": 527.75,
-            "ann_volatility_pct": 34.08348233395539,
-            "daily_var_95_pct": -4.07339930896282,
-            "qlib_alpha_score": 0.0191997785116082,
+            "ann_volatility_pct": 34.925579561988904,
+            "daily_var_95_pct": -4.0739063198613295,
+            "qlib_alpha_score": 0.0556132829304079,
             "action_status": "BUY"
         },
         {
@@ -499,26 +499,26 @@
         },
         {
             "ticker": "PRESTIGE",
-            "close_price": 1616.199951171875,
-            "ann_volatility_pct": 37.84735761893494,
-            "daily_var_95_pct": -3.8033869579402504,
-            "qlib_alpha_score": 0.0629080538047417,
+            "close_price": 1594.800048828125,
+            "ann_volatility_pct": 40.41055951630831,
+            "daily_var_95_pct": -3.8123154058511703,
+            "qlib_alpha_score": 0.0381773399014777,
             "action_status": "BUY"
         },
         {
             "ticker": "ATUL",
             "close_price": 6736.5,
-            "ann_volatility_pct": 34.137663425731056,
-            "daily_var_95_pct": -2.98698219208001,
-            "qlib_alpha_score": -0.0402653140850566,
+            "ann_volatility_pct": 33.85854572319234,
+            "daily_var_95_pct": -2.98711242456511,
+            "qlib_alpha_score": -0.0458056964494733,
             "action_status": "HOLD"
         },
         {
             "ticker": "ALKYLAMINE",
-            "close_price": 1785.5999755859375,
-            "ann_volatility_pct": 31.00944104769525,
-            "daily_var_95_pct": -3.2511299942383998,
-            "qlib_alpha_score": 0.0208997062945306,
+            "close_price": 1787.199951171875,
+            "ann_volatility_pct": 35.01394418175135,
+            "daily_var_95_pct": -3.2544968888158796,
+            "qlib_alpha_score": 0.0488356706680026,
             "action_status": "BUY"
         },
         {
@@ -539,18 +539,18 @@
         },
         {
             "ticker": "SUMICHEM",
-            "close_price": 510.2999877929688,
-            "ann_volatility_pct": 63.36580505510337,
-            "daily_var_95_pct": -3.23916489028964,
-            "qlib_alpha_score": 0.0347775485856602,
-            "action_status": "BUY"
+            "close_price": 508.3999938964844,
+            "ann_volatility_pct": 63.88571329400333,
+            "daily_var_95_pct": -3.24325575898142,
+            "qlib_alpha_score": 0.00781475286594,
+            "action_status": "HOLD"
         },
         {
             "ticker": "EPL",
-            "close_price": 222.4199981689453,
-            "ann_volatility_pct": 31.331954156282087,
-            "daily_var_95_pct": -3.5480918016607204,
-            "qlib_alpha_score": 0.0277182132564086,
+            "close_price": 230.72000122070312,
+            "ann_volatility_pct": 29.40524707289932,
+            "daily_var_95_pct": -3.4559577280186597,
+            "qlib_alpha_score": 0.0222708659068395,
             "action_status": "BUY"
         },
         {
@@ -563,75 +563,75 @@
         },
         {
             "ticker": "HERANBA",
-            "close_price": 179.57000732421875,
-            "ann_volatility_pct": 24.65454851830361,
-            "daily_var_95_pct": -4.27048649918203,
-            "qlib_alpha_score": 0.0334361603808905,
+            "close_price": 174.9600067138672,
+            "ann_volatility_pct": 24.09799410135153,
+            "daily_var_95_pct": -4.27121161750809,
+            "qlib_alpha_score": 0.0284216553295471,
             "action_status": "BUY"
         },
         {
             "ticker": "SUBROS",
-            "close_price": 819.25,
-            "ann_volatility_pct": 27.87852547624004,
-            "daily_var_95_pct": -3.98138119270028,
-            "qlib_alpha_score": 0.0283265720738192,
+            "close_price": 783.2999877929688,
+            "ann_volatility_pct": 26.93279923369078,
+            "daily_var_95_pct": -3.98637642212474,
+            "qlib_alpha_score": 0.0451500558342352,
             "action_status": "BUY"
         },
         {
             "ticker": "UNICHEMLAB",
-            "close_price": 513.4000244140625,
-            "ann_volatility_pct": 98.76204464688364,
-            "daily_var_95_pct": -3.8869599679925697,
-            "qlib_alpha_score": 0.0962129237107649,
+            "close_price": 523.7000122070312,
+            "ann_volatility_pct": 98.77189697078916,
+            "daily_var_95_pct": -3.89182042722587,
+            "qlib_alpha_score": 0.1206100918280008,
             "action_status": "BUY"
         },
         {
             "ticker": "FINCABLES",
-            "close_price": 987.5999755859376,
-            "ann_volatility_pct": 29.069747892892075,
-            "daily_var_95_pct": -3.6194239666958796,
-            "qlib_alpha_score": 0.0184202251768883,
+            "close_price": 973.0,
+            "ann_volatility_pct": 26.823627633012247,
+            "daily_var_95_pct": -3.59727787311585,
+            "qlib_alpha_score": 0.0561464144654195,
             "action_status": "BUY"
         },
         {
             "ticker": "KIRLOSBROS",
-            "close_price": 1870.0999755859373,
-            "ann_volatility_pct": 24.127331663826,
-            "daily_var_95_pct": -4.0088918381170995,
-            "qlib_alpha_score": 0.017482694849279,
+            "close_price": 1873.300048828125,
+            "ann_volatility_pct": 29.11607782081984,
+            "daily_var_95_pct": -4.01618280753181,
+            "qlib_alpha_score": 0.0421628195731913,
             "action_status": "BUY"
         },
         {
             "ticker": "HFCL",
-            "close_price": 193.9199981689453,
-            "ann_volatility_pct": 57.74830529566232,
-            "daily_var_95_pct": -4.64552803642638,
-            "qlib_alpha_score": 0.0829057229332654,
+            "close_price": 184.69000244140625,
+            "ann_volatility_pct": 55.61313098904637,
+            "daily_var_95_pct": -4.66352007112077,
+            "qlib_alpha_score": 0.0776291374844129,
             "action_status": "BUY"
         },
         {
             "ticker": "MANKIND",
             "close_price": 2469.60009765625,
-            "ann_volatility_pct": 27.71058019550391,
-            "daily_var_95_pct": -2.6869749312329003,
-            "qlib_alpha_score": -0.0091735802679996,
-            "action_status": "HOLD"
+            "ann_volatility_pct": 28.529565917555228,
+            "daily_var_95_pct": -2.68817164317156,
+            "qlib_alpha_score": 0.0154754505359613,
+            "action_status": "BUY"
         },
         {
             "ticker": "AFFLE",
             "close_price": 1586.0,
-            "ann_volatility_pct": 43.49368098029267,
-            "daily_var_95_pct": -3.22575317660914,
-            "qlib_alpha_score": 0.0603334589537849,
+            "ann_volatility_pct": 43.560280905476475,
+            "daily_var_95_pct": -3.22896626475974,
+            "qlib_alpha_score": 0.0654535199543104,
             "action_status": "BUY"
         },
         {
             "ticker": "GOKULAGRO",
-            "close_price": 225.1100006103516,
-            "ann_volatility_pct": 28.3088567435419,
-            "daily_var_95_pct": -3.9514566748838402,
-            "qlib_alpha_score": 0.0086219829492311,
-            "action_status": "HOLD"
+            "close_price": 225.1499938964844,
+            "ann_volatility_pct": 30.725859409953,
+            "daily_var_95_pct": -3.96082179405251,
+            "qlib_alpha_score": 0.0137248104290113,
+            "action_status": "BUY"
         },
         {
             "ticker": "DABUR",
@@ -643,10 +643,10 @@
         },
         {
             "ticker": "KRBL",
-            "close_price": 351.1000061035156,
-            "ann_volatility_pct": 23.33319436428504,
-            "daily_var_95_pct": -3.62486086530266,
-            "qlib_alpha_score": 0.0220955096222381,
+            "close_price": 350.6499938964844,
+            "ann_volatility_pct": 23.42835339438536,
+            "daily_var_95_pct": -3.62636202976164,
+            "qlib_alpha_score": 0.0442052680518993,
             "action_status": "BUY"
         },
         {
@@ -659,11 +659,11 @@
         },
         {
             "ticker": "ASAHIINDIA",
-            "close_price": 876.5499877929688,
-            "ann_volatility_pct": 20.997514095194163,
-            "daily_var_95_pct": -3.5029626027208702,
-            "qlib_alpha_score": -0.007992767852646,
-            "action_status": "HOLD"
+            "close_price": 869.2999877929688,
+            "ann_volatility_pct": 25.33007118045206,
+            "daily_var_95_pct": -3.51119850821675,
+            "qlib_alpha_score": 0.0516361822025839,
+            "action_status": "BUY"
         },
         {
             "ticker": "ITI",
@@ -675,10 +675,10 @@
         },
         {
             "ticker": "FINEORG",
-            "close_price": 4816.5,
-            "ann_volatility_pct": 26.17580601994856,
-            "daily_var_95_pct": -2.73368165414485,
-            "qlib_alpha_score": 0.0471160815988402,
+            "close_price": 4877.0,
+            "ann_volatility_pct": 27.07544465184601,
+            "daily_var_95_pct": -2.86375840553688,
+            "qlib_alpha_score": 0.0786007796860184,
             "action_status": "BUY"
         },
         {
@@ -723,42 +723,42 @@
         },
         {
             "ticker": "TIMETECHNO",
-            "close_price": 208.55999755859372,
-            "ann_volatility_pct": 45.984244475635386,
-            "daily_var_95_pct": -4.26949060660738,
-            "qlib_alpha_score": 0.0137633128692491,
-            "action_status": "BUY"
+            "close_price": 208.3600006103516,
+            "ann_volatility_pct": 46.99301562011692,
+            "daily_var_95_pct": -4.27063004848143,
+            "qlib_alpha_score": -0.0031495520004857,
+            "action_status": "HOLD"
         },
         {
             "ticker": "CONCOR",
-            "close_price": 525.5,
-            "ann_volatility_pct": 41.43755766327981,
-            "daily_var_95_pct": -2.9471943910449,
-            "qlib_alpha_score": 0.0195791149461177,
+            "close_price": 525.1500244140625,
+            "ann_volatility_pct": 41.71010400239352,
+            "daily_var_95_pct": -2.94814514848476,
+            "qlib_alpha_score": 0.0258064389104772,
             "action_status": "BUY"
         },
         {
             "ticker": "POCL",
-            "close_price": 525.0999755859375,
-            "ann_volatility_pct": 29.96585227037125,
-            "daily_var_95_pct": -4.99966638631395,
-            "qlib_alpha_score": 0.0399087790057626,
+            "close_price": 527.5999755859375,
+            "ann_volatility_pct": 30.36236625132529,
+            "daily_var_95_pct": -4.99966832779524,
+            "qlib_alpha_score": 0.0398644704731943,
             "action_status": "BUY"
         },
         {
             "ticker": "SUPRAJIT",
-            "close_price": 504.6000061035156,
-            "ann_volatility_pct": 20.38229363500993,
-            "daily_var_95_pct": -3.01493567206692,
-            "qlib_alpha_score": 0.0115594497777498,
+            "close_price": 499.4500122070313,
+            "ann_volatility_pct": 20.50254963681629,
+            "daily_var_95_pct": -3.01696046667641,
+            "qlib_alpha_score": 0.0156922951722755,
             "action_status": "BUY"
         },
         {
             "ticker": "TATASTEEL",
             "close_price": 189.69000244140625,
-            "ann_volatility_pct": 18.117485838302972,
-            "daily_var_95_pct": -2.53504811604233,
-            "qlib_alpha_score": 0.017627422417364,
+            "ann_volatility_pct": 18.96707472747218,
+            "daily_var_95_pct": -2.53897600832114,
+            "qlib_alpha_score": 0.0154377147450925,
             "action_status": "BUY"
         },
         {
@@ -787,34 +787,34 @@
         },
         {
             "ticker": "BIKAJI",
-            "close_price": 641.6500244140625,
-            "ann_volatility_pct": 14.312944308615899,
-            "daily_var_95_pct": -2.4717988623787197,
-            "qlib_alpha_score": 0.0122086761661639,
-            "action_status": "BUY"
+            "close_price": 643.7000122070312,
+            "ann_volatility_pct": 15.08906261504962,
+            "daily_var_95_pct": -2.47851810941276,
+            "qlib_alpha_score": 0.0072923853996704,
+            "action_status": "HOLD"
         },
         {
             "ticker": "POLYPLEX",
-            "close_price": 1105.300048828125,
-            "ann_volatility_pct": 30.185931136591808,
-            "daily_var_95_pct": -3.47832546298683,
-            "qlib_alpha_score": -0.0455289468681899,
+            "close_price": 1103.449951171875,
+            "ann_volatility_pct": 36.45460768589569,
+            "daily_var_95_pct": -3.4996239046688102,
+            "qlib_alpha_score": -0.0695618539980738,
             "action_status": "HOLD"
         },
         {
             "ticker": "ASTRAZEN",
-            "close_price": 8100.0,
-            "ann_volatility_pct": 18.80774856685628,
-            "daily_var_95_pct": -2.83488744044128,
-            "qlib_alpha_score": 0.0022484541877458,
-            "action_status": "HOLD"
+            "close_price": 8094.5,
+            "ann_volatility_pct": 19.255919255263098,
+            "daily_var_95_pct": -2.84724203950387,
+            "qlib_alpha_score": 0.0452870934959348,
+            "action_status": "BUY"
         },
         {
             "ticker": "MMTC",
-            "close_price": 62.65999984741211,
-            "ann_volatility_pct": 24.19125904616137,
-            "daily_var_95_pct": -4.307877509258691,
-            "qlib_alpha_score": 0.0325097526839761,
+            "close_price": 60.09000015258789,
+            "ann_volatility_pct": 19.86609390481972,
+            "daily_var_95_pct": -4.335836375077999,
+            "qlib_alpha_score": 0.0363255386597158,
             "action_status": "BUY"
         },
         {
@@ -828,9 +828,9 @@
         {
             "ticker": "SHYAMMETL",
             "close_price": 1031.300048828125,
-            "ann_volatility_pct": 32.417634240370155,
-            "daily_var_95_pct": -3.07242573901328,
-            "qlib_alpha_score": -0.0048177053940479,
+            "ann_volatility_pct": 32.23810329374932,
+            "daily_var_95_pct": -3.0740110742990203,
+            "qlib_alpha_score": 0.0061317330551617,
             "action_status": "HOLD"
         },
         {
@@ -843,18 +843,18 @@
         },
         {
             "ticker": "GRINDWELL",
-            "close_price": 2120.199951171875,
-            "ann_volatility_pct": 78.99705064065408,
-            "daily_var_95_pct": -3.12367648736696,
-            "qlib_alpha_score": 0.0373334542142567,
+            "close_price": 2101.800048828125,
+            "ann_volatility_pct": 78.53369346301282,
+            "daily_var_95_pct": -3.1365906014467004,
+            "qlib_alpha_score": 0.0209081958154004,
             "action_status": "BUY"
         },
         {
             "ticker": "ONGC",
             "close_price": 242.52999877929688,
-            "ann_volatility_pct": 21.10673798212141,
-            "daily_var_95_pct": -2.68898113089985,
-            "qlib_alpha_score": -0.0059093152161278,
+            "ann_volatility_pct": 21.21091083513125,
+            "daily_var_95_pct": -2.69213388673299,
+            "qlib_alpha_score": -0.0080800552790681,
             "action_status": "HOLD"
         },
         {
@@ -867,19 +867,19 @@
         },
         {
             "ticker": "GABRIEL",
-            "close_price": 1441.800048828125,
-            "ann_volatility_pct": 54.381478730530084,
-            "daily_var_95_pct": -4.0003167394815,
-            "qlib_alpha_score": -0.0197286574360561,
+            "close_price": 1392.0,
+            "ann_volatility_pct": 56.44523340875842,
+            "daily_var_95_pct": -4.00107846384136,
+            "qlib_alpha_score": -0.0168396254584614,
             "action_status": "HOLD"
         },
         {
             "ticker": "ACE",
-            "close_price": 1070.300048828125,
-            "ann_volatility_pct": 40.82149329492133,
-            "daily_var_95_pct": -3.6784908261403704,
-            "qlib_alpha_score": -0.0500288616303562,
-            "action_status": "HOLD"
+            "close_price": 1057.199951171875,
+            "ann_volatility_pct": 42.67809330034295,
+            "daily_var_95_pct": -3.6928344224464498,
+            "qlib_alpha_score": 0.025944866612934,
+            "action_status": "BUY"
         },
         {
             "ticker": "MEDANTA",
@@ -892,9 +892,9 @@
         {
             "ticker": "GAIL",
             "close_price": 181.44000244140625,
-            "ann_volatility_pct": 23.8859349889646,
-            "daily_var_95_pct": -2.88675330838024,
-            "qlib_alpha_score": 0.0069403167046759,
+            "ann_volatility_pct": 24.07448042426072,
+            "daily_var_95_pct": -2.8906978578272997,
+            "qlib_alpha_score": 0.0099400211677325,
             "action_status": "HOLD"
         },
         {
@@ -907,98 +907,98 @@
         },
         {
             "ticker": "PATANJALI",
-            "close_price": 354.6000061035156,
-            "ann_volatility_pct": 55.11397179484918,
-            "daily_var_95_pct": -2.2194864035227,
-            "qlib_alpha_score": -0.0095321891293159,
-            "action_status": "HOLD"
+            "close_price": 356.3500061035156,
+            "ann_volatility_pct": 55.15268111987568,
+            "daily_var_95_pct": -2.22721196411493,
+            "qlib_alpha_score": 0.0303568789731487,
+            "action_status": "BUY"
         },
         {
             "ticker": "CYIENT",
             "close_price": 847.7000122070312,
-            "ann_volatility_pct": 28.65129077941408,
-            "daily_var_95_pct": -3.2637637590316597,
-            "qlib_alpha_score": 0.0164871576957954,
+            "ann_volatility_pct": 29.753509142730923,
+            "daily_var_95_pct": -3.2659478687149397,
+            "qlib_alpha_score": 0.0347318061012376,
             "action_status": "BUY"
         },
         {
             "ticker": "ULTRACEMCO",
-            "close_price": 11903.0,
-            "ann_volatility_pct": 20.61100695249567,
-            "daily_var_95_pct": -2.22165577409823,
-            "qlib_alpha_score": -0.0100455850075974,
+            "close_price": 11847.0,
+            "ann_volatility_pct": 20.669253240648843,
+            "daily_var_95_pct": -2.22712485848767,
+            "qlib_alpha_score": -0.0115048706751763,
             "action_status": "HOLD"
         },
         {
             "ticker": "SFL",
-            "close_price": 783.7999877929688,
-            "ann_volatility_pct": 31.465633207962,
-            "daily_var_95_pct": -3.1627801863522,
-            "qlib_alpha_score": -0.0011156068081573,
-            "action_status": "HOLD"
+            "close_price": 776.2999877929688,
+            "ann_volatility_pct": 34.01742909148983,
+            "daily_var_95_pct": -3.16380043503641,
+            "qlib_alpha_score": 0.0760891416122797,
+            "action_status": "BUY"
         },
         {
             "ticker": "RELAXO",
-            "close_price": 403.9500122070313,
-            "ann_volatility_pct": 80.42610103933683,
-            "daily_var_95_pct": -3.18242904433856,
-            "qlib_alpha_score": 0.0918228040181565,
-            "action_status": "BUY"
+            "close_price": 408.1499938964844,
+            "ann_volatility_pct": 80.97226257047699,
+            "daily_var_95_pct": -3.2823637022309495,
+            "qlib_alpha_score": -0.0465791767804456,
+            "action_status": "HOLD"
         },
         {
             "ticker": "NATCOPHARM",
             "close_price": 917.0,
-            "ann_volatility_pct": 28.22101632902519,
-            "daily_var_95_pct": -3.6016261186952803,
-            "qlib_alpha_score": 0.0255575315871585,
+            "ann_volatility_pct": 30.74661182186037,
+            "daily_var_95_pct": -3.64089821580003,
+            "qlib_alpha_score": 0.0524173717001554,
             "action_status": "BUY"
         },
         {
             "ticker": "APOLLOTYRE",
-            "close_price": 428.1499938964844,
-            "ann_volatility_pct": 19.84947320187436,
-            "daily_var_95_pct": -2.9550468704733697,
-            "qlib_alpha_score": 0.0262123201715414,
-            "action_status": "BUY"
+            "close_price": 423.2000122070313,
+            "ann_volatility_pct": 28.6740792045847,
+            "daily_var_95_pct": -2.96045621391421,
+            "qlib_alpha_score": 0.0062448305841145,
+            "action_status": "HOLD"
         },
         {
             "ticker": "KANSAINER",
-            "close_price": 196.7400054931641,
-            "ann_volatility_pct": 30.663484059939222,
-            "daily_var_95_pct": -2.57578591741329,
-            "qlib_alpha_score": 0.041875854007219,
+            "close_price": 199.0500030517578,
+            "ann_volatility_pct": 32.84135494500081,
+            "daily_var_95_pct": -2.5759490521121298,
+            "qlib_alpha_score": 0.0448460065921865,
             "action_status": "BUY"
         },
         {
             "ticker": "JKIL",
-            "close_price": 482.0,
-            "ann_volatility_pct": 28.287616753575378,
-            "daily_var_95_pct": -3.59883519091537,
-            "qlib_alpha_score": 0.0283125711372516,
-            "action_status": "BUY"
+            "close_price": 485.6499938964844,
+            "ann_volatility_pct": 28.27694979072805,
+            "daily_var_95_pct": -3.60710360779873,
+            "qlib_alpha_score": 0.0013199185305554,
+            "action_status": "HOLD"
         },
         {
             "ticker": "ATGL",
             "close_price": 651.4500122070312,
-            "ann_volatility_pct": 24.2582355057368,
-            "daily_var_95_pct": -3.58220785574151,
-            "qlib_alpha_score": 0.0823313196140644,
+            "ann_volatility_pct": 27.69186285933451,
+            "daily_var_95_pct": -3.6327937122051797,
+            "qlib_alpha_score": 0.0840162957375705,
             "action_status": "BUY"
         },
         {
             "ticker": "HEG",
-            "close_price": 657.25,
-            "ann_volatility_pct": 43.77074411070867,
-            "daily_var_95_pct": -4.04995780739719,
-            "qlib_alpha_score": -0.0867605484100871,
+            "close_price": 659.25,
+            "ann_volatility_pct": 43.69033202387085,
+            "daily_var_95_pct": -4.05240759474433,
+            "qlib_alpha_score": -0.0246853634392502,
             "action_status": "HOLD"
         },
         {
             "ticker": "BIRLACORPN",
-            "close_price": 890.5,
-            "ann_volatility_pct": 35.84957906619507,
-            "daily_var_95_pct": -3.31521725035877,
-            "qlib_alpha_score": 0.0612064084491135,
+            "close_price": 885.0,
+            "ann_volatility_pct": 35.74207524560899,
+            "daily_var_95_pct": -3.3200202098341096,
+            "qlib_alpha_score": 0.0460449024004572,
             "action_status": "BUY"
         },
         {
@@ -1011,18 +1011,18 @@
         },
         {
             "ticker": "PDSL",
-            "close_price": 363.5499877929688,
-            "ann_volatility_pct": 38.75082745732495,
-            "daily_var_95_pct": -3.40320038099687,
-            "qlib_alpha_score": 0.0279829718849875,
+            "close_price": 345.04998779296875,
+            "ann_volatility_pct": 37.89543469873253,
+            "daily_var_95_pct": -3.40653957615501,
+            "qlib_alpha_score": 0.0722300140252454,
             "action_status": "BUY"
         },
         {
             "ticker": "PIIND",
             "close_price": 2751.199951171875,
-            "ann_volatility_pct": 22.39225642403209,
-            "daily_var_95_pct": -2.63394002266854,
-            "qlib_alpha_score": -0.0393233392881645,
+            "ann_volatility_pct": 23.30825378489672,
+            "daily_var_95_pct": -2.63750209878335,
+            "qlib_alpha_score": -0.0363942238286509,
             "action_status": "HOLD"
         },
         {
@@ -1036,26 +1036,26 @@
         {
             "ticker": "IGL",
             "close_price": 151.97999572753906,
-            "ann_volatility_pct": 15.85665191490811,
-            "daily_var_95_pct": -2.95380608450033,
-            "qlib_alpha_score": 0.0253130565388555,
+            "ann_volatility_pct": 17.04216223609522,
+            "daily_var_95_pct": -2.95710302451123,
+            "qlib_alpha_score": 0.0312730068417781,
             "action_status": "BUY"
         },
         {
             "ticker": "INNOVACAP",
-            "close_price": 974.25,
-            "ann_volatility_pct": 25.82421672816536,
-            "daily_var_95_pct": -4.0741216228921395,
-            "qlib_alpha_score": 0.0128886315352392,
+            "close_price": 969.5499877929688,
+            "ann_volatility_pct": 26.322564908022798,
+            "daily_var_95_pct": -4.08387250771258,
+            "qlib_alpha_score": 0.0242781132327458,
             "action_status": "BUY"
         },
         {
             "ticker": "JKLAKSHMI",
             "close_price": 564.6500244140625,
-            "ann_volatility_pct": 18.036636848931657,
-            "daily_var_95_pct": -2.7484623290924,
-            "qlib_alpha_score": -0.0006113110671397,
-            "action_status": "HOLD"
+            "ann_volatility_pct": 23.133998013846192,
+            "daily_var_95_pct": -2.75779655833069,
+            "qlib_alpha_score": 0.0116157631686681,
+            "action_status": "BUY"
         },
         {
             "ticker": "GOODLUCK",
@@ -1067,34 +1067,34 @@
         },
         {
             "ticker": "SRF",
-            "close_price": 2622.5,
-            "ann_volatility_pct": 40.06325523628776,
-            "daily_var_95_pct": -2.68607998242505,
-            "qlib_alpha_score": 0.0788081224333143,
+            "close_price": 2604.800048828125,
+            "ann_volatility_pct": 46.22777381992749,
+            "daily_var_95_pct": -2.6876897690912003,
+            "qlib_alpha_score": 0.0582987567510557,
             "action_status": "BUY"
         },
         {
             "ticker": "INDOCO",
             "close_price": 219.4900054931641,
-            "ann_volatility_pct": 47.39057131811682,
-            "daily_var_95_pct": -4.21828857177747,
-            "qlib_alpha_score": 0.0165557423778297,
+            "ann_volatility_pct": 48.80248753548725,
+            "daily_var_95_pct": -4.223524014994591,
+            "qlib_alpha_score": 0.0348780114905415,
             "action_status": "BUY"
         },
         {
             "ticker": "DYCL",
-            "close_price": 395.2000122070313,
-            "ann_volatility_pct": 69.2063703400503,
-            "daily_var_95_pct": -4.97218369746359,
-            "qlib_alpha_score": -0.0395129078967495,
+            "close_price": 384.6499938964844,
+            "ann_volatility_pct": 68.72156747313224,
+            "daily_var_95_pct": -4.97810018213442,
+            "qlib_alpha_score": -0.0312808182439193,
             "action_status": "HOLD"
         },
         {
             "ticker": "BERGEPAINT",
-            "close_price": 520.4500122070312,
-            "ann_volatility_pct": 25.22203089178266,
-            "daily_var_95_pct": -2.48173847521538,
-            "qlib_alpha_score": -0.0085349932640085,
+            "close_price": 521.3499755859375,
+            "ann_volatility_pct": 24.68193509271247,
+            "daily_var_95_pct": -2.48760552399003,
+            "qlib_alpha_score": -0.0038492582516012,
             "action_status": "HOLD"
         },
         {
@@ -1107,11 +1107,11 @@
         },
         {
             "ticker": "MINDACORP",
-            "close_price": 700.9500122070312,
-            "ann_volatility_pct": 28.493950371457487,
-            "daily_var_95_pct": -2.97438454866013,
-            "qlib_alpha_score": 0.0027348297029394,
-            "action_status": "HOLD"
+            "close_price": 706.9000244140625,
+            "ann_volatility_pct": 28.94595074924407,
+            "daily_var_95_pct": -2.97781968971658,
+            "qlib_alpha_score": 0.0266818514526321,
+            "action_status": "BUY"
         },
         {
             "ticker": "MOIL",
@@ -1124,9 +1124,9 @@
         {
             "ticker": "INDIGO",
             "close_price": 5171.0,
-            "ann_volatility_pct": 33.58510654737577,
-            "daily_var_95_pct": -3.28432133724385,
-            "qlib_alpha_score": 0.0528585757271815,
+            "ann_volatility_pct": 35.895254288598885,
+            "daily_var_95_pct": -3.2901022251531997,
+            "qlib_alpha_score": 0.0373119358074223,
             "action_status": "BUY"
         },
         {
@@ -1139,10 +1139,10 @@
         },
         {
             "ticker": "IPL",
-            "close_price": 154.14999389648438,
-            "ann_volatility_pct": 20.76523654246762,
-            "daily_var_95_pct": -4.000169588820699,
-            "qlib_alpha_score": 0.0112015467557573,
+            "close_price": 152.25,
+            "ann_volatility_pct": 20.30804543847254,
+            "daily_var_95_pct": -4.02097819454361,
+            "qlib_alpha_score": 0.0335507472052809,
             "action_status": "BUY"
         },
         {
@@ -1155,27 +1155,27 @@
         },
         {
             "ticker": "INDNIPPON",
-            "close_price": 1170.4000244140625,
-            "ann_volatility_pct": 51.58810055711191,
-            "daily_var_95_pct": -3.39711072828236,
-            "qlib_alpha_score": 0.0128547783089003,
-            "action_status": "BUY"
+            "close_price": 1160.5999755859375,
+            "ann_volatility_pct": 51.791681364084205,
+            "daily_var_95_pct": -3.39754507066475,
+            "qlib_alpha_score": -0.0011595365129646,
+            "action_status": "HOLD"
         },
         {
             "ticker": "BRIGADE",
-            "close_price": 580.2000122070312,
-            "ann_volatility_pct": 50.747390067713326,
-            "daily_var_95_pct": -3.40193028420744,
-            "qlib_alpha_score": 0.0784090041866782,
+            "close_price": 565.0999755859375,
+            "ann_volatility_pct": 53.33140957864154,
+            "daily_var_95_pct": -3.41306470961991,
+            "qlib_alpha_score": 0.055903593184222,
             "action_status": "BUY"
         },
         {
             "ticker": "GRWRHITECH",
-            "close_price": 7151.5,
-            "ann_volatility_pct": 28.013125668859214,
-            "daily_var_95_pct": -4.79939761101249,
-            "qlib_alpha_score": 0.0097783572359844,
-            "action_status": "HOLD"
+            "close_price": 6897.0,
+            "ann_volatility_pct": 27.88972770344395,
+            "daily_var_95_pct": -4.80180173908266,
+            "qlib_alpha_score": 0.0211802512416008,
+            "action_status": "BUY"
         },
         {
             "ticker": "GUJALKALI",
@@ -1188,17 +1188,17 @@
         {
             "ticker": "TEXRAIL",
             "close_price": 111.38999938964844,
-            "ann_volatility_pct": 43.5196492739729,
-            "daily_var_95_pct": -4.8589181227279,
-            "qlib_alpha_score": 0.047238343584177,
+            "ann_volatility_pct": 47.03909356409822,
+            "daily_var_95_pct": -4.8870427174714095,
+            "qlib_alpha_score": 0.0769440505070344,
             "action_status": "BUY"
         },
         {
             "ticker": "NAVINFLUOR",
-            "close_price": 7567.5,
-            "ann_volatility_pct": 33.68880337904248,
-            "daily_var_95_pct": -2.8988003673740397,
-            "qlib_alpha_score": 0.007845744680851,
+            "close_price": 7386.5,
+            "ann_volatility_pct": 32.63104948711675,
+            "daily_var_95_pct": -2.90017496444226,
+            "qlib_alpha_score": -0.0030624877826285,
             "action_status": "HOLD"
         },
         {
@@ -1219,42 +1219,42 @@
         },
         {
             "ticker": "LINC",
-            "close_price": 102.19000244140624,
-            "ann_volatility_pct": 39.42449292330073,
-            "daily_var_95_pct": -4.45350476286659,
-            "qlib_alpha_score": 0.0520113379031923,
+            "close_price": 100.13999938964844,
+            "ann_volatility_pct": 38.9632020630916,
+            "daily_var_95_pct": -4.4655879815548,
+            "qlib_alpha_score": 0.0420095254074868,
             "action_status": "BUY"
         },
         {
             "ticker": "OAL",
             "close_price": 364.5,
-            "ann_volatility_pct": 57.05035093273897,
-            "daily_var_95_pct": -4.57521268033822,
-            "qlib_alpha_score": -0.0382037533512064,
+            "ann_volatility_pct": 57.84868308152067,
+            "daily_var_95_pct": -4.58731865022712,
+            "qlib_alpha_score": -0.041957088194328,
             "action_status": "HOLD"
         },
         {
             "ticker": "BOSCHLTD",
-            "close_price": 41085.0,
-            "ann_volatility_pct": 15.02219264670773,
-            "daily_var_95_pct": -2.4089285892908303,
-            "qlib_alpha_score": -0.0215543048736678,
+            "close_price": 41550.0,
+            "ann_volatility_pct": 17.34652736806611,
+            "daily_var_95_pct": -2.43247065450665,
+            "qlib_alpha_score": -0.0188210227272727,
             "action_status": "HOLD"
         },
         {
             "ticker": "RHIM",
-            "close_price": 388.5499877929688,
-            "ann_volatility_pct": 31.701119740635807,
-            "daily_var_95_pct": -3.92902489282958,
-            "qlib_alpha_score": 0.0251910953389153,
+            "close_price": 390.5499877929688,
+            "ann_volatility_pct": 34.76629571399833,
+            "daily_var_95_pct": -3.9306114383249304,
+            "qlib_alpha_score": 0.0260363691457414,
             "action_status": "BUY"
         },
         {
             "ticker": "HINDCOPPER",
             "close_price": 491.6000061035156,
-            "ann_volatility_pct": 21.87084417544447,
-            "daily_var_95_pct": -4.80575863230849,
-            "qlib_alpha_score": 0.0062092518635998,
+            "ann_volatility_pct": 21.903592668682258,
+            "daily_var_95_pct": -4.8104457080056795,
+            "qlib_alpha_score": 0.0024837260109504,
             "action_status": "HOLD"
         },
         {
@@ -1292,9 +1292,9 @@
         {
             "ticker": "BBTC",
             "close_price": 1497.0999755859375,
-            "ann_volatility_pct": 16.214060334076468,
-            "daily_var_95_pct": -3.1534508801383603,
-            "qlib_alpha_score": 0.0242765228359893,
+            "ann_volatility_pct": 16.64765566067955,
+            "daily_var_95_pct": -3.15435536264614,
+            "qlib_alpha_score": 0.0198875332403449,
             "action_status": "BUY"
         },
         {
@@ -1315,42 +1315,42 @@
         },
         {
             "ticker": "EMAMILTD",
-            "close_price": 398.0499877929688,
-            "ann_volatility_pct": 24.472948743595797,
-            "daily_var_95_pct": -2.8235581221893202,
-            "qlib_alpha_score": 0.0037999959150287,
+            "close_price": 403.3500061035156,
+            "ann_volatility_pct": 24.25195948990489,
+            "daily_var_95_pct": -2.82481397637377,
+            "qlib_alpha_score": -0.022342313016141,
             "action_status": "HOLD"
         },
         {
             "ticker": "RAILTEL",
             "close_price": 284.5,
-            "ann_volatility_pct": 23.89883685355072,
-            "daily_var_95_pct": -4.51933902773444,
-            "qlib_alpha_score": 0.0465320456540825,
+            "ann_volatility_pct": 23.94557844756823,
+            "daily_var_95_pct": -4.52207723729755,
+            "qlib_alpha_score": 0.0598770422931298,
             "action_status": "BUY"
         },
         {
             "ticker": "DRREDDY",
             "close_price": 1148.0999755859375,
-            "ann_volatility_pct": 25.07952320829509,
-            "daily_var_95_pct": -2.08318985448253,
-            "qlib_alpha_score": 0.0516627615894726,
+            "ann_volatility_pct": 25.821625925477633,
+            "daily_var_95_pct": -2.11337878493703,
+            "qlib_alpha_score": 0.0675523592312061,
             "action_status": "BUY"
         },
         {
             "ticker": "PDMJEPAPER",
             "close_price": 94.86000061035156,
-            "ann_volatility_pct": 34.05622952420734,
-            "daily_var_95_pct": -4.01612069493227,
-            "qlib_alpha_score": -0.0944178319543527,
+            "ann_volatility_pct": 36.09189162161089,
+            "daily_var_95_pct": -4.02486917639668,
+            "qlib_alpha_score": -0.0916921451175368,
             "action_status": "HOLD"
         },
         {
             "ticker": "HCLTECH",
             "close_price": 1346.9000244140625,
-            "ann_volatility_pct": 33.807969096537796,
-            "daily_var_95_pct": -2.9347059169121703,
-            "qlib_alpha_score": -0.0527930571093134,
+            "ann_volatility_pct": 35.21733616906713,
+            "daily_var_95_pct": -2.9424506280413603,
+            "qlib_alpha_score": -0.065774961121902,
             "action_status": "HOLD"
         },
         {
@@ -1372,26 +1372,26 @@
         {
             "ticker": "UNOMINDA",
             "close_price": 1180.5,
-            "ann_volatility_pct": 18.00885111350786,
-            "daily_var_95_pct": -3.53628208689497,
-            "qlib_alpha_score": 0.0246673015333851,
+            "ann_volatility_pct": 20.449327265871638,
+            "daily_var_95_pct": -3.54249790874982,
+            "qlib_alpha_score": 0.0272404180761978,
             "action_status": "BUY"
         },
         {
             "ticker": "WHIRLPOOL",
             "close_price": 802.9000244140625,
-            "ann_volatility_pct": 21.74477980313743,
-            "daily_var_95_pct": -3.37108023573002,
-            "qlib_alpha_score": 0.000453659447015,
+            "ann_volatility_pct": 20.17605898855162,
+            "daily_var_95_pct": -3.37726129281942,
+            "qlib_alpha_score": 0.0072590258569269,
             "action_status": "HOLD"
         },
         {
             "ticker": "POLYMED",
-            "close_price": 1702.0,
-            "ann_volatility_pct": 31.57357405622075,
-            "daily_var_95_pct": -4.323800795841691,
-            "qlib_alpha_score": 0.0099158653846154,
-            "action_status": "HOLD"
+            "close_price": 1667.199951171875,
+            "ann_volatility_pct": 32.7554536280021,
+            "daily_var_95_pct": -4.33432617760349,
+            "qlib_alpha_score": 0.0523216120978018,
+            "action_status": "BUY"
         },
         {
             "ticker": "LAXMIMACH",
@@ -1419,10 +1419,10 @@
         },
         {
             "ticker": "AMBER",
-            "close_price": 7440.5,
-            "ann_volatility_pct": 28.04248580683697,
-            "daily_var_95_pct": -4.59475183719542,
-            "qlib_alpha_score": 0.0747779384424704,
+            "close_price": 7401.0,
+            "ann_volatility_pct": 28.830529694154578,
+            "daily_var_95_pct": -4.5948325662176295,
+            "qlib_alpha_score": 0.0565948855989233,
             "action_status": "BUY"
         },
         {
@@ -1451,26 +1451,26 @@
         },
         {
             "ticker": "JUBLINGREA",
-            "close_price": 735.7000122070312,
-            "ann_volatility_pct": 34.606734125117185,
-            "daily_var_95_pct": -3.79913982135231,
-            "qlib_alpha_score": 0.018606574635974,
-            "action_status": "BUY"
+            "close_price": 728.4500122070312,
+            "ann_volatility_pct": 40.503079884555895,
+            "daily_var_95_pct": -3.80265652936694,
+            "qlib_alpha_score": -0.011207268938655,
+            "action_status": "HOLD"
         },
         {
             "ticker": "BALAMINES",
             "close_price": 2133.300048828125,
-            "ann_volatility_pct": 59.541515707906626,
-            "daily_var_95_pct": -4.39147919388756,
-            "qlib_alpha_score": 0.0527018154317084,
+            "ann_volatility_pct": 64.01574805244209,
+            "daily_var_95_pct": -4.3976097938835705,
+            "qlib_alpha_score": 0.090733524409347,
             "action_status": "BUY"
         },
         {
             "ticker": "CONCORDBIO",
             "close_price": 1420.800048828125,
-            "ann_volatility_pct": 39.861625704116136,
-            "daily_var_95_pct": -3.53165965067746,
-            "qlib_alpha_score": 0.0755306758735483,
+            "ann_volatility_pct": 41.05569567451456,
+            "daily_var_95_pct": -3.58490181245607,
+            "qlib_alpha_score": 0.0780937124549459,
             "action_status": "BUY"
         },
         {
@@ -1484,17 +1484,17 @@
         {
             "ticker": "LODHA",
             "close_price": 1243.949951171875,
-            "ann_volatility_pct": 52.942083518358984,
-            "daily_var_95_pct": -3.93411400490341,
-            "qlib_alpha_score": 0.0390263310609682,
+            "ann_volatility_pct": 54.3356150014957,
+            "daily_var_95_pct": -4.1920641543241395,
+            "qlib_alpha_score": 0.01599514834248,
             "action_status": "BUY"
         },
         {
             "ticker": "COROMANDEL",
             "close_price": 2073.60009765625,
-            "ann_volatility_pct": 21.80832817054744,
-            "daily_var_95_pct": -3.3522375988312896,
-            "qlib_alpha_score": 0.0270092885102923,
+            "ann_volatility_pct": 21.18757278011169,
+            "daily_var_95_pct": -3.35300307528005,
+            "qlib_alpha_score": 0.0209005963869208,
             "action_status": "BUY"
         },
         {
@@ -1507,34 +1507,34 @@
         },
         {
             "ticker": "ALKEM",
-            "close_price": 5751.5,
-            "ann_volatility_pct": 19.67695195378694,
-            "daily_var_95_pct": -2.00238627531454,
-            "qlib_alpha_score": -0.0125144226502174,
-            "action_status": "HOLD"
+            "close_price": 5816.5,
+            "ann_volatility_pct": 20.276268729458092,
+            "daily_var_95_pct": -2.0066165476537097,
+            "qlib_alpha_score": 0.0101749375223134,
+            "action_status": "BUY"
         },
         {
             "ticker": "ZYDUSWELL",
-            "close_price": 577.5499877929688,
-            "ann_volatility_pct": 43.75407075749218,
-            "daily_var_95_pct": -3.09256810179673,
-            "qlib_alpha_score": 0.0415594084386456,
+            "close_price": 566.0,
+            "ann_volatility_pct": 49.40328763788743,
+            "daily_var_95_pct": -3.05648867826106,
+            "qlib_alpha_score": 0.0456525000260361,
             "action_status": "BUY"
         },
         {
             "ticker": "OLECTRA",
             "close_price": 1324.199951171875,
-            "ann_volatility_pct": 24.37742371021878,
-            "daily_var_95_pct": -4.17979730435568,
-            "qlib_alpha_score": 0.0077826101651872,
-            "action_status": "HOLD"
+            "ann_volatility_pct": 26.33158171641173,
+            "daily_var_95_pct": -4.18226012390972,
+            "qlib_alpha_score": 0.033300904268487,
+            "action_status": "BUY"
         },
         {
             "ticker": "GLAND",
-            "close_price": 2502.89990234375,
-            "ann_volatility_pct": 30.99333703939191,
-            "daily_var_95_pct": -2.5639706031267298,
-            "qlib_alpha_score": 0.029078052673354,
+            "close_price": 2517.0,
+            "ann_volatility_pct": 31.060677229743934,
+            "daily_var_95_pct": -2.5650847527313303,
+            "qlib_alpha_score": 0.06380113314849,
             "action_status": "BUY"
         },
         {
@@ -1555,11 +1555,11 @@
         },
         {
             "ticker": "TIMKEN",
-            "close_price": 3145.39990234375,
-            "ann_volatility_pct": 18.85463204022828,
-            "daily_var_95_pct": -2.93786307181611,
-            "qlib_alpha_score": 0.0048608734160138,
-            "action_status": "HOLD"
+            "close_price": 3097.60009765625,
+            "ann_volatility_pct": 17.91969291749764,
+            "daily_var_95_pct": -2.93905218592663,
+            "qlib_alpha_score": 0.0301319773608297,
+            "action_status": "BUY"
         },
         {
             "ticker": "KIRLPNU",
@@ -1571,42 +1571,42 @@
         },
         {
             "ticker": "PHOENIXLTD",
-            "close_price": 1893.300048828125,
-            "ann_volatility_pct": 32.07267507537324,
-            "daily_var_95_pct": -3.2002707669409602,
-            "qlib_alpha_score": 0.0323768335590342,
+            "close_price": 1887.9000244140625,
+            "ann_volatility_pct": 34.700511948139365,
+            "daily_var_95_pct": -3.20181219805947,
+            "qlib_alpha_score": 0.0475535114554857,
             "action_status": "BUY"
         },
         {
             "ticker": "ASIANPAINT",
-            "close_price": 2747.300048828125,
-            "ann_volatility_pct": 16.30032742935521,
-            "daily_var_95_pct": -2.37432984190153,
-            "qlib_alpha_score": 0.019371507467303,
-            "action_status": "BUY"
+            "close_price": 2746.199951171875,
+            "ann_volatility_pct": 19.946916746354802,
+            "daily_var_95_pct": -2.37980089118143,
+            "qlib_alpha_score": -0.010416684771994,
+            "action_status": "HOLD"
         },
         {
             "ticker": "MANYAVAR",
-            "close_price": 414.6499938964844,
-            "ann_volatility_pct": 26.528611704958998,
-            "daily_var_95_pct": -3.44622464090941,
-            "qlib_alpha_score": -0.0077056318170529,
+            "close_price": 417.7000122070313,
+            "ann_volatility_pct": 28.8047594616619,
+            "daily_var_95_pct": -3.4542453404015303,
+            "qlib_alpha_score": -0.0083302403440491,
             "action_status": "HOLD"
         },
         {
             "ticker": "CCL",
             "close_price": 1155.300048828125,
-            "ann_volatility_pct": 20.3061051105322,
-            "daily_var_95_pct": -3.1181535917021,
-            "qlib_alpha_score": 0.0065901056007233,
-            "action_status": "HOLD"
+            "ann_volatility_pct": 20.52511120137946,
+            "daily_var_95_pct": -3.11903484867672,
+            "qlib_alpha_score": 0.0103920658008089,
+            "action_status": "BUY"
         },
         {
             "ticker": "POWERINDIA",
-            "close_price": 32175.0,
-            "ann_volatility_pct": 46.47009897687157,
-            "daily_var_95_pct": -4.35057954721181,
-            "qlib_alpha_score": 0.0323463147730929,
+            "close_price": 31250.0,
+            "ann_volatility_pct": 45.20520140528055,
+            "daily_var_95_pct": -4.35544010920674,
+            "qlib_alpha_score": 0.0597224387961952,
             "action_status": "BUY"
         },
         {
@@ -1619,42 +1619,42 @@
         },
         {
             "ticker": "ASIANENE",
-            "close_price": 398.5499877929688,
-            "ann_volatility_pct": 44.0355062415213,
-            "daily_var_95_pct": -4.83377584211454,
-            "qlib_alpha_score": 0.0026707384224102,
-            "action_status": "HOLD"
+            "close_price": 392.25,
+            "ann_volatility_pct": 45.45270117178577,
+            "daily_var_95_pct": -4.86637455054795,
+            "qlib_alpha_score": 0.0464916928385794,
+            "action_status": "BUY"
         },
         {
             "ticker": "GODREJCP",
             "close_price": 1070.4000244140625,
-            "ann_volatility_pct": 17.4463752344487,
-            "daily_var_95_pct": -2.33586948786038,
-            "qlib_alpha_score": 0.011703656832527,
-            "action_status": "BUY"
+            "ann_volatility_pct": 21.14398248076678,
+            "daily_var_95_pct": -2.33831761290465,
+            "qlib_alpha_score": -0.0016989606683577,
+            "action_status": "HOLD"
         },
         {
             "ticker": "CAMPUS",
-            "close_price": 222.3500061035156,
-            "ann_volatility_pct": 28.4523757537354,
-            "daily_var_95_pct": -2.65527108170697,
-            "qlib_alpha_score": 0.0896790482348952,
+            "close_price": 220.3500061035156,
+            "ann_volatility_pct": 28.48902607432692,
+            "daily_var_95_pct": -2.66837888967815,
+            "qlib_alpha_score": 0.027651019608198,
             "action_status": "BUY"
         },
         {
             "ticker": "DALBHARAT",
-            "close_price": 1799.699951171875,
-            "ann_volatility_pct": 26.108592881579167,
-            "daily_var_95_pct": -2.47805787773558,
-            "qlib_alpha_score": 0.0068477479618882,
+            "close_price": 1794.199951171875,
+            "ann_volatility_pct": 27.690961844097973,
+            "daily_var_95_pct": -2.48516197648537,
+            "qlib_alpha_score": -0.0161751230871843,
             "action_status": "HOLD"
         },
         {
             "ticker": "DIXON",
             "close_price": 14049.0,
-            "ann_volatility_pct": 41.5165471176833,
-            "daily_var_95_pct": -3.80863529988289,
-            "qlib_alpha_score": 0.0348837209302326,
+            "ann_volatility_pct": 42.76790810533738,
+            "daily_var_95_pct": -3.8095534351038,
+            "qlib_alpha_score": 0.0477394193268814,
             "action_status": "BUY"
         },
         {
@@ -1667,10 +1667,10 @@
         },
         {
             "ticker": "AIAENG",
-            "close_price": 4591.0,
-            "ann_volatility_pct": 18.5281177266611,
-            "daily_var_95_pct": -2.70131921588643,
-            "qlib_alpha_score": 0.0140737508182413,
+            "close_price": 4563.5,
+            "ann_volatility_pct": 22.71229552869417,
+            "daily_var_95_pct": -2.70372942296338,
+            "qlib_alpha_score": 0.0537974683544304,
             "action_status": "BUY"
         },
         {
@@ -1691,35 +1691,35 @@
         },
         {
             "ticker": "ORIENTELEC",
-            "close_price": 174.77000427246094,
-            "ann_volatility_pct": 32.26567682850502,
-            "daily_var_95_pct": -3.2569643778499504,
-            "qlib_alpha_score": 0.0125336729577072,
-            "action_status": "BUY"
+            "close_price": 173.02000427246094,
+            "ann_volatility_pct": 33.81385408373853,
+            "daily_var_95_pct": -3.2615388760745603,
+            "qlib_alpha_score": -0.0016635607289382,
+            "action_status": "HOLD"
         },
         {
             "ticker": "AVANTIFEED",
             "close_price": 899.5999755859375,
-            "ann_volatility_pct": 40.97735479494042,
-            "daily_var_95_pct": -4.34715558989544,
-            "qlib_alpha_score": 0.0489227658668138,
+            "ann_volatility_pct": 41.497092310670006,
+            "daily_var_95_pct": -4.352342856033229,
+            "qlib_alpha_score": 0.0124354173950791,
             "action_status": "BUY"
         },
         {
             "ticker": "VOLTAS",
             "close_price": 1328.9000244140625,
-            "ann_volatility_pct": 28.121251681102073,
-            "daily_var_95_pct": -3.38086534901455,
-            "qlib_alpha_score": 0.0113764597532179,
+            "ann_volatility_pct": 28.254103604145598,
+            "daily_var_95_pct": -3.38167119880146,
+            "qlib_alpha_score": 0.0351088479406602,
             "action_status": "BUY"
         },
         {
             "ticker": "VIPIND",
-            "close_price": 298.95001220703125,
-            "ann_volatility_pct": 23.98607872369134,
-            "daily_var_95_pct": -3.85818898193176,
-            "qlib_alpha_score": 0.0069398048507247,
-            "action_status": "HOLD"
+            "close_price": 296.1000061035156,
+            "ann_volatility_pct": 27.512511424261447,
+            "daily_var_95_pct": -3.86047120303711,
+            "qlib_alpha_score": 0.0108303036973746,
+            "action_status": "BUY"
         },
         {
             "ticker": "BHARATRAS",
@@ -1731,10 +1731,10 @@
         },
         {
             "ticker": "BASF",
-            "close_price": 3633.800048828125,
-            "ann_volatility_pct": 30.55905102082849,
-            "daily_var_95_pct": -3.03618204616308,
-            "qlib_alpha_score": 0.0143861504905928,
+            "close_price": 3687.89990234375,
+            "ann_volatility_pct": 30.832403362142628,
+            "daily_var_95_pct": -3.03835203880669,
+            "qlib_alpha_score": 0.0255272856527177,
             "action_status": "BUY"
         },
         {
@@ -1748,17 +1748,17 @@
         {
             "ticker": "DLF",
             "close_price": 659.2999877929688,
-            "ann_volatility_pct": 35.5565645386161,
-            "daily_var_95_pct": -3.39985614043674,
-            "qlib_alpha_score": 0.0350278598238551,
+            "ann_volatility_pct": 40.59378574117732,
+            "daily_var_95_pct": -3.45349689094799,
+            "qlib_alpha_score": 0.0194513136322473,
             "action_status": "BUY"
         },
         {
             "ticker": "LLOYDSENGG",
             "close_price": 88.66000366210938,
-            "ann_volatility_pct": 53.261076937646415,
-            "daily_var_95_pct": -4.71234643363929,
-            "qlib_alpha_score": 0.0015833453126852,
+            "ann_volatility_pct": 52.96985389645998,
+            "daily_var_95_pct": -4.71407436239088,
+            "qlib_alpha_score": 0.0019226212674252,
             "action_status": "HOLD"
         },
         {
@@ -1772,9 +1772,9 @@
         {
             "ticker": "WOCKPHARMA",
             "close_price": 1959.699951171875,
-            "ann_volatility_pct": 24.79096272733701,
-            "daily_var_95_pct": -4.6848435898513,
-            "qlib_alpha_score": 0.0278498817650105,
+            "ann_volatility_pct": 25.471208448050408,
+            "daily_var_95_pct": -4.69344760463834,
+            "qlib_alpha_score": 0.0147091033746513,
             "action_status": "BUY"
         },
         {
@@ -1787,18 +1787,18 @@
         },
         {
             "ticker": "VINATIORGA",
-            "close_price": 1304.5999755859375,
-            "ann_volatility_pct": 20.68050944642878,
-            "daily_var_95_pct": -2.5091870923445203,
-            "qlib_alpha_score": 0.0159219088000199,
+            "close_price": 1296.4000244140625,
+            "ann_volatility_pct": 21.574190220686578,
+            "daily_var_95_pct": -2.5096204189149303,
+            "qlib_alpha_score": 0.0172654453775509,
             "action_status": "BUY"
         },
         {
             "ticker": "AWL",
             "close_price": 189.44000244140625,
-            "ann_volatility_pct": 27.059229270995672,
-            "daily_var_95_pct": -2.87785030973865,
-            "qlib_alpha_score": 0.0026573128734515,
+            "ann_volatility_pct": 28.26469136433103,
+            "daily_var_95_pct": -2.9967080695189297,
+            "qlib_alpha_score": 0.0089285323293153,
             "action_status": "HOLD"
         },
         {
@@ -1812,17 +1812,17 @@
         {
             "ticker": "GODREJAGRO",
             "close_price": 556.7999877929688,
-            "ann_volatility_pct": 21.40854936203078,
-            "daily_var_95_pct": -2.89656315549793,
-            "qlib_alpha_score": -0.0101115551600992,
+            "ann_volatility_pct": 21.74011121342643,
+            "daily_var_95_pct": -2.89701547996144,
+            "qlib_alpha_score": -0.0031380541659369,
             "action_status": "HOLD"
         },
         {
             "ticker": "VGUARD",
-            "close_price": 314.5,
-            "ann_volatility_pct": 26.63365406285224,
-            "daily_var_95_pct": -2.56493706371001,
-            "qlib_alpha_score": 0.0321527045942389,
+            "close_price": 316.6499938964844,
+            "ann_volatility_pct": 27.81155264936122,
+            "daily_var_95_pct": -2.58021905374139,
+            "qlib_alpha_score": 0.0326087170602698,
             "action_status": "BUY"
         },
         {
@@ -1851,90 +1851,90 @@
         },
         {
             "ticker": "GHCLTEXTIL",
-            "close_price": 113.62000274658205,
-            "ann_volatility_pct": 40.6748111685226,
-            "daily_var_95_pct": -3.8322589448692304,
-            "qlib_alpha_score": -0.0183042890016237,
+            "close_price": 114.12000274658205,
+            "ann_volatility_pct": 48.2559695761613,
+            "daily_var_95_pct": -3.8421728064767997,
+            "qlib_alpha_score": -0.0230474991173246,
             "action_status": "HOLD"
         },
         {
             "ticker": "RESPONIND",
-            "close_price": 171.60000610351562,
-            "ann_volatility_pct": 83.212490678838,
-            "daily_var_95_pct": -4.59763871001111,
-            "qlib_alpha_score": 0.2532666784966635,
+            "close_price": 170.99000549316406,
+            "ann_volatility_pct": 84.29580335971777,
+            "daily_var_95_pct": -4.62709782119311,
+            "qlib_alpha_score": 0.0766231421430729,
             "action_status": "BUY"
         },
         {
             "ticker": "EIDPARRY",
-            "close_price": 760.0499877929688,
-            "ann_volatility_pct": 31.56593336911125,
-            "daily_var_95_pct": -3.05826772356608,
-            "qlib_alpha_score": -0.0092348284960421,
-            "action_status": "HOLD"
+            "close_price": 763.2000122070312,
+            "ann_volatility_pct": 32.60450344556921,
+            "daily_var_95_pct": -3.05995098765526,
+            "qlib_alpha_score": 0.0256866223709217,
+            "action_status": "BUY"
         },
         {
             "ticker": "LUMAXTECH",
             "close_price": 1568.300048828125,
-            "ann_volatility_pct": 28.89804034243491,
-            "daily_var_95_pct": -4.64993423291325,
-            "qlib_alpha_score": -0.031518673559278,
+            "ann_volatility_pct": 29.426934699257366,
+            "daily_var_95_pct": -4.66458019963483,
+            "qlib_alpha_score": -0.0047073435558819,
             "action_status": "HOLD"
         },
         {
             "ticker": "IOC",
             "close_price": 140.1699981689453,
-            "ann_volatility_pct": 20.26427324170614,
-            "daily_var_95_pct": -2.63804500783429,
-            "qlib_alpha_score": 0.0232541430802102,
+            "ann_volatility_pct": 21.5411675414292,
+            "daily_var_95_pct": -2.64300396014393,
+            "qlib_alpha_score": 0.0240485433790609,
             "action_status": "BUY"
         },
         {
             "ticker": "NRBBEARING",
-            "close_price": 409.8999938964844,
-            "ann_volatility_pct": 33.33245803965027,
-            "daily_var_95_pct": -3.79305061198078,
-            "qlib_alpha_score": 0.0245190497916569,
+            "close_price": 416.1499938964844,
+            "ann_volatility_pct": 38.58677057020374,
+            "daily_var_95_pct": -3.811602571155,
+            "qlib_alpha_score": 0.076972010178117,
             "action_status": "BUY"
         },
         {
             "ticker": "STYLAMIND",
-            "close_price": 3384.300048828125,
-            "ann_volatility_pct": 41.37841772933721,
-            "daily_var_95_pct": -3.67349471977136,
-            "qlib_alpha_score": -0.0487005806914121,
+            "close_price": 3359.39990234375,
+            "ann_volatility_pct": 46.383018004707026,
+            "daily_var_95_pct": -3.67611058130922,
+            "qlib_alpha_score": -0.0379433222905385,
             "action_status": "HOLD"
         },
         {
             "ticker": "VEDL",
             "close_price": 264.25,
-            "ann_volatility_pct": 24.72152186392787,
-            "daily_var_95_pct": -3.52457718966536,
-            "qlib_alpha_score": -0.0438314419506988,
+            "ann_volatility_pct": 24.31722250459106,
+            "daily_var_95_pct": -3.5276642200235298,
+            "qlib_alpha_score": -0.0255053850582751,
             "action_status": "HOLD"
         },
         {
             "ticker": "POLYCAB",
-            "close_price": 9106.5,
-            "ann_volatility_pct": 27.24279431249417,
-            "daily_var_95_pct": -3.1885375963125497,
-            "qlib_alpha_score": -0.0051080550098231,
-            "action_status": "HOLD"
+            "close_price": 8896.0,
+            "ann_volatility_pct": 26.046224489523112,
+            "daily_var_95_pct": -3.19047045679399,
+            "qlib_alpha_score": 0.0668718522663682,
+            "action_status": "BUY"
         },
         {
             "ticker": "SIS",
-            "close_price": 422.3999938964844,
-            "ann_volatility_pct": 13.33673478993507,
-            "daily_var_95_pct": -2.9876156196910904,
-            "qlib_alpha_score": -0.009027498113706,
+            "close_price": 424.25,
+            "ann_volatility_pct": 15.35512152654828,
+            "daily_var_95_pct": -2.98799121701702,
+            "qlib_alpha_score": 0.0002278905474255,
             "action_status": "HOLD"
         },
         {
             "ticker": "SUNPHARMA",
             "close_price": 1990.5,
-            "ann_volatility_pct": 15.6934544931744,
-            "daily_var_95_pct": -2.10527118598531,
-            "qlib_alpha_score": -0.0043789604383639,
+            "ann_volatility_pct": 15.936250436433081,
+            "daily_var_95_pct": -2.10667252054439,
+            "qlib_alpha_score": 0.004636546346503,
             "action_status": "HOLD"
         },
         {
@@ -1963,26 +1963,26 @@
         },
         {
             "ticker": "AUROPHARMA",
-            "close_price": 1580.199951171875,
-            "ann_volatility_pct": 25.37306453959648,
-            "daily_var_95_pct": -3.00428202747507,
-            "qlib_alpha_score": 0.0009138540561766,
-            "action_status": "HOLD"
+            "close_price": 1576.300048828125,
+            "ann_volatility_pct": 28.89915924390812,
+            "daily_var_95_pct": -3.02799466834569,
+            "qlib_alpha_score": 0.0192989523059581,
+            "action_status": "BUY"
         },
         {
             "ticker": "SHILPAMED",
-            "close_price": 611.25,
-            "ann_volatility_pct": 33.60127203777485,
-            "daily_var_95_pct": -3.8155228530447,
-            "qlib_alpha_score": 0.0231771486473846,
+            "close_price": 602.9500122070312,
+            "ann_volatility_pct": 42.15284848738402,
+            "daily_var_95_pct": -3.81874354596775,
+            "qlib_alpha_score": 0.0698310571884066,
             "action_status": "BUY"
         },
         {
             "ticker": "ALLCARGO",
-            "close_price": 8.029999732971191,
-            "ann_volatility_pct": 21.868029262223352,
-            "daily_var_95_pct": -4.61834266753684,
-            "qlib_alpha_score": -0.0186104918604611,
+            "close_price": 7.940000057220459,
+            "ann_volatility_pct": 24.845061850352458,
+            "daily_var_95_pct": -4.618727807708501,
+            "qlib_alpha_score": 0.0037547794123791,
             "action_status": "HOLD"
         },
         {
@@ -1995,58 +1995,58 @@
         },
         {
             "ticker": "COLPAL",
-            "close_price": 2076.10009765625,
-            "ann_volatility_pct": 27.191594172165303,
-            "daily_var_95_pct": -2.42779951736133,
-            "qlib_alpha_score": -0.0209482149448556,
+            "close_price": 2084.800048828125,
+            "ann_volatility_pct": 28.56109621192179,
+            "daily_var_95_pct": -2.43483029202232,
+            "qlib_alpha_score": -0.0354779932245067,
             "action_status": "HOLD"
         },
         {
             "ticker": "BLUESTARCO",
             "close_price": 1681.199951171875,
-            "ann_volatility_pct": 27.724022765872608,
-            "daily_var_95_pct": -3.49607702831357,
-            "qlib_alpha_score": 0.0303567522138106,
+            "ann_volatility_pct": 27.31929986829381,
+            "daily_var_95_pct": -3.51066013709321,
+            "qlib_alpha_score": 0.0638284895654932,
             "action_status": "BUY"
         },
         {
             "ticker": "IFBIND",
             "close_price": 1315.699951171875,
-            "ann_volatility_pct": 37.87086081888667,
-            "daily_var_95_pct": -3.98734688250963,
-            "qlib_alpha_score": 0.0169465347746884,
+            "ann_volatility_pct": 38.24335908437523,
+            "daily_var_95_pct": -3.9877409242525195,
+            "qlib_alpha_score": 0.0430949116588523,
             "action_status": "BUY"
         },
         {
             "ticker": "AARTIDRUGS",
             "close_price": 422.75,
-            "ann_volatility_pct": 27.78554579248256,
-            "daily_var_95_pct": -3.11411742967698,
-            "qlib_alpha_score": 0.0440049141976977,
+            "ann_volatility_pct": 27.50594603255663,
+            "daily_var_95_pct": -3.11430776693324,
+            "qlib_alpha_score": 0.0380716783596646,
             "action_status": "BUY"
         },
         {
             "ticker": "PGHL",
-            "close_price": 6604.5,
-            "ann_volatility_pct": 28.15446955437748,
-            "daily_var_95_pct": -2.2237798113582197,
-            "qlib_alpha_score": 0.012734584450402,
+            "close_price": 6502.0,
+            "ann_volatility_pct": 27.992726394514598,
+            "daily_var_95_pct": -2.2280206178574997,
+            "qlib_alpha_score": 0.024390243902439,
             "action_status": "BUY"
         },
         {
             "ticker": "TIINDIA",
             "close_price": 2753.0,
-            "ann_volatility_pct": 28.721864819486797,
-            "daily_var_95_pct": -3.5295630763598997,
-            "qlib_alpha_score": 0.0439465477615648,
+            "ann_volatility_pct": 28.66205889907055,
+            "daily_var_95_pct": -3.5319131688389,
+            "qlib_alpha_score": 0.0598843336363841,
             "action_status": "BUY"
         },
         {
             "ticker": "KAJARIACER",
-            "close_price": 1198.300048828125,
-            "ann_volatility_pct": 14.52006226562626,
-            "daily_var_95_pct": -2.65408510379569,
-            "qlib_alpha_score": 0.0202485596276136,
+            "close_price": 1192.0,
+            "ann_volatility_pct": 14.29963580238261,
+            "daily_var_95_pct": -2.65829420901055,
+            "qlib_alpha_score": 0.0226521370429011,
             "action_status": "BUY"
         },
         {
@@ -2059,34 +2059,34 @@
         },
         {
             "ticker": "SCHAEFFLER",
-            "close_price": 4079.199951171875,
-            "ann_volatility_pct": 18.87812668182379,
-            "daily_var_95_pct": -3.32008995406433,
-            "qlib_alpha_score": 0.0093482728821274,
+            "close_price": 4040.10009765625,
+            "ann_volatility_pct": 19.49957272258139,
+            "daily_var_95_pct": -3.32781128912484,
+            "qlib_alpha_score": 0.0063763934884619,
             "action_status": "HOLD"
         },
         {
             "ticker": "TATACHEM",
-            "close_price": 673.5499877929688,
-            "ann_volatility_pct": 22.79491483563925,
-            "daily_var_95_pct": -2.7657405820118703,
-            "qlib_alpha_score": 0.019114375264833,
+            "close_price": 670.2999877929688,
+            "ann_volatility_pct": 26.50883433427542,
+            "daily_var_95_pct": -2.7823881441303997,
+            "qlib_alpha_score": 0.0279658512176037,
             "action_status": "BUY"
         },
         {
             "ticker": "DOLLAR",
-            "close_price": 264.0,
-            "ann_volatility_pct": 27.06317254178277,
-            "daily_var_95_pct": -3.46116990803381,
-            "qlib_alpha_score": 0.0131782709166061,
+            "close_price": 267.5,
+            "ann_volatility_pct": 27.89397420354292,
+            "daily_var_95_pct": -3.4670032555025596,
+            "qlib_alpha_score": 0.0445809380935191,
             "action_status": "BUY"
         },
         {
             "ticker": "ENDURANCE",
             "close_price": 2758.300048828125,
-            "ann_volatility_pct": 24.693730349418548,
-            "daily_var_95_pct": -2.94438308058383,
-            "qlib_alpha_score": 0.0375854214123005,
+            "ann_volatility_pct": 26.2173963548702,
+            "daily_var_95_pct": -2.9445620543467497,
+            "qlib_alpha_score": 0.04916476841306,
             "action_status": "BUY"
         },
         {
@@ -2096,14 +2096,6 @@
             "daily_var_95_pct": -3.86444316409589,
             "qlib_alpha_score": 0.0535334948225638,
             "action_status": "BUY"
-        },
-        {
-            "ticker": "ARTEMISMED",
-            "close_price": 298.5,
-            "ann_volatility_pct": 42.41231466005056,
-            "daily_var_95_pct": -3.82316278869673,
-            "qlib_alpha_score": -0.0232094066962261,
-            "action_status": "HOLD"
         },
         {
             "ticker": "MRF",
@@ -2116,9 +2108,9 @@
         {
             "ticker": "HINDUNILVR",
             "close_price": 2101.300048828125,
-            "ann_volatility_pct": 33.89123021679032,
-            "daily_var_95_pct": -1.9466291925435302,
-            "qlib_alpha_score": -0.0005594177957459,
+            "ann_volatility_pct": 36.074809617944794,
+            "daily_var_95_pct": -1.94742001242483,
+            "qlib_alpha_score": -0.0197668542395105,
             "action_status": "HOLD"
         },
         {
@@ -2131,18 +2123,18 @@
         },
         {
             "ticker": "COSMOFIRST",
-            "close_price": 892.2999877929688,
-            "ann_volatility_pct": 36.6426515481997,
-            "daily_var_95_pct": -4.35283927522368,
-            "qlib_alpha_score": -0.0521566540374929,
+            "close_price": 883.0999755859375,
+            "ann_volatility_pct": 38.98350250138537,
+            "daily_var_95_pct": -4.35592979456716,
+            "qlib_alpha_score": -0.0683721734768632,
             "action_status": "HOLD"
         },
         {
             "ticker": "ROUTE",
-            "close_price": 540.0,
-            "ann_volatility_pct": 47.93631066768094,
-            "daily_var_95_pct": -3.66811652633256,
-            "qlib_alpha_score": -0.012751737148291,
+            "close_price": 549.2999877929688,
+            "ann_volatility_pct": 48.78692342617675,
+            "daily_var_95_pct": -3.66865643623768,
+            "qlib_alpha_score": -0.0376384980625188,
             "action_status": "HOLD"
         },
         {
@@ -2156,9 +2148,9 @@
         {
             "ticker": "IBREALEST",
             "close_price": 61.13999938964844,
-            "ann_volatility_pct": 26.630137868583397,
-            "daily_var_95_pct": -4.93036691534408,
-            "qlib_alpha_score": 0.0298971060027168,
+            "ann_volatility_pct": 26.54755417731603,
+            "daily_var_95_pct": -4.9338594758675605,
+            "qlib_alpha_score": 0.0504820129636141,
             "action_status": "BUY"
         },
         {
@@ -2171,35 +2163,35 @@
         },
         {
             "ticker": "ECLERX",
-            "close_price": 1845.5,
-            "ann_volatility_pct": 65.04008703329671,
-            "daily_var_95_pct": -3.9736705700231703,
-            "qlib_alpha_score": 0.063550926042506,
-            "action_status": "BUY"
+            "close_price": 1910.9000244140625,
+            "ann_volatility_pct": 60.65743365228114,
+            "daily_var_95_pct": -3.945229564245,
+            "qlib_alpha_score": -0.0929925219497525,
+            "action_status": "HOLD"
         },
         {
             "ticker": "GVT&D",
             "close_price": 4323.2998046875,
-            "ann_volatility_pct": 51.442129079201784,
-            "daily_var_95_pct": -4.325227679730681,
-            "qlib_alpha_score": 0.0553230397370088,
+            "ann_volatility_pct": 51.6344026502479,
+            "daily_var_95_pct": -4.33012837980388,
+            "qlib_alpha_score": 0.1026363124394038,
             "action_status": "BUY"
         },
         {
             "ticker": "DELHIVERY",
             "close_price": 481.9500122070313,
-            "ann_volatility_pct": 27.37088534390158,
-            "daily_var_95_pct": -3.00520107494345,
-            "qlib_alpha_score": 0.0639930967131798,
+            "ann_volatility_pct": 39.14045219575652,
+            "daily_var_95_pct": -3.0068244921463,
+            "qlib_alpha_score": 0.0773970797866943,
             "action_status": "BUY"
         },
         {
             "ticker": "JINDALSAW",
-            "close_price": 256.95001220703125,
-            "ann_volatility_pct": 34.95059459776108,
-            "daily_var_95_pct": -4.372514631542599,
-            "qlib_alpha_score": 0.0552183503680812,
-            "action_status": "BUY"
+            "close_price": 254.3000030517578,
+            "ann_volatility_pct": 35.04388597420865,
+            "daily_var_95_pct": -4.377202443837111,
+            "qlib_alpha_score": -0.0080475416948804,
+            "action_status": "HOLD"
         },
         {
             "ticker": "CAPLIPOINT",
@@ -2212,10 +2204,10 @@
         {
             "ticker": "JBCHEPHARM",
             "close_price": 2408.89990234375,
-            "ann_volatility_pct": 19.5559479100161,
-            "daily_var_95_pct": -2.59952055061847,
-            "qlib_alpha_score": 0.0147785707582173,
-            "action_status": "BUY"
+            "ann_volatility_pct": 19.60820214948092,
+            "daily_var_95_pct": -2.60435180088662,
+            "qlib_alpha_score": -0.0280127498690642,
+            "action_status": "HOLD"
         },
         {
             "ticker": "PGHH",
@@ -2259,10 +2251,10 @@
         },
         {
             "ticker": "DEEPAKFERT",
-            "close_price": 1552.800048828125,
-            "ann_volatility_pct": 34.93234864062481,
-            "daily_var_95_pct": -3.9058825629251497,
-            "qlib_alpha_score": 0.0132214908935326,
+            "close_price": 1532.4000244140625,
+            "ann_volatility_pct": 37.24754344423689,
+            "daily_var_95_pct": -3.9100658004479,
+            "qlib_alpha_score": 0.0131620110834247,
             "action_status": "BUY"
         },
         {
@@ -2283,35 +2275,35 @@
         },
         {
             "ticker": "METROBRAND",
-            "close_price": 1036.5999755859375,
-            "ann_volatility_pct": 24.32379693275493,
-            "daily_var_95_pct": -3.06304005363618,
-            "qlib_alpha_score": 0.0483413477188119,
-            "action_status": "BUY"
-        },
-        {
-            "ticker": "KRSNAA",
-            "close_price": 527.4500122070312,
-            "ann_volatility_pct": 22.57581927321575,
-            "daily_var_95_pct": -3.4207030908181397,
-            "qlib_alpha_score": -0.0088105504781927,
+            "close_price": 1029.699951171875,
+            "ann_volatility_pct": 24.940680344358558,
+            "daily_var_95_pct": -3.06916674511518,
+            "qlib_alpha_score": 0.008293491850446,
             "action_status": "HOLD"
         },
         {
+            "ticker": "KRSNAA",
+            "close_price": 524.0499877929688,
+            "ann_volatility_pct": 28.22251829018867,
+            "daily_var_95_pct": -3.4215452519814,
+            "qlib_alpha_score": 0.0235830775599319,
+            "action_status": "BUY"
+        },
+        {
             "ticker": "METROPOLIS",
-            "close_price": 582.4500122070312,
-            "ann_volatility_pct": 36.07452095318115,
-            "daily_var_95_pct": -2.73916209967599,
-            "qlib_alpha_score": -0.0437527614327597,
+            "close_price": 585.2000122070312,
+            "ann_volatility_pct": 34.24885627295167,
+            "daily_var_95_pct": -2.75355177381558,
+            "qlib_alpha_score": 0.0074015545275887,
             "action_status": "HOLD"
         },
         {
             "ticker": "GREENPANEL",
-            "close_price": 193.0200042724609,
-            "ann_volatility_pct": 30.46217516999416,
-            "daily_var_95_pct": -4.08986972369507,
-            "qlib_alpha_score": 0.0049938282190651,
-            "action_status": "HOLD"
+            "close_price": 192.8800048828125,
+            "ann_volatility_pct": 29.67978485027272,
+            "daily_var_95_pct": -4.12846776022357,
+            "qlib_alpha_score": 0.0451019002062234,
+            "action_status": "BUY"
         },
         {
             "ticker": "LUXIND",
@@ -2331,26 +2323,26 @@
         },
         {
             "ticker": "FDC",
-            "close_price": 409.7999877929688,
-            "ann_volatility_pct": 21.41194258791121,
-            "daily_var_95_pct": -2.66011738094852,
-            "qlib_alpha_score": 0.0173144295559428,
+            "close_price": 407.4500122070313,
+            "ann_volatility_pct": 22.80332358411302,
+            "daily_var_95_pct": -2.66134304104901,
+            "qlib_alpha_score": 0.0569470557096962,
             "action_status": "BUY"
         },
         {
             "ticker": "MSUMI",
-            "close_price": 40.61000061035156,
-            "ann_volatility_pct": 21.45126124857443,
-            "daily_var_95_pct": -2.59681256655879,
-            "qlib_alpha_score": 0.0057342193651568,
+            "close_price": 41.04999923706055,
+            "ann_volatility_pct": 23.00235950890718,
+            "daily_var_95_pct": -2.60322945189005,
+            "qlib_alpha_score": -0.0075131288446712,
             "action_status": "HOLD"
         },
         {
             "ticker": "DEEPAKNTR",
-            "close_price": 1662.199951171875,
-            "ann_volatility_pct": 28.28852915355456,
-            "daily_var_95_pct": -2.70136924396902,
-            "qlib_alpha_score": 0.0354025371474189,
+            "close_price": 1643.9000244140625,
+            "ann_volatility_pct": 27.935016520245,
+            "daily_var_95_pct": -2.71054389029062,
+            "qlib_alpha_score": 0.0261216289130516,
             "action_status": "BUY"
         },
         {
@@ -2363,19 +2355,19 @@
         },
         {
             "ticker": "YUKEN",
-            "close_price": 718.9000244140625,
-            "ann_volatility_pct": 23.61183068754536,
-            "daily_var_95_pct": -3.7728760653018,
-            "qlib_alpha_score": 0.0440522586756531,
+            "close_price": 709.5,
+            "ann_volatility_pct": 23.36181766285801,
+            "daily_var_95_pct": -3.7759183206959297,
+            "qlib_alpha_score": 0.0659386936146089,
             "action_status": "BUY"
         },
         {
             "ticker": "CERA",
-            "close_price": 6126.0,
-            "ann_volatility_pct": 24.11712799182479,
-            "daily_var_95_pct": -2.90204083774578,
-            "qlib_alpha_score": 0.0049858733588166,
-            "action_status": "HOLD"
+            "close_price": 6117.0,
+            "ann_volatility_pct": 24.23877381351632,
+            "daily_var_95_pct": -2.90560054016516,
+            "qlib_alpha_score": 0.015861152632453,
+            "action_status": "BUY"
         },
         {
             "ticker": "PCBL",
@@ -2388,9 +2380,9 @@
         {
             "ticker": "HEROMOTOCO",
             "close_price": 5386.0,
-            "ann_volatility_pct": 25.873993910441577,
-            "daily_var_95_pct": -2.6076437085990603,
-            "qlib_alpha_score": -0.0201952053122691,
+            "ann_volatility_pct": 24.008007706672142,
+            "daily_var_95_pct": -2.6088801936454997,
+            "qlib_alpha_score": -0.0225699138816142,
             "action_status": "HOLD"
         },
         {
@@ -2404,10 +2396,10 @@
         {
             "ticker": "LGBBROSLTD",
             "close_price": 1588.4000244140625,
-            "ann_volatility_pct": 21.47346183102251,
-            "daily_var_95_pct": -3.2829153454071696,
-            "qlib_alpha_score": 0.0049337675055078,
-            "action_status": "HOLD"
+            "ann_volatility_pct": 21.722691239061,
+            "daily_var_95_pct": -3.2891648593970797,
+            "qlib_alpha_score": 0.0215528113773586,
+            "action_status": "BUY"
         },
         {
             "ticker": "GRANULES",
@@ -2419,11 +2411,11 @@
         },
         {
             "ticker": "GALAXYSURF",
-            "close_price": 1944.5,
-            "ann_volatility_pct": 20.8739922904901,
-            "daily_var_95_pct": -2.86124628146052,
-            "qlib_alpha_score": -0.0096658348730719,
-            "action_status": "HOLD"
+            "close_price": 1950.0,
+            "ann_volatility_pct": 20.78981124510184,
+            "daily_var_95_pct": -2.8632793562417,
+            "qlib_alpha_score": 0.0175802009466066,
+            "action_status": "BUY"
         },
         {
             "ticker": "RAYMOND",
@@ -2436,49 +2428,49 @@
         {
             "ticker": "SCI",
             "close_price": 291.45001220703125,
-            "ann_volatility_pct": 34.94439216636248,
-            "daily_var_95_pct": -4.1210296217627,
-            "qlib_alpha_score": 0.0241730052669721,
+            "ann_volatility_pct": 35.60990170320176,
+            "daily_var_95_pct": -4.12802223456171,
+            "qlib_alpha_score": 0.0456197292421955,
             "action_status": "BUY"
         },
         {
             "ticker": "IPCALAB",
-            "close_price": 1747.800048828125,
-            "ann_volatility_pct": 24.01327590117334,
-            "daily_var_95_pct": -3.0191567016781,
-            "qlib_alpha_score": 0.0782322733499731,
+            "close_price": 1758.800048828125,
+            "ann_volatility_pct": 29.75058441872133,
+            "daily_var_95_pct": -3.02753210357227,
+            "qlib_alpha_score": 0.0390695997910359,
             "action_status": "BUY"
         },
         {
             "ticker": "ISGEC",
-            "close_price": 825.9500122070312,
-            "ann_volatility_pct": 23.2015750329964,
-            "daily_var_95_pct": -3.6957829979222296,
-            "qlib_alpha_score": 0.047101507688247,
+            "close_price": 846.2000122070312,
+            "ann_volatility_pct": 22.60063310057929,
+            "daily_var_95_pct": -3.70730758771927,
+            "qlib_alpha_score": 0.0443989613419493,
             "action_status": "BUY"
         },
         {
             "ticker": "SHAKTIPUMP",
-            "close_price": 520.4000244140625,
-            "ann_volatility_pct": 32.46902390276322,
-            "daily_var_95_pct": -4.78795138509087,
-            "qlib_alpha_score": -0.0114827768280967,
-            "action_status": "HOLD"
+            "close_price": 523.5499877929688,
+            "ann_volatility_pct": 33.48460399183488,
+            "daily_var_95_pct": -4.7924362947046095,
+            "qlib_alpha_score": 0.024390243902439,
+            "action_status": "BUY"
         },
         {
             "ticker": "JUBLPHARMA",
-            "close_price": 935.1500244140624,
-            "ann_volatility_pct": 27.77287942634899,
-            "daily_var_95_pct": -3.22014715253795,
-            "qlib_alpha_score": 0.0593049168155321,
+            "close_price": 961.6500244140624,
+            "ann_volatility_pct": 26.135243268530576,
+            "daily_var_95_pct": -3.22343466953541,
+            "qlib_alpha_score": 0.0593325477393571,
             "action_status": "BUY"
         },
         {
             "ticker": "KPRMILL",
-            "close_price": 1049.800048828125,
-            "ann_volatility_pct": 29.245054579514278,
-            "daily_var_95_pct": -3.4016161526672097,
-            "qlib_alpha_score": 0.0742346197156147,
+            "close_price": 1033.300048828125,
+            "ann_volatility_pct": 29.96730916313566,
+            "daily_var_95_pct": -3.45591149887469,
+            "qlib_alpha_score": 0.1029611204764497,
             "action_status": "BUY"
         },
         {
@@ -2491,10 +2483,10 @@
         },
         {
             "ticker": "BAJAJHCARE",
-            "close_price": 336.45001220703125,
-            "ann_volatility_pct": 57.829546872812074,
-            "daily_var_95_pct": -4.71373033008452,
-            "qlib_alpha_score": 0.1564867949540622,
+            "close_price": 327.45001220703125,
+            "ann_volatility_pct": 58.066501922199855,
+            "daily_var_95_pct": -4.72644062351745,
+            "qlib_alpha_score": 0.0939564823387089,
             "action_status": "BUY"
         },
         {
@@ -2507,18 +2499,18 @@
         },
         {
             "ticker": "HAVELLS",
-            "close_price": 1260.699951171875,
-            "ann_volatility_pct": 20.16918981318037,
-            "daily_var_95_pct": -2.8235841263098598,
-            "qlib_alpha_score": -0.0322764486086382,
+            "close_price": 1261.699951171875,
+            "ann_volatility_pct": 22.37206022444428,
+            "daily_var_95_pct": -2.82370508296861,
+            "qlib_alpha_score": -0.0186792091329053,
             "action_status": "HOLD"
         },
         {
             "ticker": "DMART",
-            "close_price": 3921.0,
-            "ann_volatility_pct": 26.73050614787107,
-            "daily_var_95_pct": -2.52805006061817,
-            "qlib_alpha_score": -0.0166467964744558,
+            "close_price": 3874.0,
+            "ann_volatility_pct": 28.04825938745778,
+            "daily_var_95_pct": -2.5321233786392496,
+            "qlib_alpha_score": -0.0261957747637856,
             "action_status": "HOLD"
         },
         {
@@ -2531,18 +2523,18 @@
         },
         {
             "ticker": "BORORENEW",
-            "close_price": 555.7000122070312,
-            "ann_volatility_pct": 41.23491585405858,
-            "daily_var_95_pct": -3.89828150536763,
-            "qlib_alpha_score": 0.0411607033049277,
+            "close_price": 561.8499755859375,
+            "ann_volatility_pct": 42.86475640044663,
+            "daily_var_95_pct": -3.90541714508702,
+            "qlib_alpha_score": 0.0981137718922291,
             "action_status": "BUY"
         },
         {
             "ticker": "PNCINFRA",
-            "close_price": 246.1199951171875,
-            "ann_volatility_pct": 27.99816608257161,
-            "daily_var_95_pct": -3.34355194572318,
-            "qlib_alpha_score": 0.0296377035372576,
+            "close_price": 239.6300048828125,
+            "ann_volatility_pct": 27.550668897060287,
+            "daily_var_95_pct": -3.35493500698769,
+            "qlib_alpha_score": 0.0448660430490455,
             "action_status": "BUY"
         },
         {
@@ -2555,11 +2547,11 @@
         },
         {
             "ticker": "VMART",
-            "close_price": 779.0999755859375,
-            "ann_volatility_pct": 35.215202212319255,
-            "daily_var_95_pct": -3.3179196984465302,
-            "qlib_alpha_score": 0.0297384765982635,
-            "action_status": "BUY"
+            "close_price": 764.2000122070312,
+            "ann_volatility_pct": 32.77238500943096,
+            "daily_var_95_pct": -3.3190513651965903,
+            "qlib_alpha_score": -0.0157957085786248,
+            "action_status": "HOLD"
         },
         {
             "ticker": "INDIACEM",
@@ -2580,9 +2572,9 @@
         {
             "ticker": "NETWEB",
             "close_price": 4524.0,
-            "ann_volatility_pct": 43.46967580209127,
-            "daily_var_95_pct": -5.56272245559331,
-            "qlib_alpha_score": 0.0212463437650385,
+            "ann_volatility_pct": 42.87645223697361,
+            "daily_var_95_pct": -5.59906163176699,
+            "qlib_alpha_score": 0.0518286579267925,
             "action_status": "BUY"
         },
         {
@@ -2619,42 +2611,42 @@
         },
         {
             "ticker": "GARFIBRES",
-            "close_price": 732.9000244140625,
-            "ann_volatility_pct": 25.964247769349917,
-            "daily_var_95_pct": -3.2381737159797694,
-            "qlib_alpha_score": 0.022780396171939,
+            "close_price": 722.7999877929688,
+            "ann_volatility_pct": 31.05411202876401,
+            "daily_var_95_pct": -3.2484630949660103,
+            "qlib_alpha_score": 0.0320268333856783,
             "action_status": "BUY"
         },
         {
             "ticker": "MARUTI",
-            "close_price": 14234.0,
-            "ann_volatility_pct": 22.95220432156641,
-            "daily_var_95_pct": -2.16824894095617,
-            "qlib_alpha_score": 0.0268561226008035,
-            "action_status": "BUY"
+            "close_price": 14188.0,
+            "ann_volatility_pct": 29.65414100347336,
+            "daily_var_95_pct": -2.12941716769928,
+            "qlib_alpha_score": 0.0064164739237484,
+            "action_status": "HOLD"
         },
         {
             "ticker": "TARIL",
             "close_price": 296.5,
-            "ann_volatility_pct": 42.06861118778064,
-            "daily_var_95_pct": -5.00777948957114,
-            "qlib_alpha_score": 0.1271186440677967,
+            "ann_volatility_pct": 45.586933592009174,
+            "daily_var_95_pct": -5.0274789853645006,
+            "qlib_alpha_score": 0.1303390244306144,
             "action_status": "BUY"
         },
         {
             "ticker": "POKARNA",
-            "close_price": 937.9000244140624,
-            "ann_volatility_pct": 29.472455711012778,
-            "daily_var_95_pct": -4.74849924202191,
-            "qlib_alpha_score": 0.0440366840722814,
+            "close_price": 918.0,
+            "ann_volatility_pct": 28.339336428153374,
+            "daily_var_95_pct": -4.75053242560357,
+            "qlib_alpha_score": 0.0711083048869702,
             "action_status": "BUY"
         },
         {
             "ticker": "HINDPETRO",
             "close_price": 389.75,
-            "ann_volatility_pct": 30.08164638109444,
-            "daily_var_95_pct": -3.2237736827223205,
-            "qlib_alpha_score": 0.0506428430434777,
+            "ann_volatility_pct": 33.58761632274777,
+            "daily_var_95_pct": -3.23590180592661,
+            "qlib_alpha_score": 0.0480188598789947,
             "action_status": "BUY"
         },
         {
@@ -2668,9 +2660,9 @@
         {
             "ticker": "KPITTECH",
             "close_price": 598.4000244140625,
-            "ann_volatility_pct": 45.99504810020627,
-            "daily_var_95_pct": -3.96136529394188,
-            "qlib_alpha_score": -0.0499828940396429,
+            "ann_volatility_pct": 46.30284971528913,
+            "daily_var_95_pct": -3.96477573293547,
+            "qlib_alpha_score": -0.0546125445034922,
             "action_status": "HOLD"
         },
         {
@@ -2684,18 +2676,18 @@
         {
             "ticker": "ANANTRAJ",
             "close_price": 624.5,
-            "ann_volatility_pct": 38.00400905151691,
-            "daily_var_95_pct": -4.8760633320863205,
-            "qlib_alpha_score": 0.0094620883274618,
+            "ann_volatility_pct": 37.70999714186404,
+            "daily_var_95_pct": -4.87677397892129,
+            "qlib_alpha_score": -0.021481503449259,
             "action_status": "HOLD"
         },
         {
             "ticker": "SUPREMEIND",
-            "close_price": 3465.39990234375,
-            "ann_volatility_pct": 27.46993274431863,
-            "daily_var_95_pct": -3.36077425567224,
-            "qlib_alpha_score": -0.0072855392995904,
-            "action_status": "HOLD"
+            "close_price": 3459.89990234375,
+            "ann_volatility_pct": 28.388486838089737,
+            "daily_var_95_pct": -3.3649244490335697,
+            "qlib_alpha_score": 0.011940312797227,
+            "action_status": "BUY"
         },
         {
             "ticker": "SAIL",
@@ -2707,10 +2699,10 @@
         },
         {
             "ticker": "CHEMPLASTS",
-            "close_price": 194.17999267578125,
-            "ann_volatility_pct": 39.70354676929774,
-            "daily_var_95_pct": -3.9669664007770904,
-            "qlib_alpha_score": -0.0321320886634562,
+            "close_price": 201.7100067138672,
+            "ann_volatility_pct": 40.24291691821421,
+            "daily_var_95_pct": -3.9681930856155803,
+            "qlib_alpha_score": -0.0671748035003765,
             "action_status": "HOLD"
         },
         {
@@ -2723,27 +2715,27 @@
         },
         {
             "ticker": "JSL",
-            "close_price": 734.7999877929688,
-            "ann_volatility_pct": 20.62014055556532,
-            "daily_var_95_pct": -3.68093847834329,
-            "qlib_alpha_score": 0.032551627581379,
-            "action_status": "BUY"
+            "close_price": 737.75,
+            "ann_volatility_pct": 21.21708419995467,
+            "daily_var_95_pct": -3.68465920988836,
+            "qlib_alpha_score": -0.0157640496987184,
+            "action_status": "HOLD"
         },
         {
             "ticker": "GENESYS",
             "close_price": 185.2428436279297,
-            "ann_volatility_pct": 113.24021019170792,
-            "daily_var_95_pct": -5.86684727388171,
-            "qlib_alpha_score": 0.089519626482081,
+            "ann_volatility_pct": 115.24129071301859,
+            "daily_var_95_pct": -5.87435609587652,
+            "qlib_alpha_score": 0.111353686722158,
             "action_status": "BUY"
         },
         {
             "ticker": "HINDALCO",
-            "close_price": 974.4500122070312,
-            "ann_volatility_pct": 19.10640326098389,
-            "daily_var_95_pct": -2.7481997195878,
-            "qlib_alpha_score": 0.0014319438253855,
-            "action_status": "HOLD"
+            "close_price": 970.4000244140624,
+            "ann_volatility_pct": 20.68287142605866,
+            "daily_var_95_pct": -2.75165850445645,
+            "qlib_alpha_score": 0.0195154741824457,
+            "action_status": "BUY"
         },
         {
             "ticker": "CENTURYPLY",
