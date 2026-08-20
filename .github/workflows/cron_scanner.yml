@@ -47,6 +47,8 @@ jobs:
 
     - name: 6. Commit and Push Overwritten JSON Signal Data File
       run: |
+        git config --global user.name "GitHub Automation Runner"
+        git config --global user.email "actions@github.com"
         git add data/output/latest_market_signals.json
-        # Only commits and pushes if changes exist to avoid empty runtime build loops
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Automated Overwrite: Latest Market Signals [Skip CI]" && git push)
+        # FIX: Added --force to ensure the cloud runner instantly overrides history mismatches
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Automated Overwrite: Latest Market Signals [Skip CI]" && git push --force origin main)
