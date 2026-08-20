@@ -214,10 +214,14 @@ if __name__ == "__main__":
         backtester = LeanPortfolioStrategyEngine(initial_capital=100000.0)
 
         # 1. Gather your operational target configuration credentials safely
-        bot_token = pipeline.config.get("8899515831:AAFLbDwp0sk6K9Q6C_IGOSuRpltx92_ssPM", "")
-        chat_id = pipeline.config.get("5162645225", "")
-        notifier = TelegramAlertEngine(token=bot_token, chat_id=chat_id)
+        bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or pipeline.config.get("telegram_bot_token", "")
+        chat_id = os.getenv("TELEGRAM_CHAT_ID") or pipeline.config.get("telegram_chat_id", "")
 
+        # Ensure variables are handled explicitly as string types
+        bot_token = str(bot_token).strip() if bot_token else ""
+        chat_id = str(chat_id).strip() if chat_id else ""
+
+        notifier = TelegramAlertEngine(token=bot_token, chat_id=chat_id)
         # 2. Iterate cleanly over every security mapping profile ledger
         for wrapped_ticker in pipeline.ticker_mappings:
             raw_df = pipeline.run_ingestion(wrapped_ticker)
