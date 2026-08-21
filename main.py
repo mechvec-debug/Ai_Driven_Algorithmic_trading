@@ -299,9 +299,22 @@ if __name__ == "__main__":
                     continue
 
         # Overwrite the central JSON asset file with latest daily metrics
+            # Ensure the root directory exists cleanly
         os.makedirs("data/output", exist_ok=True)
+    
+    # FORCED OVERWRITE: Generating an exact dynamic current timestamp string
+        current_time_stamp = str(pd.Timestamp.now(tz='Asia/Kolkata'))
+    
+        # Save your structural dictionary mapping
+        output_payload = {
+            "last_updated": current_time_stamp,
+            "total_scanned_assets": len(latest_scan_records),
+            "signals": latest_scan_records
+             }
+    
         with open("data/output/latest_market_signals.json", "w") as json_file:
-            json.dump({"last_updated": str(pd.Timestamp.now()), "signals": latest_scan_records}, json_file, indent=4)
+            json.dump(output_payload, json_file, indent=4)
+
 
         print("✓ Central output matrix overwritten cleanly to data/output/latest_market_signals.json")
         print("[Finished] All data logs printed out successfully.")
