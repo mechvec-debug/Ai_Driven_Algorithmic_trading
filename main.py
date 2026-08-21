@@ -251,7 +251,9 @@ if __name__ == "__main__":
                 strategy_roi = float(results['net_return_pct'])
 
             # 7. TELEGRAM FILTER: Trigger instant pushes ONLY when status equals BUY
-            if alpha_score > 0.01:
+            # NEW GOLDEN RULE FILTER: Checks for momentum AND positive backtest ROI
+            if alpha_score > 0.01 and strategy_roi > 0.0:
+
                 print(
                     f" -> [{wrapped_ticker}] Alpha satisfies entry threshold (+{alpha_score:.4f}). Transmitting web alert...")
                 notifier.send_buy_signal_alert(
