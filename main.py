@@ -30,6 +30,7 @@ class TelegramAlertEngine:
         # FIX: Re-formatted message layout using bulletproof HTML tag structures
         message_payload = (
             f"⚡ <b>QUANT STRATEGY SYSTEM: BUY TRIGGER</b> ⚡\n\n"
+            f"⚠️ <i>Please check Shariah status</i>\n\n"  # Exact position pointed by red arrow
             f"📌 <b>Asset Target:</b> #{clean_name}\n"
             f"💰 <b>Current Close Price:</b> ₹{price:,.2f}\n"
             f"📈 <b>Qlib Alpha Score:</b> +{alpha:.4f}\n\n"
