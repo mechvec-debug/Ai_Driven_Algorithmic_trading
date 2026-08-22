@@ -1,6 +1,8 @@
 import os
 import yaml
 import requests
+import json
+import glob
 import pandas as pd
 import numpy as np
 from openbb import obb
@@ -27,10 +29,10 @@ class TelegramAlertEngine:
 
         clean_name = ticker.replace(".NS", "").replace(".BO", "")
 
-        # FIX: Re-formatted message layout using bulletproof HTML tag structures
+        # HTML Message Template containing your Shariah compliance warning notice
         message_payload = (
-            f"⚡ <b>QUANT STRATEGY SYSTEM: BUY TRIGGER</b> ⚡\n\n"
-            f"⚠️ <i>Please check Shariah status</i>\n\n"  # Exact position pointed by red arrow
+            f"⚡ <b>QUANT STRATEGY SYSTEM: BUY TRIGGER</b> ⚡\n"
+            f"⚠️ <i>Please check Shariah status</i>\n\n"  
             f"📌 <b>Asset Target:</b> #{clean_name}\n"
             f"💰 <b>Current Close Price:</b> ₹{price:,.2f}\n"
             f"📈 <b>Qlib Alpha Score:</b> +{alpha:.4f}\n\n"
@@ -41,22 +43,19 @@ class TelegramAlertEngine:
             f"➡️ <b>Execution Order:</b> Enter long position before market close."
         )
 
-        api_url = f"https://api.telegram.org/bot{self.token}/sendMessage"
+        api_url = f"https://telegram.org{self.token}/sendMessage"
         payload = {
             "chat_id": self.chat_id,
             "text": message_payload,
-            "parse_mode": "HTML"  # FIX: Swapped out Markdown to bypass silent 400 parsing errors
+            "parse_mode": "HTML"
         }
 
         try:
             response = requests.post(api_url, json=payload, timeout=5)
-
-            # CRITICAL ENHANCEMENT: Explicitly print the server response to your terminal for auditing
             if response.status_code == 200:
                 print(f" ✓ Telegram alert delivered successfully to phone for {clean_name}!")
             else:
                 print(f" ✕ Telegram API Error: Status {response.status_code} | Description: {response.text}")
-
         except Exception as net_error:
             print(f" ✕ Webhook connection failed: {net_error}")
 
@@ -115,8 +114,7 @@ class LeanPortfolioStrategyEngine:
         df['strategy_returns'] = df['portfolio_value'].pct_change()
         final_value = portfolio_value_history[-1] if portfolio_value_history else self.initial_capital
         total_net_return = ((final_value - self.initial_capital) / self.initial_capital) * 100
-        max_drawdown = ((df['portfolio_value'] - df['portfolio_value'].cummax()) / df[
-            'portfolio_value'].cummax()).min() * 100
+        max_drawdown = ((df['portfolio_value'] - df['portfolio_value'].cummax()) / df['portfolio_value'].cummax()).min() * 100
         excess_returns = df['strategy_returns'] - (0.065 / 252)
         sharpe_ratio = np.sqrt(252) * (excess_returns.mean() / (df['strategy_returns'].std() + 1e-8))
         return {"initial_capital": self.initial_capital, "final_value": final_value, "net_return_pct": total_net_return,
@@ -155,14 +153,12 @@ class YahooFinanceQuantPipeline:
         for _, row in df.iterrows():
             clean_ticker = str(row['ticker']).strip().upper()
             exchange_type = str(row['exchange']).strip().upper() if 'exchange' in df.columns else self.default_exchange
-            wrapped_list.append(
-                f"{clean_ticker}.BO" if exchange_type == "BSE" or "BOM" in clean_ticker else f"{clean_ticker}.NS")
+            wrapped_list.append(f"{clean_ticker}.BO" if exchange_type == "BSE" or "BOM" in clean_ticker else f"{clean_ticker}.NS")
         return wrapped_list
 
     def run_ingestion(self, ticker: str) -> pd.DataFrame:
         try:
-            res = obb.equity.price.historical(ticker, provider="yfinance", start_date=self.start_date,
-                                              end_date=self.end_date)
+            res = obb.equity.price.historical(ticker, provider="yfinance", start_date=self.start_date, end_date=self.end_date)
             df = res.to_df()
             if df.empty: raise ValueError("Empty dataset frame.")
             df.to_csv(f"data/raw/{ticker}_raw.csv")
@@ -193,129 +189,114 @@ class YahooFinanceQuantPipeline:
 
 
 # =====================================================================
-# CONTROLLER PROCESS LOOP ENTRY POINT
+# SYSTEM CENTRAL MONITOR MATRIX CORE CONTROLLER
 # =====================================================================
 
 if __name__ == "__main__":
     print("=================================================================")
-    print("RUNNING PIPELINE LOOPS FEATURING DYNAMIC TELEGRAM ALERT WEBHOOKS")
+    print("RUNNING CONSOLIDATED SYSTEM CONFIGURATION LOOP WITH REBASE FILTERS")
     print("=================================================================")
 
-    # =====================================================================
-    # CONTROLLER EXECUTION MATRIX ENTRY POINT
-    # =====================================================================
-    if __name__ == "__main__":
-        print("=================================================================")
-        print("RUNNING CONSOLIDATED NSE PIPELINE SYSTEM WITH TELEGRAM ALERTS")
-        print("=================================================================")
+    # Initialize processing structural systems safely
+    pipeline = YahooFinanceQuantPipeline()
+    qlib_engine = QlibPredictiveEngine()
+    backtester = LeanPortfolioStrategyEngine(initial_capital=100000.0)
 
-        # Initialize your structural platform engine layers
-        pipeline = YahooFinanceQuantPipeline()
-        qlib_engine = QlibPredictiveEngine()
-        backtester = LeanPortfolioStrategyEngine(initial_capital=100000.0)
+    # Gather cloud authentication variables
+bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or pipeline.config.get("telegram_bot_token", "")
+chat_id = os.getenv("TELEGRAM_CHAT_ID") or pipeline.config.get("telegram_chat_id", "")
 
-        # 1. Gather your operational target configuration credentials safely
-        bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or pipeline.config.get("telegram_bot_token", "")
-        chat_id = os.getenv("TELEGRAM_CHAT_ID") or pipeline.config.get("telegram_chat_id", "")
+bot_token = str(bot_token).strip() if bot_token else ""
+chat_id = str(chat_id).strip() if chat_id else ""
 
-        # Ensure variables are handled explicitly as string types
-        bot_token = str(bot_token).strip() if bot_token else ""
-        chat_id = str(chat_id).strip() if chat_id else ""
+notifier = TelegramAlertEngine(token=bot_token, chat_id=chat_id)
 
-        notifier = TelegramAlertEngine(token=bot_token, chat_id=chat_id)
-        # 2. Iterate cleanly over every security mapping profile ledger
-        for wrapped_ticker in pipeline.ticker_mappings:
-            raw_df = pipeline.run_ingestion(wrapped_ticker)
-            metrics_df = pipeline.calculate_quant_metrics(raw_df, wrapped_ticker)
+# 1. Main Data Extraction and Analytical Execution Loop
+for wrapped_ticker in pipeline.ticker_mappings:
+    raw_df = pipeline.run_ingestion(wrapped_ticker)
+    metrics_df = pipeline.calculate_quant_metrics(raw_df, wrapped_ticker)
 
-            # 3. Structural Data Guard: Safe insulation bypass check
-            if metrics_df is None or metrics_df.empty or len(metrics_df) < 5:
-                continue
+    if metrics_df is None or metrics_df.empty or len(metrics_df) < 5:
+        continue
 
-            # 4. Compute Microsoft Qlib Matrix Calculations
-            qlib_df = qlib_engine.generate_qlib_alpha_features(metrics_df, wrapped_ticker)
-            alpha_score = qlib_engine.compute_predictive_score(qlib_df)
+    # 2. Compute Microsoft Qlib Matrix Indicator Features
+    qlib_df = qlib_engine.generate_qlib_alpha_features(metrics_df, wrapped_ticker)
+    alpha_score = qlib_engine.compute_predictive_score(qlib_df)
 
-            # 5. Execute LEAN Strategy Simulation Framework
-            results = backtester.run_backtest_from_dataframe(qlib_df)
+    # 3. Simulate LEAN Transaction Rules Backtest Results
+    results = backtester.run_backtest_from_dataframe(qlib_df)
 
-            # 6. Extract Telemetry Endpoints safely from active dataframe layers
-            current_price = float(metrics_df['close'].iloc[-1])
-            ann_vol = float(metrics_df['rolling_volatility_ann'].iloc[-1]) * 100
-            daily_var = float(metrics_df['var_95_threshold'].iloc[-1]) * 100
+    current_price = float(metrics_df['close'].iloc[-1])
+    ann_vol = float(metrics_df['rolling_volatility_ann'].iloc[-1]) * 100
+    daily_var = float(metrics_df['var_95_threshold'].iloc[-1]) * 100
 
-            # Parse whether backtest engine outputted returns or a failure string tag
-            if isinstance(results['net_return_pct'], str):
-                strategy_roi = 0.0
-            else:
-                strategy_roi = float(results['net_return_pct'])
+    if isinstance(results['net_return_pct'], str):
+        strategy_roi = 0.0
+    else:
+        strategy_roi = float(results['net_return_pct'])
 
-            # 7. TELEGRAM FILTER: Trigger instant pushes ONLY when status equals BUY
-            # NEW GOLDEN RULE FILTER: Checks for momentum AND positive backtest ROI
-            if alpha_score > 0.01 and strategy_roi > 0.0:
+    # 4. GOLDEN RULE INTEGRATED FILTER SYSTEM
+    # Evaluates both positive short-term momentum AND positive historical success
+    if alpha_score > 0.01 and strategy_roi > 0.0:
+        print(
+            f" -> [{wrapped_ticker}] Golden Rule Satisfied (Alpha: +{alpha_score:.4f} | ROI: +{strategy_roi:.2f}%). Dispatching alert...")
+        notifier.send_buy_signal_alert(
+            ticker=wrapped_ticker,
+            price=current_price,
+            vol=ann_vol,
+            var=daily_var,
+            alpha=alpha_score,
+            roi=strategy_roi
+        )
+    else:
+        print(f" -> [{wrapped_ticker}] Bypassed status. Failed structural filter parameters safely.")
 
-                print(
-                    f" -> [{wrapped_ticker}] Alpha satisfies entry threshold (+{alpha_score:.4f}). Transmitting web alert...")
-                notifier.send_buy_signal_alert(
-                    ticker=wrapped_ticker,
-                    price=current_price,
-                    vol=ann_vol,
-                    var=daily_var,
-                    alpha=alpha_score,
-                    roi=strategy_roi
-                )
-            else:
-                print(f" -> [{wrapped_ticker}] Position tracks as HOLD status. Notification bypassed safely.")
+print("\n[Complete] Quant script loops finished successfully. Overwriting metrics...")
 
-        print("\n[Complete] Quant script finished execution iteration successfully.")
-        # [ADD THIS BLOCK AT THE VERY BOTTOM OF MAIN.PY]
-        # 8. Centralised JSON Core Overwrite Engine
-        import json
-        import glob
+# =====================================================================
+# CENTRALIZED JSON CORE OUTPUT WRITER SECTION
+# =====================================================================
+latest_scan_records = []
+processed_json_files = glob.glob("data/processed/*_processed.csv")
 
-        latest_scan_records = []
-        processed_json_files = glob.glob("data/processed/*_processed.csv")
+for file_path in processed_json_files:
+    # FIX: Added '.path' to point to the correct sub-module location
+    ticker_raw = os.path.basename(file_path).replace("_processed.csv", "")
 
-        for file_path in processed_json_files:
-            ticker_raw = os.path.basename(file_path).replace("_processed.csv", "")
-            clean_name = ticker_raw.replace(".NS", "").replace(".BO", "")
-            alpha_path = f"data/alpha_features/{ticker_raw}_qlib_features.csv"
+    clean_name = ticker_raw.replace(".NS", "").replace(".BO", "")
+    alpha_path = f"data/alpha_features/{ticker_raw}_qlib_features.csv"
 
-            if os.path.exists(alpha_path):
-                try:
-                    df_m = pd.read_csv(file_path, index_col=0, parse_dates=True)
-                    df_a = pd.read_csv(alpha_path, index_col=0, parse_dates=True)
+    if os.path.exists(alpha_path):
+        try:
+            df_m = pd.read_csv(file_path, index_col=0, parse_dates=True)
+            df_a = pd.read_csv(alpha_path, index_col=0, parse_dates=True)
 
-                    # Append formatted real-time values to JSON list
-                    latest_scan_records.append({
-                        "ticker": clean_name,
-                        "close_price": float(df_m['close'].iloc[-1]),
-                        "ann_volatility_pct": float(df_m['rolling_volatility_ann'].iloc[-1]) * 100,
-                        "daily_var_95_pct": float(df_m['var_95_threshold'].iloc[-1]) * 100,
-                        "qlib_alpha_score": float(df_a['qlib_momentum_5d'].iloc[-1]),
-                        "action_status": "BUY" if float(df_a['qlib_momentum_5d'].iloc[-1]) > 0.01 else "HOLD"
-                    })
-                except Exception:
-                    continue
+            latest_scan_records.append({
+                "ticker": clean_name,
+                "close_price": float(df_m['close'].iloc[-1]),
+                "ann_volatility_pct": float(df_m['rolling_volatility_ann'].iloc[-1]) * 100,
+                "daily_var_95_pct": float(df_m['var_95_threshold'].iloc[-1]) * 100,
+                "qlib_alpha_score": float(df_a['qlib_momentum_5d'].iloc[-1]),
+                "action_status": "BUY" if float(df_a['qlib_momentum_5d'].iloc[-1]) > 0.01 and float(
+                    df_m['close'].pct_change().sum()) > 0 else "HOLD"
+            })
+        except Exception:
+            continue
 
-        # Overwrite the central JSON asset file with latest daily metrics
-            # Ensure the root directory exists cleanly
-        os.makedirs("data/output", exist_ok=True)
-    
-    # FORCED OVERWRITE: Generating an exact dynamic current timestamp string
-        current_time_stamp = str(pd.Timestamp.now(tz='Asia/Kolkata'))
-    
-        # Save your structural dictionary mapping
-        output_payload = {
-            "last_updated": current_time_stamp,
-            "total_scanned_assets": len(latest_scan_records),
-            "signals": latest_scan_records
-             }
-    
-        with open("data/output/latest_market_signals.json", "w") as json_file:
-            json.dump(output_payload, json_file, indent=4)
+# Create the central database output directory
+os.makedirs("data/output", exist_ok=True)
 
+# Force write daily unique timestamps matching Kolkata time standards
+current_time_stamp = str(pd.Timestamp.now(tz='Asia/Kolkata'))
 
-        print("✓ Central output matrix overwritten cleanly to data/output/latest_market_signals.json")
-        print("[Finished] All data logs printed out successfully.")
+output_payload = {
+    "last_updated": current_time_stamp,
+    "total_scanned_assets": len(latest_scan_records),
+    "signals": latest_scan_records
+}
 
+with open("data/output/latest_market_signals.json", "w") as json_file:
+    json.dump(output_payload, json_file, indent=4)
+
+print("✓ Central output matrix overwritten cleanly to data/output/latest_market_signals.json")
+print("[Finished] All operations executed successfully.")
