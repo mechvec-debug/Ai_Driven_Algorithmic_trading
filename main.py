@@ -21,25 +21,32 @@ class TelegramAlertEngine:
 
     def send_buy_signal_alert(self, ticker: str, price: float, vol: float, var: float, alpha: float, roi: float):
         """
-        Transmits a clean, HTML-parsed trade configuration alert
-        strictly when a target stock satisfies structural BUY criteria.
+        Transmits a comprehensive HTML-parsed trade configuration alert
+        including full LEAN Engine simulation matrix outcomes.
         """
         if not self.enabled:
             return
 
         clean_name = ticker.replace(".NS", "").replace(".BO", "")
 
-        # HTML Message Template containing your Shariah compliance warning notice
+        # Calculate dynamic monetary performance targets based on your ₹1 Lakh test seed capital
+        initial_capital = 100000.0
+        final_capital = initial_capital * (1.0 + (roi / 100.0))
+
+        # ENHANCED MESSAGE: Restored full LEAN Engine simulation report metrics
         message_payload = (
             f"⚡ <b>QUANT STRATEGY SYSTEM: BUY TRIGGER</b> ⚡\n"
-            f"⚠️ <i>Please check Shariah status</i>\n\n"  
+            f"⚠️ <i>Please check Shariah status</i>\n\n"
             f"📌 <b>Asset Target:</b> #{clean_name}\n"
             f"💰 <b>Current Close Price:</b> ₹{price:,.2f}\n"
             f"📈 <b>Qlib Alpha Score:</b> +{alpha:.4f}\n\n"
-            f"📊 <b>Risk & Backtest Telemetry Metrics:</b>\n"
+            f"⚙️ <b>LEAN SIMULATION PORTFOLIO MATRIX:</b>\n"
+            f" • Initial Account Capital: ₹{initial_capital:,.2f}\n"
+            f" • Final Strategy Capital: <b>Docs/₹{final_capital:,.2f}</b>\n"
+            f" • Net Strategy Profit ROI: <b>{roi:+.2f}%</b>\n\n"
+            f"📊 <b>Risk & Volatility Telemetry:</b>\n"
             f" • Trailing Ann. Volatility: {vol:.2f}%\n"
-            f" • Daily Value at Risk (95%): {var:.2f}%\n"
-            f" • Historical Strategy ROI: <b>{roi:+.2f}%</b>\n\n"
+            f" • Daily Value at Risk (95%): {var:.2f}%\n\n"
             f"➡️ <b>Execution Order:</b> Enter long position before market close."
         )
 
