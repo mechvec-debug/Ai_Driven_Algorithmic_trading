@@ -129,7 +129,6 @@ def compile_master_signal_ledger():
 
     return master_df
 
-
 # =====================================================================
 # INTERACTIVE DATA PRESENTATION ENGINE LAYER
 # =====================================================================
@@ -140,12 +139,47 @@ if ledger_matrix.empty:
         "⚠️ High-order analytical databases are empty. Please run your background execution loop script ('python main.py') to synchronize files.")
 else:
     # 1. Split-View Container Filtering Module
+    # Ensure this is placed beneath your main subheader layout blocks!
     st.subheader("📋 Top 10 High-Performing Asset Ledger")
     st.caption(
         "Equities sorted directly by optimal backtest success metrics. Invalid rows are dynamically filtered out.")
+    st.markdown("---")
 
-    # Isolate your high-performing Top 10 target list matrix slice
+    # =====================================================================
+    # INJECTED CORE MODULE: 4-COLUMN INSTITUTIONAL SCORECARD ROW
+    # =====================================================================
+    # Extract the top row to display macro telemetry details for the selected focus stock
     top_10_ledger = ledger_matrix.head(10)
+
+    if not top_10_ledger.empty:
+        # Extract individual metrics safely from the top-performing asset row
+        lead_row = top_10_ledger.iloc[0]
+
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric(label="Top Asset Current Close", value=str(lead_row["Current Close"]))
+        with col2:
+            # Displays the LEAN Backtest Success Performance Metric Card
+            st.metric(label="LEAN Backtest Success ROI", value=str(lead_row["Backtest Success (ROI)"]))
+        with col3:
+            st.metric(label="Daily VaR (95%)", value=str(lead_row["Daily VaR (95%)"]))
+        with col4:
+            st.metric(label="Current Deployment Status", value=str(lead_row["Action Deployment"]))
+
+    st.markdown("---")
+
+
+    # =====================================================================
+
+    # [Your remaining table visualization and coloring code continues below...]
+    def apply_row_color_matrix(row):
+        if row["Action Deployment"] == "BUY":
+            return ["background-color: #1e3d2f; color: #73e6a4; font-weight: bold;"] * len(row)
+        return [""] * len(row)
+
+
+    styled_ledger = top_10_ledger.style.apply(apply_row_color_matrix, axis=1)
+    st.write(styled_ledger)
 
 
     # 2. Dynamic Structural Row-Color Formatting Styles
