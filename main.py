@@ -230,14 +230,15 @@ for wrapped_ticker in pipeline.ticker_mappings:
     ann_vol = float(metrics_df['rolling_volatility_ann'].iloc[-1]) * 100
     daily_var = float(metrics_df['var_95_threshold'].iloc[-1]) * 100
 
+    # Parse whether backtest engine outputted returns or a failure string tag
     if isinstance(results['net_return_pct'], str):
-        strategy_roi = 0.0
+        strategy_roi = -999.0  # FIX 1: Change from 0.0 to a deeply negative float to block failures instantly
     else:
         strategy_roi = float(results['net_return_pct'])
 
     # 4. GOLDEN RULE INTEGRATED FILTER SYSTEM
-    # Evaluates both positive short-term momentum AND positive historical success
-    if alpha_score > 0.01 and strategy_roi > 0.0:
+    # FIX 2: Strict numerical validation logic to block negative returns and text string anomalies
+    if alpha_score > 0.01 and strategy_roi > 0.001:
         print(
             f" -> [{wrapped_ticker}] Golden Rule Satisfied (Alpha: +{alpha_score:.4f} | ROI: +{strategy_roi:.2f}%). Dispatching alert...")
         notifier.send_buy_signal_alert(
@@ -249,7 +250,7 @@ for wrapped_ticker in pipeline.ticker_mappings:
             roi=strategy_roi
         )
     else:
-        print(f" -> [{wrapped_ticker}] Bypassed status. Failed structural filter parameters safely.")
+        print(f" -> [{wrapped_ticker}] Bypassed status. Failed strict positive ROI parameter rules.")
 
 print("\n[Complete] Quant script loops finished successfully. Overwriting metrics...")
 
