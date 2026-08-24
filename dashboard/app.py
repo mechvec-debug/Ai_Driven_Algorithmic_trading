@@ -73,7 +73,6 @@ def compile_master_signal_ledger():
         st.error(f"✕ Critical error parsing automated data array layer: {err}")
         return pd.DataFrame()
 
-
             # Extract valid metrics data streams safely
             latest_close = float(df_metrics['close'].iloc[-1])
             latest_vol = float(df_metrics['rolling_volatility_ann'].iloc[-1]) * 100
