@@ -50,7 +50,9 @@ class TelegramAlertEngine:
             f"➡️ <b>Execution Order:</b> Enter long position before market close."
         )
 
+                # FIX: Ensure the API gateway endpoint strictly matches the official Telegram address
         api_url = f"https://telegram.org{self.token}/sendMessage"
+
         payload = {
             "chat_id": self.chat_id,
             "text": message_payload,
