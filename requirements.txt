@@ -1,23 +1,6 @@
-# Data Ingestion & Core Abstraction
-openbb
-openbb-yfinance
-
-# Quantitative Analytics
-financetoolkit
-
-# AI Agents & Financial Intelligence
-finrobot
-langchain
-openai
-
-# Machine Learning & Simulation
-qlib
-levmar
-
-# Dashboards & Visual Interfaces
-ghostfolio
+# Visualizations Core (Everything needed for the web app UI)
 streamlit
-urwid
 pandas
 numpy
 pyyaml
+
