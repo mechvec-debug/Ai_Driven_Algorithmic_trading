@@ -21,33 +21,54 @@ st.markdown("---")
 # =====================================================================
 # DATA COMPILATION & CONTEXT INGESTION PIPELINE
 # =====================================================================
+import json
+
 @st.cache_data(ttl=60)
 def compile_master_signal_ledger():
     """
-    Scans internal database storage directories, parses historical telemetry,
-    ranks tickers, and marks broken datasets with a 'Failed Analysis' tag.
+    Reads the daily cloud-compiled output dataset directly from storage,
+    formatting it into an institutional ranked dashboard ledger matrix.
     """
-    processed_files = glob.glob("data/processed/*_processed.csv")
-    master_rows = []
-
-    for file_path in processed_files:
-        ticker_raw = os.path.basename(file_path).replace("_processed.csv", "")
-        clean_display_name = ticker_raw.replace(".NS", "").replace(".BO", "")
-
-        alpha_path = f"data/alpha_features/{ticker_raw}_qlib_features.csv"
-
-        # CATCH BLOCKED PROFILES: If the Qlib math calculation file is completely missing
-        if not os.path.exists(alpha_path):
+    json_path = "data/output/latest_market_signals.json"
+    
+    # Fallback to prevent UI crash if the JSON hasn't been built by a cron run yet
+    if not os.path.exists(json_path):
+        st.warning("⚠️ Cloud data ledger is compiling. Please run your 'main.py' workflow script first to initialize signals.")
+        return pd.DataFrame()
+        
+    try:
+        with open(json_path, "r") as f:
+            data_payload = json.load(f)
+            
+        signals_list = data_payload.get("signals", [])
+        if not signals_list:
+            return pd.DataFrame()
+            
+        master_rows = []
+        for item in signals_list:
+            # Re-map the clean JSON records back into the scorecard table format
             master_rows.append({
-                "Asset Ticker": clean_display_name,
-                "Current Close": "N/A",
-                "Ann. Volatility": "N/A",
-                "Daily VaR (95%)": "N/A",
-                "Qlib Alpha Score": 0.0,
-                "Backtest Success (ROI)": "Failed Analysis",
-                "Sort_Key_ROI": -9999.0,  # Hidden float key to force failed items to the absolute bottom
-                "Action Deployment": "HOLD"
+                "Asset Ticker": str(item["ticker"]),
+                "Current Close": f"₹{float(item['close_price']):,.2f}",
+                "Ann. Volatility": f"{float(item['ann_volatility_pct']):.2f}%",
+                "Daily VaR (95%)": f"{float(item['daily_var_95_pct']):.2f}%",
+                "Qlib Alpha Score": float(item["qlib_alpha_score"]),
+                "Backtest Success (ROI)": f"+0.00%",  # Abstract placeholder mapping for basic string layers
+                "Sort_Key_ROI": float(item["qlib_alpha_score"]), # Use active alpha to prioritize highest momentum items
+                "Action Deployment": str(item["action_status"])
             })
+            
+        master_df = pd.DataFrame(master_rows)
+        
+        # Sort absolutely by highest current momentum alpha signals
+        master_df = master_df.sort_values(by="Sort_Key_ROI", ascending=False).reset_index(drop=True)
+        master_df = master_df.drop(columns=["Sort_Key_ROI"])
+        return master_df
+        
+    except Exception as err:
+        st.error(f"✕ Critical error parsing automated data array layer: {err}")
+        return pd.DataFrame()
+
             continue
 
         try:
