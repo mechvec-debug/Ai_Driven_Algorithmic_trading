@@ -267,29 +267,33 @@ print("\n[Complete] Quant script loops finished successfully. Overwriting metric
 latest_scan_records = []
 processed_json_files = glob.glob("data/processed/*_processed.csv")
 
-for file_path in processed_json_files:
-    # FIX: Added '.path' to point to the correct sub-module location
-    ticker_raw = os.path.basename(file_path).replace("_processed.csv", "")
+    # Locate this section inside main.py around line 280
+    for file_path in processed_json_files:
+        ticker_raw = os.path.basename(file_path).replace("_processed.csv", "")
+        clean_name = ticker_raw.replace(".NS", "").replace(".BO", "")
+        alpha_path = f"data/alpha_features/{ticker_raw}_qlib_features.csv"
 
-    clean_name = ticker_raw.replace(".NS", "").replace(".BO", "")
-    alpha_path = f"data/alpha_features/{ticker_raw}_qlib_features.csv"
+        if os.path.exists(alpha_path):
+            try:
+                df_m = pd.read_csv(file_path, index_col=0, parse_dates=True)
+                df_a = pd.read_csv(alpha_path, index_col=0, parse_dates=True)
 
-    if os.path.exists(alpha_path):
-        try:
-            df_m = pd.read_csv(file_path, index_col=0, parse_dates=True)
-            df_a = pd.read_csv(alpha_path, index_col=0, parse_dates=True)
+                # DYNAMIC EXTENSION: Run the strategy return simulation to get the actual ROI value
+                results = backtester.run_backtest_from_dataframe(df_a)
+                roi_val = 0.0 if isinstance(results['net_return_pct'], str) else float(results['net_return_pct'])
 
-            latest_scan_records.append({
-                "ticker": clean_name,
-                "close_price": float(df_m['close'].iloc[-1]),
-                "ann_volatility_pct": float(df_m['rolling_volatility_ann'].iloc[-1]) * 100,
-                "daily_var_95_pct": float(df_m['var_95_threshold'].iloc[-1]) * 100,
-                "qlib_alpha_score": float(df_a['qlib_momentum_5d'].iloc[-1]),
-                "action_status": "BUY" if float(df_a['qlib_momentum_5d'].iloc[-1]) > 0.01 and float(
-                    df_m['close'].pct_change().sum()) > 0 else "HOLD"
-            })
-        except Exception:
-            continue
+                latest_scan_records.append({
+                    "ticker": clean_name,
+                    "close_price": float(df_m['close'].iloc[-1]),
+                    "ann_volatility_pct": float(df_m['rolling_volatility_ann'].iloc[-1]) * 100,
+                    "daily_var_95_pct": float(df_m['var_95_threshold'].iloc[-1]) * 100,
+                    "qlib_alpha_score": float(df_a['qlib_momentum_5d'].iloc[-1]),
+                    "backtest_roi_pct": roi_val,  # FIX 1: Save the actual dynamic calculation to JSON
+                    "action_status": "BUY" if float(df_a['qlib_momentum_5d'].iloc[-1]) > 0.01 else "HOLD"
+                })
+            except Exception:
+                continue
+
 
 # Create the central database output directory
 os.makedirs("data/output", exist_ok=True)
