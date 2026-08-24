@@ -1,5 +1,5 @@
 import os
-import glob
+import json
 import pandas as pd
 import streamlit as st
 
@@ -17,12 +17,9 @@ st.title("⚡ Neuberg Institutional Signal Ledger Engine")
 st.caption("Automated Multi-Asset Performance Ranking & Alpha Deployment Core")
 st.markdown("---")
 
-
 # =====================================================================
 # DATA COMPILATION & CONTEXT INGESTION PIPELINE
 # =====================================================================
-import json
-
 @st.cache_data(ttl=60)
 def compile_master_signal_ledger():
     """
@@ -31,7 +28,7 @@ def compile_master_signal_ledger():
     """
     json_path = "data/output/latest_market_signals.json"
     
-    # Fallback to prevent UI crash if the JSON hasn't been built by a cron run yet
+    # Fallback guard to prevent UI crash if the JSON hasn't been built by a cloud run yet
     if not os.path.exists(json_path):
         st.warning("⚠️ Cloud data ledger is compiling. Please run your 'main.py' workflow script first to initialize signals.")
         return pd.DataFrame()
@@ -46,21 +43,28 @@ def compile_master_signal_ledger():
             
         master_rows = []
         for item in signals_list:
-            # Re-map the clean JSON records back into the scorecard table format
+            # Safely capture any potential failure strings or metadata anomalies
+            roi_value = item.get("backtest_roi_pct", "+0.00%")
+            if isinstance(roi_value, (int, float)):
+                roi_str = f"{roi_value:+.2f}%"
+            else:
+                roi_str = str(roi_value)
+
+            # Re-map the clean cloud JSON records back into the scorecard table format
             master_rows.append({
-                "Asset Ticker": str(item["ticker"]),
-                "Current Close": f"₹{float(item['close_price']):,.2f}",
-                "Ann. Volatility": f"{float(item['ann_volatility_pct']):.2f}%",
-                "Daily VaR (95%)": f"{float(item['daily_var_95_pct']):.2f}%",
-                "Qlib Alpha Score": float(item["qlib_alpha_score"]),
-                "Backtest Success (ROI)": f"+0.00%",  # Abstract placeholder mapping for basic string layers
-                "Sort_Key_ROI": float(item["qlib_alpha_score"]), # Use active alpha to prioritize highest momentum items
-                "Action Deployment": str(item["action_status"])
+                "Asset Ticker": str(item.get("ticker", "UNKNOWN")),
+                "Current Close": f"₹{float(item.get('close_price', 0)):,.2f}",
+                "Ann. Volatility": f"{float(item.get('ann_volatility_pct', 0)):.2f}%",
+                "Daily VaR (95%)": f"{float(item.get('daily_var_95_pct', 0)):.2f}%",
+                "Qlib Alpha Score": float(item.get("qlib_alpha_score", 0)),
+                "Backtest Success (ROI)": roi_str,
+                "Sort_Key_ROI": float(item.get("qlib_alpha_score", 0)), # Prioritize highest momentum items
+                "Action Deployment": str(item.get("action_status", "HOLD"))
             })
             
         master_df = pd.DataFrame(master_rows)
         
-        # Sort absolutely by highest current momentum alpha signals
+        # Sort completely by highest current momentum alpha signals
         master_df = master_df.sort_values(by="Sort_Key_ROI", ascending=False).reset_index(drop=True)
         master_df = master_df.drop(columns=["Sort_Key_ROI"])
         return master_df
@@ -68,24 +72,7 @@ def compile_master_signal_ledger():
     except Exception as err:
         st.error(f"✕ Critical error parsing automated data array layer: {err}")
         return pd.DataFrame()
-        continue
-        try:
-            df_metrics = pd.read_csv(file_path, index_col=0, parse_dates=True)
-            df_alpha = pd.read_csv(alpha_path, index_col=0, parse_dates=True)
 
-            # CATCH SHORT DATASETS: If the ticker layout has no history
-            if df_metrics.empty or df_alpha.empty or len(df_metrics) < 5:
-                master_rows.append({
-                    "Asset Ticker": clean_display_name,
-                    "Current Close": "N/A",
-                    "Ann. Volatility": "N/A",
-                    "Daily VaR (95%)": "N/A",
-                    "Qlib Alpha Score": 0.0,
-                    "Backtest Success (ROI)": "Failed Analysis",
-                    "Sort_Key_ROI": -9999.0,
-                    "Action Deployment": "HOLD"
-                })
-                continue
 
             # Extract valid metrics data streams safely
             latest_close = float(df_metrics['close'].iloc[-1])
