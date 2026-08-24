@@ -68,8 +68,7 @@ def compile_master_signal_ledger():
     except Exception as err:
         st.error(f"✕ Critical error parsing automated data array layer: {err}")
         return pd.DataFrame()
-
-            continue
+         continue
 
         try:
             df_metrics = pd.read_csv(file_path, index_col=0, parse_dates=True)
