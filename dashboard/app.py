@@ -41,25 +41,26 @@ def compile_master_signal_ledger():
             return pd.DataFrame()
             
         master_rows = []
+        # Locate this loop block inside dashboard/app.py around line 43
         for item in signals_list:
-            # Safely capture any potential failure strings or metadata anomalies
-            roi_value = item.get("backtest_roi_pct", "+0.00%")
+            # FIX 2: Safely read the real numerical parameter out of your cloud JSON file
+            roi_value = item.get("backtest_roi_pct", 0.0)
             if isinstance(roi_value, (int, float)):
                 roi_str = f"{roi_value:+.2f}%"
             else:
                 roi_str = str(roi_value)
 
-            # Re-map the clean cloud JSON records back into the scorecard table format
             master_rows.append({
                 "Asset Ticker": str(item.get("ticker", "UNKNOWN")),
                 "Current Close": f"₹{float(item.get('close_price', 0)):,.2f}",
                 "Ann. Volatility": f"{float(item.get('ann_volatility_pct', 0)):.2f}%",
                 "Daily VaR (95%)": f"{float(item.get('daily_var_95_pct', 0)):.2f}%",
                 "Qlib Alpha Score": float(item.get("qlib_alpha_score", 0)),
-                "Backtest Success (ROI)": roi_str,
-                "Sort_Key_ROI": float(item.get("qlib_alpha_score", 0)), # Prioritize highest momentum items
+                "Backtest Success (ROI)": roi_str, # Maps your real ROI values straight onto the screen table rows
+                "Sort_Key_ROI": float(item.get("qlib_alpha_score", 0)), 
                 "Action Deployment": str(item.get("action_status", "HOLD"))
             })
+
             
         master_df = pd.DataFrame(master_rows)
         
