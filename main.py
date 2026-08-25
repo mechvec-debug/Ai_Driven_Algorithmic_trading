@@ -50,7 +50,7 @@ class TelegramAlertEngine:
             f"➡️ <b>Execution Order:</b> Enter long position before market close."
         )
 
-                # FIX: Ensure the API gateway endpoint strictly matches the official Telegram address
+        # FIX: Ensure the API gateway endpoint strictly matches the official Telegram address
         api_url = f"https://telegram.org{self.token}/sendMessage"
 
         payload = {
@@ -212,62 +212,62 @@ if __name__ == "__main__":
     backtester = LeanPortfolioStrategyEngine(initial_capital=100000.0)
 
     # Gather cloud authentication variables
-bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or pipeline.config.get("telegram_bot_token", "")
-chat_id = os.getenv("TELEGRAM_CHAT_ID") or pipeline.config.get("telegram_chat_id", "")
+    bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or pipeline.config.get("telegram_bot_token", "")
+    chat_id = os.getenv("TELEGRAM_CHAT_ID") or pipeline.config.get("telegram_chat_id", "")
 
-bot_token = str(bot_token).strip() if bot_token else ""
-chat_id = str(chat_id).strip() if chat_id else ""
+    bot_token = str(bot_token).strip() if bot_token else ""
+    chat_id = str(chat_id).strip() if chat_id else ""
 
-notifier = TelegramAlertEngine(token=bot_token, chat_id=chat_id)
+    notifier = TelegramAlertEngine(token=bot_token, chat_id=chat_id)
 
-# 1. Main Data Extraction and Analytical Execution Loop
-for wrapped_ticker in pipeline.ticker_mappings:
-    raw_df = pipeline.run_ingestion(wrapped_ticker)
-    metrics_df = pipeline.calculate_quant_metrics(raw_df, wrapped_ticker)
+    # 1. Main Data Extraction and Analytical Execution Loop
+    for wrapped_ticker in pipeline.ticker_mappings:
+        raw_df = pipeline.run_ingestion(wrapped_ticker)
+        metrics_df = pipeline.calculate_quant_metrics(raw_df, wrapped_ticker)
 
-    if metrics_df is None or metrics_df.empty or len(metrics_df) < 5:
-        continue
+        if metrics_df is None or metrics_df.empty or len(metrics_df) < 5:
+            continue
 
-    # 2. Compute Microsoft Qlib Matrix Indicator Features
-    qlib_df = qlib_engine.generate_qlib_alpha_features(metrics_df, wrapped_ticker)
-    alpha_score = qlib_engine.compute_predictive_score(qlib_df)
+        # 2. Compute Microsoft Qlib Matrix Indicator Features
+        qlib_df = qlib_engine.generate_qlib_alpha_features(metrics_df, wrapped_ticker)
+        alpha_score = qlib_engine.compute_predictive_score(qlib_df)
 
-    # 3. Simulate LEAN Transaction Rules Backtest Results
-    results = backtester.run_backtest_from_dataframe(qlib_df)
+        # 3. Simulate LEAN Transaction Rules Backtest Results
+        results = backtester.run_backtest_from_dataframe(qlib_df)
 
-    current_price = float(metrics_df['close'].iloc[-1])
-    ann_vol = float(metrics_df['rolling_volatility_ann'].iloc[-1]) * 100
-    daily_var = float(metrics_df['var_95_threshold'].iloc[-1]) * 100
+        current_price = float(metrics_df['close'].iloc[-1])
+        ann_vol = float(metrics_df['rolling_volatility_ann'].iloc[-1]) * 100
+        daily_var = float(metrics_df['var_95_threshold'].iloc[-1]) * 100
 
-    # Parse whether backtest engine outputted returns or a failure string tag
-    if isinstance(results['net_return_pct'], str):
-        strategy_roi = -999.0  # FIX 1: Change from 0.0 to a deeply negative float to block failures instantly
-    else:
-        strategy_roi = float(results['net_return_pct'])
+        # Parse whether backtest engine outputted returns or a failure string tag
+        if isinstance(results['net_return_pct'], str):
+            strategy_roi = -999.0  # FIX 1: Change from 0.0 to a deeply negative float to block failures instantly
+        else:
+            strategy_roi = float(results['net_return_pct'])
 
-    # 4. GOLDEN RULE INTEGRATED FILTER SYSTEM
-    # FIX 2: Strict numerical validation logic to block negative returns and text string anomalies
-    if alpha_score > 0.01 and strategy_roi > 0.001:
-        print(
-            f" -> [{wrapped_ticker}] Golden Rule Satisfied (Alpha: +{alpha_score:.4f} | ROI: +{strategy_roi:.2f}%). Dispatching alert...")
-        notifier.send_buy_signal_alert(
-            ticker=wrapped_ticker,
-            price=current_price,
-            vol=ann_vol,
-            var=daily_var,
-            alpha=alpha_score,
-            roi=strategy_roi
-        )
-    else:
-        print(f" -> [{wrapped_ticker}] Bypassed status. Failed strict positive ROI parameter rules.")
+        # 4. GOLDEN RULE INTEGRATED FILTER SYSTEM
+        # FIX 2: Strict numerical validation logic to block negative returns and text string anomalies
+        if alpha_score > 0.01 and strategy_roi > 0.001:
+            print(
+                f" -> [{wrapped_ticker}] Golden Rule Satisfied (Alpha: +{alpha_score:.4f} | ROI: +{strategy_roi:.2f}%). Dispatching alert...")
+            notifier.send_buy_signal_alert(
+                ticker=wrapped_ticker,
+                price=current_price,
+                vol=ann_vol,
+                var=daily_var,
+                alpha=alpha_score,
+                roi=strategy_roi
+            )
+        else:
+            print(f" -> [{wrapped_ticker}] Bypassed status. Failed strict positive ROI parameter rules.")
 
-print("\n[Complete] Quant script loops finished successfully. Overwriting metrics...")
+    print("\n[Complete] Quant script loops finished successfully. Overwriting metrics...")
 
-# =====================================================================
-# CENTRALIZED JSON CORE OUTPUT WRITER SECTION
-# =====================================================================
-latest_scan_records = []
-processed_json_files = glob.glob("data/processed/*_processed.csv")
+    # =====================================================================
+    # CENTRALIZED JSON CORE OUTPUT WRITER SECTION
+    # =====================================================================
+    latest_scan_records = []
+    processed_json_files = glob.glob("data/processed/*_processed.csv")
 
     # Locate this section inside main.py around line 280
     for file_path in processed_json_files:
@@ -296,21 +296,20 @@ processed_json_files = glob.glob("data/processed/*_processed.csv")
             except Exception:
                 continue
 
+    # Create the central database output directory
+    os.makedirs("data/output", exist_ok=True)
 
-# Create the central database output directory
-os.makedirs("data/output", exist_ok=True)
+    # Force write daily unique timestamps matching Kolkata time standards
+    current_time_stamp = str(pd.Timestamp.now(tz='Asia/Kolkata'))
 
-# Force write daily unique timestamps matching Kolkata time standards
-current_time_stamp = str(pd.Timestamp.now(tz='Asia/Kolkata'))
+    output_payload = {
+        "last_updated": current_time_stamp,
+        "total_scanned_assets": len(latest_scan_records),
+        "signals": latest_scan_records
+    }
 
-output_payload = {
-    "last_updated": current_time_stamp,
-    "total_scanned_assets": len(latest_scan_records),
-    "signals": latest_scan_records
-}
+    with open("data/output/latest_market_signals.json", "w") as json_file:
+        json.dump(output_payload, json_file, indent=4)
 
-with open("data/output/latest_market_signals.json", "w") as json_file:
-    json.dump(output_payload, json_file, indent=4)
-
-print("✓ Central output matrix overwritten cleanly to data/output/latest_market_signals.json")
-print("[Finished] All operations executed successfully.")
+    print("✓ Central output matrix overwritten cleanly to data/output/latest_market_signals.json")
+    print("[Finished] All operations executed successfully.")
