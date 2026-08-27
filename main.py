@@ -131,6 +131,7 @@ class QlibPredictiveEngine:
         df['qlib_momentum_5d'] = (df['close'].shift(5) / df['close']) - 1
         df['qlib_mean_reversion_20d'] = df['close'].rolling(window=20).mean() / df['close']
         df['qlib_vol_normalized_return'] = df['daily_return'] / (df['rolling_volatility_ann'] + 1e-8)
+        
 
         # 2. INTEGRATED RSI MATHEMATICAL FACTOR ENGINE (14-Day Baseline)
         change = df['close'].diff()
@@ -264,6 +265,14 @@ if __name__ == "__main__":
     pipeline = YahooFinanceQuantPipeline()
     qlib_engine = QlibPredictiveEngine()
     backtester = LeanPortfolioStrategyEngine(initial_capital=100000.0)
+    # Gather cloud authentication variables
+bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or pipeline.config.get("telegram_bot_token", "")
+chat_id = os.getenv("TELEGRAM_CHAT_ID") or pipeline.config.get("telegram_chat_id", "")
+
+bot_token = str(bot_token).strip() if bot_token else ""
+chat_id = str(chat_id).strip() if chat_id else ""
+
+notifier = TelegramAlertEngine(token=bot_token, chat_id=chat_id)
 
     # Main Execution Thread Sweep
     for wrapped_ticker in pipeline.ticker_mappings:
