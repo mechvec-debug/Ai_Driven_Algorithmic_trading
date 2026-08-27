@@ -10,12 +10,113 @@ from openbb import obb
 # =====================================================================# SYSTEM ALERTER: BYPASSED WEBHOOK ENGINE CONTAINER# =====================================================================
 class TelegramAlertEngine:
     def __init__(self, token: str, chat_id: str):
-        """Telegram disabled to bypass network blocking fatigue."""
-        self.enabled = False
+        """Initializes the secure Telegram Bot API alert gateway."""
+        self.token = token.strip() if token else ""
+        self.chat_id = str(chat_id).strip() if chat_id else ""
+        self.enabled = bool(self.token and self.chat_id)
 
-    def send_buy_signal_alert(self, *args, **kwargs):
-        pass
+    def send_buy_signal_alert(
+        self,
+        ticker: str,
+        price: float,
+        vol: float,
+        var: float,
+        alpha: float,
+        roi: float
+    ):
+        """
+        Transmits a comprehensive HTML-parsed trade configuration alert
+        including full LEAN Engine simulation matrix outcomes.
+        """
+        if not self.enabled:
+            return
 
+        clean_name = (
+            str(ticker)
+            .replace(".NS", "")
+            .replace(".BO", "")
+            .strip()
+        )
+
+        # Calculate dynamic monetary performance targets
+        # based on your ₹1 Lakh test seed capital.
+        initial_capital = 100000.0
+        final_capital = initial_capital * (1.0 + (roi / 100.0))
+
+        # Enhanced Telegram message
+        message_payload = (
+            f"⚡ <b>QUANT STRATEGY SYSTEM: BUY TRIGGER</b> ⚡\n"
+            f"⚠️ <i>Please check Shariah status</i>\n\n"
+            f"📌 <b>Asset Target:</b> #{clean_name}\n"
+            f"💰 <b>Current Close Price:</b> ₹{price:,.2f}\n"
+            f"📈 <b>Qlib Alpha Score:</b> {alpha:+.4f}\n\n"
+            f"⚙️ <b>LEAN SIMULATION PORTFOLIO MATRIX:</b>\n"
+            f" • Initial Account Capital: ₹{initial_capital:,.2f}\n"
+            f" • Final Strategy Capital: <b>₹{final_capital:,.2f}</b>\n"
+            f" • Net Strategy Profit ROI: <b>{roi:+.2f}%</b>\n\n"
+            f"📊 <b>Risk & Volatility Telemetry:</b>\n"
+            f" • Trailing Ann. Volatility: {vol:.2f}%\n"
+            f" • Daily Value at Risk (95%): {var:.2f}%\n\n"
+            f"➡️ <b>Execution Order:</b> Enter long position before market close."
+        )
+
+        # Official Telegram Bot API endpoint
+        api_url = (
+            f"https://api.telegram.org/bot{self.token}/sendMessage"
+        )
+
+        payload = {
+            "chat_id": self.chat_id,
+            "text": message_payload,
+            "parse_mode": "HTML"
+        }
+
+        try:
+            response = requests.post(
+                api_url,
+                json=payload,
+                timeout=10
+            )
+
+            # Parse Telegram response safely
+            try:
+                response_data = response.json()
+            except ValueError:
+                response_data = {}
+
+            if response.status_code == 200 and response_data.get("ok") is True:
+                print(
+                    f" ✓ Telegram alert delivered successfully "
+                    f"to phone for {clean_name}!"
+                )
+            else:
+                error_description = response_data.get(
+                    "description",
+                    response.text
+                )
+
+                print(
+                    f" ✕ Telegram API Error: "
+                    f"Status {response.status_code} | "
+                    f"Description: {error_description}"
+                )
+
+        except requests.exceptions.Timeout:
+            print(
+                f" ✕ Telegram request timed out "
+                f"while sending alert for {clean_name}."
+            )
+
+        except requests.exceptions.RequestException as net_error:
+            print(
+                f" ✕ Telegram connection failed: {net_error}"
+            )
+
+        except Exception as unexpected_error:
+            print(
+                f" ✕ Unexpected Telegram alert error: "
+                f"{unexpected_error}"
+            )
 
 # =====================================================================# QUANT & MACHINE LEARNING FEATURE COMPUTE ENGINES# =====================================================================
 class QlibPredictiveEngine:
