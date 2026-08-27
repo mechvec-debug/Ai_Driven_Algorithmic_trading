@@ -184,7 +184,7 @@ if __name__ == "__main__":
     processed_json_files = glob.glob("data/processed/*_processed.csv")
 
     for file_path in processed_json_files:
-        ticker_raw = os.path.path.basename(file_path).replace("_processed.csv", "")
+        ticker_raw = os.path.basename(file_path).replace("_processed.csv", "")
         clean_name = ticker_raw.replace(".NS", "").replace(".BO", "")
         alpha_path = f"data/alpha_features/{ticker_raw}_qlib_features.csv"
 
