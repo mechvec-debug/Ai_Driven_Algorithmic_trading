@@ -184,6 +184,7 @@ if __name__ == "__main__":
     processed_json_files = glob.glob("data/processed/*_processed.csv")
 
     for file_path in processed_json_files:
+        # CORRECT AND CLEAN MODULE METHOD DECLARATION
         ticker_raw = os.path.basename(file_path).replace("_processed.csv", "")
         clean_name = ticker_raw.replace(".NS", "").replace(".BO", "")
         alpha_path = f"data/alpha_features/{ticker_raw}_qlib_features.csv"
@@ -193,41 +194,43 @@ if __name__ == "__main__":
                 df_m = pd.read_csv(file_path, index_col=0, parse_dates=True)
                 df_a = pd.read_csv(alpha_path, index_col=0, parse_dates=True)
 
-                # Compute the exact backtest return results using the new RSI metrics frame
                 results = backtester.run_backtest_from_dataframe(df_a)
-
+                
                 if isinstance(results['net_return_pct'], str):
                     roi_val = -999.0
                 else:
                     roi_val = float(results['net_return_pct'])
 
-                # Capture latest metrics
                 latest_alpha = float(df_a['qlib_momentum_5d'].iloc[-1])
                 latest_rsi = float(df_a['rsi_14d'].iloc[-1])
 
-                # GOLDEN RULE CRITERIA: Short term trend up, RSI healthy, historic returns positive
                 if latest_alpha > 0.01 and (45.0 <= latest_rsi <= 65.0) and roi_val > 0.0:
                     action_status = "BUY"
                 else:
                     action_status = "HOLD"
+
                 latest_scan_records.append({
                     "ticker": clean_name,
                     "close_price": float(df_m['close'].iloc[-1]),
                     "ann_volatility_pct": float(df_m['rolling_volatility_ann'].iloc[-1]) * 100,
                     "daily_var_95_pct": float(df_m['var_95_threshold'].iloc[-1]) * 100,
                     "qlib_alpha_score": latest_alpha,
-                    "backtest_roi_pct": roi_val,  # Locked into file core
+                    "backtest_roi_pct": roi_val,
                     "action_status": action_status
                 })
             except Exception:
-                    continue
-            os.makedirs("data/output", exist_ok=True)
-            current_time_stamp = str(pd.Timestamp.now(tz='Asia/Kolkata'))
-            output_payload = {
-                "last_updated": current_time_stamp,
-                "total_scanned_assets": len(latest_scan_records),
-                "signals": latest_scan_records
-            }
-            with open("data/output/latest_market_signals.json", "w") as json_file:
-                json.dump(output_payload, json_file, indent=4)
-            print("✓ Central output matrix overwritten successfully.")
+                continue
+
+    os.makedirs("data/output", exist_ok=True)
+    current_time_stamp = str(pd.Timestamp.now(tz='Asia/Kolkata'))
+
+    output_payload = {
+        "last_updated": current_time_stamp,
+        "total_scanned_assets": len(latest_scan_records),
+        "signals": latest_scan_records
+    }
+
+    with open("data/output/latest_market_signals.json", "w") as json_file:
+        json.dump(output_payload, json_file, indent=4)
+
+    print("✓ Central output matrix overwritten successfully.")
