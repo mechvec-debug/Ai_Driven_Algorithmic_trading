@@ -4,6 +4,7 @@ import json
 import glob
 import pandas as pd
 import numpy as np
+import requests
 from openbb import obb
 
 
@@ -149,7 +150,8 @@ class QlibPredictiveEngine:
         return df
 
     def compute_predictive_score(self, df: pd.DataFrame) -> float:
-        if df.empty: return 0.0
+        if df.empty:
+            return 0.0
         latest_row = df.iloc[-1]
         return float((latest_row['qlib_momentum_5d'] * 0.4) + (latest_row['qlib_mean_reversion_20d'] * 0.6))
 
@@ -162,9 +164,14 @@ class LeanPortfolioStrategyEngine:
 
     def run_backtest_from_dataframe(self, df: pd.DataFrame) -> dict:
         if df is None or df.empty or len(df) < 20:
-            return {"initial_capital": self.initial_capital, "final_value": self.initial_capital,
-                    "net_return_pct": "Failed Analysis", "max_drawdown_pct": 0.0, "sharpe_ratio": 0.0,
-                    "total_trades": 0}
+            return {
+                "initial_capital": self.initial_capital,
+                "final_value": self.initial_capital,
+                "net_return_pct": "Failed Analysis",
+                "max_drawdown_pct": 0.0,
+                "sharpe_ratio": 0.0,
+                "total_trades": 0
+            }
 
         cash, position_shares, trade_count, portfolio_value_history = self.initial_capital, 0.0, 0, []
 
@@ -220,7 +227,8 @@ class YahooFinanceQuantPipeline:
             clean_ticker = str(row['ticker']).strip().upper()
             exchange_type = str(row['exchange']).strip().upper() if 'exchange' in df.columns else self.default_exchange
             wrapped_list.append(
-                f"{clean_ticker}.BO" if exchange_type == "BSE" or "BOM" in clean_ticker else f"{clean_ticker}.NS")
+                f"{clean_ticker}.BO" if exchange_type == "BSE" or "BOM" in clean_ticker else f"{clean_ticker}.NS"
+            )
         return wrapped_list
 
     def run_ingestion(self, ticker: str) -> pd.DataFrame:
@@ -228,7 +236,8 @@ class YahooFinanceQuantPipeline:
             res = obb.equity.price.historical(ticker, provider="yfinance", start_date=self.start_date,
                                               end_date=self.end_date)
             df = res.to_df()
-            if df.empty: raise ValueError("Empty dataframe.")
+            if df.empty:
+                raise ValueError("Empty dataframe.")
             df.to_csv(f"data/raw/{ticker}_raw.csv")
             return df
         except Exception:
@@ -248,9 +257,15 @@ class YahooFinanceQuantPipeline:
     def _generate_fail_safe_data(self, ticker: str) -> pd.DataFrame:
         date_range = pd.date_range(start=self.start_date, end=self.end_date, freq='B')
         fallback_df = pd.DataFrame(
-            {'open': np.linspace(2400, 2600, len(date_range)), 'high': np.linspace(2450, 2650, len(date_range)),
-             'low': np.linspace(2380, 2580, len(date_range)), 'close': np.linspace(2420, 2620, len(date_range)),
-             'volume': np.random.randint(100000, 500000, size=len(date_range))}, index=date_range)
+            {
+                'open': np.linspace(2400, 2600, len(date_range)),
+                'high': np.linspace(2450, 2650, len(date_range)),
+                'low': np.linspace(2380, 2580, len(date_range)),
+                'close': np.linspace(2420, 2620, len(date_range)),
+                'volume': np.random.randint(100000, 500000, size=len(date_range))
+            },
+            index=date_range
+        )
         fallback_df.index.name = "date"
         fallback_df.to_csv(f"data/raw/{ticker}_raw.csv")
         return fallback_df
@@ -265,14 +280,15 @@ if __name__ == "__main__":
     pipeline = YahooFinanceQuantPipeline()
     qlib_engine = QlibPredictiveEngine()
     backtester = LeanPortfolioStrategyEngine(initial_capital=100000.0)
+
     # Gather cloud authentication variables
-bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or pipeline.config.get("telegram_bot_token", "")
-chat_id = os.getenv("TELEGRAM_CHAT_ID") or pipeline.config.get("telegram_chat_id", "")
+    bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or pipeline.config.get("telegram_bot_token", "")
+    chat_id = os.getenv("TELEGRAM_CHAT_ID") or pipeline.config.get("telegram_chat_id", "")
 
-bot_token = str(bot_token).strip() if bot_token else ""
-chat_id = str(chat_id).strip() if chat_id else ""
+    bot_token = str(bot_token).strip() if bot_token else ""
+    chat_id = str(chat_id).strip() if chat_id else ""
 
-notifier = TelegramAlertEngine(token=bot_token, chat_id=chat_id)
+    notifier = TelegramAlertEngine(token=bot_token, chat_id=chat_id)
 
     # Main Execution Thread Sweep
     for wrapped_ticker in pipeline.ticker_mappings:
@@ -305,7 +321,7 @@ notifier = TelegramAlertEngine(token=bot_token, chat_id=chat_id)
                 df_a = pd.read_csv(alpha_path, index_col=0, parse_dates=True)
 
                 results = backtester.run_backtest_from_dataframe(df_a)
-                
+
                 if isinstance(results['net_return_pct'], str):
                     roi_val = -999.0
                 else:
