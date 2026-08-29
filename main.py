@@ -65,7 +65,7 @@ class TelegramAlertEngine:
             f"➡️ <b>Execution Order:</b> Only for study, No buy or sell."
         )
 
-        api_url = f"https://telegram.org{self.token}/sendMessage"
+        f"https://api.telegram.org/bot{self.token}/sendMessage"
 
         payload = {
             "chat_id": self.chat_id,
