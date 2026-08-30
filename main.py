@@ -65,7 +65,8 @@ class TelegramAlertEngine:
             f"➡️ <b>Execution Order:</b> Only for study, No buy or sell."
         )
 
-        f"https://api.telegram.org/bot{self.token}/sendMessage"
+        # FIX: api_url must be assigned to a variable
+        api_url = f"https://api.telegram.org/bot{self.token}/sendMessage"
 
         payload = {
             "chat_id": self.chat_id,
@@ -74,7 +75,11 @@ class TelegramAlertEngine:
         }
 
         try:
-            response = requests.post(api_url, json=payload, timeout=10)
+            response = requests.post(
+                api_url,
+                json=payload,
+                timeout=10
+            )
 
             try:
                 response_data = response.json()
@@ -91,6 +96,7 @@ class TelegramAlertEngine:
                     "description",
                     response.text,
                 )
+
                 print(
                     f" ✕ Telegram API Error: Status {response.status_code} | "
                     f"Description: {error_description}"
@@ -101,14 +107,17 @@ class TelegramAlertEngine:
                 f" ✕ Telegram request timed out while sending alert "
                 f"for {clean_name}."
             )
+
         except requests.exceptions.RequestException as net_error:
-            print(f" ✕ Telegram connection failed: {net_error}")
-        except Exception as unexpected_error:
             print(
-                f" ✕ Unexpected Telegram alert error: {unexpected_error}"
+                f" ✕ Telegram connection failed: {net_error}"
             )
 
-
+        except Exception as unexpected_error:
+            print(
+                f" ✕ Unexpected Telegram alert error: "
+                f"{unexpected_error}"
+            )
 # =====================================================================
 # QUANT & MACHINE LEARNING FEATURE COMPUTE ENGINES
 # =====================================================================
@@ -230,7 +239,6 @@ class LeanPortfolioStrategyEngine:
         ) * 100
 
         return {"net_return_pct": total_net_return}
-
 
 # =====================================================================
 # INGESTION ORCHESTRATION PIPELINE
@@ -469,7 +477,7 @@ if __name__ == "__main__":
         # 45-65 RSI boundaries
         if (
             alpha_score > 0.01
-            and strategy_roi > 5.001
+            and strategy_roi > 10.000 # Sami change the value form 0.001 to 10
             and (45.0 <= current_rsi <= 65.0)
         ):
             # =============================================================
@@ -567,7 +575,7 @@ if __name__ == "__main__":
                 if (
                     latest_alpha > 0.01
                     and (45.0 <= latest_rsi <= 65.0)
-                    and roi_val > 0.0
+                    and roi_val > 5.0 # Sami change the value for 0 to 5
                 ):
                     action_status = "BUY"
                 else:
