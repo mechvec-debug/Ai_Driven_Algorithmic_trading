@@ -31,8 +31,8 @@ class TelegramAlertEngine:
             volume: float,
             avg_volume: float
     ):
- """
- Transmits a comprehensive HTML-parsed trade configuration alert
+        """
+        Transmits a comprehensive HTML-parsed trade configuration alert
         including full LEAN Engine simulation matrix outcomes.
         """
         if not self.enabled:
