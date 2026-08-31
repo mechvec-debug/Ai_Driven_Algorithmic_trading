@@ -1,35 +1,14 @@
-import os
-import yaml
-import json
-import glob
-import requests
-import pandas as pd
-import numpy as np
-from openbb import obb
-
-
-# =====================================================================
-# SYSTEM ALERTER: EVENT-DRIVEN TELEGRAM WEBHOOK FRAMEWORK
-# =====================================================================
-
-class TelegramAlertEngine:
-    def __init__(self, token: str, chat_id: str):
-        """Initializes the secure Telegram Bot API alert gateway."""
-        self.token = token.strip() if token else ""
-        self.chat_id = str(chat_id).strip() if chat_id else ""
-        self.enabled = bool(self.token and self.chat_id)
-
     def send_buy_signal_alert(
-            self,
-            ticker: str,
-            price: float,
-            vol: float,
-            var: float,
-            alpha: float,
-            roi: float,
-            rsi: float,
-            volume: float,
-            avg_volume: float
+        self,
+        ticker: str,
+        price: float,
+        vol: float,
+        var: float,
+        alpha: float,
+        roi: float,
+        rsi: float,
+        volume: float,
+        avg_volume: float
     ):
         """
         Transmits a comprehensive HTML-parsed trade configuration alert
@@ -66,7 +45,8 @@ class TelegramAlertEngine:
             f"➡️ <b>Execution Order:</b> Only for study- no buy/sell."
         )
 
-        api_url = f"https://api.telegram.org/bot{self.token}/sendMessage"
+        # 🟢 DEFINED CORRECTLY INSIDE SCOPE BEFORE PAYLOAD POSTING
+        api_url = f"https://telegram.org{self.token}/sendMessage"
 
         payload = {
             "chat_id": self.chat_id,
@@ -93,7 +73,6 @@ class TelegramAlertEngine:
             print(f" ✕ Telegram connection failed: {net_error}")
         except Exception as unexpected_error:
             print(f" ✕ Unexpected Telegram alert error: {unexpected_error}")
-
 
 # =====================================================================
 # QUANT & MACHINE LEARNING FEATURE COMPUTE ENGINES
