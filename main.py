@@ -67,7 +67,7 @@ class TelegramAlertEngine:
         )
 
         # 🟢 DEFINED CORRECTLY INSIDE SCOPE BEFORE PAYLOAD POSTING
-        api_url = f"https://telegram.org{self.token}/sendMessage"
+        api_url = f"https://api.telegram.org/bot{self.token}/sendMessage"
 
         payload = {
             "chat_id": self.chat_id,
