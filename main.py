@@ -20,17 +20,21 @@ class TelegramAlertEngine:
         self.enabled = bool(self.token and self.chat_id)
 
     def send_buy_signal_alert(
-            self,
-            ticker: str,
-            price: float,
-            vol: float,
-            var: float,
-            alpha: float,
-            roi: float,
-            rsi: float,
-            volume: float,
-            avg_volume: float
+        self,
+        ticker: str,
+        price: float,
+        vol: float,
+        var: float,
+        alpha: float,
+        roi: float,
+        rsi: float,
+        volume: float,
+        avg_volume: float
     ):
+        """
+        Transmits a comprehensive HTML-parsed trade configuration alert
+        including full LEAN Engine simulation matrix outcomes.
+        """
         if not self.enabled:
             return
 
@@ -90,6 +94,7 @@ class TelegramAlertEngine:
             print(f" ✕ Telegram connection failed: {net_error}")
         except Exception as unexpected_error:
             print(f" ✕ Unexpected Telegram alert error: {unexpected_error}")
+
 
 # =====================================================================
 # QUANT & MACHINE LEARNING FEATURE COMPUTE ENGINES
@@ -233,144 +238,144 @@ class YahooFinanceQuantPipeline:
         fallback_df.to_csv(f"data/raw/{ticker}_raw.csv")
         return fallback_df
 
-# =====================================================================
-# SYSTEM MAIN ENGINE CONTROLLER LOOP
-# =====================================================================
+    # =====================================================================
+    # SYSTEM MAIN ENGINE CONTROLLER LOOP
+    # =====================================================================
 if __name__ == "__main__":
-    print("=================================================================")
-    print("RUNNING CONSOLIDATED SYSTEM SCRIPTS")
-    print("=================================================================")
+        print("=================================================================")
+        print("RUNNING CONSOLIDATED SYSTEM SCRIPTS")
+        print("=================================================================")
 
-    pipeline = YahooFinanceQuantPipeline()
-    qlib_engine = QlibPredictiveEngine()
-    backtester = LeanPortfolioStrategyEngine(initial_capital=100000.0)
+        pipeline = YahooFinanceQuantPipeline()
+        qlib_engine = QlibPredictiveEngine()
+        backtester = LeanPortfolioStrategyEngine(initial_capital=100000.0)
 
-    bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or pipeline.config.get("telegram_bot_token", "")
-    chat_id = os.getenv("TELEGRAM_CHAT_ID") or pipeline.config.get("telegram_chat_id", "")
+        bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or pipeline.config.get("telegram_bot_token", "")
+        chat_id = os.getenv("TELEGRAM_CHAT_ID") or pipeline.config.get("telegram_chat_id", "")
 
-    bot_token = str(bot_token).strip() if bot_token else ""
-    chat_id = str(chat_id).strip() if chat_id else ""
+        bot_token = str(bot_token).strip() if bot_token else ""
+        chat_id = str(chat_id).strip() if chat_id else ""
 
-    notifier = TelegramAlertEngine(token=bot_token, chat_id=chat_id)
+        notifier = TelegramAlertEngine(token=bot_token, chat_id=chat_id)
 
-    # 1. Main Data Extraction and Analytical Execution Loop
-    for wrapped_ticker in pipeline.ticker_mappings:
-        raw_df = pipeline.run_ingestion(wrapped_ticker)
-        metrics_df = pipeline.calculate_quant_metrics(raw_df, wrapped_ticker)
+        # 1. Main Data Extraction and Analytical Execution Loop
+        for wrapped_ticker in pipeline.ticker_mappings:
+            raw_df = pipeline.run_ingestion(wrapped_ticker)
+            metrics_df = pipeline.calculate_quant_metrics(raw_df, wrapped_ticker)
 
-        if metrics_df is None or metrics_df.empty or len(metrics_df) < 5:
-            continue
-
-        # 2. Compute Microsoft Qlib Matrix Indicator Features
-        qlib_df = qlib_engine.generate_qlib_alpha_features(metrics_df, wrapped_ticker)
-
-        # Operational safety fix against out-of-bounds DataFrame indices
-        if qlib_df is None or qlib_df.empty:
-            print(f" ✕ [{wrapped_ticker}] Bypassed status. Insufficient data rows remaining after dropna().")
-            continue
-
-        alpha_score = qlib_engine.compute_predictive_score(qlib_df)
-
-        # 3. Simulate LEAN Transaction Rules Backtest Results
-        results = backtester.run_backtest_from_dataframe(qlib_df)
-
-        current_price = float(metrics_df['close'].iloc[-1])
-        ann_vol = float(metrics_df['rolling_volatility_ann'].iloc[-1]) * 100
-        daily_var = float(metrics_df['var_95_threshold'].iloc[-1]) * 100
-
-        # Metrics and Telemetry Slicing
-        current_rsi = float(qlib_df['rsi_14d'].iloc[-1])
-        current_volume = float(metrics_df['volume'].iloc[-1])
-        avg_volume_20d = float(metrics_df['avg_volume_20d'].iloc[-1])
-
-        if isinstance(results['net_return_pct'], str):
-            strategy_roi = -999.0
-        else:
-            strategy_roi = float(results['net_return_pct'])
-
-        # 4. GOLDEN RULE INTEGRATED FILTER SYSTEM (WITH ENFORCED RSI & VOLUME BREAKS)
-        if (alpha_score > 0.01 and
-                strategy_roi > 0.001 and
-                (45.0 <= current_rsi <= 65.0) and
-                (current_volume >= 50000 and current_volume >= (avg_volume_20d * 0.8))):
-
-            print(
-                f" -> [{wrapped_ticker}] Golden Rule Satisfied (Alpha: +{alpha_score:.4f} | RSI: {current_rsi:.2f} | Volume Ratio: {(current_volume / avg_volume_20d):.2f}). Dispatching alert...")
-            notifier.send_buy_signal_alert(
-                ticker=wrapped_ticker,
-                price=current_price,
-                vol=ann_vol,
-                var=daily_var,
-                alpha=alpha_score,
-                roi=strategy_roi,
-                rsi=current_rsi,
-                volume=current_volume,
-                avg_volume=avg_volume_20d
-            )
-        else:
-            print(
-                f" -> [{wrapped_ticker}] Bypassed status. Failed strict quantitative thresholds (Alpha/ROI/RSI/Volume alignment breakdown).")
-
-    print("\n[Complete] Quant script loops finished successfully. Overwriting metrics...")
-
-    # =====================================================================
-    # CENTRALIZED JSON CORE OUTPUT WRITER SECTION
-    # =====================================================================
-    latest_scan_records = []
-    processed_json_files = glob.glob("data/processed/*_processed.csv")
-
-    for file_path in processed_json_files:
-        ticker_raw = os.path.basename(file_path).replace("_processed.csv", "")
-        clean_name = ticker_raw.replace(".NS", "").replace(".BO", "")
-        alpha_path = f"data/alpha_features/{ticker_raw}_qlib_features.csv"
-
-        if os.path.exists(alpha_path):
-            try:
-                df_m = pd.read_csv(file_path, index_col=0, parse_dates=True)
-                df_a = pd.read_csv(alpha_path, index_col=0, parse_dates=True)
-
-                results = backtester.run_backtest_from_dataframe(df_a)
-
-                if isinstance(results['net_return_pct'], str):
-                    roi_val = -999.0
-                else:
-                    roi_val = float(results['net_return_pct'])
-
-                latest_alpha = float(df_a['qlib_momentum_5d'].iloc[-1])
-                latest_rsi = float(df_a['rsi_14d'].iloc[-1])
-                latest_volume = float(df_m['volume'].iloc[-1])
-                latest_avg_vol = float(df_m['avg_volume_20d'].iloc[-1])
-
-                if (latest_alpha > 0.01 and
-                        (45.0 <= latest_rsi <= 65.0) and
-                        roi_val > 0.0 and
-                        (latest_volume >= 50000 and latest_volume >= (latest_avg_vol * 0.8))):
-                    action_status = "BUY"
-                else:
-                    action_status = "HOLD"
-
-                latest_scan_records.append({
-                    "ticker": clean_name,
-                    "close_price": float(df_m['close'].iloc[-1]),
-                    "ann_volatility_pct": float(df_m['rolling_volatility_ann'].iloc[-1]) * 100,
-                    "daily_var_95_pct": float(df_m['var_95_threshold'].iloc[-1]) * 100,
-                    "qlib_alpha_score": latest_alpha,
-                    "backtest_roi_pct": roi_val,
-                    "action_status": action_status
-                })
-            except Exception:
+            if metrics_df is None or metrics_df.empty or len(metrics_df) < 5:
                 continue
 
-    os.makedirs("data/output", exist_ok=True)
-    current_time_stamp = str(pd.Timestamp.now(tz='Asia/Kolkata'))
+            # 2. Compute Microsoft Qlib Matrix Indicator Features
+            qlib_df = qlib_engine.generate_qlib_alpha_features(metrics_df, wrapped_ticker)
 
-    output_payload = {
-        "last_updated": current_time_stamp,
-        "total_scanned_assets": len(latest_scan_records),
-        "signals": latest_scan_records
-    }
+            # Operational safety fix against out-of-bounds DataFrame indices
+            if qlib_df is None or qlib_df.empty:
+                print(f" ✕ [{wrapped_ticker}] Bypassed status. Insufficient data rows remaining after dropna().")
+                continue
 
-    with open("data/output/latest_market_signals.json", "w") as json_file:
-        json.dump(output_payload, json_file, indent=4)
+            alpha_score = qlib_engine.compute_predictive_score(qlib_df)
 
-    print("✓ Central output matrix overwritten successfully.")
+            # 3. Simulate LEAN Transaction Rules Backtest Results
+            results = backtester.run_backtest_from_dataframe(qlib_df)
+
+            current_price = float(metrics_df['close'].iloc[-1])
+            ann_vol = float(metrics_df['rolling_volatility_ann'].iloc[-1]) * 100
+            daily_var = float(metrics_df['var_95_threshold'].iloc[-1]) * 100
+
+            # Metrics and Telemetry Slicing
+            current_rsi = float(qlib_df['rsi_14d'].iloc[-1])
+            current_volume = float(metrics_df['volume'].iloc[-1])
+            avg_volume_20d = float(metrics_df['avg_volume_20d'].iloc[-1])
+
+            if isinstance(results['net_return_pct'], str):
+                strategy_roi = -999.0
+            else:
+                strategy_roi = float(results['net_return_pct'])
+
+            # 4. GOLDEN RULE INTEGRATED FILTER SYSTEM (WITH ENFORCED RSI & VOLUME BREAKS)
+            if (alpha_score > 0.01 and
+                    strategy_roi > 0.001 and
+                    (45.0 <= current_rsi <= 65.0) and
+                    (current_volume >= 50000 and current_volume >= (avg_volume_20d * 0.8))):
+
+                print(
+                    f" -> [{wrapped_ticker}] Golden Rule Satisfied (Alpha: +{alpha_score:.4f} | RSI: {current_rsi:.2f} | Volume Ratio: {(current_volume / avg_volume_20d):.2f}). Dispatching alert...")
+                notifier.send_buy_signal_alert(
+                    ticker=wrapped_ticker,
+                    price=current_price,
+                    vol=ann_vol,
+                    var=daily_var,
+                    alpha=alpha_score,
+                    roi=strategy_roi,
+                    rsi=current_rsi,
+                    volume=current_volume,
+                    avg_volume=avg_volume_20d
+                )
+            else:
+                print(
+                    f" -> [{wrapped_ticker}] Bypassed status. Failed strict quantitative thresholds (Alpha/ROI/RSI/Volume alignment breakdown).")
+
+        print("\n[Complete] Quant script loops finished successfully. Overwriting metrics...")
+
+        # =====================================================================
+        # CENTRALIZED JSON CORE OUTPUT WRITER SECTION
+        # =====================================================================
+        latest_scan_records = []
+        processed_json_files = glob.glob("data/processed/*_processed.csv")
+
+        for file_path in processed_json_files:
+            ticker_raw = os.path.basename(file_path).replace("_processed.csv", "")
+            clean_name = ticker_raw.replace(".NS", "").replace(".BO", "")
+            alpha_path = f"data/alpha_features/{ticker_raw}_qlib_features.csv"
+
+            if os.path.exists(alpha_path):
+                try:
+                    df_m = pd.read_csv(file_path, index_col=0, parse_dates=True)
+                    df_a = pd.read_csv(alpha_path, index_col=0, parse_dates=True)
+
+                    results = backtester.run_backtest_from_dataframe(df_a)
+
+                    if isinstance(results['net_return_pct'], str):
+                        roi_val = -999.0
+                    else:
+                        roi_val = float(results['net_return_pct'])
+
+                    latest_alpha = float(df_a['qlib_momentum_5d'].iloc[-1])
+                    latest_rsi = float(df_a['rsi_14d'].iloc[-1])
+                    latest_volume = float(df_m['volume'].iloc[-1])
+                    latest_avg_vol = float(df_m['avg_volume_20d'].iloc[-1])
+
+                    if (latest_alpha > 0.01 and
+                            (45.0 <= latest_rsi <= 65.0) and
+                            roi_val > 0.0 and
+                            (latest_volume >= 50000 and latest_volume >= (latest_avg_vol * 0.8))):
+                        action_status = "BUY"
+                    else:
+                        action_status = "HOLD"
+
+                    latest_scan_records.append({
+                        "ticker": clean_name,
+                        "close_price": float(df_m['close'].iloc[-1]),
+                        "ann_volatility_pct": float(df_m['rolling_volatility_ann'].iloc[-1]) * 100,
+                        "daily_var_95_pct": float(df_m['var_95_threshold'].iloc[-1]) * 100,
+                        "qlib_alpha_score": latest_alpha,
+                        "backtest_roi_pct": roi_val,
+                        "action_status": action_status
+                    })
+                except Exception:
+                    continue
+
+        os.makedirs("data/output", exist_ok=True)
+        current_time_stamp = str(pd.Timestamp.now(tz='Asia/Kolkata'))
+
+        output_payload = {
+            "last_updated": current_time_stamp,
+            "total_scanned_assets": len(latest_scan_records),
+            "signals": latest_scan_records
+        }
+
+        with open("data/output/latest_market_signals.json", "w") as json_file:
+            json.dump(output_payload, json_file, indent=4)
+
+        print("✓ Central output matrix overwritten successfully.")
