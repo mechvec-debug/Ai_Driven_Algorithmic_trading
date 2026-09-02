@@ -20,16 +20,16 @@ class TelegramAlertEngine:
         self.enabled = bool(self.token and self.chat_id)
 
     def send_buy_signal_alert(
-        self,
-        ticker: str,
-        price: float,
-        vol: float,
-        var: float,
-        alpha: float,
-        roi: float,
-        rsi: float,
-        volume: float,
-        avg_volume: float
+            self,
+            ticker: str,
+            price: float,
+            vol: float,
+            var: float,
+            alpha: float,
+            roi: float,
+            rsi: float,
+            volume: float,
+            avg_volume: float
     ):
         """
         Transmits a comprehensive HTML-parsed trade configuration alert
@@ -66,7 +66,6 @@ class TelegramAlertEngine:
             f"➡️ <b>Execution Order:</b> Only for study- no buy/sell."
         )
 
-        # 🟢 DEFINED CORRECTLY INSIDE SCOPE BEFORE PAYLOAD POSTING
         api_url = f"https://api.telegram.org/bot{self.token}/sendMessage"
 
         payload = {
@@ -250,6 +249,40 @@ if __name__ == "__main__":
         qlib_engine = QlibPredictiveEngine()
         backtester = LeanPortfolioStrategyEngine(initial_capital=100000.0)
 
+        # =====================================================================
+        # SECTOR DIVERSIFICATION OPTIONAL CONTROL MODULE CONFIGURATION
+        # =====================================================================
+        ENABLE_SECTOR_GUARD = True
+        MAX_ASSETS_PER_SECTOR = 2
+        NSE_SECTOR_MAP = {...}
+        active_sector_exposure_registry = {}
+
+        # =====================================================================
+        # TRAILING STOP-LOSS OPTIONAL CONTROL CONFIGURATION
+        # =====================================================================
+        ENABLE_TRAILING_STOP = True  # 🟢 Set to True to activate trailing stop filtering, False to skip
+        TRAILING_STOP_PCT = 0.05  # 🟢 Fixed 5% trailing stop below the highest peak close price
+
+
+        # Live Ticker-to-Sector allocation dictionary lookup mapping
+        NSE_SECTOR_MAP = {
+            "CHENNPETRO": "Energy & Refineries",
+            "MRPL": "Energy & Refineries",
+            "BPCL": "Energy & Refineries",
+            "RELIANCE": "Energy & Refineries",
+            "NETWEB": "Technology & IT",
+            "TCS": "Technology & IT",
+            "INFY": "Technology & IT",
+            "GRSE": "Defense & Capital Goods",
+            "COCHINSHIP": "Defense & Capital Goods",
+            "ZYDUSLIFE": "Pharma & Healthcare",
+            "ZYDUSWELL": "Pharma & Healthcare",
+            "MARICO": "FMCG & Consumer Goods"
+        }
+
+        # Live tracker dictionary to log deployed active counts
+        active_sector_exposure_registry = {}
+
         bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or pipeline.config.get("telegram_bot_token", "")
         chat_id = os.getenv("TELEGRAM_CHAT_ID") or pipeline.config.get("telegram_chat_id", "")
 
@@ -324,6 +357,11 @@ if __name__ == "__main__":
         latest_scan_records = []
         processed_json_files = glob.glob("data/processed/*_processed.csv")
 
+        # 🟢 PASTE THESE CONSTANTS HERE (Flush against the left margin)
+        TOTAL_ACCOUNT_CAPITAL = 100000.0
+        RISK_PER_TRADE_PCT = 0.01
+        MAX_RUPEES_RISK = TOTAL_ACCOUNT_CAPITAL * RISK_PER_TRADE_PCT
+
         for file_path in processed_json_files:
             ticker_raw = os.path.basename(file_path).replace("_processed.csv", "")
             clean_name = ticker_raw.replace(".NS", "").replace(".BO", "")
@@ -346,23 +384,75 @@ if __name__ == "__main__":
                     latest_volume = float(df_m['volume'].iloc[-1])
                     latest_avg_vol = float(df_m['avg_volume_20d'].iloc[-1])
 
-                    if (latest_alpha > 0.01 and
-                            (45.0 <= latest_rsi <= 65.0) and
-                            roi_val > 0.0 and
-                            (latest_volume >= 50000 and latest_volume >= (latest_avg_vol * 0.8))):
-                        action_status = "BUY"
-                    else:
-                        action_status = "HOLD"
+                    close_price = float(df_m['close'].iloc[-1])
+                    daily_var_raw = float(df_m['var_95_threshold'].iloc[-1])
 
+                    # 1. Base Strategy Rule Evaluation Matrix Check                # 1. Base Strategy Rule Evaluation Matrix Check
+                    passes_base_strategy = (
+                        latest_alpha > 0.01 and
+                        (45.0 <= latest_rsi <= 65.0) and
+                        roi_val > 0.0 and
+                        (latest_volume >= 50000 and latest_volume >= (latest_avg_vol * 0.8))
+                    )
+        #                 # 2. Extract Sector Mapping Assignment Safely
+                    asset_sector = NSE_SECTOR_MAP.get(clean_name, "Other Diversified")
+                        #                 # 3. Apply Sector Overlay Constraints dynamically if flag parameter is enabled
+                    if passes_base_strategy:
+                        if ENABLE_SECTOR_GUARD:
+                            current_sector_count = active_sector_exposure_registry.get(asset_sector, 0)
+                            if current_sector_count < MAX_ASSETS_PER_SECTOR:
+                                base_action = "BUY"
+                            else:
+                                base_action = "HOLD (Sector Cap Reached)"
+                        else:
+                            base_action = "BUY"
+                    else:
+                        base_action = "HOLD"
+                        #                 # 4. 🔴 TRAILING STOP-LOSS EVALUATION ENGINE OVERLAY (ONLY FOR STRATEGY BUYS)
+                    trailing_stop_price = 0.0
+                    highest_peak_price = close_price
+                    if base_action == "BUY" and ENABLE_TRAILING_STOP:
+                        # Look backward over the recent 10-day activation window to trace price peaks
+                        lookback_window = min(10, len(df_m))
+                        recent_closes = df_m['close'].iloc[-lookback_window:].tolist()
+                        # Track the peak close achieved during this execution frame
+                        highest_peak_price = max(recent_closes)
+                        trailing_stop_price = highest_peak_price * (1.0 - TRAILING_STOP_PCT)
+                        # If the latest close has dropped beneath the trailing stop floor, force an exit flag
+                        if close_price < trailing_stop_price:
+                            action_status = "HOLD (Trailing Stop Hit)"
+                        else:
+                            action_status = "BUY"
+                            # Lock sector count registration if it clears the trailing floor
+                            if ENABLE_SECTOR_GUARD:
+                                active_sector_exposure_registry[asset_sector] = active_sector_exposure_registry.get(asset_sector, 0) + 1
+                    else:
+                        action_status = base_action
+                        # 🧮 DYNAMIC RISK-BASED POSITION SIZING CALCULATOR ENGINE
+                    risk_per_share = close_price * abs(daily_var_raw)
+                    if risk_per_share < 0.01:
+                        risk_per_share = close_price * 0.02
+                       # calculated_shares = int(np.floor(MAX_RUPEES_RISK / risk_per_share))
+                    capital_required = float(calculated_shares * close_price)
+                    if capital_required > TOTAL_ACCOUNT_CAPITAL:
+                      calculated_shares = int(np.floor(TOTAL_ACCOUNT_CAPITAL / close_price))
+                      capital_required = float(calculated_shares * close_price)
                     latest_scan_records.append({
                         "ticker": clean_name,
-                        "close_price": float(df_m['close'].iloc[-1]),
+                        "sector": asset_sector,
+                        "close_price": close_price,
                         "ann_volatility_pct": float(df_m['rolling_volatility_ann'].iloc[-1]) * 100,
-                        "daily_var_95_pct": float(df_m['var_95_threshold'].iloc[-1]) * 100,
+                        "daily_var_95_pct": daily_var_raw * 100,
                         "qlib_alpha_score": latest_alpha,
                         "backtest_roi_pct": roi_val,
-                        "action_status": action_status
-                    })
+                        "action_status": action_status,
+                        "recommended_shares_to_buy": calculated_shares if action_status == "BUY" else 0,
+                        "required_allocation_in_rupees": capital_required if action_status == "BUY" else 0.0,
+                        # New trailing stop payload variables sent to JSON matrix
+                        "highest_tracked_peak": float(highest_peak_price) if action_status == "BUY" else 0.0,
+                        "active_trailing_stop_floor": float(trailing_stop_price) if action_status == "BUY" else 0.0
+                })
+
                 except Exception:
                     continue
 
