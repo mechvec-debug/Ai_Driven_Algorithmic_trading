@@ -25,11 +25,10 @@ st.markdown("---")
 @st.cache_data(ttl=60)
 def compile_master_signal_ledger():
     """
-    Dynamically streams the high-order central JSON matrix directly from
-    your raw GitHub repository endpoint to completely bypass directory errors.
+    Safely decodes and extracts the nested quantitative matrix directly from the
+    raw GitHub server network endpoints using native URL stream decoders.
     """
-    # 🟢 DIRECT RAW GITHUB STREAMING CONFIGURATION
-    # Replace 'mechvec-debug' with your exact GitHub username if different!
+    # 🟢 DIRECT CONFIGURATION TO MATCH YOUR EXACT REPOSITORY TREE PROFILE
     repo_username = "mechvec-debug"
     repo_name = "AI_driven_Algorithmic_trading"
     branch_name = "main"
@@ -38,13 +37,17 @@ def compile_master_signal_ledger():
     master_rows = []
 
     try:
-        # Use pandas or requests to fetch the live cloud matrix directly over HTTPS
-        database_payload = pd.read_json(raw_github_url).to_dict('records')
+        # Request and download the file content smoothly over the web network link layer
+        req = urllib.request.Request(
+            raw_github_url,
+            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+        )
 
-        # If payload fetches directly, parse out the signals dictionary matrix array
-        with urllib.request.urlopen(raw_github_url) as url:
-            database_payload = json.loads(url.read().decode())
+        with urllib.request.urlopen(req) as url:
+            raw_data_stream = url.read().decode('utf-8')
+            database_payload = json.loads(raw_data_stream)
 
+        # Extract the deep nested signals array component natively without pandas overhead crashes
         signals_list = database_payload.get("signals", [])
 
         for signal in signals_list:
@@ -78,7 +81,7 @@ def compile_master_signal_ledger():
                 "Take Profit 2 (₹)": f"₹{target_tp2:,.2f}" if action_status == "BUY" and target_tp2 > 0 else "N/A"
             })
     except Exception as e:
-        # Fallback to local check if the network stream encounters a cold boot block
+        # Fallback to local parsing logic if network streams ever timed out
         local_path = "data/output/latest_market_signals.json"
         if os.path.exists(local_path):
             try:
