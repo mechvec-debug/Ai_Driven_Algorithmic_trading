@@ -29,24 +29,25 @@ class TelegramAlertEngine:
             roi: float,
             rsi: float,
             volume: float,
-            avg_volume: float
+            avg_volume: float,
+            tp1: float = 0.0,  # 🟢 Added
+            tp2: float = 0.0  # 🟢 Added
     ):
-        """
-        Transmits a comprehensive HTML-parsed trade configuration alert
-        including full LEAN Engine simulation matrix outcomes.
-        """
         if not self.enabled:
             return
 
-        clean_name = (
-            str(ticker)
-            .replace(".NS", "")
-            .replace(".BO", "")
-            .strip()
-        )
-
+        clean_name = str(ticker).replace(".NS", "").replace(".BO", "").strip()
         initial_capital = 100000.0
         final_capital = initial_capital * (1.0 + (roi / 100.0))
+
+        # Build dynamic strings for the take-profit matrix panel if values are provided
+        tp_matrix_panel = ""
+        if tp1 > 0 and tp2 > 0:
+            tp_matrix_panel = (
+                f"🎯 <b>VOLATILITY TAKE-PROFIT MATRIX:</b>\n"
+                f" • Take-Profit 1 (50% Scalp): <b>₹{tp1:,.2f}</b>\n"
+                f" • Take-Profit 2 (Runner Target): <b>₹{tp2:,.2f}</b>\n\n"
+            )
 
         message_payload = (
             f"⚡ <b>QUANT STRATEGY SYSTEM: Bismillah TRIGGER</b> ⚡\n"
@@ -56,6 +57,7 @@ class TelegramAlertEngine:
             f"📈 <b>Qlib Alpha Score:</b> {alpha:+.4f}\n"
             f"📊 <b>Current 14-Day RSI:</b> {rsi:.2f}\n"
             f"🔊 <b>Volume Telemetry:</b> {volume:,.0f} (20D Avg: {avg_volume:,.0f})\n\n"
+            f"{tp_matrix_panel}"  # 🟢 Injected dynamically into Telegram body template
             f"⚙️ <b>LEAN SIMULATION PORTFOLIO MATRIX:</b>\n"
             f" • Initial Account Capital: ₹{initial_capital:,.2f}\n"
             f" • Final Strategy Capital: <b>₹{final_capital:,.2f}</b>\n"
@@ -65,6 +67,8 @@ class TelegramAlertEngine:
             f" • Daily Value at Risk (95%): {var:.2f}%\n\n"
             f"➡️ <b>Execution Order:</b> Only for study- no buy/sell."
         )
+
+        # ... Rest of your existing requests.post code remains exactly the same ...
 
         api_url = f"https://api.telegram.org/bot{self.token}/sendMessage"
 
@@ -220,8 +224,10 @@ class YahooFinanceQuantPipeline:
         df['daily_return'] = df['close'].pct_change()
         df['rolling_volatility_ann'] = df['daily_return'].rolling(window=21).std() * np.sqrt(252)
         df['var_95_threshold'] = df['daily_return'].quantile(0.05)
-
         df['avg_volume_20d'] = df['volume'].rolling(window=20).mean()
+
+        # 🟢 INSTITUTIONAL UPGRADE: Calculate 200-day exponential trend line
+        df['ema_200'] = df['close'].ewm(span=200, adjust=False).mean()
 
         df = df.dropna()
         df.to_csv(f"data/processed/{ticker}_processed.csv")
@@ -262,6 +268,7 @@ if __name__ == "__main__":
         # =====================================================================
         ENABLE_TRAILING_STOP = True  # 🟢 Set to True to activate trailing stop filtering, False to skip
         TRAILING_STOP_PCT = 0.05  # 🟢 Fixed 5% trailing stop below the highest peak close price
+        ENABLE_TP_MATRIX = True
 
 
         # Live Ticker-to-Sector allocation dictionary lookup mapping
@@ -320,6 +327,7 @@ if __name__ == "__main__":
             current_rsi = float(qlib_df['rsi_14d'].iloc[-1])
             current_volume = float(metrics_df['volume'].iloc[-1])
             avg_volume_20d = float(metrics_df['avg_volume_20d'].iloc[-1])
+            current_ema200 = float(metrics_df['ema_200'].iloc[-1])
 
             if isinstance(results['net_return_pct'], str):
                 strategy_roi = -999.0
@@ -330,10 +338,20 @@ if __name__ == "__main__":
             if (alpha_score > 0.01 and
                     strategy_roi > 0.001 and
                     (45.0 <= current_rsi <= 65.0) and
-                    (current_volume >= 50000 and current_volume >= (avg_volume_20d * 0.8))):
+                    (current_volume >= 50000 and current_volume >= (
+                            avg_volume_20d * 1.2)) and  # 🟢 Requires 20% volume surge
+                    (current_price > current_ema200)):  # 🟢 Confirms structural macro trend
 
-                print(
-                    f" -> [{wrapped_ticker}] Golden Rule Satisfied (Alpha: +{alpha_score:.4f} | RSI: {current_rsi:.2f} | Volume Ratio: {(current_volume / avg_volume_20d):.2f}). Dispatching alert...")
+                print(f" -> [{wrapped_ticker}] Golden Rule Satisfied... Dispatching alert...")
+
+                # Calculate volatility-adjusted take profit targets if enabled
+                tp1_target = 0.0
+                tp2_target = 0.0
+                if ENABLE_TP_MATRIX:
+                    var_fraction = abs(daily_var / 100.0)
+                    tp1_target = current_price * (1.0 + (2.0 * var_fraction))
+                    tp2_target = current_price * (1.0 + (4.0 * var_fraction))
+
                 notifier.send_buy_signal_alert(
                     ticker=wrapped_ticker,
                     price=current_price,
@@ -343,8 +361,11 @@ if __name__ == "__main__":
                     roi=strategy_roi,
                     rsi=current_rsi,
                     volume=current_volume,
-                    avg_volume=avg_volume_20d
+                    avg_volume=avg_volume_20d,
+                    tp1=tp1_target,  # 🟢 Added
+                    tp2=tp2_target  # 🟢 Added
                 )
+
             else:
                 print(
                     f" -> [{wrapped_ticker}] Bypassed status. Failed strict quantitative thresholds (Alpha/ROI/RSI/Volume alignment breakdown).")
@@ -437,6 +458,14 @@ if __name__ == "__main__":
                     if capital_required > TOTAL_ACCOUNT_CAPITAL:
                       calculated_shares = int(np.floor(TOTAL_ACCOUNT_CAPITAL / close_price))
                       capital_required = float(calculated_shares * close_price)
+                    # Calculate the metrics for JSON storage format arrays
+                    tp1_val = 0.0
+                    tp2_val = 0.0
+                    if action_status == "BUY" and ENABLE_TP_MATRIX:
+                        var_frac = abs(daily_var_raw)
+                        tp1_val = close_price * (1.0 + (2.0 * var_frac))
+                        tp2_val = close_price * (1.0 + (4.0 * var_frac))
+
                     latest_scan_records.append({
                         "ticker": clean_name,
                         "sector": asset_sector,
@@ -448,10 +477,13 @@ if __name__ == "__main__":
                         "action_status": action_status,
                         "recommended_shares_to_buy": calculated_shares if action_status == "BUY" else 0,
                         "required_allocation_in_rupees": capital_required if action_status == "BUY" else 0.0,
-                        # New trailing stop payload variables sent to JSON matrix
                         "highest_tracked_peak": float(highest_peak_price) if action_status == "BUY" else 0.0,
-                        "active_trailing_stop_floor": float(trailing_stop_price) if action_status == "BUY" else 0.0
-                })
+                        "active_trailing_stop_floor": float(trailing_stop_price) if action_status == "BUY" else 0.0,
+                        # 🟢 New target variables appended safely into payload cache files
+                        "take_profit_target_1": float(tp1_val) if action_status == "BUY" else 0.0,
+                        "take_profit_target_2": float(tp2_val) if action_status == "BUY" else 0.0
+                    })
+
 
                 except Exception:
                     continue
