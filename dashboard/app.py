@@ -113,7 +113,7 @@ else:
     top_10_ledger = ledger_matrix.head(10)
 
     if not top_10_ledger.empty:
-        # Extract individual metrics safely from the top-performing asset row
+        # Extract individual metrics safely from the top-performing asset row.
         lead_row = top_10_ledger.iloc[0]
 
         col1, col2, col3, col4 = st.columns(4)
