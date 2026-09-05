@@ -39,16 +39,26 @@ def compile_master_signal_ledger():
             signals_list = database_payload.get("signals", [])
 
             for signal in signals_list:
-                # Structure telemetry rows into exact frontend display mappings
+                # Extract numerical calculations securely
                 roi_val = signal.get("backtest_roi_pct", 0.0)
+                if roi_val is None or isinstance(roi_val, str):
+                    roi_val = -999.0
+
                 action_status = signal.get("action_status", "HOLD")
                 peak_tracked = signal.get("highest_tracked_peak", 0.0)
                 trailing_floor = signal.get("active_trailing_stop_floor", 0.0)
+                target_tp1 = signal.get("take_profit_target_1", 0.0)
+                target_tp2 = signal.get("take_profit_target_2", 0.0)
 
+                # Fetch base tracking ticker tokens cleanly
+                clean_display_name = signal.get("ticker", "N/A")
+
+                # 🟢 CRITICAL SYNC FIX: Explicitly append to master_rows with fallback properties
+                # to prevent lower layout code blocks from throwing out-of-bounds index exceptions.
                 master_rows.append({
-                    "Asset Ticker": signal.get("ticker", "N/A"),
+                    "Asset Ticker": clean_display_name,
                     "Industry Sector": signal.get("sector", "Other Diversified"),
-                    "Current Close": f"₹{signal.get('close_price', 0.0):,.2f}",
+                    "Current Close": f"₹{signal.get('close_price', 0.0):,.2f}" if signal.get('close_price') else "N/A",
                     "Ann. Volatility": f"{signal.get('ann_volatility_pct', 0.0):.2f}%",
                     "Daily VaR (95%)": f"{signal.get('daily_var_95_pct', 0.0):.2f}%",
                     "Qlib Alpha Score": signal.get("qlib_alpha_score", 0.0),
@@ -59,10 +69,13 @@ def compile_master_signal_ledger():
                                                          0) if action_status == "BUY" else 0,
                     "Capital Allocation (₹)": f"₹{signal.get('required_allocation_in_rupees', 0.0):,.2f}" if action_status == "BUY" else "₹0.00",
                     "Peak Price (₹)": f"₹{peak_tracked:,.2f}" if action_status == "BUY" and peak_tracked > 0 else "N/A",
-                    "Trailing Stop Floor (₹)": f"₹{trailing_floor:,.2f}" if action_status == "BUY" and trailing_floor > 0 else "N/A"
+                    "Trailing Stop Floor (₹)": f"₹{trailing_floor:,.2f}" if action_status == "BUY" and trailing_floor > 0 else "N/A",
+                    "Take Profit 1 (₹)": f"₹{target_tp1:,.2f}" if action_status == "BUY" and target_tp1 > 0 else "N/A",
+                    "Take Profit 2 (₹)": f"₹{target_tp2:,.2f}" if action_status == "BUY" and target_tp2 > 0 else "N/A"
                 })
         except Exception as e:
-            st.error(f"Error parsing high-order JSON engine payload: {e}")
+            # Injecting logs to debug any formatting type mismatches safely
+            st.error(f"Internal structure reading error: {e}")
             return pd.DataFrame()
 
     if not master_rows:
