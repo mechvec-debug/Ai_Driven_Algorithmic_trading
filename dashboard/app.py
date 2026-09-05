@@ -25,7 +25,7 @@ st.markdown("---")
 @st.cache_data(ttl=60)
 def compile_master_signal_ledger():
     """
-    Directly decodes the high-order central JSON data matrix compiled by 
+    Directly decodes the high-order central JSON data matrix compiled by
     the active GitHub Actions runner loop. Bypasses raw missing CSV layers.
     """
     json_path = "data/output/latest_market_signals.json"
@@ -35,9 +35,9 @@ def compile_master_signal_ledger():
         try:
             with open(json_path, "r") as f:
                 database_payload = json.load(f)
-                
+
             signals_list = database_payload.get("signals", [])
-            
+
             for signal in signals_list:
                 # Structure telemetry rows into exact frontend display mappings
                 roi_val = signal.get("backtest_roi_pct", 0.0)
@@ -55,7 +55,8 @@ def compile_master_signal_ledger():
                     "Backtest Success (ROI)": f"{roi_val:+.2f}%" if roi_val != -999.0 else "Failed Analysis",
                     "Sort_Key_ROI": roi_val if roi_val != -999.0 else -9999.0,
                     "Action Deployment": action_status,
-                    "Target Position Shares": signal.get("recommended_shares_to_buy", 0) if action_status == "BUY" else 0,
+                    "Target Position Shares": signal.get("recommended_shares_to_buy",
+                                                         0) if action_status == "BUY" else 0,
                     "Capital Allocation (₹)": f"₹{signal.get('required_allocation_in_rupees', 0.0):,.2f}" if action_status == "BUY" else "₹0.00",
                     "Peak Price (₹)": f"₹{peak_tracked:,.2f}" if action_status == "BUY" and peak_tracked > 0 else "N/A",
                     "Trailing Stop Floor (₹)": f"₹{trailing_floor:,.2f}" if action_status == "BUY" and trailing_floor > 0 else "N/A"
@@ -76,6 +77,7 @@ def compile_master_signal_ledger():
     master_df = master_df.drop(columns=["Sort_Key_ROI"])
 
     return master_df
+
 
 # =====================================================================
 # INTERACTIVE DATA PRESENTATION ENGINE LAYER
@@ -113,6 +115,7 @@ else:
 
     st.markdown("---")
 
+
     # =====================================================================
     # 2. Dynamic Structural Row-Color Formatting Styles
     # =====================================================================
@@ -124,6 +127,7 @@ else:
         if row["Action Deployment"] == "BUY":
             return ["background-color: #1e3d2f; color: #73e6a4; font-weight: bold;"] * len(row)
         return [""] * len(row)
+
 
     # Compile and project the styled dataset onto your web layout screen
     styled_ledger = top_10_ledger.style.apply(apply_row_color_matrix, axis=1)
@@ -138,4 +142,4 @@ else:
     with col2:
         total_tracked_valid = len(ledger_matrix)
         st.metric(label="Total Valid Scanned Equities Database Size", value=f"{total_tracked_valid} / 500+ Active")
-        
+
