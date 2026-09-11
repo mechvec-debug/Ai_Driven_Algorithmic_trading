@@ -35,9 +35,11 @@ jobs:
       run: |
         python main.py
 
+    # 🔍 Locate Step 5 inside your workflow file and verify it looks exactly like this:
     - name: 5. Securely Auto-Commit Overwritten Data Matrices
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
-        commit_message: "Automated Overwrite: Latest Market Signals [Skip CI]"
-        file_pattern: 'data/output/latest_market_signals.json'
+        commit_message: "Automated Overwrite: Latest Market Signals and Alert History [Skip CI]"
+        # 🟢 CRITICAL TRACKING SYNC: Both targets must be declared in one space-separated string
+        file_pattern: 'data/output/latest_market_signals.json data/output/alert_history.json'
         disable_git_pushing: false
