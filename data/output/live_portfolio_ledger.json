@@ -1,0 +1,29 @@
+{
+    "account_telemetry": {
+        "initial_seed_capital": 100000.0,
+        "available_cash": 50801.968210525505,
+        "total_portfolio_value": 100000.0,
+        "total_closed_roi_pct": 0.0
+    },
+    "active_positions": {
+        "GHCLTEXTIL": {
+            "qty": 229,
+            "entry_avg": 112.48380271911623,
+            "tp1": 122.32842818341516,
+            "tp2": 131.03685362024828,
+            "trailing_floor": 113.55349884033203,
+            "peak_close": 112.48380271911623,
+            "sector": "Other Diversified"
+        },
+        "GANECOS": {
+            "qty": 20,
+            "entry_avg": 1171.9620483398437,
+            "tp1": 1279.3993085050977,
+            "tp2": 1374.9985681820704,
+            "trailing_floor": 1176.0524536132812,
+            "peak_close": 1171.9620483398437,
+            "sector": "Other Diversified"
+        }
+    },
+    "closed_trades_history": []
+}
