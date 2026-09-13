@@ -39,4 +39,4 @@ jobs:
         commit_message: "Automated Ledger Update: Morning Orders Processed [Skip CI]"
         # 🟢 Tracks and saves the updated active positions ledger file to your repository
         file_pattern: 'data/output/live_portfolio_ledger.json'
-        disable_git_pushing: false
+    
