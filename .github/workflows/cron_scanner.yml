@@ -42,4 +42,4 @@ jobs:
         commit_message: "Automated Overwrite: Latest Market Signals and Alert History [Skip CI]"
         # 🟢 CRITICAL TRACKING SYNC: Both targets must be declared in one space-separated string
         file_pattern: 'data/output/latest_market_signals.json data/output/alert_history.json'
-        disable_git_pushing: false
+    
