@@ -25,5 +25,16 @@
             "sector": "Other Diversified"
         }
     },
-    "closed_trades_history": []
+    "closed_trades_history": [
+        {
+            "ticker": "GHCLTEXTIL",
+            "status": "STOP_LOSS_HIT",
+            "roi_pct": 0.0
+        },
+        {
+            "ticker": "GANECOS",
+            "status": "STOP_LOSS_HIT",
+            "roi_pct": 0.0
+        }
+    ]
 }
