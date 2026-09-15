@@ -206,11 +206,22 @@ class YahooFinanceQuantPipeline:
                 f"{clean_ticker}.BO" if exchange_type == "BSE" or "BOM" in clean_ticker else f"{clean_ticker}.NS")
         return wrapped_list
 
-    def run_ingestion(self, ticker: str) -> pd.DataFrame:
+        def run_ingestion(self, ticker: str) -> pd.DataFrame:
         try:
-            res = obb.equity.price.historical(ticker, provider="yfinance", start_date=self.start_date,
-                                              end_date=self.end_date)
+            # 🟢 UPGRADE: Explicitly request raw, unadjusted pricing structures 
+            res = obb.equity.price.historical(
+                ticker, 
+                provider="yfinance", 
+                start_date=self.start_date, 
+                end_date=self.end_date,
+                # Force OpenBB to skip dividend/split math on the close column
+                extra_params={"adjustment": "unadjusted"}
+            )
             df = res.to_df()
+            if df.empty: raise ValueError("Empty dataframe.")
+            df.to_csv(f"data/raw/{ticker}_raw.csv")
+            return df
+
             if df.empty: raise ValueError("Empty dataframe.")
             df.to_csv(f"data/raw/{ticker}_raw.csv")
             return df
