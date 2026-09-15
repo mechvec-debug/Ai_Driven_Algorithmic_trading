@@ -193,8 +193,7 @@ class TelegramAlertEngine:
                 'parse_mode': 'HTML'
             }
             try:
-
-            response = requests.post(api_url, json=payload, timeout=10)
+              response = requests.post(api_url, json=payload, timeout=10)
             try:
                 response_data = response.json()
             except ValueError:
