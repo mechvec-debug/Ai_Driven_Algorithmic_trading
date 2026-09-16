@@ -455,14 +455,14 @@ if __name__ == "__main__":
             strategy_roi = float(results['net_return_pct'])
 
         # 4. GOLDEN RULE INTEGRATED FILTER SYSTEM (WITH ENFORCED RSI & VOLUME BREAKS)
+                # 4. GOLDEN RULE INTEGRATED FILTER SYSTEM (WITH ENFORCED RSI & VOLUME BREAKS)
         if (alpha_score > 0.01 and
                 strategy_roi > 0.001 and
                 (45.0 <= current_rsi <= 65.0) and
-                (current_volume >= 50000 and current_volume >= (
-                        avg_volume_20d * 1.2)) and  # 🟢 Requires 20% volume surge
-                (current_price > current_ema200)):  # 🟢 Confirms structural macro trend
+                (current_volume >= 50000 and current_volume >= (avg_volume_20d * 1.2)) and  # 🟢 Preserved: Requires 20% volume surge
+                (current_price > current_ema200)):  # 🟢 Preserved: Confirms structural macro trend
 
-            print(f" -> [{wrapped_ticker}] Golden Rule Satisfied... Dispatching alert...")
+            print(f" -> [{wrapped_ticker}] Golden Rule Satisfied... Dispatching alerts...")
 
             # Calculate volatility-adjusted take profit targets if enabled
             tp1_target = 0.0
@@ -472,6 +472,7 @@ if __name__ == "__main__":
                 tp1_target = current_price * (1.0 + (2.0 * var_fraction))
                 tp2_target = current_price * (1.0 + (4.0 * var_fraction))
 
+            # Action 1: Dispatches your updated traditional text layout
             notifier.send_buy_signal_alert(
                 ticker=wrapped_ticker,
                 price=current_price,
@@ -482,8 +483,21 @@ if __name__ == "__main__":
                 rsi=current_rsi,
                 volume=current_volume,
                 avg_volume=avg_volume_20d,
-                tp1=tp1_target,  # 🟢 Added
-                tp2=tp2_target  # 🟢 Added
+                tp1=tp1_target,  
+                tp2=tp2_target  
+            )
+            
+            # Action 2: Generates and dispatches your beautiful visual card directly over API
+            notifier.generate_and_send_visual_card(
+                ticker=wrapped_ticker,
+                price=current_price,
+                vol=current_volume / 1000000.0,  # Converted to Millions for cleaner visual card display
+                var=daily_var,
+                alpha=alpha_score,
+                roi=strategy_roi,
+                rsi=current_rsi,
+                tp1=tp1_target,
+                tp2=tp2_target
             )
 
         else:
