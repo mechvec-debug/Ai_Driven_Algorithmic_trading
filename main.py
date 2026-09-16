@@ -281,11 +281,155 @@ class TelegramAlertEngine:
         # Save card configuration output temporarily to workspace directory disk
         temp_img_path = f"data/output/{clean_name}_signal_card.png"
         os.makedirs(os.path.dirname(temp_img_path), exist_ok=True)
+class TelegramAlertEngine:
+    def __init__(self, token: str, chat_id: str):
+        """Initializes the secure Telegram Bot API alert gateway."""
+        self.token = token.strip() if token else ""
+        self.chat_id = str(chat_id).strip() if chat_id else ""
+        self.enabled = bool(self.token and self.chat_id)
+
+    def send_buy_signal_alert(
+            self,
+            ticker: str,
+            price: float,
+            vol: float,
+            var: float,
+            alpha: float,
+            roi: float,
+            rsi: float,
+            volume: float,
+            avg_volume: float,
+            tp1: float = 0.0,
+            tp2: float = 0.0
+    ):
+        """Transmits a traditional text configuration log payload via Telegram bot API."""
+        if not self.enabled:
+            return
+
+        clean_name = str(ticker).replace(".NS", "").replace(".BO", "").strip()
+        initial_capital = 100000.0
+        final_capital = initial_capital * (1.0 + (roi / 100.0))
+
+        tp_matrix_panel = ""
+        if tp1 > 0 and tp2 > 0:
+            tp_matrix_panel = (
+                f"🎯 <b>VOLATILITY TAKE-PROFIT MATRIX:</b>\n"
+                f" • Take-Profit 1 (50% Scalp): <b>₹{tp1:,.2f}</b>\n"
+                f" • Take-Profit 2 (Runner Target): <b>₹{tp2:,.2f}</b>\n\n"
+            )
+
+        message_payload = (
+            f"⚡ <b>QUANT STRATEGY SYSTEM: Bismillah TRIGGER</b> ⚡\n"
+            f"🤖 <b>Status:</b> Automated bot alert dispatched\n"
+            f"⚠️ <i>Please check Shariah status</i>\n\n"
+            f"📌 <b>Asset Target:</b> #{clean_name}\n"
+            f"💰 <b>Current Close Price:</b> ₹{price:,.2f}\n"
+            f"📈 <b>Qlib Alpha Score:</b> {alpha:+.4f}\n"
+            f"📊 <b>Current 14-Day RSI:</b> {rsi:.2f}\n"
+            f"🔊 <b>Volume Telemetry:</b> {volume:,.0f} (20D Avg: {avg_volume:,.0f})\n\n"
+            f"{tp_matrix_panel}"
+            f"⚙️ <b>LEAN SIMULATION PORTFOLIO MATRIX:</b>\n"
+            f" • Initial Account Capital: ₹{initial_capital:,.2f}\n"
+            f" • Final Strategy Capital: <b>₹{final_capital:,.2f}</b>\n"
+            f" • Net Strategy Profit ROI: <b>{roi:+.2f}%</b>\n\n"
+            f"📊 <b>Risk & Volatility Telemetry:</b>\n"
+            f" • Trailing Ann. Volatility: {vol:.2f}%\n"
+            f" • Daily Value at Risk (95%): {var:.2f}%\n\n"
+            f"➡️ <b>Execution Order:</b> Only for study- no buy/sell."
+        )
+
+        api_url = f"https://telegram.org{self.token}/sendMessage"
+        payload = {
+            "chat_id": self.chat_id,
+            "text": message_payload,
+            "parse_mode": "HTML"
+        }
+
+        try:
+            response = requests.post(api_url, json=payload, timeout=10)
+            try:
+                response_data = response.json()
+            except ValueError:
+                response_data = {}
+
+            if response.status_code == 200 and response_data.get("ok") is True:
+                print(f" ✓ Telegram text alert delivered successfully via bot for {clean_name}!")
+            else:
+                error_description = response_data.get("description", response.text)
+                print(f" ✕ Telegram API Error: Status {response.status_code} | Description: {error_description}")
+        except requests.exceptions.Timeout:
+            print(f" ✕ Telegram request timed out while sending alert for {clean_name}.")
+        except requests.exceptions.RequestException as net_error:
+            print(f" ✕ Telegram connection failed: {net_error}")
+        except Exception as unexpected_error:
+            print(f" ✕ Unexpected Telegram alert error: {unexpected_error}")
+
+    def generate_and_send_visual_card(
+        self, ticker: str, price: float, vol: float, var: float, 
+        alpha: float, roi: float, rsi: float, tp1: float, tp2: float
+    ):
+        """Dynamically renders an institutional-grade visual signal card and transmits via Telegram."""
+        if not self.enabled:
+            return
+
+        clean_name = str(ticker).replace(".NS", "").replace(".BO", "").strip()
+
+        fig, ax = plt.subplots(figsize=(7, 11), facecolor='#0D1B2A')
+        ax.set_xlim(0, 7)
+        ax.set_ylim(0, 11)
+        plt.axis('off')
+
+        ax.add_patch(patches.Rectangle((0.3, 9.8), 6.4, 0.9, color='#1E293B', zorder=1))
+        ax.text(0.6, 10.35, "QUANT STRATEGY SYSTEM:", color='#E2E8F0', fontsize=18, fontweight='bold', zorder=2)
+        ax.text(0.6, 9.95, "TRIGGER 🚀", color='#F59E0B', fontsize=22, fontweight='bold', zorder=2)
+
+        ax.add_patch(patches.Rectangle((0.3, 5.8), 3.0, 3.7, color='#152238', zorder=1))
+        ax.text(0.5, 9.1, f"#{clean_name}", color='#38BDF8', fontsize=20, fontweight='bold', zorder=2)
+        ax.text(0.5, 8.5, "Current Close Price:", color='#94A3B8', fontsize=10, zorder=2)
+        ax.text(0.5, 7.9, f"₹{price:,.2f}", color='#FFFFFF', fontsize=22, fontweight='bold', zorder=2)
+        ax.text(0.5, 7.3, f"📊 Alpha Score: {alpha:+.4f}", color='#4ADE80' if alpha > 0 else '#F87171', fontsize=11, fontweight='bold', zorder=2)
+        ax.text(0.5, 6.8, f"📈 14-Day RSI: {rsi:.2f}", color='#FB923C', fontsize=11, zorder=2)
+        ax.text(0.5, 6.3, f"🔊 Vol Telemetry: {vol:.2f}M", color='#E2E8F0', fontsize=11, zorder=2)
+
+        ax.add_patch(patches.Rectangle((3.7, 5.8), 3.0, 3.7, color='#0F2D24', zorder=1))
+        ax.text(3.9, 9.1, "TAKE-PROFIT MATRIX", color='#A7F3D0', fontsize=12, fontweight='bold', zorder=2)
+        
+        ax.add_patch(patches.Rectangle((3.9, 7.5), 2.6, 1.2, color='#1E4D3A', zorder=2))
+        ax.text(4.1, 8.3, "TP1 (50% Scalp)", color='#34D399', fontsize=10, zorder=3)
+        ax.text(4.1, 7.7, f"₹{tp1:,.2f}", color='#FFFFFF', fontsize=16, fontweight='bold', zorder=3)
+        
+        ax.add_patch(patches.Rectangle((3.9, 6.0), 2.6, 1.2, color='#14532D', zorder=2))
+        ax.text(4.1, 6.8, "TP2 (Runner Target)", color='#4ADE80', fontsize=10, zorder=3)
+        ax.text(4.1, 6.2, f"₹{tp2:,.2f}", color='#FFFFFF', fontsize=16, fontweight='bold', zorder=3)
+
+        ax.add_patch(patches.Rectangle((0.3, 1.6), 3.0, 3.9, color='#1E293B', zorder=1))
+        ax.text(0.5, 5.1, "LEAN PORTFOLIO MATRIX", color='#94A3B8', fontsize=11, fontweight='bold', zorder=2)
+        
+        roi_capped = max(-50.0, min(100.0, roi))
+        circle_bg = plt.Circle((1.8, 3.6), 0.8, color='#334155', fill=True, zorder=2)
+        circle_fg = plt.Circle((1.8, 3.6), 0.8 * (1.0 + roi_capped/100.0 if roi_capped > 0 else 1.0), color='#F59E0B', fill=True, zorder=3)
+        circle_hole = plt.Circle((1.8, 3.6), 0.5, color='#1E293B', fill=True, zorder=4)
+        ax.add_patch(circle_bg)
+        ax.add_patch(circle_fg)
+        ax.add_patch(circle_hole)
+        ax.text(1.4, 3.5, f"{roi:+.1f}%", color='#FFFFFF', fontsize=12, fontweight='bold', zorder=5)
+        
+        ax.text(0.5, 2.2, f"Net Return ROI: {roi:+.2f}%", color='#F59E0B', fontsize=12, fontweight='bold', zorder=2)
+
+        ax.add_patch(patches.Rectangle((3.7, 1.6), 3.0, 3.9, color='#3B1B1B', zorder=1))
+        ax.text(3.9, 5.1, "RISK & VOLATILITY", color='#FCA5A5', fontsize=12, fontweight='bold', zorder=2)
+        ax.text(3.9, 4.2, f"Daily Value at Risk:\n {var:.2f}% (95% Buffer)", color='#EF4444', fontsize=13, fontweight='bold', zorder=2)
+        ax.text(3.9, 2.5, "🚨 DANGER ZONE CAP", color='#FFFFFF', bbox=dict(facecolor='#B91C1C', alpha=0.8, boxstyle='round,pad=0.3'), fontsize=10, zorder=2)
+
+        ax.add_patch(patches.Rectangle((0.3, 0.4), 6.4, 0.9, color='#0F172A', zorder=1))
+        ax.text(0.5, 0.75, "➡️ Execution Order: Only for study- no buy/sell.", color='#94A3B8', fontsize=11, fontweight='bold', zorder=2)
+
+        temp_img_path = f"data/output/{clean_name}_signal_card.png"
+        os.makedirs(os.path.dirname(temp_img_path), exist_ok=True)
         plt.savefig(temp_img_path, facecolor=fig.get_facecolor(), edgecolor='none', dpi=200, bbox_inches='tight')
         plt.close(fig)
 
-        # DISPATCH VIA TELEGRAM API MULTIPART POST FORM
-        send_photo_url = f"https://api.telegram.org/bot{self.token}/sendPhoto"
+        send_photo_url = f"https://telegram.org{self.token}/sendPhoto"
         try:
             with open(temp_img_path, 'rb') as photo_file:
                 files = {'photo': photo_file}
@@ -305,14 +449,13 @@ class TelegramAlertEngine:
                 print(f" ✓ Telegram visual card delivered successfully to phone for {clean_name}!")
             else:
                 error_description = response_data.get("description", response.text)
-                print(f" ✕ Telegram API Error: Status {response.status_code} | Description: {error_description}")
-
+                print(f" ✕ Telegram photo API Error: Status {response.status_code} | Description: {error_description}")
         except requests.exceptions.Timeout:
-            print(f" ✕ Telegram request timed out while sending alert for {clean_name}.")
+            print(f" ✕ Telegram photo request timed out while sending alert for {clean_name}.")
         except requests.exceptions.RequestException as net_error:
-            print(f" ✕ Telegram connection failed: {net_error}")
+            print(f" ✕ Telegram connection failed for photo: {net_error}")
         except Exception as unexpected_error:
-            print(f" ✕ Unexpected Telegram alert error: {unexpected_error}")
+            print(f" ✕ Unexpected Telegram photo alert error: {unexpected_error}")
 
 # =====================================================================
 # QUANT & MACHINE LEARNING FEATURE COMPUTE ENGINES
