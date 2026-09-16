@@ -3,7 +3,6 @@ streamlit
 pandas
 numpy
 pyyaml
-# Add these lines to your requirements.txt or pip install steps:
 pillow
 matplotlib
 
