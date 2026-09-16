@@ -204,6 +204,107 @@ class TelegramAlertEngine:
                 print(f" ✓ Telegram visual card delivered successfully to phone for {clean_name}!")
             else:
                 error_description = response_data.get("description", response.text)
+    def generate_and_send_visual_card(
+        self, ticker: str, price: float, vol: float, var: float, 
+        alpha: float, roi: float, rsi: float, tp1: float, tp2: float
+    ):
+        """
+        Dynamically renders an institutional-grade visual signal card and 
+        transmits it as a beautiful graphic card directly via the Telegram bot API.
+        """
+        if not self.enabled:
+            return
+
+        clean_name = str(ticker).replace(".NS", "").replace(".BO", "").strip()
+
+        # Initialize Canvas Frame Layout dimensions
+        fig, ax = plt.subplots(figsize=(7, 11), facecolor='#0D1B2A')
+        ax.set_xlim(0, 7)
+        ax.set_ylim(0, 11)
+        plt.axis('off')
+
+        # 🟢 FIXED: Removed 'rx' and 'ry' keywords across all Rectangle patches to ensure total system stability
+        # Main Title Header Banner Card Background
+        ax.add_patch(patches.Rectangle((0.3, 9.8), 6.4, 0.9, color='#1E293B', zorder=1))
+        ax.text(0.6, 10.35, "QUANT STRATEGY SYSTEM:", color='#E2E8F0', fontsize=18, fontweight='bold', zorder=2)
+        ax.text(0.6, 9.95, "TRIGGER 🚀", color='#F59E0B', fontsize=22, fontweight='bold', zorder=2)
+
+        # Panel Block A: Asset Target Summary Profile
+        ax.add_patch(patches.Rectangle((0.3, 5.8), 3.0, 3.7, color='#152238', zorder=1))
+        ax.text(0.5, 9.1, f"#{clean_name}", color='#38BDF8', fontsize=20, fontweight='bold', zorder=2)
+        ax.text(0.5, 8.5, "Current Close Price:", color='#94A3B8', fontsize=10, zorder=2)
+        ax.text(0.5, 7.9, f"₹{price:,.2f}", color='#FFFFFF', fontsize=22, fontweight='bold', zorder=2)
+        ax.text(0.5, 7.3, f"📊 Alpha Score: {alpha:+.4f}", color='#4ADE80' if alpha > 0 else '#F87171', fontsize=11, fontweight='bold', zorder=2)
+        ax.text(0.5, 6.8, f"📈 14-Day RSI: {rsi:.2f}", color='#FB923C', fontsize=11, zorder=2)
+        ax.text(0.5, 6.3, f"🔊 Vol Telemetry: {vol:.2f}M", color='#E2E8F0', fontsize=11, zorder=2)
+
+        # Panel Block B: Volatility Adjusted Take-Profit Matrix
+        ax.add_patch(patches.Rectangle((3.7, 5.8), 3.0, 3.7, color='#0F2D24', zorder=1))
+        ax.text(3.9, 9.1, "TAKE-PROFIT MATRIX", color='#A7F3D0', fontsize=12, fontweight='bold', zorder=2)
+        
+        # Sub-Card TP1
+        ax.add_patch(patches.Rectangle((3.9, 7.5), 2.6, 1.2, color='#1E4D3A', zorder=2))
+        ax.text(4.1, 8.3, "TP1 (50% Scalp)", color='#34D399', fontsize=10, zorder=3)
+        ax.text(4.1, 7.7, f"₹{tp1:,.2f}", color='#FFFFFF', fontsize=16, fontweight='bold', zorder=3)
+        
+        # Sub-Card TP2
+        ax.add_patch(patches.Rectangle((3.9, 6.0), 2.6, 1.2, color='#14532D', zorder=2))
+        ax.text(4.1, 6.8, "TP2 (Runner Target)", color='#4ADE80', fontsize=10, zorder=3)
+        ax.text(4.1, 6.2, f"₹{tp2:,.2f}", color='#FFFFFF', fontsize=16, fontweight='bold', zorder=3)
+
+        # Panel Block C: LEAN Simulation Portfolio Metrics
+        ax.add_patch(patches.Rectangle((0.3, 1.6), 3.0, 3.9, color='#1E293B', zorder=1))
+        ax.text(0.5, 5.1, "LEAN PORTFOLIO MATRIX", color='#94A3B8', fontsize=11, fontweight='bold', zorder=2)
+        
+        # Draw donut tracking indicator visualization ring background
+        roi_capped = max(-50.0, min(100.0, roi)) # Keep geometry safe
+        circle_bg = plt.Circle((1.8, 3.6), 0.8, color='#334155', fill=True, zorder=2)
+        circle_fg = plt.Circle((1.8, 3.6), 0.8 * (1.0 + roi_capped/100.0 if roi_capped > 0 else 1.0), color='#F59E0B', fill=True, zorder=3)
+        circle_hole = plt.Circle((1.8, 3.6), 0.5, color='#1E293B', fill=True, zorder=4)
+        ax.add_patch(circle_bg)
+        ax.add_patch(circle_fg)
+        ax.add_patch(circle_hole)
+        ax.text(1.4, 3.5, f"{roi:+.1f}%", color='#FFFFFF', fontsize=12, fontweight='bold', zorder=5)
+        
+        ax.text(0.5, 2.2, f"Net Return ROI: {roi:+.2f}%", color='#F59E0B', fontsize=12, fontweight='bold', zorder=2)
+
+        # Panel Block D: Value at Risk (VaR Downside Guard Shield)
+        ax.add_patch(patches.Rectangle((3.7, 1.6), 3.0, 3.9, color='#3B1B1B', zorder=1))
+        ax.text(3.9, 5.1, "RISK & VOLATILITY", color='#FCA5A5', fontsize=12, fontweight='bold', zorder=2)
+        ax.text(3.9, 4.2, f"Daily Value at Risk:\n {var:.2f}% (95% Buffer)", color='#EF4444', fontsize=13, fontweight='bold', zorder=2)
+        ax.text(3.9, 2.5, "🚨 DANGER ZONE CAP", color='#FFFFFF', bbox=dict(facecolor='#B91C1C', alpha=0.8, boxstyle='round,pad=0.3'), fontsize=10, zorder=2)
+
+        # Bottom Footnote Layout Disclaimer Panel
+        ax.add_patch(patches.Rectangle((0.3, 0.4), 6.4, 0.9, color='#0F172A', zorder=1))
+        ax.text(0.5, 0.75, "➡️ Execution Order: Only for study- no buy/sell.", color='#94A3B8', fontsize=11, fontweight='bold', zorder=2)
+
+        # Save card configuration output temporarily to workspace directory disk
+        temp_img_path = f"data/output/{clean_name}_signal_card.png"
+        os.makedirs(os.path.dirname(temp_img_path), exist_ok=True)
+        plt.savefig(temp_img_path, facecolor=fig.get_facecolor(), edgecolor='none', dpi=200, bbox_inches='tight')
+        plt.close(fig)
+
+        # DISPATCH VIA TELEGRAM API MULTIPART POST FORM
+        send_photo_url = f"https://api.telegram.org/bot{self.token}/sendPhoto"
+        try:
+            with open(temp_img_path, 'rb') as photo_file:
+                files = {'photo': photo_file}
+                data = {
+                    'chat_id': self.chat_id,
+                    'caption': f"⚡ <b>QUANT STRATEGY SYSTEM BUY ALERT: #{clean_name}</b> ⚡\n<i>Live visual analytical card generated by strategy bot.</i>",
+                    'parse_mode': 'HTML'
+                }
+                response = requests.post(send_photo_url, files=files, data=data, timeout=10)
+                
+            try:
+                response_data = response.json()
+            except ValueError:
+                response_data = {}
+
+            if response.status_code == 200 and response_data.get("ok") is True:
+                print(f" ✓ Telegram visual card delivered successfully to phone for {clean_name}!")
+            else:
+                error_description = response_data.get("description", response.text)
                 print(f" ✕ Telegram API Error: Status {response.status_code} | Description: {error_description}")
 
         except requests.exceptions.Timeout:
@@ -212,7 +313,6 @@ class TelegramAlertEngine:
             print(f" ✕ Telegram connection failed: {net_error}")
         except Exception as unexpected_error:
             print(f" ✕ Unexpected Telegram alert error: {unexpected_error}")
-
 
 # =====================================================================
 # QUANT & MACHINE LEARNING FEATURE COMPUTE ENGINES
