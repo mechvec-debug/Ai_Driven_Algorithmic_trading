@@ -3,7 +3,7 @@
 
 # config/settings.yaml
 start_date: "2025-01-01"
-end_date: "2026-08-01"
+# end_date: null
 default_exchange: "NSE"
 
 # TELEGRAM BOT WEBHOOK GATEWAY SETTINGS
