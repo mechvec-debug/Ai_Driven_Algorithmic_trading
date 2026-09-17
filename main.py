@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 import urllib.request
 import matplotlib
+
 matplotlib.use('Agg')  # Enforces a headless backend for safe server execution environments
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
@@ -55,7 +56,7 @@ class TelegramAlertEngine:
                 f" • Take-Profit 2 (Runner Target): <b>₹{tp2:,.2f}</b>\n\n"
             )
 
-        # Injected the mandatory "bot" trigger word safely into the text template layout
+        # Telegram text notification template layout
         message_payload = (
             f"⚡ <b>QUANT STRATEGY SYSTEM: Bismillah TRIGGER</b> ⚡\n"
             f"🤖 <b>Status:</b> Automated bot alert dispatched\n"
@@ -105,85 +106,80 @@ class TelegramAlertEngine:
             print(f" ✕ Unexpected Telegram alert error: {unexpected_error}")
 
     def generate_and_send_visual_card(
-        self, ticker: str, price: float, vol: float, var: float, 
-        alpha: float, roi: float, rsi: float, tp1: float, tp2: float
+            self, ticker: str, price: float, vol: float, var: float,
+            alpha: float, roi: float, rsi: float, tp1: float, tp2: float
     ):
-        """
-        Dynamically renders an institutional-grade visual signal card and 
-        transmits it as a beautiful graphic card directly via the Telegram bot API.
-        """
+        """Dynamically renders an institutional-grade visual signal card without font-breaking glyphs."""
         if not self.enabled:
             return
 
         clean_name = str(ticker).replace(".NS", "").replace(".BO", "").strip()
 
-        # Initialize Canvas Frame Layout dimensions
         fig, ax = plt.subplots(figsize=(7, 11), facecolor='#0D1B2A')
         ax.set_xlim(0, 7)
         ax.set_ylim(0, 11)
         plt.axis('off')
 
-        # Main Title Header Banner Card Background
-        ax.add_patch(patches.Rectangle((0.3, 9.8), 6.4, 0.9, color='#1E293B', rx=0.15, ry=0.15, zorder=1))
+        # Header
+        ax.add_patch(patches.Rectangle((0.3, 9.8), 6.4, 0.9, color='#1E293B', zorder=1))
         ax.text(0.6, 10.35, "QUANT STRATEGY SYSTEM:", color='#E2E8F0', fontsize=18, fontweight='bold', zorder=2)
-        ax.text(0.6, 9.95, "TRIGGER 🚀", color='#F59E0B', fontsize=22, fontweight='bold', zorder=2)
+        ax.text(0.6, 9.95, "TRIGGER >>", color='#F59E0B', fontsize=22, fontweight='bold', zorder=2)
 
-        # Panel Block A: Asset Target Summary Profile
-        ax.add_patch(patches.Rectangle((0.3, 5.8), 3.0, 3.7, color='#152238', rx=0.15, ry=0.15, zorder=1))
+        # Panel A: Asset Target Summary
+        ax.add_patch(patches.Rectangle((0.3, 5.8), 3.0, 3.7, color='#152238', zorder=1))
         ax.text(0.5, 9.1, f"#{clean_name}", color='#38BDF8', fontsize=20, fontweight='bold', zorder=2)
         ax.text(0.5, 8.5, "Current Close Price:", color='#94A3B8', fontsize=10, zorder=2)
         ax.text(0.5, 7.9, f"₹{price:,.2f}", color='#FFFFFF', fontsize=22, fontweight='bold', zorder=2)
-        ax.text(0.5, 7.3, f"📊 Alpha Score: {alpha:+.4f}", color='#4ADE80' if alpha > 0 else '#F87171', fontsize=11, fontweight='bold', zorder=2)
-        ax.text(0.5, 6.8, f"📈 14-Day RSI: {rsi:.2f}", color='#FB923C', fontsize=11, zorder=2)
-        ax.text(0.5, 6.3, f"🔊 Vol Telemetry: {vol:.2f}M", color='#E2E8F0', fontsize=11, zorder=2)
+        ax.text(0.5, 7.3, f"Alpha Score: {alpha:+.4f}", color='#4ADE80' if alpha > 0 else '#F87171', fontsize=11,
+                fontweight='bold', zorder=2)
+        ax.text(0.5, 6.8, f"14-Day RSI: {rsi:.2f}", color='#FB923C', fontsize=11, zorder=2)
+        ax.text(0.5, 6.3, f"Vol Telemetry: {vol:.2f}M", color='#E2E8F0', fontsize=11, zorder=2)
 
-        # Panel Block B: Volatility Adjusted Take-Profit Matrix
-        ax.add_patch(patches.Rectangle((3.7, 5.8), 3.0, 3.7, color='#0F2D24', rx=0.15, ry=0.15, zorder=1))
+        # Panel B: Take-Profit Matrix
+        ax.add_patch(patches.Rectangle((3.7, 5.8), 3.0, 3.7, color='#0F2D24', zorder=1))
         ax.text(3.9, 9.1, "TAKE-PROFIT MATRIX", color='#A7F3D0', fontsize=12, fontweight='bold', zorder=2)
-        
-        # Sub-Card TP1
-        ax.add_patch(patches.Rectangle((3.9, 7.5), 2.6, 1.2, color='#1E4D3A', rx=0.1, ry=0.1, zorder=2))
+
+        ax.add_patch(patches.Rectangle((3.9, 7.5), 2.6, 1.2, color='#1E4D3A', zorder=2))
         ax.text(4.1, 8.3, "TP1 (50% Scalp)", color='#34D399', fontsize=10, zorder=3)
         ax.text(4.1, 7.7, f"₹{tp1:,.2f}", color='#FFFFFF', fontsize=16, fontweight='bold', zorder=3)
-        
-        # Sub-Card TP2
-        ax.add_patch(patches.Rectangle((3.9, 6.0), 2.6, 1.2, color='#14532D', rx=0.1, ry=0.1, zorder=2))
+
+        ax.add_patch(patches.Rectangle((3.9, 6.0), 2.6, 1.2, color='#14532D', zorder=2))
         ax.text(4.1, 6.8, "TP2 (Runner Target)", color='#4ADE80', fontsize=10, zorder=3)
         ax.text(4.1, 6.2, f"₹{tp2:,.2f}", color='#FFFFFF', fontsize=16, fontweight='bold', zorder=3)
 
-        # Panel Block C: LEAN Simulation Portfolio Metrics
-        ax.add_patch(patches.Rectangle((0.3, 1.6), 3.0, 3.9, color='#1E293B', rx=0.15, ry=0.15, zorder=1))
+        # Panel C: LEAN Portfolio Matrix
+        ax.add_patch(patches.Rectangle((0.3, 1.6), 3.0, 3.9, color='#1E293B', zorder=1))
         ax.text(0.5, 5.1, "LEAN PORTFOLIO MATRIX", color='#94A3B8', fontsize=11, fontweight='bold', zorder=2)
-        
-        # Draw donut tracking indicator visualization ring background
-        roi_capped = max(-50.0, min(100.0, roi)) # Keep geometry safe
+
+        roi_capped = max(-50.0, min(100.0, roi))
         circle_bg = plt.Circle((1.8, 3.6), 0.8, color='#334155', fill=True, zorder=2)
-        circle_fg = plt.Circle((1.8, 3.6), 0.8 * (1.0 + roi_capped/100.0 if roi_capped > 0 else 1.0), color='#F59E0B', fill=True, zorder=3)
+        circle_fg = plt.Circle((1.8, 3.6), 0.8 * (1.0 + roi_capped / 100.0 if roi_capped > 0 else 1.0), color='#F59E0B',
+                               fill=True, zorder=3)
         circle_hole = plt.Circle((1.8, 3.6), 0.5, color='#1E293B', fill=True, zorder=4)
         ax.add_patch(circle_bg)
         ax.add_patch(circle_fg)
         ax.add_patch(circle_hole)
         ax.text(1.4, 3.5, f"{roi:+.1f}%", color='#FFFFFF', fontsize=12, fontweight='bold', zorder=5)
-        
         ax.text(0.5, 2.2, f"Net Return ROI: {roi:+.2f}%", color='#F59E0B', fontsize=12, fontweight='bold', zorder=2)
 
-        # Panel Block D: Value at Risk (VaR Downside Guard Shield)
-        ax.add_patch(patches.Rectangle((3.7, 1.6), 3.0, 3.9, color='#3B1B1B', rx=0.15, ry=0.15, zorder=1))
+        # Panel D: Risk & Volatility
+        ax.add_patch(patches.Rectangle((3.7, 1.6), 3.0, 3.9, color='#3B1B1B', zorder=1))
         ax.text(3.9, 5.1, "RISK & VOLATILITY", color='#FCA5A5', fontsize=12, fontweight='bold', zorder=2)
-        ax.text(3.9, 4.2, f"Daily Value at Risk:\n {var:.2f}% (95% Buffer)", color='#EF4444', fontsize=13, fontweight='bold', zorder=2)
-        ax.text(3.9, 2.5, "🚨 DANGER ZONE CAP", color='#FFFFFF', bbox=dict(facecolor='#B91C1C', alpha=0.8, boxstyle='round,pad=0.3'), fontsize=10, zorder=2)
+        ax.text(3.9, 4.2, f"Daily Value at Risk:\n {var:.2f}% (95% Buffer)", color='#EF4444', fontsize=13,
+                fontweight='bold', zorder=2)
+        ax.text(3.9, 2.5, "[!] DANGER ZONE CAP", color='#FFFFFF',
+                bbox=dict(facecolor='#B91C1C', alpha=0.8, boxstyle='round,pad=0.3'), fontsize=10, zorder=2)
 
-        # Bottom Footnote Layout Disclaimer Panel
-        ax.add_patch(patches.Rectangle((0.3, 0.4), 6.4, 0.9, color='#0F172A', rx=0.1, ry=0.1, zorder=1))
-        ax.text(0.5, 0.75, "➡️ Execution Order: Only for study- no buy/sell.", color='#94A3B8', fontsize=11, fontweight='bold', zorder=2)
+        # Footnote
+        ax.add_patch(patches.Rectangle((0.3, 0.4), 6.4, 0.9, color='#0F172A', zorder=1))
+        ax.text(0.5, 0.75, ">> Execution Order: Only for study- no buy/sell.", color='#94A3B8', fontsize=11,
+                fontweight='bold', zorder=2)
 
-        # Save card configuration output temporarily to workspace directory disk
         temp_img_path = f"data/output/{clean_name}_signal_card.png"
         os.makedirs(os.path.dirname(temp_img_path), exist_ok=True)
         plt.savefig(temp_img_path, facecolor=fig.get_facecolor(), edgecolor='none', dpi=200, bbox_inches='tight')
         plt.close(fig)
 
-        # DISPATCH VIA TELEGRAM API MULTIPART POST FORM
         send_photo_url = f"https://api.telegram.org/bot{self.token}/sendPhoto"
         try:
             with open(temp_img_path, 'rb') as photo_file:
@@ -194,252 +190,7 @@ class TelegramAlertEngine:
                     'parse_mode': 'HTML'
                 }
                 response = requests.post(send_photo_url, files=files, data=data, timeout=10)
-                
-            try:
-                response_data = response.json()
-            except ValueError:
-                response_data = {}
 
-            if response.status_code == 200 and response_data.get("ok") is True:
-                print(f" ✓ Telegram visual card delivered successfully to phone for {clean_name}!")
-            else:
-                error_description = response_data.get("description", response.text)
-    def generate_and_send_visual_card(
-        self, ticker: str, price: float, vol: float, var: float, 
-        alpha: float, roi: float, rsi: float, tp1: float, tp2: float
-    ):
-        """
-        Dynamically renders an institutional-grade visual signal card and 
-        transmits it as a beautiful graphic card directly via the Telegram bot API.
-        """
-        if not self.enabled:
-            return
-
-        clean_name = str(ticker).replace(".NS", "").replace(".BO", "").strip()
-
-        # Initialize Canvas Frame Layout dimensions
-        fig, ax = plt.subplots(figsize=(7, 11), facecolor='#0D1B2A')
-        ax.set_xlim(0, 7)
-        ax.set_ylim(0, 11)
-        plt.axis('off')
-
-        # 🟢 FIXED: Removed 'rx' and 'ry' keywords across all Rectangle patches to ensure total system stability
-        # Main Title Header Banner Card Background
-        ax.add_patch(patches.Rectangle((0.3, 9.8), 6.4, 0.9, color='#1E293B', zorder=1))
-        ax.text(0.6, 10.35, "QUANT STRATEGY SYSTEM:", color='#E2E8F0', fontsize=18, fontweight='bold', zorder=2)
-        ax.text(0.6, 9.95, "TRIGGER 🚀", color='#F59E0B', fontsize=22, fontweight='bold', zorder=2)
-
-        # Panel Block A: Asset Target Summary Profile
-        ax.add_patch(patches.Rectangle((0.3, 5.8), 3.0, 3.7, color='#152238', zorder=1))
-        ax.text(0.5, 9.1, f"#{clean_name}", color='#38BDF8', fontsize=20, fontweight='bold', zorder=2)
-        ax.text(0.5, 8.5, "Current Close Price:", color='#94A3B8', fontsize=10, zorder=2)
-        ax.text(0.5, 7.9, f"₹{price:,.2f}", color='#FFFFFF', fontsize=22, fontweight='bold', zorder=2)
-        ax.text(0.5, 7.3, f"📊 Alpha Score: {alpha:+.4f}", color='#4ADE80' if alpha > 0 else '#F87171', fontsize=11, fontweight='bold', zorder=2)
-        ax.text(0.5, 6.8, f"📈 14-Day RSI: {rsi:.2f}", color='#FB923C', fontsize=11, zorder=2)
-        ax.text(0.5, 6.3, f"🔊 Vol Telemetry: {vol:.2f}M", color='#E2E8F0', fontsize=11, zorder=2)
-
-        # Panel Block B: Volatility Adjusted Take-Profit Matrix
-        ax.add_patch(patches.Rectangle((3.7, 5.8), 3.0, 3.7, color='#0F2D24', zorder=1))
-        ax.text(3.9, 9.1, "TAKE-PROFIT MATRIX", color='#A7F3D0', fontsize=12, fontweight='bold', zorder=2)
-        
-        # Sub-Card TP1
-        ax.add_patch(patches.Rectangle((3.9, 7.5), 2.6, 1.2, color='#1E4D3A', zorder=2))
-        ax.text(4.1, 8.3, "TP1 (50% Scalp)", color='#34D399', fontsize=10, zorder=3)
-        ax.text(4.1, 7.7, f"₹{tp1:,.2f}", color='#FFFFFF', fontsize=16, fontweight='bold', zorder=3)
-        
-        # Sub-Card TP2
-        ax.add_patch(patches.Rectangle((3.9, 6.0), 2.6, 1.2, color='#14532D', zorder=2))
-        ax.text(4.1, 6.8, "TP2 (Runner Target)", color='#4ADE80', fontsize=10, zorder=3)
-        ax.text(4.1, 6.2, f"₹{tp2:,.2f}", color='#FFFFFF', fontsize=16, fontweight='bold', zorder=3)
-
-        # Panel Block C: LEAN Simulation Portfolio Metrics
-        ax.add_patch(patches.Rectangle((0.3, 1.6), 3.0, 3.9, color='#1E293B', zorder=1))
-        ax.text(0.5, 5.1, "LEAN PORTFOLIO MATRIX", color='#94A3B8', fontsize=11, fontweight='bold', zorder=2)
-        
-        # Draw donut tracking indicator visualization ring background
-        roi_capped = max(-50.0, min(100.0, roi)) # Keep geometry safe
-        circle_bg = plt.Circle((1.8, 3.6), 0.8, color='#334155', fill=True, zorder=2)
-        circle_fg = plt.Circle((1.8, 3.6), 0.8 * (1.0 + roi_capped/100.0 if roi_capped > 0 else 1.0), color='#F59E0B', fill=True, zorder=3)
-        circle_hole = plt.Circle((1.8, 3.6), 0.5, color='#1E293B', fill=True, zorder=4)
-        ax.add_patch(circle_bg)
-        ax.add_patch(circle_fg)
-        ax.add_patch(circle_hole)
-        ax.text(1.4, 3.5, f"{roi:+.1f}%", color='#FFFFFF', fontsize=12, fontweight='bold', zorder=5)
-        
-        ax.text(0.5, 2.2, f"Net Return ROI: {roi:+.2f}%", color='#F59E0B', fontsize=12, fontweight='bold', zorder=2)
-
-        # Panel Block D: Value at Risk (VaR Downside Guard Shield)
-        ax.add_patch(patches.Rectangle((3.7, 1.6), 3.0, 3.9, color='#3B1B1B', zorder=1))
-        ax.text(3.9, 5.1, "RISK & VOLATILITY", color='#FCA5A5', fontsize=12, fontweight='bold', zorder=2)
-        ax.text(3.9, 4.2, f"Daily Value at Risk:\n {var:.2f}% (95% Buffer)", color='#EF4444', fontsize=13, fontweight='bold', zorder=2)
-        ax.text(3.9, 2.5, "🚨 DANGER ZONE CAP", color='#FFFFFF', bbox=dict(facecolor='#B91C1C', alpha=0.8, boxstyle='round,pad=0.3'), fontsize=10, zorder=2)
-
-        # Bottom Footnote Layout Disclaimer Panel
-        ax.add_patch(patches.Rectangle((0.3, 0.4), 6.4, 0.9, color='#0F172A', zorder=1))
-        ax.text(0.5, 0.75, "➡️ Execution Order: Only for study- no buy/sell.", color='#94A3B8', fontsize=11, fontweight='bold', zorder=2)
-
-        # Save card configuration output temporarily to workspace directory disk
-        temp_img_path = f"data/output/{clean_name}_signal_card.png"
-        os.makedirs(os.path.dirname(temp_img_path), exist_ok=True)
-class TelegramAlertEngine:
-    def __init__(self, token: str, chat_id: str):
-        """Initializes the secure Telegram Bot API alert gateway."""
-        self.token = token.strip() if token else ""
-        self.chat_id = str(chat_id).strip() if chat_id else ""
-        self.enabled = bool(self.token and self.chat_id)
-
-    def send_buy_signal_alert(
-            self,
-            ticker: str,
-            price: float,
-            vol: float,
-            var: float,
-            alpha: float,
-            roi: float,
-            rsi: float,
-            volume: float,
-            avg_volume: float,
-            tp1: float = 0.0,
-            tp2: float = 0.0
-    ):
-        """Transmits a traditional text configuration log payload via Telegram bot API."""
-        if not self.enabled:
-            return
-
-        clean_name = str(ticker).replace(".NS", "").replace(".BO", "").strip()
-        initial_capital = 100000.0
-        final_capital = initial_capital * (1.0 + (roi / 100.0))
-
-        tp_matrix_panel = ""
-        if tp1 > 0 and tp2 > 0:
-            tp_matrix_panel = (
-                f"🎯 <b>VOLATILITY TAKE-PROFIT MATRIX:</b>\n"
-                f" • Take-Profit 1 (50% Scalp): <b>₹{tp1:,.2f}</b>\n"
-                f" • Take-Profit 2 (Runner Target): <b>₹{tp2:,.2f}</b>\n\n"
-            )
-
-        message_payload = (
-            f"⚡ <b>QUANT STRATEGY SYSTEM: Bismillah TRIGGER</b> ⚡\n"
-            f"🤖 <b>Status:</b> Automated bot alert dispatched\n"
-            f"⚠️ <i>Please check Shariah status</i>\n\n"
-            f"📌 <b>Asset Target:</b> #{clean_name}\n"
-            f"💰 <b>Current Close Price:</b> ₹{price:,.2f}\n"
-            f"📈 <b>Qlib Alpha Score:</b> {alpha:+.4f}\n"
-            f"📊 <b>Current 14-Day RSI:</b> {rsi:.2f}\n"
-            f"🔊 <b>Volume Telemetry:</b> {volume:,.0f} (20D Avg: {avg_volume:,.0f})\n\n"
-            f"{tp_matrix_panel}"
-            f"⚙️ <b>LEAN SIMULATION PORTFOLIO MATRIX:</b>\n"
-            f" • Initial Account Capital: ₹{initial_capital:,.2f}\n"
-            f" • Final Strategy Capital: <b>₹{final_capital:,.2f}</b>\n"
-            f" • Net Strategy Profit ROI: <b>{roi:+.2f}%</b>\n\n"
-            f"📊 <b>Risk & Volatility Telemetry:</b>\n"
-            f" • Trailing Ann. Volatility: {vol:.2f}%\n"
-            f" • Daily Value at Risk (95%): {var:.2f}%\n\n"
-            f"➡️ <b>Execution Order:</b> Only for study- no buy/sell."
-        )
-
-        api_url = f"https://telegram.org{self.token}/sendMessage"
-        payload = {
-            "chat_id": self.chat_id,
-            "text": message_payload,
-            "parse_mode": "HTML"
-        }
-
-        try:
-            response = requests.post(api_url, json=payload, timeout=10)
-            try:
-                response_data = response.json()
-            except ValueError:
-                response_data = {}
-
-            if response.status_code == 200 and response_data.get("ok") is True:
-                print(f" ✓ Telegram text alert delivered successfully via bot for {clean_name}!")
-            else:
-                error_description = response_data.get("description", response.text)
-                print(f" ✕ Telegram API Error: Status {response.status_code} | Description: {error_description}")
-        except requests.exceptions.Timeout:
-            print(f" ✕ Telegram request timed out while sending alert for {clean_name}.")
-        except requests.exceptions.RequestException as net_error:
-            print(f" ✕ Telegram connection failed: {net_error}")
-        except Exception as unexpected_error:
-            print(f" ✕ Unexpected Telegram alert error: {unexpected_error}")
-
-    def generate_and_send_visual_card(
-        self, ticker: str, price: float, vol: float, var: float, 
-        alpha: float, roi: float, rsi: float, tp1: float, tp2: float
-    ):
-        """Dynamically renders an institutional-grade visual signal card and transmits via Telegram."""
-        if not self.enabled:
-            return
-
-        clean_name = str(ticker).replace(".NS", "").replace(".BO", "").strip()
-
-        fig, ax = plt.subplots(figsize=(7, 11), facecolor='#0D1B2A')
-        ax.set_xlim(0, 7)
-        ax.set_ylim(0, 11)
-        plt.axis('off')
-
-        ax.add_patch(patches.Rectangle((0.3, 9.8), 6.4, 0.9, color='#1E293B', zorder=1))
-        ax.text(0.6, 10.35, "QUANT STRATEGY SYSTEM:", color='#E2E8F0', fontsize=18, fontweight='bold', zorder=2)
-        ax.text(0.6, 9.95, "TRIGGER 🚀", color='#F59E0B', fontsize=22, fontweight='bold', zorder=2)
-
-        ax.add_patch(patches.Rectangle((0.3, 5.8), 3.0, 3.7, color='#152238', zorder=1))
-        ax.text(0.5, 9.1, f"#{clean_name}", color='#38BDF8', fontsize=20, fontweight='bold', zorder=2)
-        ax.text(0.5, 8.5, "Current Close Price:", color='#94A3B8', fontsize=10, zorder=2)
-        ax.text(0.5, 7.9, f"₹{price:,.2f}", color='#FFFFFF', fontsize=22, fontweight='bold', zorder=2)
-        ax.text(0.5, 7.3, f"📊 Alpha Score: {alpha:+.4f}", color='#4ADE80' if alpha > 0 else '#F87171', fontsize=11, fontweight='bold', zorder=2)
-        ax.text(0.5, 6.8, f"📈 14-Day RSI: {rsi:.2f}", color='#FB923C', fontsize=11, zorder=2)
-        ax.text(0.5, 6.3, f"🔊 Vol Telemetry: {vol:.2f}M", color='#E2E8F0', fontsize=11, zorder=2)
-
-        ax.add_patch(patches.Rectangle((3.7, 5.8), 3.0, 3.7, color='#0F2D24', zorder=1))
-        ax.text(3.9, 9.1, "TAKE-PROFIT MATRIX", color='#A7F3D0', fontsize=12, fontweight='bold', zorder=2)
-        
-        ax.add_patch(patches.Rectangle((3.9, 7.5), 2.6, 1.2, color='#1E4D3A', zorder=2))
-        ax.text(4.1, 8.3, "TP1 (50% Scalp)", color='#34D399', fontsize=10, zorder=3)
-        ax.text(4.1, 7.7, f"₹{tp1:,.2f}", color='#FFFFFF', fontsize=16, fontweight='bold', zorder=3)
-        
-        ax.add_patch(patches.Rectangle((3.9, 6.0), 2.6, 1.2, color='#14532D', zorder=2))
-        ax.text(4.1, 6.8, "TP2 (Runner Target)", color='#4ADE80', fontsize=10, zorder=3)
-        ax.text(4.1, 6.2, f"₹{tp2:,.2f}", color='#FFFFFF', fontsize=16, fontweight='bold', zorder=3)
-
-        ax.add_patch(patches.Rectangle((0.3, 1.6), 3.0, 3.9, color='#1E293B', zorder=1))
-        ax.text(0.5, 5.1, "LEAN PORTFOLIO MATRIX", color='#94A3B8', fontsize=11, fontweight='bold', zorder=2)
-        
-        roi_capped = max(-50.0, min(100.0, roi))
-        circle_bg = plt.Circle((1.8, 3.6), 0.8, color='#334155', fill=True, zorder=2)
-        circle_fg = plt.Circle((1.8, 3.6), 0.8 * (1.0 + roi_capped/100.0 if roi_capped > 0 else 1.0), color='#F59E0B', fill=True, zorder=3)
-        circle_hole = plt.Circle((1.8, 3.6), 0.5, color='#1E293B', fill=True, zorder=4)
-        ax.add_patch(circle_bg)
-        ax.add_patch(circle_fg)
-        ax.add_patch(circle_hole)
-        ax.text(1.4, 3.5, f"{roi:+.1f}%", color='#FFFFFF', fontsize=12, fontweight='bold', zorder=5)
-        
-        ax.text(0.5, 2.2, f"Net Return ROI: {roi:+.2f}%", color='#F59E0B', fontsize=12, fontweight='bold', zorder=2)
-
-        ax.add_patch(patches.Rectangle((3.7, 1.6), 3.0, 3.9, color='#3B1B1B', zorder=1))
-        ax.text(3.9, 5.1, "RISK & VOLATILITY", color='#FCA5A5', fontsize=12, fontweight='bold', zorder=2)
-        ax.text(3.9, 4.2, f"Daily Value at Risk:\n {var:.2f}% (95% Buffer)", color='#EF4444', fontsize=13, fontweight='bold', zorder=2)
-        ax.text(3.9, 2.5, "🚨 DANGER ZONE CAP", color='#FFFFFF', bbox=dict(facecolor='#B91C1C', alpha=0.8, boxstyle='round,pad=0.3'), fontsize=10, zorder=2)
-
-        ax.add_patch(patches.Rectangle((0.3, 0.4), 6.4, 0.9, color='#0F172A', zorder=1))
-        ax.text(0.5, 0.75, "➡️ Execution Order: Only for study- no buy/sell.", color='#94A3B8', fontsize=11, fontweight='bold', zorder=2)
-
-        temp_img_path = f"data/output/{clean_name}_signal_card.png"
-        os.makedirs(os.path.dirname(temp_img_path), exist_ok=True)
-        plt.savefig(temp_img_path, facecolor=fig.get_facecolor(), edgecolor='none', dpi=200, bbox_inches='tight')
-        plt.close(fig)
-
-        send_photo_url = f"https://telegram.org{self.token}/sendPhoto"
-        try:
-            with open(temp_img_path, 'rb') as photo_file:
-                files = {'photo': photo_file}
-                data = {
-                    'chat_id': self.chat_id,
-                    'caption': f"⚡ <b>QUANT STRATEGY SYSTEM BUY ALERT: #{clean_name}</b> ⚡\n<i>Live visual analytical card generated by strategy bot.</i>",
-                    'parse_mode': 'HTML'
-                }
-                response = requests.post(send_photo_url, files=files, data=data, timeout=10)
-                
             try:
                 response_data = response.json()
             except ValueError:
@@ -456,7 +207,6 @@ class TelegramAlertEngine:
             print(f" ✕ Telegram connection failed for photo: {net_error}")
         except Exception as unexpected_error:
             print(f" ✕ Unexpected Telegram photo alert error: {unexpected_error}")
-
 # =====================================================================
 # QUANT & MACHINE LEARNING FEATURE COMPUTE ENGINES
 # =====================================================================
@@ -488,7 +238,8 @@ class QlibPredictiveEngine:
         return df
 
     def compute_predictive_score(self, df: pd.DataFrame) -> float:
-        if df.empty: return 0.0
+        if df.empty:
+            return 0.0
         latest_row = df.iloc[-1]
         return float((latest_row['qlib_momentum_5d'] * 0.4) + (latest_row['qlib_mean_reversion_20d'] * 0.6))
 
@@ -501,9 +252,14 @@ class LeanPortfolioStrategyEngine:
 
     def run_backtest_from_dataframe(self, df: pd.DataFrame) -> dict:
         if df is None or df.empty or len(df) < 20:
-            return {"initial_capital": self.initial_capital, "final_value": self.initial_capital,
-                    "net_return_pct": "Failed Analysis", "max_drawdown_pct": 0.0, "sharpe_ratio": 0.0,
-                    "total_trades": 0}
+            return {
+                "initial_capital": self.initial_capital,
+                "final_value": self.initial_capital,
+                "net_return_pct": "Failed Analysis",
+                "max_drawdown_pct": 0.0,
+                "sharpe_ratio": 0.0,
+                "total_trades": 0
+            }
 
         cash, position_shares, trade_count, portfolio_value_history = self.initial_capital, 0.0, 0, []
 
@@ -537,7 +293,9 @@ class YahooFinanceQuantPipeline:
     def __init__(self, config_path: str = "config/settings.yaml", ticker_csv_path: str = "config/ticker_list.csv"):
         self.config = self._load_config(config_path)
         self.start_date = self.config.get("start_date", "2025-01-01")
-        self.end_date = self.config.get("end_date", "2026-08-01")
+
+        # Set end_date to None by default so it always fetches the latest live session
+        self.end_date = self.config.get("end_date", None)
         self.default_exchange = self.config.get("default_exchange", "NSE")
         os.makedirs("data/raw", exist_ok=True)
         os.makedirs("data/processed", exist_ok=True)
@@ -561,22 +319,25 @@ class YahooFinanceQuantPipeline:
             clean_ticker = str(row['ticker']).strip().upper()
             exchange_type = str(row['exchange']).strip().upper() if 'exchange' in df.columns else self.default_exchange
             wrapped_list.append(
-                f"{clean_ticker}.BO" if exchange_type == "BSE" or "BOM" in clean_ticker else f"{clean_ticker}.NS")
+                f"{clean_ticker}.BO" if exchange_type == "BSE" or "BOM" in clean_ticker else f"{clean_ticker}.NS"
+            )
         return wrapped_list
 
     def run_ingestion(self, ticker: str) -> pd.DataFrame:
         try:
-            # 🟢 UPGRADE: Explicitly request raw, unadjusted pricing structures 
-            res = obb.equity.price.historical(
-                ticker, 
-                provider="yfinance", 
-                start_date=self.start_date, 
-                end_date=self.end_date,
-                # Force OpenBB to skip dividend/split math on the close column
-                extra_params={"adjustment": "unadjusted"}
-            )
+            params = {
+                "symbol": ticker,
+                "provider": "yfinance",
+                "start_date": self.start_date,
+                "extra_params": {"adjustment": "unadjusted"}
+            }
+            if self.end_date:
+                params["end_date"] = self.end_date
+
+            res = obb.equity.price.historical(**params)
             df = res.to_df()
-            if df.empty: raise ValueError("Empty dataframe.")
+            if df.empty:
+                raise ValueError("Empty dataframe.")
             df.to_csv(f"data/raw/{ticker}_raw.csv")
             return df
         except Exception:
@@ -590,8 +351,6 @@ class YahooFinanceQuantPipeline:
         df['rolling_volatility_ann'] = df['daily_return'].rolling(window=21).std() * np.sqrt(252)
         df['var_95_threshold'] = df['daily_return'].quantile(0.05)
         df['avg_volume_20d'] = df['volume'].rolling(window=20).mean()
-
-        # 🟢 INSTITUTIONAL UPGRADE: Calculate 200-day exponential trend line
         df['ema_200'] = df['close'].ewm(span=200, adjust=False).mean()
 
         df = df.dropna()
@@ -601,9 +360,15 @@ class YahooFinanceQuantPipeline:
     def _generate_fail_safe_data(self, ticker: str) -> pd.DataFrame:
         date_range = pd.date_range(start=self.start_date, end=self.end_date, freq='B')
         fallback_df = pd.DataFrame(
-            {'open': np.linspace(2400, 2600, len(date_range)), 'high': np.linspace(2450, 2650, len(date_range)),
-             'low': np.linspace(2380, 2580, len(date_range)), 'close': np.linspace(2420, 2620, len(date_range)),
-             'volume': np.random.randint(100000, 500000, size=len(date_range))}, index=date_range)
+            {
+                'open': np.linspace(2400, 2600, len(date_range)),
+                'high': np.linspace(2450, 2650, len(date_range)),
+                'low': np.linspace(2380, 2580, len(date_range)),
+                'close': np.linspace(2420, 2620, len(date_range)),
+                'volume': np.random.randint(100000, 500000, size=len(date_range))
+            },
+            index=date_range
+        )
         fallback_df.index.name = "date"
         fallback_df.to_csv(f"data/raw/{ticker}_raw.csv")
         return fallback_df
@@ -621,17 +386,13 @@ if __name__ == "__main__":
     qlib_engine = QlibPredictiveEngine()
     backtester = LeanPortfolioStrategyEngine(initial_capital=100000.0)
 
-    # =====================================================================
-    # SECTOR DIVERSIFICATION OPTIONAL CONTROL MODULE CONFIGURATION
-    # =====================================================================
+    # Sector Diversification Module Controls
     ENABLE_SECTOR_GUARD = True
     MAX_ASSETS_PER_SECTOR = 2
 
-    # =====================================================================
-    # TRAILING STOP-LOSS OPTIONAL CONTROL CONFIGURATION
-    # =====================================================================
-    ENABLE_TRAILING_STOP = True  # 🟢 Set to True to activate trailing stop filtering, False to skip
-    TRAILING_STOP_PCT = 0.05  # 🟢 Fixed 5% trailing stop below the highest peak close price
+    # Trailing Stop-Loss & Take-Profit Controls
+    ENABLE_TRAILING_STOP = True
+    TRAILING_STOP_PCT = 0.05
     ENABLE_TP_MATRIX = True
 
     # Live Ticker-to-Sector allocation dictionary lookup mapping
@@ -650,7 +411,6 @@ if __name__ == "__main__":
         "MARICO": "FMCG & Consumer Goods"
     }
 
-    # Live tracker dictionary to log deployed active counts
     active_sector_exposure_registry = {}
 
     bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or pipeline.config.get("telegram_bot_token", "")
@@ -672,7 +432,6 @@ if __name__ == "__main__":
         # 2. Compute Microsoft Qlib Matrix Indicator Features
         qlib_df = qlib_engine.generate_qlib_alpha_features(metrics_df, wrapped_ticker)
 
-        # Operational safety fix against out-of-bounds DataFrame indices
         if qlib_df is None or qlib_df.empty:
             print(f" ✕ [{wrapped_ticker}] Bypassed status. Insufficient data rows remaining after dropna().")
             continue
@@ -686,7 +445,6 @@ if __name__ == "__main__":
         ann_vol = float(metrics_df['rolling_volatility_ann'].iloc[-1]) * 100
         daily_var = float(metrics_df['var_95_threshold'].iloc[-1]) * 100
 
-        # Metrics and Telemetry Slicing
         current_rsi = float(qlib_df['rsi_14d'].iloc[-1])
         current_volume = float(metrics_df['volume'].iloc[-1])
         avg_volume_20d = float(metrics_df['avg_volume_20d'].iloc[-1])
@@ -697,17 +455,15 @@ if __name__ == "__main__":
         else:
             strategy_roi = float(results['net_return_pct'])
 
-        # 4. GOLDEN RULE INTEGRATED FILTER SYSTEM (WITH ENFORCED RSI & VOLUME BREAKS)
-                # 4. GOLDEN RULE INTEGRATED FILTER SYSTEM (WITH ENFORCED RSI & VOLUME BREAKS)
+        # 4. Golden Rule Integrated Filter System
         if (alpha_score > 0.01 and
                 strategy_roi > 0.001 and
                 (45.0 <= current_rsi <= 65.0) and
-                (current_volume >= 50000 and current_volume >= (avg_volume_20d * 1.2)) and  # 🟢 Preserved: Requires 20% volume surge
-                (current_price > current_ema200)):  # 🟢 Preserved: Confirms structural macro trend
+                (current_volume >= 50000 and current_volume >= (avg_volume_20d * 1.2)) and
+                (current_price > current_ema200)):
 
             print(f" -> [{wrapped_ticker}] Golden Rule Satisfied... Dispatching alerts...")
 
-            # Calculate volatility-adjusted take profit targets if enabled
             tp1_target = 0.0
             tp2_target = 0.0
             if ENABLE_TP_MATRIX:
@@ -715,7 +471,7 @@ if __name__ == "__main__":
                 tp1_target = current_price * (1.0 + (2.0 * var_fraction))
                 tp2_target = current_price * (1.0 + (4.0 * var_fraction))
 
-            # Action 1: Dispatches your updated traditional text layout
+            # Action 1: Dispatches traditional formatted text payload
             notifier.send_buy_signal_alert(
                 ticker=wrapped_ticker,
                 price=current_price,
@@ -726,15 +482,15 @@ if __name__ == "__main__":
                 rsi=current_rsi,
                 volume=current_volume,
                 avg_volume=avg_volume_20d,
-                tp1=tp1_target,  
-                tp2=tp2_target  
+                tp1=tp1_target,
+                tp2=tp2_target
             )
-            
-            # Action 2: Generates and dispatches your beautiful visual card directly over API
+
+            # Action 2: Renders and uploads high-resolution visual signal card
             notifier.generate_and_send_visual_card(
                 ticker=wrapped_ticker,
                 price=current_price,
-                vol=current_volume / 1000000.0,  # Converted to Millions for cleaner visual card display
+                vol=current_volume / 1000000.0,
                 var=daily_var,
                 alpha=alpha_score,
                 roi=strategy_roi,
@@ -744,13 +500,12 @@ if __name__ == "__main__":
             )
 
         else:
-            print(
-                f" -> [{wrapped_ticker}] Bypassed status. Failed strict quantitative thresholds (Alpha/ROI/RSI/Volume alignment breakdown).")
+            print(f" -> [{wrapped_ticker}] Bypassed status. Failed strict quantitative thresholds.")
 
     print("\n[Complete] Quant script loops finished successfully. Overwriting metrics...")
 
     # =====================================================================
-    # CENTRALIZED JSON CORE OUTPUT WRITER SECTION (WITH POSITION SIZING)
+    # CENTRALIZED JSON CORE OUTPUT WRITER (WITH POSITION SIZING)
     # =====================================================================
     latest_scan_records = []
     processed_json_files = glob.glob("data/processed/*_processed.csv")
@@ -759,12 +514,9 @@ if __name__ == "__main__":
     RISK_PER_TRADE_PCT = 0.01
     MAX_RUPEES_RISK = TOTAL_ACCOUNT_CAPITAL * RISK_PER_TRADE_PCT
 
-    # 🟢 FULLY RESTORED STRUCTURAL FOR-LOOP ENTRY
     for file_path in processed_json_files:
         ticker_raw = os.path.basename(file_path).replace("_processed.csv", "")
         clean_name = ticker_raw.replace(".NS", "").replace(".BO", "")
-
-        # Corrected alpha file mapping pathway matching your directory tree
         alpha_path = f"data/alpha_features/{ticker_raw}_qlib_features.csv"
 
         if os.path.exists(alpha_path):
@@ -798,7 +550,7 @@ if __name__ == "__main__":
                 # 2. Extract Sector Mapping Assignment Safely
                 asset_sector = NSE_SECTOR_MAP.get(clean_name, "Other Diversified")
 
-                # 3. Apply Sector Overlay Constraints dynamically if flag parameter is enabled
+                # 3. Apply Sector Overlay Constraints
                 if passes_base_strategy:
                     if ENABLE_SECTOR_GUARD:
                         current_sector_count = active_sector_exposure_registry.get(asset_sector, 0)
@@ -811,7 +563,7 @@ if __name__ == "__main__":
                 else:
                     base_action = "HOLD"
 
-                # 4. TRAILING STOP-LOSS EVALUATION ENGINE OVERLAY (ONLY FOR STRATEGY BUYS)
+                # 4. Trailing Stop-Loss Evaluation Engine Overlay
                 trailing_stop_price = 0.0
                 highest_peak_price = close_price
 
@@ -828,7 +580,8 @@ if __name__ == "__main__":
                         action_status = "BUY"
                         if ENABLE_SECTOR_GUARD:
                             active_sector_exposure_registry[asset_sector] = active_sector_exposure_registry.get(
-                                asset_sector, 0) + 1
+                                asset_sector, 0
+                            ) + 1
                 else:
                     action_status = base_action
 
@@ -840,7 +593,7 @@ if __name__ == "__main__":
                     tp1_val = close_price * (1.0 + (2.0 * var_frac))
                     tp2_val = close_price * (1.0 + (4.0 * var_frac))
 
-                # 🧮 DYNAMIC RISK-BASED POSITION SIZING CALCULATOR ENGINE
+                # Dynamic Risk-Based Position Sizing Calculator
                 risk_per_share = close_price * abs(daily_var_raw)
                 if risk_per_share < 0.01:
                     risk_per_share = close_price * 0.02
