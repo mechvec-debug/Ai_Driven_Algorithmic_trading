@@ -65,6 +65,16 @@
             "ticker": "GANECOS",
             "status": "STOP_LOSS_HIT",
             "roi_pct": 0.0
+        },
+        {
+            "ticker": "GHCLTEXTIL",
+            "status": "STOP_LOSS_HIT",
+            "roi_pct": 0.0
+        },
+        {
+            "ticker": "GANECOS",
+            "status": "STOP_LOSS_HIT",
+            "roi_pct": 0.0
         }
     ]
 }
