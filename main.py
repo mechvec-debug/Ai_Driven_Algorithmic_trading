@@ -219,7 +219,10 @@ class QlibPredictiveEngine:
         df = df.copy()
         df.columns = [str(col).lower() for col in df.columns]
 
-        df['qlib_momentum_5d'] = (df['close'].shift(5) / df['close']) - 1
+        # FIX: Present Close divided by 5-day Historical Close
+        df['qlib_momentum_5d'] = (df['close'] / df['close'].shift(5)) - 1
+
+        # Mean reversion (Price distance from 20-day SMA)
         df['qlib_mean_reversion_20d'] = df['close'].rolling(window=20).mean() / df['close']
         df['qlib_vol_normalized_return'] = df['daily_return'] / (df['rolling_volatility_ann'] + 1e-8)
 
@@ -324,23 +327,63 @@ class YahooFinanceQuantPipeline:
         return wrapped_list
 
     def run_ingestion(self, ticker: str) -> pd.DataFrame:
+        raw_path = f"data/raw/{ticker}_raw.csv"
+        fetch_start = self.start_date
+        existing_df = None
+
+        # 1. Check if the ticker has historical data saved on disk
+        if os.path.exists(raw_path):
+            try:
+                existing_df = pd.read_csv(raw_path, index_col=0, parse_dates=True)
+                if not existing_df.empty:
+                    last_recorded_date = existing_df.index.max()
+                    next_day = (last_recorded_date + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
+                    today_str = pd.Timestamp.now().strftime("%Y-%m-%d")
+
+                    # If the cached file is already up-to-date, bypass the network request
+                    if next_day > today_str:
+                        return existing_df
+
+                    # Incremental fetch: pull only missing candles starting after the last recorded date
+                    fetch_start = next_day
+            except Exception:
+                existing_df = None
+
+        # 2. Fetch the required dataset (5 years if new, only delta days if existing)
         try:
             params = {
                 "symbol": ticker,
                 "provider": "yfinance",
-                "start_date": self.start_date,
+                "start_date": fetch_start,
                 "extra_params": {"adjustment": "unadjusted"}
             }
             if self.end_date:
                 params["end_date"] = self.end_date
 
             res = obb.equity.price.historical(**params)
-            df = res.to_df()
-            if df.empty:
-                raise ValueError("Empty dataframe.")
-            df.to_csv(f"data/raw/{ticker}_raw.csv")
-            return df
+            new_df = res.to_df()
+
+            if new_df.empty:
+                return existing_df if (
+                            existing_df is not None and not existing_df.empty) else self._generate_fail_safe_data(
+                    ticker)
+
+            new_df.index = pd.to_datetime(new_df.index)
+
+            # 3. Merge new records into the historical dataset
+            if existing_df is not None and not existing_df.empty:
+                combined_df = pd.concat([existing_df, new_df])
+                combined_df = combined_df[~combined_df.index.duplicated(keep="last")].sort_index()
+            else:
+                combined_df = new_df.sort_index()
+
+            # 4. Save updated data locally to disk
+            combined_df.to_csv(raw_path)
+            return combined_df
+
         except Exception:
+            if existing_df is not None and not existing_df.empty:
+                return existing_df
             return self._generate_fail_safe_data(ticker)
 
     def calculate_quant_metrics(self, df: pd.DataFrame, ticker: str) -> pd.DataFrame:
