@@ -185,3 +185,81 @@ else:
         total_tracked_valid = len(ledger_matrix)
         st.metric(label="Total Valid Scanned Equities Database Size", value=f"{total_tracked_valid} / 500+ Active")
 
+    # =====================================================================
+    # 🟢 FIXED ACCUMULATION PORTFOLIO SUMMARY CONTAINER (RAW STREAMING)
+    # =====================================================================
+    st.markdown("---")
+    st.subheader("⚡ Live Account Performance Tracker & Portfolio Summary")
+    st.caption(
+        "Tracks simulated active execution sizing parameters, liquid asset ledger holdings, and account equity growth updates.")
+
+    # Configure your exact repository directory endpoints
+    repo_username = "mechvec-debug"
+    repo_name = "AI_driven_Algorithmic_trading"
+    branch_name = "main"
+
+    # 🌐 STREAM DIRECTLY FROM GITHUB TO PREVENT CONTAINER COLD-BOOT BLOCKS
+    raw_portfolio_url = f"https://githubusercontent.com{repo_username}/{repo_name}/{branch_name}/data/output/live_portfolio_ledger.json"
+
+    portfolio_loaded = False
+    portfolio_data = {}
+
+    try:
+        # Request and download the live ledger file over the internet link layer
+        req_p = urllib.request.Request(
+            raw_portfolio_url,
+            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+        )
+        with urllib.request.urlopen(req_p) as url_p:
+            raw_p_stream = url_p.read().decode('utf-8')
+            portfolio_data = json.loads(raw_p_stream)
+        portfolio_loaded = True
+    except Exception:
+        # Fallback to local file path parsing if network streams hit a connection block
+        local_p_path = "data/output/live_portfolio_ledger.json"
+        if os.path.exists(local_p_path):
+            try:
+                with open(local_p_path, "r") as p_f:
+                    portfolio_data = json.load(p_f)
+                portfolio_loaded = True
+            except Exception:
+                pass
+
+    if not portfolio_loaded or not portfolio_data:
+        st.info(
+            "ℹ️ Account simulation ledger is currently empty. Run the broker agent component script ('python broker_agent.py') on your laptop or wait for the cloud workflow to complete to bring live ledger updates online.")
+    else:
+        p_telemetry = portfolio_data.get("account_telemetry", {})
+        p_positions = portfolio_data.get("active_positions", {})
+
+        # 1. Macro Summary Balance Scorecards
+        m_col1, m_col2, m_col3 = st.columns(3)
+        with m_col1:
+            st.metric(
+                label="Total Portfolio Value (Cash + Stock)",
+                value=f"₹{p_telemetry.get('total_portfolio_value', 100000.0):,.2f}",
+                delta=f"{p_telemetry.get('total_closed_roi_pct', 0.0):+.2f}% ROI"
+            )
+        with m_col2:
+            st.metric(label="Available Cash Balance", value=f"₹{p_telemetry.get('available_cash', 100000.0):,.2f}")
+        with m_col3:
+            st.metric(label="Active Open Positions Count", value=f"{len(p_positions)} Assets Live")
+
+        # 2. Active Holdings Grid Data Table
+        if p_positions:
+            st.markdown("##### 📋 Current Position Holding Matrix Ledger Details")
+            positions_rows = []
+            for t_code, p_details in p_positions.items():
+                positions_rows.append({
+                    "Asset Ticker": t_code,
+                    "Industry Sector": p_details.get("sector", "Other Diversified"),
+                    "Shares Held (Qty)": p_details.get("qty", 0),
+                    "Average Cost Price": f"₹{p_details.get('entry_avg', 0.0):,.2f}",
+                    "Take Profit 1": f"₹{p_details.get('tp1', 0.0):,.2f}",
+                    "Take Profit 2": f"₹{p_details.get('tp2', 0.0):,.2f}",
+                    "Active Trailing Stop Floor": f"₹{p_details.get('trailing_floor', 0.0):,.2f}",
+                    "Peak Price Reached": f"₹{p_details.get('peak_close', 0.0):,.2f}"
+                })
+            st.dataframe(pd.DataFrame(positions_rows))
+        else:
+            st.info("💼 No active positions are currently held in the portfolio simulation ledger.")
