@@ -1,31 +1,41 @@
 {
     "account_telemetry": {
         "initial_seed_capital": 100000.0,
-        "available_cash": 50801.968210525505,
+        "available_cash": 43530.89560424804,
         "total_portfolio_value": 100000.0,
         "total_closed_roi_pct": 0.0
     },
     "active_positions": {
-        "GHCLTEXTIL": {
-            "qty": 229,
-            "entry_avg": 112.48380271911623,
-            "tp1": 122.32842818341516,
-            "tp2": 131.03685362024828,
-            "trailing_floor": 113.55349884033203,
-            "peak_close": 112.48380271911623,
+        "SONACOMS": {
+            "qty": 39,
+            "entry_avg": 799.92,
+            "tp1": 859.0995768123934,
+            "tp2": 910.1991536247866,
+            "trailing_floor": 767.5999999999999,
+            "peak_close": 799.92,
             "sector": "Other Diversified"
         },
-        "GANECOS": {
-            "qty": 20,
-            "entry_avg": 1171.9620483398437,
-            "tp1": 1279.3993085050977,
-            "tp2": 1374.9985681820704,
-            "trailing_floor": 1176.0524536132812,
-            "peak_close": 1171.9620483398437,
+        "SHILPAMED": {
+            "qty": 25,
+            "entry_avg": 1010.8889758300783,
+            "tp1": 1099.2179003956742,
+            "tp2": 1177.3358252054109,
+            "trailing_floor": 970.0449768066406,
+            "peak_close": 1010.8889758300783,
             "sector": "Other Diversified"
         }
     },
     "closed_trades_history": [
+        {
+            "ticker": "GHCLTEXTIL",
+            "status": "STOP_LOSS_HIT",
+            "roi_pct": 0.0
+        },
+        {
+            "ticker": "GANECOS",
+            "status": "STOP_LOSS_HIT",
+            "roi_pct": 0.0
+        },
         {
             "ticker": "GHCLTEXTIL",
             "status": "STOP_LOSS_HIT",
