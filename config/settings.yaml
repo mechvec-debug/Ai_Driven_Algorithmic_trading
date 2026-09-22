@@ -2,7 +2,7 @@
 # Default fallback exchange mapping logic if not specified in your CSV
 
 # config/settings.yaml
-start_date: "2025-01-01"
+start_date: "2021-01-01"
 end_date: "2027-12-01"
 default_exchange: "NSE"
 
