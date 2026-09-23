@@ -1,7 +1,7 @@
 {
     "account_telemetry": {
         "initial_seed_capital": 100000.0,
-        "available_cash": 43530.89560424804,
+        "available_cash": 22994.088104248043,
         "total_portfolio_value": 100000.0,
         "total_closed_roi_pct": 0.0
     },
@@ -22,6 +22,15 @@
             "tp2": 1177.3358252054109,
             "trailing_floor": 970.0449768066406,
             "peak_close": 1010.8889758300783,
+            "sector": "Other Diversified"
+        },
+        "APOLLO": {
+            "qty": 51,
+            "entry_avg": 402.6825,
+            "tp1": 445.8961894023932,
+            "tp2": 485.0423788047865,
+            "trailing_floor": 401.3275115966797,
+            "peak_close": 402.6825,
             "sector": "Other Diversified"
         }
     },
