@@ -1,7 +1,7 @@
 {
     "account_telemetry": {
         "initial_seed_capital": 100000.0,
-        "available_cash": 22994.088104248043,
+        "available_cash": 2338.530696411126,
         "total_portfolio_value": 100000.0,
         "total_closed_roi_pct": 0.0
     },
@@ -31,6 +31,15 @@
             "tp2": 485.0423788047865,
             "trailing_floor": 401.3275115966797,
             "peak_close": 402.6825,
+            "sector": "Other Diversified"
+        },
+        "MARINE": {
+            "qty": 49,
+            "entry_avg": 421.5419879150391,
+            "tp1": 466.2906927695497,
+            "tp2": 506.78139774613055,
+            "trailing_floor": 404.50998840332034,
+            "peak_close": 421.5419879150391,
             "sector": "Other Diversified"
         }
     },
