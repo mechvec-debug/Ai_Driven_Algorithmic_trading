@@ -1,17 +1,30 @@
 import os
-import yaml
-import json
 import glob
+import json
+import logging
+import time
+
+import yaml
 import requests
 import pandas as pd
 import numpy as np
-import urllib.request
 import matplotlib
 
 matplotlib.use('Agg')  # Enforces a headless backend for safe server execution environments
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from openbb import obb
+
+os.makedirs("data/output", exist_ok=True)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler("data/output/run.log", mode="a"),
+    ],
+)
+logger = logging.getLogger("quant_bot")
 
 
 # =====================================================================
@@ -93,87 +106,101 @@ class TelegramAlertEngine:
                 response_data = {}
 
             if response.status_code == 200 and response_data.get("ok") is True:
-                print(f" ✓ Telegram text alert delivered successfully via bot for {clean_name}!")
+                logger.info(f" ✓ Telegram text alert delivered successfully via bot for {clean_name}!")
             else:
                 error_description = response_data.get("description", response.text)
-                print(f" ✕ Telegram API Error: Status {response.status_code} | Description: {error_description}")
+                logger.error(f" ✕ Telegram API Error: Status {response.status_code} | Description: {error_description}")
 
         except requests.exceptions.Timeout:
-            print(f" ✕ Telegram request timed out while sending alert for {clean_name}.")
+            logger.error(f" ✕ Telegram request timed out while sending alert for {clean_name}.")
         except requests.exceptions.RequestException as net_error:
-            print(f" ✕ Telegram connection failed: {net_error}")
+            logger.error(f" ✕ Telegram connection failed: {net_error}")
         except Exception as unexpected_error:
-            print(f" ✕ Unexpected Telegram alert error: {unexpected_error}")
+            logger.error(f" ✕ Unexpected Telegram alert error: {unexpected_error}")
 
     def generate_and_send_visual_card(
             self, ticker: str, price: float, vol: float, var: float,
             alpha: float, roi: float, rsi: float, tp1: float, tp2: float
     ):
-        """Dynamically renders an institutional-grade visual signal card without font-breaking glyphs."""
+        """Renders a restrained, institutional-style signal card (single dark palette,
+        thin borders instead of blocky color panels, two accent colors only)."""
         if not self.enabled:
             return
 
         clean_name = str(ticker).replace(".NS", "").replace(".BO", "").strip()
 
-        fig, ax = plt.subplots(figsize=(7, 11), facecolor='#0D1B2A')
+        # --- Professional palette: one background, one panel tone, one border tone,
+        # a muted gold brand accent, and teal/rose reserved only for +/- values. ---
+        BG = '#0B0F19'
+        PANEL = '#111827'
+        BORDER = '#26304A'
+        TEXT_PRIMARY = '#E8EAF0'
+        TEXT_SECONDARY = '#8A93A6'
+        GOLD = '#C9A24B'
+        POSITIVE = '#3FB88F'
+        NEGATIVE = '#D9707A'
+
+        def panel(x, y, w, h):
+            ax.add_patch(patches.Rectangle((x, y), w, h, facecolor=PANEL, edgecolor=BORDER,
+                                            linewidth=1.0, zorder=1))
+
+        fig, ax = plt.subplots(figsize=(7, 11), facecolor=BG)
         ax.set_xlim(0, 7)
         ax.set_ylim(0, 11)
         plt.axis('off')
 
-        # Header
-        ax.add_patch(patches.Rectangle((0.3, 9.8), 6.4, 0.9, color='#1E293B', zorder=1))
-        ax.text(0.6, 10.35, "QUANT STRATEGY SYSTEM:", color='#E2E8F0', fontsize=18, fontweight='bold', zorder=2)
-        ax.text(0.6, 9.95, "TRIGGER >>", color='#F59E0B', fontsize=22, fontweight='bold', zorder=2)
-
-        # Panel A: Asset Target Summary
-        ax.add_patch(patches.Rectangle((0.3, 5.8), 3.0, 3.7, color='#152238', zorder=1))
-        ax.text(0.5, 9.1, f"#{clean_name}", color='#38BDF8', fontsize=20, fontweight='bold', zorder=2)
-        ax.text(0.5, 8.5, "Current Close Price:", color='#94A3B8', fontsize=10, zorder=2)
-        ax.text(0.5, 7.9, f"₹{price:,.2f}", color='#FFFFFF', fontsize=22, fontweight='bold', zorder=2)
-        ax.text(0.5, 7.3, f"Alpha Score: {alpha:+.4f}", color='#4ADE80' if alpha > 0 else '#F87171', fontsize=11,
+        # Header — brand line + thin rule, no filled block
+        ax.text(0.4, 10.5, "QUANT STRATEGY SYSTEM", color=TEXT_SECONDARY, fontsize=13,
                 fontweight='bold', zorder=2)
-        ax.text(0.5, 6.8, f"14-Day RSI: {rsi:.2f}", color='#FB923C', fontsize=11, zorder=2)
-        ax.text(0.5, 6.3, f"Vol Telemetry: {vol:.2f}M", color='#E2E8F0', fontsize=11, zorder=2)
+        ax.text(0.4, 10.05, "SIGNAL TRIGGERED", color=GOLD, fontsize=22, fontweight='bold', zorder=2)
+        ax.plot([0.4, 6.6], [9.75, 9.75], color=BORDER, linewidth=1.0, zorder=2)
 
-        # Panel B: Take-Profit Matrix
-        ax.add_patch(patches.Rectangle((3.7, 5.8), 3.0, 3.7, color='#0F2D24', zorder=1))
-        ax.text(3.9, 9.1, "TAKE-PROFIT MATRIX", color='#A7F3D0', fontsize=12, fontweight='bold', zorder=2)
+        # Panel A: Asset Summary
+        panel(0.3, 5.8, 3.0, 3.7)
+        ax.text(0.5, 9.1, f"{clean_name}", color=TEXT_PRIMARY, fontsize=19, fontweight='bold', zorder=2)
+        ax.text(0.5, 8.5, "CLOSE PRICE", color=TEXT_SECONDARY, fontsize=9, zorder=2)
+        ax.text(0.5, 7.95, f"₹{price:,.2f}", color=TEXT_PRIMARY, fontsize=20, fontweight='bold', zorder=2)
+        alpha_color = POSITIVE if alpha > 0 else NEGATIVE
+        ax.text(0.5, 7.35, "ALPHA SCORE", color=TEXT_SECONDARY, fontsize=9, zorder=2)
+        ax.text(0.5, 6.95, f"{alpha:+.4f}", color=alpha_color, fontsize=13, fontweight='bold', zorder=2)
+        ax.text(0.5, 6.45, f"14D RSI: {rsi:.2f}", color=TEXT_PRIMARY, fontsize=10, zorder=2)
+        ax.text(0.5, 6.05, f"Volume: {vol:.2f}M", color=TEXT_PRIMARY, fontsize=10, zorder=2)
 
-        ax.add_patch(patches.Rectangle((3.9, 7.5), 2.6, 1.2, color='#1E4D3A', zorder=2))
-        ax.text(4.1, 8.3, "TP1 (50% Scalp)", color='#34D399', fontsize=10, zorder=3)
-        ax.text(4.1, 7.7, f"₹{tp1:,.2f}", color='#FFFFFF', fontsize=16, fontweight='bold', zorder=3)
+        # Panel B: Take-Profit Matrix — thin dividers, not solid color tiles
+        panel(3.7, 5.8, 3.0, 3.7)
+        ax.text(3.9, 9.1, "TAKE-PROFIT MATRIX", color=TEXT_SECONDARY, fontsize=10, fontweight='bold', zorder=2)
+        ax.plot([3.9, 6.5], [8.9, 8.9], color=BORDER, linewidth=0.8, zorder=2)
+        ax.text(3.9, 8.45, "TP1 · 50% Scalp", color=TEXT_SECONDARY, fontsize=9, zorder=2)
+        ax.text(3.9, 8.0, f"₹{tp1:,.2f}", color=POSITIVE, fontsize=15, fontweight='bold', zorder=2)
+        ax.plot([3.9, 6.5], [7.6, 7.6], color=BORDER, linewidth=0.8, zorder=2)
+        ax.text(3.9, 7.15, "TP2 · Runner Target", color=TEXT_SECONDARY, fontsize=9, zorder=2)
+        ax.text(3.9, 6.7, f"₹{tp2:,.2f}", color=POSITIVE, fontsize=15, fontweight='bold', zorder=2)
 
-        ax.add_patch(patches.Rectangle((3.9, 6.0), 2.6, 1.2, color='#14532D', zorder=2))
-        ax.text(4.1, 6.8, "TP2 (Runner Target)", color='#4ADE80', fontsize=10, zorder=3)
-        ax.text(4.1, 6.2, f"₹{tp2:,.2f}", color='#FFFFFF', fontsize=16, fontweight='bold', zorder=3)
-
-        # Panel C: LEAN Portfolio Matrix
-        ax.add_patch(patches.Rectangle((0.3, 1.6), 3.0, 3.9, color='#1E293B', zorder=1))
-        ax.text(0.5, 5.1, "LEAN PORTFOLIO MATRIX", color='#94A3B8', fontsize=11, fontweight='bold', zorder=2)
-
-        roi_capped = max(-50.0, min(100.0, roi))
-        circle_bg = plt.Circle((1.8, 3.6), 0.8, color='#334155', fill=True, zorder=2)
-        circle_fg = plt.Circle((1.8, 3.6), 0.8 * (1.0 + roi_capped / 100.0 if roi_capped > 0 else 1.0), color='#F59E0B',
-                               fill=True, zorder=3)
-        circle_hole = plt.Circle((1.8, 3.6), 0.5, color='#1E293B', fill=True, zorder=4)
-        ax.add_patch(circle_bg)
-        ax.add_patch(circle_fg)
-        ax.add_patch(circle_hole)
-        ax.text(1.4, 3.5, f"{roi:+.1f}%", color='#FFFFFF', fontsize=12, fontweight='bold', zorder=5)
-        ax.text(0.5, 2.2, f"Net Return ROI: {roi:+.2f}%", color='#F59E0B', fontsize=12, fontweight='bold', zorder=2)
+        # Panel C: Backtest ROI — thin radial gauge instead of an overflowing filled circle
+        panel(0.3, 1.6, 3.0, 3.9)
+        ax.text(0.5, 5.1, "BACKTEST ROI", color=TEXT_SECONDARY, fontsize=10, fontweight='bold', zorder=2)
+        roi_color = POSITIVE if roi >= 0 else NEGATIVE
+        gauge_fraction = min(abs(roi) / 50.0, 1.0)  # ring fills fully at +/-50% ROI
+        ax.add_patch(patches.Wedge((1.8, 3.55), 0.8, 0, 360, width=0.18, facecolor=BORDER, zorder=2))
+        if gauge_fraction > 0:
+            ax.add_patch(patches.Wedge((1.8, 3.55), 0.8, 90 - 360 * gauge_fraction, 90,
+                                        width=0.18, facecolor=roi_color, zorder=3))
+        ax.text(1.8, 3.55, f"{roi:+.1f}%", color=TEXT_PRIMARY, fontsize=13, fontweight='bold',
+                ha='center', va='center', zorder=4)
+        ax.text(0.5, 2.2, "Net Strategy Return", color=TEXT_SECONDARY, fontsize=9, zorder=2)
 
         # Panel D: Risk & Volatility
-        ax.add_patch(patches.Rectangle((3.7, 1.6), 3.0, 3.9, color='#3B1B1B', zorder=1))
-        ax.text(3.9, 5.1, "RISK & VOLATILITY", color='#FCA5A5', fontsize=12, fontweight='bold', zorder=2)
-        ax.text(3.9, 4.2, f"Daily Value at Risk:\n {var:.2f}% (95% Buffer)", color='#EF4444', fontsize=13,
-                fontweight='bold', zorder=2)
-        ax.text(3.9, 2.5, "[!] DANGER ZONE CAP", color='#FFFFFF',
-                bbox=dict(facecolor='#B91C1C', alpha=0.8, boxstyle='round,pad=0.3'), fontsize=10, zorder=2)
+        panel(3.7, 1.6, 3.0, 3.9)
+        ax.text(3.9, 5.1, "RISK & VOLATILITY", color=TEXT_SECONDARY, fontsize=10, fontweight='bold', zorder=2)
+        ax.text(3.9, 4.3, "Daily VaR (95%)", color=TEXT_SECONDARY, fontsize=9, zorder=2)
+        ax.text(3.9, 3.85, f"{var:.2f}%", color=NEGATIVE, fontsize=16, fontweight='bold', zorder=2)
+        ax.text(3.9, 2.7, "Study signal only — not investment advice.", color=TEXT_SECONDARY,
+                fontsize=8.5, zorder=2, wrap=True)
 
-        # Footnote
-        ax.add_patch(patches.Rectangle((0.3, 0.4), 6.4, 0.9, color='#0F172A', zorder=1))
-        ax.text(0.5, 0.75, ">> Execution Order: Only for study- no buy/sell.", color='#94A3B8', fontsize=11,
-                fontweight='bold', zorder=2)
+        # Footer
+        ax.plot([0.4, 6.6], [1.3, 1.3], color=BORDER, linewidth=1.0, zorder=2)
+        ax.text(0.4, 0.85, "Execution Order: For research/study purposes — not a buy/sell recommendation.",
+                color=TEXT_SECONDARY, fontsize=9, zorder=2)
 
         temp_img_path = f"data/output/{clean_name}_signal_card.png"
         os.makedirs(os.path.dirname(temp_img_path), exist_ok=True)
@@ -197,16 +224,16 @@ class TelegramAlertEngine:
                 response_data = {}
 
             if response.status_code == 200 and response_data.get("ok") is True:
-                print(f" ✓ Telegram visual card delivered successfully to phone for {clean_name}!")
+                logger.info(f" ✓ Telegram visual card delivered successfully to phone for {clean_name}!")
             else:
                 error_description = response_data.get("description", response.text)
-                print(f" ✕ Telegram photo API Error: Status {response.status_code} | Description: {error_description}")
+                logger.error(f" ✕ Telegram photo API Error: Status {response.status_code} | Description: {error_description}")
         except requests.exceptions.Timeout:
-            print(f" ✕ Telegram photo request timed out while sending alert for {clean_name}.")
+            logger.error(f" ✕ Telegram photo request timed out while sending alert for {clean_name}.")
         except requests.exceptions.RequestException as net_error:
-            print(f" ✕ Telegram connection failed for photo: {net_error}")
+            logger.error(f" ✕ Telegram connection failed for photo: {net_error}")
         except Exception as unexpected_error:
-            print(f" ✕ Unexpected Telegram photo alert error: {unexpected_error}")
+            logger.error(f" ✕ Unexpected Telegram photo alert error: {unexpected_error}")
 # =====================================================================
 # QUANT & MACHINE LEARNING FEATURE COMPUTE ENGINES
 # =====================================================================
@@ -392,7 +419,9 @@ class YahooFinanceQuantPipeline:
         df.index = pd.to_datetime(df.index)
         df['daily_return'] = df['close'].pct_change()
         df['rolling_volatility_ann'] = df['daily_return'].rolling(window=21).std() * np.sqrt(252)
-        df['var_95_threshold'] = df['daily_return'].quantile(0.05)
+        # Rolling (not whole-history) 5th percentile so VaR reflects the *current* risk
+        # regime instead of one static number computed from the entire dataset.
+        df['var_95_threshold'] = df['daily_return'].rolling(window=60, min_periods=20).quantile(0.05)
         df['avg_volume_20d'] = df['volume'].rolling(window=20).mean()
         df['ema_200'] = df['close'].ewm(span=200, adjust=False).mean()
 
@@ -401,7 +430,12 @@ class YahooFinanceQuantPipeline:
         return df
 
     def _generate_fail_safe_data(self, ticker: str) -> pd.DataFrame:
-        date_range = pd.date_range(start=self.start_date, end=self.end_date, freq='B')
+        # end_date is often None (means "fetch through today"), so pd.date_range needs
+        # an explicit end or it raises ValueError ("must specify two of start/end/periods").
+        fallback_end = self.end_date or pd.Timestamp.now().strftime("%Y-%m-%d")
+        date_range = pd.date_range(start=self.start_date, end=fallback_end, freq='B')
+        if len(date_range) == 0:
+            date_range = pd.date_range(end=fallback_end, periods=30, freq='B')
         fallback_df = pd.DataFrame(
             {
                 'open': np.linspace(2400, 2600, len(date_range)),
@@ -418,12 +452,32 @@ class YahooFinanceQuantPipeline:
 
 
 # =====================================================================
+# SHARED STRATEGY FILTER ("GOLDEN RULE")
+# =====================================================================
+# Single source of truth for the buy filter. Previously the live-alert loop
+# and the JSON-output loop each re-implemented this with different, drifting
+# thresholds (e.g. volume >= avg*1.2 vs >= avg*0.8, and only the alert loop
+# checked price vs EMA200) so the Telegram alerts and the dashboard JSON
+# could disagree on which tickers were a "BUY". Both loops now call this.
+def passes_golden_rule(alpha_score: float, roi_pct: float, rsi: float,
+                        volume: float, avg_volume_20d: float,
+                        price: float, ema_200: float) -> bool:
+    return (
+        alpha_score > 0.01
+        and roi_pct > 0.001
+        and (45.0 <= rsi <= 65.0)
+        and (volume >= 50000 and volume >= (avg_volume_20d * 1.2))
+        and (price > ema_200)
+    )
+
+
+# =====================================================================
 # SYSTEM MAIN ENGINE CONTROLLER LOOP
 # =====================================================================
 if __name__ == "__main__":
-    print("=================================================================")
-    print("RUNNING CONSOLIDATED SYSTEM SCRIPTS")
-    print("=================================================================")
+    logger.info("=================================================================")
+    logger.info("RUNNING CONSOLIDATED SYSTEM SCRIPTS")
+    logger.info("=================================================================")
 
     pipeline = YahooFinanceQuantPipeline()
     qlib_engine = QlibPredictiveEngine()
@@ -476,7 +530,7 @@ if __name__ == "__main__":
         qlib_df = qlib_engine.generate_qlib_alpha_features(metrics_df, wrapped_ticker)
 
         if qlib_df is None or qlib_df.empty:
-            print(f" ✕ [{wrapped_ticker}] Bypassed status. Insufficient data rows remaining after dropna().")
+            logger.warning(f" ✕ [{wrapped_ticker}] Bypassed status. Insufficient data rows remaining after dropna().")
             continue
 
         alpha_score = qlib_engine.compute_predictive_score(qlib_df)
@@ -499,13 +553,11 @@ if __name__ == "__main__":
             strategy_roi = float(results['net_return_pct'])
 
         # 4. Golden Rule Integrated Filter System
-        if (alpha_score > 0.01 and
-                strategy_roi > 0.001 and
-                (45.0 <= current_rsi <= 65.0) and
-                (current_volume >= 50000 and current_volume >= (avg_volume_20d * 1.2)) and
-                (current_price > current_ema200)):
+        if passes_golden_rule(alpha_score, strategy_roi, current_rsi,
+                               current_volume, avg_volume_20d,
+                               current_price, current_ema200):
 
-            print(f" -> [{wrapped_ticker}] Golden Rule Satisfied... Dispatching alerts...")
+            logger.info(f" -> [{wrapped_ticker}] Golden Rule Satisfied... Dispatching alerts...")
 
             tp1_target = 0.0
             tp2_target = 0.0
@@ -543,9 +595,11 @@ if __name__ == "__main__":
             )
 
         else:
-            print(f" -> [{wrapped_ticker}] Bypassed status. Failed strict quantitative thresholds.")
+            logger.info(f" -> [{wrapped_ticker}] Bypassed status. Failed strict quantitative thresholds.")
 
-    print("\n[Complete] Quant script loops finished successfully. Overwriting metrics...")
+        time.sleep(0.5)  # small pause between tickers to stay polite to the data provider
+
+    logger.info("[Complete] Quant script loops finished successfully. Overwriting metrics...")
 
     # =====================================================================
     # CENTRALIZED JSON CORE OUTPUT WRITER (WITH POSITION SIZING)
@@ -553,9 +607,26 @@ if __name__ == "__main__":
     latest_scan_records = []
     processed_json_files = glob.glob("data/processed/*_processed.csv")
 
-    TOTAL_ACCOUNT_CAPITAL = 100000.0
+    TOTAL_ACCOUNT_CAPITAL = backtester.initial_capital
     RISK_PER_TRADE_PCT = 0.01
     MAX_RUPEES_RISK = TOTAL_ACCOUNT_CAPITAL * RISK_PER_TRADE_PCT
+
+    # Pre-load each ticker's latest alpha score so sector-capped slots go to the
+    # strongest signals first, instead of whatever order the filesystem returns
+    # from glob() (which is arbitrary and made the sector cap non-deterministic).
+    file_alpha_pairs = []
+    for file_path in processed_json_files:
+        ticker_raw = os.path.basename(file_path).replace("_processed.csv", "")
+        alpha_path = f"data/alpha_features/{ticker_raw}_qlib_features.csv"
+        peek_alpha = -999.0
+        if os.path.exists(alpha_path):
+            try:
+                peek_alpha = float(pd.read_csv(alpha_path, index_col=0)['qlib_momentum_5d'].iloc[-1])
+            except Exception:
+                pass
+        file_alpha_pairs.append((file_path, peek_alpha))
+    file_alpha_pairs.sort(key=lambda pair: pair[1], reverse=True)
+    processed_json_files = [pair[0] for pair in file_alpha_pairs]
 
     for file_path in processed_json_files:
         ticker_raw = os.path.basename(file_path).replace("_processed.csv", "")
@@ -581,13 +652,14 @@ if __name__ == "__main__":
 
                 close_price = float(df_m['close'].iloc[-1])
                 daily_var_raw = float(df_m['var_95_threshold'].iloc[-1])
+                latest_ema200 = float(df_m['ema_200'].iloc[-1])
 
-                # 1. Base Strategy Rule Evaluation Matrix Check
-                passes_base_strategy = (
-                        latest_alpha > 0.01 and
-                        (45.0 <= latest_rsi <= 65.0) and
-                        roi_val > 0.0 and
-                        (latest_volume >= 50000 and latest_volume >= (latest_avg_vol * 0.8))
+                # 1. Base Strategy Rule Evaluation - same shared filter used for alerts,
+                #    so the JSON output can never disagree with what was actually alerted.
+                passes_base_strategy = passes_golden_rule(
+                    latest_alpha, roi_val, latest_rsi,
+                    latest_volume, latest_avg_vol,
+                    close_price, latest_ema200
                 )
 
                 # 2. Extract Sector Mapping Assignment Safely
@@ -664,7 +736,8 @@ if __name__ == "__main__":
                     "take_profit_target_1": float(tp1_val) if action_status == "BUY" else 0.0,
                     "take_profit_target_2": float(tp2_val) if action_status == "BUY" else 0.0
                 })
-            except Exception:
+            except Exception as row_error:
+                logger.warning(f" ✕ [{ticker_raw}] Skipped in output writer: {row_error}")
                 continue
 
     os.makedirs("data/output", exist_ok=True)
@@ -679,4 +752,4 @@ if __name__ == "__main__":
     with open("data/output/latest_market_signals.json", "w") as json_file:
         json.dump(output_payload, json_file, indent=4)
 
-    print("✓ Central output matrix overwritten successfully.")
+    logger.info("✓ Central output matrix overwritten successfully.")
