@@ -722,6 +722,7 @@ if __name__ == "__main__":
 
                 latest_scan_records.append({
                     "ticker": clean_name,
+                    "raw_ticker": ticker_raw,
                     "sector": asset_sector,
                     "close_price": close_price,
                     "ann_volatility_pct": float(df_m['rolling_volatility_ann'].iloc[-1]) * 100,
