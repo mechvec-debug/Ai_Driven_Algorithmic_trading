@@ -84,26 +84,34 @@ def _fetch_json(relative_path: str, local_fallback_path: str) -> dict:
 
 
 @st.cache_data(ttl=300)
-def load_ticker_ohlc_history(ticker: str, lookback_days: int = 180) -> pd.DataFrame:
+def load_ticker_ohlc_history(file_ticker_candidates: tuple, lookback_days: int = 180) -> pd.DataFrame:
     """Loads a single ticker's processed OHLC history (as written by main.py's
-    calculate_quant_metrics -> data/processed/{ticker}_processed.csv) so it can
-    be charted. Returns an empty DataFrame if unavailable."""
-    relative_path = f"data/processed/{ticker}_processed.csv"
-    local_path = relative_path
-    raw_text = _fetch_text(relative_path, local_path)
-    if not raw_text:
-        return pd.DataFrame()
+    calculate_quant_metrics -> data/processed/{ticker}_processed.csv).
 
-    try:
-        df = pd.read_csv(io.StringIO(raw_text), index_col=0, parse_dates=True)
-        df = df.sort_index()
-        required_cols = {"open", "high", "low", "close"}
-        if not required_cols.issubset(set(df.columns.str.lower())):
-            return pd.DataFrame()
-        df.columns = [str(c).lower() for c in df.columns]
-        return df.tail(lookback_days)
-    except Exception:
-        return pd.DataFrame()
+    main.py names that file after the *raw* ticker (e.g. 'MARINE.NS_processed.csv'),
+    but the ledger JSON displays the suffix-stripped clean name (e.g. 'MARINE'), so a
+    single guess at the filename isn't reliable — this tries each candidate filename
+    stem in order (raw_ticker first, then a couple of common-suffix fallbacks for
+    older JSON exports that don't carry raw_ticker yet) and returns the first hit.
+    """
+    for candidate in file_ticker_candidates:
+        if not candidate:
+            continue
+        relative_path = f"data/processed/{candidate}_processed.csv"
+        raw_text = _fetch_text(relative_path, relative_path)
+        if not raw_text:
+            continue
+        try:
+            df = pd.read_csv(io.StringIO(raw_text), index_col=0, parse_dates=True)
+            df = df.sort_index()
+            df.columns = [str(c).lower() for c in df.columns]
+            required_cols = {"open", "high", "low", "close"}
+            if not required_cols.issubset(set(df.columns)):
+                continue
+            return df.tail(lookback_days)
+        except Exception:
+            continue
+    return pd.DataFrame()
 
 
 # =====================================================================
@@ -142,6 +150,10 @@ def _build_ledger_row(signal: dict) -> dict:
         "_raw_tp1": target_tp1 if action_status == "BUY" else None,
         "_raw_tp2": target_tp2 if action_status == "BUY" else None,
         "_raw_trailing_floor": trailing_floor if action_status == "BUY" and trailing_floor > 0 else None,
+        # The exact filename stem main.py used for data/processed/{this}_processed.csv
+        # (usually includes the .NS/.BO suffix). Falls back to the clean display name
+        # for older JSON exports written before this field existed.
+        "_raw_ticker": signal.get("raw_ticker") or signal.get("ticker", "N/A"),
     }
 
 
@@ -241,15 +253,31 @@ else:
             index=0,
         )
 
-        ohlc_df = load_ticker_ohlc_history(chart_ticker)
+        chart_row = triggered_ledger[triggered_ledger["Asset Ticker"] == chart_ticker].iloc[0]
+
+        # main.py names the CSV after the *raw* ticker (often with a .NS/.BO suffix,
+        # e.g. "MARINE.NS_processed.csv"), while the ledger shows the suffix-stripped
+        # display name (e.g. "MARINE"). Try the raw filename main.py actually wrote
+        # first, then fall back to a couple of common-suffix guesses for older JSON
+        # exports that predate the raw_ticker field.
+        raw_ticker = chart_row.get("_raw_ticker")
+        file_candidates = tuple(dict.fromkeys([
+            raw_ticker,
+            chart_ticker,
+            f"{chart_ticker}.NS",
+            f"{chart_ticker}.BO",
+        ]))
+
+        ohlc_df = load_ticker_ohlc_history(file_candidates)
 
         if ohlc_df.empty:
             st.warning(
-                f"⚠️ No OHLC history found for {chart_ticker}. Make sure "
-                f"data/processed/{chart_ticker}_processed.csv has been committed/synced from main.py's output."
+                f"⚠️ No OHLC history found for {chart_ticker}. Checked: "
+                f"{', '.join(f'{c}_processed.csv' for c in file_candidates)} — make sure one of these "
+                f"exists under data/processed/ and has been committed/synced from main.py's output."
             )
         else:
-            row = triggered_ledger[triggered_ledger["Asset Ticker"] == chart_ticker].iloc[0]
+            row = chart_row
 
             # Trend context: same rolling windows already used elsewhere in the system
             # (20d volume avg / 200d EMA), so nothing new is introduced conceptually.
