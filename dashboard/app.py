@@ -88,7 +88,8 @@ def load_ticker_ohlc_history(ticker: str, lookback_days: int = 180) -> pd.DataFr
     """Loads a single ticker's processed OHLC history (as written by main.py's
     calculate_quant_metrics -> data/processed/{ticker}_processed.csv) so it can
     be charted. Returns an empty DataFrame if unavailable."""
-    relative_path = f"data/processed/{ticker}_processed.csv"
+    relative_path = f"data/processed/{ticker}.
+    NS_processed.csv"
     local_path = relative_path
     raw_text = _fetch_text(relative_path, local_path)
     if not raw_text:
