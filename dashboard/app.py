@@ -150,6 +150,9 @@ def _build_ledger_row(signal: dict) -> dict:
         "_raw_tp1": target_tp1 if action_status == "BUY" else None,
         "_raw_tp2": target_tp2 if action_status == "BUY" else None,
         "_raw_trailing_floor": trailing_floor if action_status == "BUY" and trailing_floor > 0 else None,
+        # The close price at the moment the signal fired — treated as the intended
+        # entry price for a fresh BUY, since that's what the signal was based on.
+        "_raw_entry_price": signal.get("close_price", 0.0) if action_status == "BUY" else None,
         # The exact filename stem main.py used for data/processed/{this}_processed.csv
         # (usually includes the .NS/.BO suffix). Falls back to the clean display name
         # for older JSON exports written before this field existed.
@@ -319,16 +322,18 @@ else:
                 hovertemplate="SMA50 ₹%{y:,.2f}<extra></extra>",
             ), row=1, col=1)
 
-            # Overlay the same TP1 / TP2 / trailing-stop levels shown in the ledger,
-            # so the chart and the table always agree with each other.
-            for label, value, color, dash in [
-                ("TP1", row.get("_raw_tp1"), CHART_POSITIVE, "dot"),
-                ("TP2", row.get("_raw_tp2"), "#2E8B6F", "dash"),
-                ("Trailing Stop", row.get("_raw_trailing_floor"), CHART_NEGATIVE, "dashdot"),
+            # Overlay Entry / TP1 / TP2 / trailing-stop levels shown in the ledger,
+            # so the chart and the table always agree with each other. Entry is drawn
+            # first (solid, gold) so it reads as the anchor the others are measured from.
+            for label, value, color, dash, width in [
+                ("Entry", row.get("_raw_entry_price"), CHART_GOLD, "solid", 1.6),
+                ("TP1", row.get("_raw_tp1"), CHART_POSITIVE, "dot", 1.2),
+                ("TP2", row.get("_raw_tp2"), "#2E8B6F", "dash", 1.2),
+                ("Trailing Stop", row.get("_raw_trailing_floor"), CHART_NEGATIVE, "dashdot", 1.2),
             ]:
                 if value:
                     fig.add_hline(
-                        y=value, line_dash=dash, line_color=color, line_width=1.2,
+                        y=value, line_dash=dash, line_color=color, line_width=width,
                         annotation_text=f"{label}: ₹{value:,.2f}", annotation_position="right",
                         annotation_font_color=CHART_TEXT_SECONDARY, annotation_font_size=11,
                         row=1, col=1,
@@ -353,11 +358,12 @@ else:
                 showlegend=True,
                 legend=dict(orientation="h", yanchor="bottom", y=1.01, xanchor="left", x=0),
                 hovermode="x unified",
+                dragmode="zoom",  # click-drag draws a zoom box (desktop); pinch zooms on touch
                 height=620,
                 margin=dict(l=10, r=10, t=70, b=10),
                 xaxis_rangeslider_visible=False,
                 xaxis2=dict(
-                    rangeslider=dict(visible=True, thickness=0.06, bgcolor=CHART_PANEL),
+                    rangeslider=dict(visible=True, thickness=0.09, bgcolor=CHART_PANEL),
                     gridcolor=CHART_GRID,
                 ),
                 xaxis=dict(
@@ -377,7 +383,24 @@ else:
             fig.update_yaxes(title_text="Price (₹)", gridcolor=CHART_GRID, row=1, col=1)
             fig.update_yaxes(title_text="Volume", gridcolor=CHART_GRID, row=2, col=1)
 
-            st.plotly_chart(fig, use_container_width=True)
+            # Streamlit hides Plotly's zoom/pan toolbar until you hover the chart, and
+            # mouse-wheel zoom is off by default — both look like "zoom doesn't work."
+            # This forces the toolbar to stay visible and turns scroll-to-zoom on.
+            st.plotly_chart(
+                fig,
+                use_container_width=True,
+                config={
+                    "scrollZoom": True,
+                    "displayModeBar": True,
+                    "displaylogo": False,
+                    "modeBarButtonsToRemove": ["lasso2d", "select2d"],
+                },
+            )
+            st.caption(
+                "Zoom: scroll/pinch on the chart, or click-drag to box-zoom. "
+                "Double-click to reset. Drag the bar under the volume panel, or use the "
+                "1M / 3M / 6M / All buttons, to change the visible date range."
+            )
 
     # =====================================================================
     # 🟢 FIXED ACCUMULATION PORTFOLIO SUMMARY CONTAINER (RAW STREAMING)
@@ -398,6 +421,7 @@ else:
     else:
         p_telemetry = portfolio_data.get("account_telemetry", {})
         p_positions = portfolio_data.get("active_positions", {})
+
 
         # 1. Macro Summary Balance Scorecards
         m_col1, m_col2, m_col3 = st.columns(3)
