@@ -422,7 +422,6 @@ else:
         p_telemetry = portfolio_data.get("account_telemetry", {})
         p_positions = portfolio_data.get("active_positions", {})
 
-
         # 1. Macro Summary Balance Scorecards
         m_col1, m_col2, m_col3 = st.columns(3)
         with m_col1:
