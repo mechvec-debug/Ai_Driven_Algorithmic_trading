@@ -153,6 +153,8 @@ def _build_ledger_row(signal: dict) -> dict:
         # The close price at the moment the signal fired — treated as the intended
         # entry price for a fresh BUY, since that's what the signal was based on.
         "_raw_entry_price": signal.get("close_price", 0.0) if action_status == "BUY" else None,
+        "_raw_allocation": signal.get("required_allocation_in_rupees", 0.0) if action_status == "BUY" else 0.0,
+        "_raw_shares": signal.get("recommended_shares_to_buy", 0) if action_status == "BUY" else 0,
         # The exact filename stem main.py used for data/processed/{this}_processed.csv
         # (usually includes the .NS/.BO suffix). Falls back to the clean display name
         # for older JSON exports written before this field existed.
@@ -342,6 +344,19 @@ else:
                         hoverinfo="skip",
                     ), row=1, col=1)
 
+            # Entry marker: a bold gold "X" on the latest candle at the entry price, so the
+            # exact spot the signal fired is obvious even when the flat Entry line runs
+            # across the whole chart.
+            entry_value = row.get("_raw_entry_price")
+            if entry_value:
+                fig.add_trace(go.Scatter(
+                    x=[ohlc_df.index.max()], y=[entry_value], mode="markers",
+                    name="Entry point",
+                    marker=dict(symbol="x", size=15, color=CHART_GOLD,
+                                line=dict(width=3, color=CHART_GOLD)),
+                    hovertemplate="Entry ₹%{y:,.2f}<extra></extra>",
+                ), row=1, col=1)
+
             volume_colors = [
                 CHART_POSITIVE if c >= o else CHART_NEGATIVE
                 for o, c in zip(ohlc_df["open"], ohlc_df["close"])
@@ -353,7 +368,10 @@ else:
             ), row=2, col=1)
 
             fig.update_layout(
-                title=f"{chart_ticker} — Price History ({len(ohlc_df)} sessions)",
+                title=dict(
+                    text=f"{chart_ticker} — Price History ({len(ohlc_df)} sessions)",
+                    font=dict(color=CHART_TEXT_PRIMARY, size=16),
+                ),
                 template="plotly_dark",
                 paper_bgcolor=CHART_BG,
                 plot_bgcolor=CHART_PANEL,
@@ -361,7 +379,8 @@ else:
                 showlegend=True,
                 legend=dict(
                     orientation="h", yanchor="bottom", y=1.01, xanchor="left", x=0,
-                    font=dict(size=10.5), bgcolor="rgba(0,0,0,0)",
+                    font=dict(size=11.5, color=CHART_TEXT_PRIMARY),
+                    bgcolor="rgba(0,0,0,0)",
                 ),
                 hovermode="x unified",
                 dragmode="zoom",  # click-drag draws a zoom box (desktop); pinch zooms on touch
@@ -395,6 +414,7 @@ else:
             st.plotly_chart(
                 fig,
                 width="stretch",
+                theme=None,  # Streamlit's default theme overrides legend/title text colors
                 config={
                     "scrollZoom": True,
                     "displayModeBar": True,
@@ -457,5 +477,29 @@ else:
                     "Peak Price Reached": f"₹{p_details.get('peak_close', 0.0):,.2f}"
                 })
             st.dataframe(pd.DataFrame(positions_rows))
+
+            # 3. Cross-check: BUY signals in the ledger that are NOT held in the portfolio.
+            # The signal ledger sizes every BUY independently (against the full account),
+            # so it can't see that earlier positions already used up the cash.
+            held_keys = {str(k).upper().replace(".NS", "").replace(".BO", "") for k in p_positions.keys()}
+            available_cash = float(p_telemetry.get("available_cash", 0.0) or 0.0)
+            unfunded = []
+            for _, sig_row in triggered_ledger.iterrows():
+                clean_key = str(sig_row["Asset Ticker"]).upper()
+                if clean_key not in held_keys:
+                    needed = float(sig_row.get("_raw_allocation", 0.0) or 0.0)
+                    unfunded.append({
+                        "Asset Ticker": sig_row["Asset Ticker"],
+                        "Signal Status": "BUY",
+                        "Capital Needed (₹)": f"₹{needed:,.2f}",
+                        "Available Cash (₹)": f"₹{available_cash:,.2f}",
+                        "Likely Reason": "Insufficient cash" if needed > available_cash else "Not yet executed by broker agent",
+                    })
+            if unfunded:
+                st.markdown("##### ⚠️ BUY Signals Not Held in Portfolio")
+                st.caption(
+                    "These tickers are flagged BUY in the signal ledger but have no open position in the "
+                    "simulated account.")
+                st.dataframe(pd.DataFrame(unfunded), hide_index=True)
         else:
             st.info("💼 No active positions are currently held in the portfolio simulation ledger.")
