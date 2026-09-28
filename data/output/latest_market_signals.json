@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-09-28 21:55:24.336418+05:30",
+    "last_updated": "2026-09-28 23:53:40.660447+05:30",
     "total_scanned_assets": 315,
     "signals": [
         {
@@ -2064,7 +2064,7 @@
             "raw_ticker": "SPARC.NS",
             "sector": "Other Diversified",
             "close_price": 202.8500061035156,
-            "ann_volatility_pct": 37.05392182533068,
+            "ann_volatility_pct": 37.0539218253307,
             "daily_var_95_pct": -4.47791449358727,
             "qlib_alpha_score": 0.0344212125951535,
             "backtest_roi_pct": 36.16015050468903,

@@ -1058,3 +1058,361 @@
 2026-09-28 16:25:13,684 [INFO]  -> [ZYDUSWELL.NS] Bypassed status. Failed strict quantitative thresholds.
 2026-09-28 16:25:14,185 [INFO] [Complete] Quant script loops finished successfully. Overwriting metrics...
 2026-09-28 16:25:24,342 [INFO] ✓ Central output matrix overwritten successfully.
+2026-09-28 18:20:02,712 [INFO] =================================================================
+2026-09-28 18:20:02,712 [INFO] RUNNING CONSOLIDATED SYSTEM SCRIPTS
+2026-09-28 18:20:02,712 [INFO] =================================================================
+2026-09-28 18:20:02,795 [INFO]  -> [AARTIDRUGS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:03,380 [INFO]  -> [ACE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:03,950 [INFO]  -> [AFFLE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:04,520 [INFO]  -> [AIAENG.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:05,090 [INFO]  -> [ALKYLAMINE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:05,661 [INFO]  -> [ALLCARGO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:06,228 [INFO]  -> [AMBER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:06,798 [INFO]  -> [AMBUJACEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:07,367 [INFO]  -> [ANANTRAJ.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:07,934 [INFO]  -> [ANURAS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:08,507 [INFO]  -> [APLAPOLLO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:09,083 [INFO]  -> [APLLTD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:09,691 [INFO]  -> [APOLLO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:10,286 [INFO]  -> [APOLLOHOSP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:10,855 [INFO]  -> [APOLLOTYRE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:11,425 [INFO]  -> [ARE&M.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:11,995 [INFO]  -> [ARTEMISMED.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:12,564 [INFO]  -> [ASAHIINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:13,123 [INFO]  -> [ASIANENE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:13,693 [INFO]  -> [ASIANPAINT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:14,235 [INFO]  -> [ASKAUTOLTD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:14,806 [INFO]  -> [ASTRAL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:15,374 [INFO]  -> [ASTRAZEN.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:15,943 [INFO]  -> [ATGL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:16,510 [INFO]  -> [ATUL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:17,080 [INFO]  -> [AUROPHARMA.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:20:17,711 [INFO]  ✓ Telegram text alert delivered successfully via bot for AUROPHARMA!
+2026-09-28 18:20:18,798 [INFO]  ✓ Telegram visual card delivered successfully to phone for AUROPHARMA!
+2026-09-28 18:20:19,373 [INFO]  -> [AVANTIFEED.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:19,942 [INFO]  -> [AYMSYNTEX.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:20,513 [INFO]  -> [BAJAJELEC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:21,073 [INFO]  -> [BAJAJHCARE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:21,643 [INFO]  -> [BALKRISIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:22,212 [INFO]  -> [BASF.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:22,782 [INFO]  -> [BATAINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:23,354 [INFO]  -> [BAYERCROP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:23,924 [INFO]  -> [BBTC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:24,499 [INFO]  -> [BECTORFOOD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:25,070 [INFO]  -> [BERGEPAINT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:25,640 [INFO]  -> [BHARATRAS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:26,190 [INFO]  -> [BIKAJI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:26,760 [INFO]  -> [BIOCON.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:27,333 [INFO]  -> [BIRLACORPN.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:27,903 [INFO]  -> [BLUESTARCO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:28,473 [INFO]  -> [BORORENEW.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:29,044 [INFO]  -> [BRIGADE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:29,600 [INFO]  -> [CAMPUS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:30,169 [INFO]  -> [CAPLIPOINT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:30,739 [INFO]  -> [CARBORUNIV.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:31,309 [INFO]  -> [CCL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:31,879 [INFO]  -> [CEATLTD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:32,451 [INFO]  -> [CENTURYPLY.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:33,019 [INFO]  -> [CERA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:33,588 [INFO]  -> [CGPOWER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:34,159 [INFO]  -> [CHAMBLFERT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:34,721 [INFO]  -> [CHEMPLASTS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:35,291 [INFO]  -> [CIPLA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:35,855 [INFO]  -> [CLEAN.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:36,425 [INFO]  -> [COALINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:36,996 [INFO]  -> [COCHINSHIP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:37,566 [INFO]  -> [COLPAL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:38,137 [INFO]  -> [CONCOR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:38,708 [INFO]  -> [COSMOFIRST.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:39,278 [INFO]  -> [CROMPTON.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:39,848 [INFO]  -> [CYIENT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:40,419 [INFO]  -> [DABUR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:40,989 [INFO]  -> [DALBHARAT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:41,719 [INFO]  -> [DCMSHRIRAM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:42,288 [INFO]  -> [DEEPAKFERT.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:20:42,817 [INFO]  ✓ Telegram text alert delivered successfully via bot for DEEPAKFERT!
+2026-09-28 18:20:43,811 [INFO]  ✓ Telegram visual card delivered successfully to phone for DEEPAKFERT!
+2026-09-28 18:20:44,381 [INFO]  -> [DEEPAKNTR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:44,936 [INFO]  -> [DELHIVERY.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:45,506 [INFO]  -> [DHANUKA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:46,074 [INFO]  -> [DIVISLAB.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:46,644 [INFO]  -> [DLF.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:47,212 [INFO]  -> [DMART.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:47,782 [INFO]  -> [DOLLAR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:48,354 [INFO]  -> [DRREDDY.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:48,908 [INFO]  -> [DYCL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:49,479 [INFO]  -> [ECLERX.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:50,048 [INFO]  -> [EICHERMOT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:50,618 [INFO]  -> [EIDPARRY.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:51,189 [INFO]  -> [EKC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:51,759 [INFO]  -> [ELGIEQUIP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:52,328 [INFO]  -> [EMAMILTD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:52,883 [INFO]  -> [EMUDHRA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:53,453 [INFO]  -> [ENDURANCE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:54,024 [INFO]  -> [EPL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:54,612 [INFO]  -> [FDC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:55,182 [INFO]  -> [FINCABLES.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:55,751 [INFO]  -> [FINEORG.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:56,323 [INFO]  -> [FINPIPE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:56,892 [INFO]  -> [FLUOROCHEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:57,468 [INFO]  -> [FMGOETZE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:58,038 [INFO]  -> [FORTIS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:20:58,608 [INFO]  -> [GABRIEL.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:20:59,161 [INFO]  ✓ Telegram text alert delivered successfully via bot for GABRIEL!
+2026-09-28 18:21:00,183 [INFO]  ✓ Telegram visual card delivered successfully to phone for GABRIEL!
+2026-09-28 18:21:00,757 [INFO]  -> [GAEL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:01,330 [INFO]  -> [GAIL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:01,900 [INFO]  -> [GALAXYSURF.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:02,470 [INFO]  -> [GANECOS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:03,042 [INFO]  -> [GARFIBRES.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:03,611 [INFO]  -> [GENESYS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:04,156 [INFO]  -> [GHCLTEXTIL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:04,725 [INFO]  -> [GLAND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:05,296 [INFO]  -> [GLENMARK.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:05,866 [INFO]  -> [GMMPFAUDLR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:06,437 [INFO]  -> [GODREJAGRO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:07,007 [INFO]  -> [GODREJCP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:07,578 [INFO]  -> [GOKULAGRO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:08,150 [INFO]  -> [GOODLUCK.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:08,722 [INFO]  -> [GPPL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:09,292 [INFO]  -> [GRANULES.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:09,862 [INFO]  -> [GRAPHITE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:10,443 [INFO]  -> [GREENPANEL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:11,012 [INFO]  -> [GRINDWELL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:11,570 [INFO]  -> [GRWRHITECH.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:13,221 [INFO]  -> [GUJALKALI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:13,810 [INFO]  -> [GUJGASLTD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:14,389 [INFO]  -> [GVT&D.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:14,948 [INFO]  -> [HARDWYN.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:15,518 [INFO]  -> [HAVELLS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:16,296 [ERROR] $HEG.NS: possibly delisted; no price data found  (1d 2026-09-26 -> 2026-09-28)
+2026-09-28 18:21:16,297 [ERROR] 
+1 Failed download:
+2026-09-28 18:21:16,297 [ERROR] ['HEG.NS']: possibly delisted; no price data found  (1d 2026-09-26 -> 2026-09-28)
+2026-09-28 18:21:16,369 [INFO]  -> [HEG.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:16,937 [INFO]  -> [HERANBA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:17,506 [INFO]  -> [HEROMOTOCO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:18,077 [INFO]  -> [HFCL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:18,648 [INFO]  -> [HIKAL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:19,218 [INFO]  -> [HINDALCO.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:21:19,794 [INFO]  ✓ Telegram text alert delivered successfully via bot for HINDALCO!
+2026-09-28 18:21:20,756 [INFO]  ✓ Telegram visual card delivered successfully to phone for HINDALCO!
+2026-09-28 18:21:21,328 [INFO]  -> [HINDCOPPER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:21,900 [INFO]  -> [HINDPETRO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:22,470 [INFO]  -> [HINDUNILVR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:23,039 [INFO]  -> [HLEGLAS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:23,628 [INFO]  -> [IBREALEST.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:24,198 [INFO]  -> [IFBIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:24,769 [INFO]  -> [IGL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:25,337 [INFO]  -> [INDIGOPNTS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:25,907 [INFO]  -> [INDNIPPON.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:26,477 [INFO]  -> [INDOCO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:27,048 [INFO]  -> [INDUSTOWER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:27,589 [INFO]  -> [INNOVACAP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:28,161 [INFO]  -> [IOC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:28,732 [INFO]  -> [IPCALAB.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:29,297 [INFO]  -> [IPL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:29,864 [INFO]  -> [ISGEC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:30,434 [INFO]  -> [ITI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:31,005 [INFO]  -> [JAMNAAUTO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:31,827 [INFO]  -> [JINDALSAW.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:32,398 [INFO]  -> [JINDALSTEL.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:21:32,948 [INFO]  ✓ Telegram text alert delivered successfully via bot for JINDALSTEL!
+2026-09-28 18:21:33,939 [INFO]  ✓ Telegram visual card delivered successfully to phone for JINDALSTEL!
+2026-09-28 18:21:34,511 [INFO]  -> [JKIL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:35,081 [INFO]  -> [JKLAKSHMI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:35,652 [INFO]  -> [JSL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:36,222 [INFO]  -> [JSWENERGY.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:36,790 [INFO]  -> [JUBLINGREA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:37,361 [INFO]  -> [JUBLPHARMA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:37,931 [INFO]  -> [KAJARIACER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:38,520 [INFO]  -> [KALPATPOWR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:39,092 [INFO]  -> [KANSAINER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:39,661 [INFO]  -> [KEI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:40,257 [INFO]  -> [KEPL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:40,823 [INFO]  -> [KIMS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:41,392 [INFO]  -> [KIRLOSBROS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:41,938 [INFO]  -> [KIRLPNU.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:42,508 [INFO]  -> [KPITTECH.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:43,079 [INFO]  -> [KPRMILL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:43,649 [INFO]  -> [KRBL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:44,213 [INFO]  -> [KRSNAA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:44,785 [INFO]  -> [LALPATHLAB.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:45,357 [INFO]  -> [LAURUSLABS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:45,927 [INFO]  -> [LGBBROSLTD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:46,500 [INFO]  -> [LIKHITHA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:47,071 [INFO]  -> [LINC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:47,639 [INFO]  -> [LINDEINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:48,211 [INFO]  -> [LLOYDSENGG.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:48,782 [INFO]  -> [LODHA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:49,352 [INFO]  -> [LUMAXTECH.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:21:49,883 [INFO]  ✓ Telegram text alert delivered successfully via bot for LUMAXTECH!
+2026-09-28 18:21:50,884 [INFO]  ✓ Telegram visual card delivered successfully to phone for LUMAXTECH!
+2026-09-28 18:21:51,456 [INFO]  -> [LUPIN.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:52,026 [INFO]  -> [LUXIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:52,595 [INFO]  -> [LXCHEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:53,166 [INFO]  -> [MAHLOG.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:21:53,723 [INFO]  ✓ Telegram text alert delivered successfully via bot for MAHLOG!
+2026-09-28 18:21:54,735 [INFO]  ✓ Telegram visual card delivered successfully to phone for MAHLOG!
+2026-09-28 18:21:55,282 [INFO]  -> [MANKIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:55,841 [INFO]  -> [MANYAVAR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:56,412 [INFO]  -> [MARICO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:21:56,983 [INFO]  -> [MARINE.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:21:57,556 [INFO]  ✓ Telegram text alert delivered successfully via bot for MARINE!
+2026-09-28 18:21:58,545 [INFO]  ✓ Telegram visual card delivered successfully to phone for MARINE!
+2026-09-28 18:21:59,117 [INFO]  -> [MARKSANS.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:21:59,670 [INFO]  ✓ Telegram text alert delivered successfully via bot for MARKSANS!
+2026-09-28 18:22:00,659 [INFO]  ✓ Telegram visual card delivered successfully to phone for MARKSANS!
+2026-09-28 18:22:01,229 [INFO]  -> [MARUTI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:01,800 [INFO]  -> [MAXHEALTH.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:02,350 [INFO]  -> [MEDANTA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:02,910 [INFO]  -> [MEDPLUS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:03,470 [INFO]  -> [METROBRAND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:04,041 [INFO]  -> [METROPOLIS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:04,612 [INFO]  -> [MGL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:05,182 [INFO]  -> [MINDACORP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:05,753 [INFO]  -> [MMTC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:06,324 [INFO]  -> [MOIL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:06,894 [INFO]  -> [MONTECARLO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:07,467 [INFO]  -> [MOTHERSON.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:08,027 [INFO]  -> [MSUMI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:08,597 [INFO]  -> [NATCOPHARM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:09,169 [INFO]  -> [NATIONALUM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:09,736 [INFO]  -> [NAZARA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:10,307 [INFO]  -> [NOCIL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:10,879 [INFO]  -> [NRBBEARING.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:11,441 [INFO]  -> [NUVOCO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:12,004 [INFO]  -> [NYKAA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:12,574 [INFO]  -> [OAL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:13,144 [INFO]  -> [OBEROIRLTY.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:13,716 [INFO]  -> [OIL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:14,287 [INFO]  -> [OLECTRA.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:22:14,846 [INFO]  ✓ Telegram text alert delivered successfully via bot for OLECTRA!
+2026-09-28 18:22:15,842 [INFO]  ✓ Telegram visual card delivered successfully to phone for OLECTRA!
+2026-09-28 18:22:16,415 [INFO]  -> [ONGC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:16,986 [INFO]  -> [ORIENTELEC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:17,554 [INFO]  -> [PAGEIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:18,125 [INFO]  -> [PCBL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:18,696 [INFO]  -> [PDMJEPAPER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:19,267 [INFO]  -> [PDSL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:19,837 [INFO]  -> [PERSISTENT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:20,405 [INFO]  -> [PFIZER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:20,973 [INFO]  -> [PGHH.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:21,541 [INFO]  -> [PGHL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:22,112 [INFO]  -> [PHOENIXLTD.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:22:22,690 [INFO]  ✓ Telegram text alert delivered successfully via bot for PHOENIXLTD!
+2026-09-28 18:22:23,689 [INFO]  ✓ Telegram visual card delivered successfully to phone for PHOENIXLTD!
+2026-09-28 18:22:24,262 [INFO]  -> [PIDILITIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:24,832 [INFO]  -> [PIIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:25,388 [INFO]  -> [PIXTRANS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:25,958 [INFO]  -> [PNCINFRA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:26,525 [INFO]  -> [POCL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:27,095 [INFO]  -> [POKARNA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:27,663 [INFO]  -> [POLYCAB.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:28,233 [INFO]  -> [POLYMED.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:28,803 [INFO]  -> [POLYPLEX.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:29,371 [INFO]  -> [POWERINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:29,923 [INFO]  -> [PPLPHARMA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:30,493 [INFO]  -> [PRESTIGE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:31,063 [INFO]  -> [PRINCEPIPE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:31,633 [INFO]  -> [QUESS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:32,202 [INFO]  -> [RAILTEL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:32,773 [INFO]  -> [RAJESHEXPO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:33,343 [INFO]  -> [RALLIS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:33,915 [INFO]  -> [RAMCOCEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:34,487 [INFO]  -> [RATNAMANI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:35,066 [INFO]  -> [RBA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:35,638 [INFO]  -> [RCF.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:36,209 [INFO]  -> [REDINGTON.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:36,779 [INFO]  -> [RELAXO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:37,351 [INFO]  -> [RELIANCE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:37,921 [INFO]  -> [RELINFRA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:38,507 [INFO]  -> [RESPONIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:39,077 [INFO]  -> [RHIM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:39,648 [INFO]  -> [ROSSARI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:40,217 [INFO]  -> [ROUTE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:40,789 [INFO]  -> [SAIL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:41,359 [INFO]  -> [SANDHAR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:41,928 [INFO]  -> [SANOFI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:42,498 [INFO]  -> [SCHAEFFLER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:43,069 [INFO]  -> [SCI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:43,641 [INFO]  -> [SFL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:44,213 [INFO]  -> [SHAKTIPUMP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:44,782 [INFO]  -> [SHANTIGEAR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:45,352 [INFO]  -> [SHARDACROP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:45,926 [INFO]  -> [SHILPAMED.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:46,496 [INFO]  -> [SHYAMMETL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:47,067 [INFO]  -> [SIEMENS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:47,637 [INFO]  -> [SIS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:48,211 [INFO]  -> [SJVN.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:48,781 [INFO]  -> [SKFINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:49,353 [INFO]  -> [SKIPPER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:49,923 [INFO]  -> [SOBHA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:50,494 [INFO]  -> [SOLARINDS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:51,059 [INFO]  -> [SONACOMS.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:22:51,678 [INFO]  ✓ Telegram text alert delivered successfully via bot for SONACOMS!
+2026-09-28 18:22:52,680 [INFO]  ✓ Telegram visual card delivered successfully to phone for SONACOMS!
+2026-09-28 18:22:53,484 [INFO]  -> [SPARC.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:22:54,020 [INFO]  ✓ Telegram text alert delivered successfully via bot for SPARC!
+2026-09-28 18:22:54,993 [INFO]  ✓ Telegram visual card delivered successfully to phone for SPARC!
+2026-09-28 18:22:55,566 [INFO]  -> [SRF.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:56,130 [INFO]  -> [STYLAMIND.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:22:56,673 [INFO]  ✓ Telegram text alert delivered successfully via bot for STYLAMIND!
+2026-09-28 18:22:57,628 [INFO]  ✓ Telegram visual card delivered successfully to phone for STYLAMIND!
+2026-09-28 18:22:58,200 [INFO]  -> [SUBROS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:58,770 [INFO]  -> [SUDARSCHEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:59,344 [INFO]  -> [SUMICHEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:22:59,915 [INFO]  -> [SUNDRMFAST.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:00,486 [INFO]  -> [SUNPHARMA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:01,058 [INFO]  -> [SUNTECK.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:01,628 [INFO]  -> [SUPRAJIT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:02,201 [INFO]  -> [SUPREMEIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:02,761 [INFO]  -> [SUPRIYA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:03,332 [INFO]  -> [SYMPHONY.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:03,903 [INFO]  -> [SYNGENE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:04,475 [INFO]  -> [TARIL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:05,046 [INFO]  -> [TATACHEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:05,617 [INFO]  -> [TATACONSUM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:06,190 [INFO]  -> [TATASTEEL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:06,761 [INFO]  -> [TCI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:07,332 [INFO]  -> [TCIEXP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:07,902 [INFO]  -> [TEJASNET.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:08,474 [INFO]  -> [TEXRAIL.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:23:09,109 [INFO]  ✓ Telegram text alert delivered successfully via bot for TEXRAIL!
+2026-09-28 18:23:10,117 [INFO]  ✓ Telegram visual card delivered successfully to phone for TEXRAIL!
+2026-09-28 18:23:10,689 [INFO]  -> [THERMAX.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:11,261 [INFO]  -> [THYROCARE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:11,831 [INFO]  -> [TIINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:12,403 [INFO]  -> [TIMETECHNO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:12,985 [INFO]  -> [TIMKEN.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:13,559 [INFO]  -> [TRIDENT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:14,130 [INFO]  -> [TRITURBINE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:14,701 [INFO]  -> [TTKPRESTIG.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:15,272 [INFO]  -> [UNICHEMLAB.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:23:15,819 [INFO]  ✓ Telegram text alert delivered successfully via bot for UNICHEMLAB!
+2026-09-28 18:23:16,823 [INFO]  ✓ Telegram visual card delivered successfully to phone for UNICHEMLAB!
+2026-09-28 18:23:17,397 [INFO]  -> [UNOMINDA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:17,967 [INFO]  -> [UPL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:18,539 [INFO]  -> [VAIBHAVGBL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:19,109 [INFO]  -> [VARROC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:19,682 [INFO]  -> [VBL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:20,253 [INFO]  -> [VEDL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:20,823 [INFO]  -> [VGUARD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:21,388 [INFO]  -> [VIJAYA.NS] Golden Rule Satisfied... Dispatching alerts...
+2026-09-28 18:23:21,944 [INFO]  ✓ Telegram text alert delivered successfully via bot for VIJAYA!
+2026-09-28 18:23:22,932 [INFO]  ✓ Telegram visual card delivered successfully to phone for VIJAYA!
+2026-09-28 18:23:23,505 [INFO]  -> [VINATIORGA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:24,075 [INFO]  -> [VIPIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:24,647 [INFO]  -> [VMART.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:25,220 [INFO]  -> [VOLTAS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:25,791 [INFO]  -> [VTL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:26,362 [INFO]  -> [WELCORP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:26,933 [INFO]  -> [WELSPUNLIV.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:27,504 [INFO]  -> [WHIRLPOOL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:28,074 [INFO]  -> [WOCKPHARMA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:28,637 [INFO]  -> [YUKEN.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:29,209 [INFO]  -> [ZFCVINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:29,781 [INFO]  -> [ZYDUSLIFE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:30,354 [INFO]  -> [ZYDUSWELL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-09-28 18:23:30,854 [INFO] [Complete] Quant script loops finished successfully. Overwriting metrics...
+2026-09-28 18:23:40,666 [INFO] ✓ Central output matrix overwritten successfully.
