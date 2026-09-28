@@ -282,10 +282,10 @@ else:
         else:
             row = chart_row
 
-            # Trend context: same rolling windows already used elsewhere in the system
-            # (20d volume avg / 200d EMA), so nothing new is introduced conceptually.
-            ohlc_df["sma_20"] = ohlc_df["close"].rolling(window=20, min_periods=5).mean()
-            ohlc_df["sma_50"] = ohlc_df["close"].rolling(window=50, min_periods=10).mean()
+            # Trend context: EMA reacts faster to recent price moves than SMA, which is
+            # usually what people actually want for a short-horizon momentum chart.
+            ohlc_df["ema_9"] = ohlc_df["close"].ewm(span=9, adjust=False).mean()
+            ohlc_df["ema_20"] = ohlc_df["close"].ewm(span=20, adjust=False).mean()
 
             fig = make_subplots(
                 rows=2, cols=1, shared_xaxes=True,
@@ -311,33 +311,36 @@ else:
             ), row=1, col=1)
 
             fig.add_trace(go.Scatter(
-                x=ohlc_df.index, y=ohlc_df["sma_20"], mode="lines", name="SMA 20",
+                x=ohlc_df.index, y=ohlc_df["ema_9"], mode="lines", name="EMA 9",
                 line=dict(color=CHART_GOLD, width=1.3),
-                hovertemplate="SMA20 ₹%{y:,.2f}<extra></extra>",
+                hovertemplate="EMA9 ₹%{y:,.2f}<extra></extra>",
             ), row=1, col=1)
 
             fig.add_trace(go.Scatter(
-                x=ohlc_df.index, y=ohlc_df["sma_50"], mode="lines", name="SMA 50",
+                x=ohlc_df.index, y=ohlc_df["ema_20"], mode="lines", name="EMA 20",
                 line=dict(color=CHART_TEXT_SECONDARY, width=1.3, dash="dot"),
-                hovertemplate="SMA50 ₹%{y:,.2f}<extra></extra>",
+                hovertemplate="EMA20 ₹%{y:,.2f}<extra></extra>",
             ), row=1, col=1)
 
-            # Overlay Entry / TP1 / TP2 / trailing-stop levels shown in the ledger,
-            # so the chart and the table always agree with each other. Entry is drawn
-            # first (solid, gold) so it reads as the anchor the others are measured from.
+            # Entry / TP1 / TP2 / trailing-stop levels, drawn as flat lines that sit in
+            # the legend (like every other trace) instead of fig.add_hline's edge-of-chart
+            # text annotations, which were getting clipped whenever the plot got resized
+            # (e.g. by Streamlit's use_container_width) — there's no "outside the plot"
+            # margin to clip against when the label lives in the legend instead.
+            x_span = [ohlc_df.index.min(), ohlc_df.index.max()]
             for label, value, color, dash, width in [
                 ("Entry", row.get("_raw_entry_price"), CHART_GOLD, "solid", 1.6),
-                ("TP1", row.get("_raw_tp1"), CHART_POSITIVE, "dot", 1.2),
-                ("TP2", row.get("_raw_tp2"), "#2E8B6F", "dash", 1.2),
-                ("Trailing Stop", row.get("_raw_trailing_floor"), CHART_NEGATIVE, "dashdot", 1.2),
+                ("TP1", row.get("_raw_tp1"), CHART_POSITIVE, "dot", 1.4),
+                ("TP2", row.get("_raw_tp2"), "#2E8B6F", "dash", 1.4),
+                ("Trailing Stop", row.get("_raw_trailing_floor"), CHART_NEGATIVE, "dashdot", 1.4),
             ]:
                 if value:
-                    fig.add_hline(
-                        y=value, line_dash=dash, line_color=color, line_width=width,
-                        annotation_text=f"{label}: ₹{value:,.2f}", annotation_position="right",
-                        annotation_font_color=CHART_TEXT_SECONDARY, annotation_font_size=11,
-                        row=1, col=1,
-                    )
+                    fig.add_trace(go.Scatter(
+                        x=x_span, y=[value, value], mode="lines",
+                        name=f"{label}: ₹{value:,.2f}",
+                        line=dict(color=color, width=width, dash=dash),
+                        hoverinfo="skip",
+                    ), row=1, col=1)
 
             volume_colors = [
                 CHART_POSITIVE if c >= o else CHART_NEGATIVE
@@ -356,11 +359,14 @@ else:
                 plot_bgcolor=CHART_PANEL,
                 font=dict(color=CHART_TEXT_PRIMARY),
                 showlegend=True,
-                legend=dict(orientation="h", yanchor="bottom", y=1.01, xanchor="left", x=0),
+                legend=dict(
+                    orientation="h", yanchor="bottom", y=1.01, xanchor="left", x=0,
+                    font=dict(size=10.5), bgcolor="rgba(0,0,0,0)",
+                ),
                 hovermode="x unified",
                 dragmode="zoom",  # click-drag draws a zoom box (desktop); pinch zooms on touch
-                height=620,
-                margin=dict(l=10, r=10, t=70, b=10),
+                height=660,
+                margin=dict(l=10, r=10, t=110, b=10),
                 xaxis_rangeslider_visible=False,
                 xaxis2=dict(
                     rangeslider=dict(visible=True, thickness=0.09, bgcolor=CHART_PANEL),
@@ -388,7 +394,7 @@ else:
             # This forces the toolbar to stay visible and turns scroll-to-zoom on.
             st.plotly_chart(
                 fig,
-                use_container_width=True,
+                width="stretch",
                 config={
                     "scrollZoom": True,
                     "displayModeBar": True,
