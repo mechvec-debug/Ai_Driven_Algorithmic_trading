@@ -430,3 +430,412 @@ class YahooFinanceQuantPipeline:
         return df
 
     def _generate_fail_safe_data(self, ticker: str) -> pd.DataFrame:
+        # end_date is often None (means "fetch through today"), so pd.date_range needs
+        # an explicit end or it raises ValueError ("must specify two of start/end/periods").
+        fallback_end = self.end_date or pd.Timestamp.now().strftime("%Y-%m-%d")
+        date_range = pd.date_range(start=self.start_date, end=fallback_end, freq='B')
+        if len(date_range) == 0:
+            date_range = pd.date_range(end=fallback_end, periods=30, freq='B')
+        fallback_df = pd.DataFrame(
+            {
+                'open': np.linspace(2400, 2600, len(date_range)),
+                'high': np.linspace(2450, 2650, len(date_range)),
+                'low': np.linspace(2380, 2580, len(date_range)),
+                'close': np.linspace(2420, 2620, len(date_range)),
+                'volume': np.random.randint(100000, 500000, size=len(date_range))
+            },
+            index=date_range
+        )
+        fallback_df.index.name = "date"
+        fallback_df.to_csv(f"data/raw/{ticker}_raw.csv")
+        return fallback_df
+
+
+# =====================================================================
+# SHARED STRATEGY FILTER ("GOLDEN RULE")
+# =====================================================================
+# Single source of truth for the buy filter. Previously the live-alert loop
+# and the JSON-output loop each re-implemented this with different, drifting
+# thresholds (e.g. volume >= avg*1.2 vs >= avg*0.8, and only the alert loop
+# checked price vs EMA200) so the Telegram alerts and the dashboard JSON
+# could disagree on which tickers were a "BUY". Both loops now call this.
+def passes_golden_rule(alpha_score: float, roi_pct: float, rsi: float,
+                        volume: float, avg_volume_20d: float,
+                        price: float, ema_200: float) -> bool:
+    return (
+        alpha_score > 0.01
+        and roi_pct > 0.001
+        and (45.0 <= rsi <= 65.0)
+        and (volume >= 50000 and volume >= (avg_volume_20d * 1.2))
+        and (price > ema_200)
+    )
+
+
+# =====================================================================
+# TELEGRAM ALERT DE-DUPLICATION (COOLDOWN)
+# =====================================================================
+# main.py runs fresh as a new process on every scheduled run, so "don't re-alert
+# within 24 trading days" has to be persisted to disk between runs rather than
+# held in memory. Keyed by the raw ticker (e.g. "MARINE.NS") so it lines up with
+# the same identity used for the processed-data filenames.
+def load_alert_cooldown_state(path: str) -> dict:
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, "r") as f:
+            return json.load(f)
+    except Exception as load_error:
+        logger.warning(f" ✕ Could not read alert cooldown state at {path}: {load_error}. Starting fresh.")
+        return {}
+
+
+def save_alert_cooldown_state(path: str, state: dict) -> None:
+    try:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "w") as f:
+            json.dump(state, f, indent=2, default=str)
+    except Exception as save_error:
+        logger.warning(f" ✕ Could not persist alert cooldown state to {path}: {save_error}")
+
+
+def is_alert_on_cooldown(raw_ticker: str, latest_trading_date: pd.Timestamp,
+                          metrics_df: pd.DataFrame, cooldown_state: dict,
+                          cooldown_trading_days: int) -> bool:
+    """True if this ticker alerted recently enough that it should stay silent.
+    Counts actual trading sessions elapsed (using this ticker's own date index,
+    which already skips weekends/holidays) rather than calendar days, since
+    '24 working days' is a trading-session count, not a calendar-day count."""
+    last_alert_str = cooldown_state.get(raw_ticker)
+    if not last_alert_str:
+        return False
+    try:
+        last_alert_date = pd.Timestamp(last_alert_str)
+    except Exception:
+        return False
+
+    sessions_since = int((metrics_df.index > last_alert_date).sum())
+    return sessions_since < cooldown_trading_days
+
+
+# =====================================================================
+# SYSTEM MAIN ENGINE CONTROLLER LOOP
+# =====================================================================
+if __name__ == "__main__":
+    logger.info("=================================================================")
+    logger.info("RUNNING CONSOLIDATED SYSTEM SCRIPTS")
+    logger.info("=================================================================")
+
+    pipeline = YahooFinanceQuantPipeline()
+    qlib_engine = QlibPredictiveEngine()
+    backtester = LeanPortfolioStrategyEngine(initial_capital=100000.0)
+
+    # Sector Diversification Module Controls
+    ENABLE_SECTOR_GUARD = True
+    MAX_ASSETS_PER_SECTOR = 2
+
+    # Trailing Stop-Loss & Take-Profit Controls
+    ENABLE_TRAILING_STOP = True
+    TRAILING_STOP_PCT = 0.05
+    ENABLE_TP_MATRIX = True
+
+    # Telegram Alert De-Duplication: once a ticker fires an alert, don't fire another
+    # one for it until this many trading sessions have passed (~1 trading month).
+    # This only silences the Telegram notification — the JSON dashboard still shows
+    # the ticker as a live BUY the whole time, it's just marked as "already alerted".
+    ENABLE_ALERT_COOLDOWN = True
+    ALERT_COOLDOWN_TRADING_DAYS = 24
+    ALERT_COOLDOWN_STATE_PATH = "data/output/alert_cooldown_state.json"
+
+    # Live Ticker-to-Sector allocation dictionary lookup mapping
+    NSE_SECTOR_MAP = {
+        "CHENNPETRO": "Energy & Refineries",
+        "MRPL": "Energy & Refineries",
+        "BPCL": "Energy & Refineries",
+        "RELIANCE": "Energy & Refineries",
+        "NETWEB": "Technology & IT",
+        "TCS": "Technology & IT",
+        "INFY": "Technology & IT",
+        "GRSE": "Defense & Capital Goods",
+        "COCHINSHIP": "Defense & Capital Goods",
+        "ZYDUSLIFE": "Pharma & Healthcare",
+        "ZYDUSWELL": "Pharma & Healthcare",
+        "MARICO": "FMCG & Consumer Goods"
+    }
+
+    active_sector_exposure_registry = {}
+
+    bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or pipeline.config.get("telegram_bot_token", "")
+    chat_id = os.getenv("TELEGRAM_CHAT_ID") or pipeline.config.get("telegram_chat_id", "")
+
+    bot_token = str(bot_token).strip() if bot_token else ""
+    chat_id = str(chat_id).strip() if chat_id else ""
+
+    notifier = TelegramAlertEngine(token=bot_token, chat_id=chat_id)
+
+    alert_cooldown_state = load_alert_cooldown_state(ALERT_COOLDOWN_STATE_PATH)
+
+    # 1. Main Data Extraction and Analytical Execution Loop
+    for wrapped_ticker in pipeline.ticker_mappings:
+        raw_df = pipeline.run_ingestion(wrapped_ticker)
+        metrics_df = pipeline.calculate_quant_metrics(raw_df, wrapped_ticker)
+
+        if metrics_df is None or metrics_df.empty or len(metrics_df) < 5:
+            continue
+
+        # 2. Compute Microsoft Qlib Matrix Indicator Features
+        qlib_df = qlib_engine.generate_qlib_alpha_features(metrics_df, wrapped_ticker)
+
+        if qlib_df is None or qlib_df.empty:
+            logger.warning(f" ✕ [{wrapped_ticker}] Bypassed status. Insufficient data rows remaining after dropna().")
+            continue
+
+        alpha_score = qlib_engine.compute_predictive_score(qlib_df)
+
+        # 3. Simulate LEAN Transaction Rules Backtest Results
+        results = backtester.run_backtest_from_dataframe(qlib_df)
+
+        current_price = float(metrics_df['close'].iloc[-1])
+        ann_vol = float(metrics_df['rolling_volatility_ann'].iloc[-1]) * 100
+        daily_var = float(metrics_df['var_95_threshold'].iloc[-1]) * 100
+
+        current_rsi = float(qlib_df['rsi_14d'].iloc[-1])
+        current_volume = float(metrics_df['volume'].iloc[-1])
+        avg_volume_20d = float(metrics_df['avg_volume_20d'].iloc[-1])
+        current_ema200 = float(metrics_df['ema_200'].iloc[-1])
+
+        if isinstance(results['net_return_pct'], str):
+            strategy_roi = -999.0
+        else:
+            strategy_roi = float(results['net_return_pct'])
+
+        # 4. Golden Rule Integrated Filter System
+        if passes_golden_rule(alpha_score, strategy_roi, current_rsi,
+                               current_volume, avg_volume_20d,
+                               current_price, current_ema200):
+
+            latest_trading_date = metrics_df.index[-1]
+            on_cooldown = ENABLE_ALERT_COOLDOWN and is_alert_on_cooldown(
+                wrapped_ticker, latest_trading_date, metrics_df,
+                alert_cooldown_state, ALERT_COOLDOWN_TRADING_DAYS,
+            )
+
+            if on_cooldown:
+                logger.info(
+                    f" -> [{wrapped_ticker}] Golden Rule Satisfied but alert is on cooldown "
+                    f"(already alerted within the last {ALERT_COOLDOWN_TRADING_DAYS} trading days). Skipping Telegram send."
+                )
+                continue
+
+            logger.info(f" -> [{wrapped_ticker}] Golden Rule Satisfied... Dispatching alerts...")
+
+            tp1_target = 0.0
+            tp2_target = 0.0
+            if ENABLE_TP_MATRIX:
+                var_fraction = abs(daily_var / 100.0)
+                tp1_target = current_price * (1.0 + (2.0 * var_fraction))
+                tp2_target = current_price * (1.0 + (4.0 * var_fraction))
+
+            # Action 1: Dispatches traditional formatted text payload
+            notifier.send_buy_signal_alert(
+                ticker=wrapped_ticker,
+                price=current_price,
+                vol=ann_vol,
+                var=daily_var,
+                alpha=alpha_score,
+                roi=strategy_roi,
+                rsi=current_rsi,
+                volume=current_volume,
+                avg_volume=avg_volume_20d,
+                tp1=tp1_target,
+                tp2=tp2_target
+            )
+
+            # Action 2: Renders and uploads high-resolution visual signal card
+            notifier.generate_and_send_visual_card(
+                ticker=wrapped_ticker,
+                price=current_price,
+                vol=current_volume / 1000000.0,
+                var=daily_var,
+                alpha=alpha_score,
+                roi=strategy_roi,
+                rsi=current_rsi,
+                tp1=tp1_target,
+                tp2=tp2_target
+            )
+
+            # Record the alert so the same ticker stays quiet for the next
+            # ALERT_COOLDOWN_TRADING_DAYS sessions. Saved immediately (not batched
+            # to the end of the run) so a later crash in this loop can't lose it.
+            alert_cooldown_state[wrapped_ticker] = str(latest_trading_date.date())
+            save_alert_cooldown_state(ALERT_COOLDOWN_STATE_PATH, alert_cooldown_state)
+
+        else:
+            logger.info(f" -> [{wrapped_ticker}] Bypassed status. Failed strict quantitative thresholds.")
+
+        time.sleep(0.5)  # small pause between tickers to stay polite to the data provider
+
+    logger.info("[Complete] Quant script loops finished successfully. Overwriting metrics...")
+
+    # =====================================================================
+    # CENTRALIZED JSON CORE OUTPUT WRITER (WITH POSITION SIZING)
+    # =====================================================================
+    latest_scan_records = []
+    processed_json_files = glob.glob("data/processed/*_processed.csv")
+
+    TOTAL_ACCOUNT_CAPITAL = backtester.initial_capital
+    RISK_PER_TRADE_PCT = 0.01
+    MAX_RUPEES_RISK = TOTAL_ACCOUNT_CAPITAL * RISK_PER_TRADE_PCT
+
+    # Pre-load each ticker's latest alpha score so sector-capped slots go to the
+    # strongest signals first, instead of whatever order the filesystem returns
+    # from glob() (which is arbitrary and made the sector cap non-deterministic).
+    file_alpha_pairs = []
+    for file_path in processed_json_files:
+        ticker_raw = os.path.basename(file_path).replace("_processed.csv", "")
+        alpha_path = f"data/alpha_features/{ticker_raw}_qlib_features.csv"
+        peek_alpha = -999.0
+        if os.path.exists(alpha_path):
+            try:
+                peek_alpha = float(pd.read_csv(alpha_path, index_col=0)['qlib_momentum_5d'].iloc[-1])
+            except Exception:
+                pass
+        file_alpha_pairs.append((file_path, peek_alpha))
+    file_alpha_pairs.sort(key=lambda pair: pair[1], reverse=True)
+    processed_json_files = [pair[0] for pair in file_alpha_pairs]
+
+    for file_path in processed_json_files:
+        ticker_raw = os.path.basename(file_path).replace("_processed.csv", "")
+        clean_name = ticker_raw.replace(".NS", "").replace(".BO", "")
+        alpha_path = f"data/alpha_features/{ticker_raw}_qlib_features.csv"
+
+        if os.path.exists(alpha_path):
+            try:
+                df_m = pd.read_csv(file_path, index_col=0, parse_dates=True)
+                df_a = pd.read_csv(alpha_path, index_col=0, parse_dates=True)
+
+                results = backtester.run_backtest_from_dataframe(df_a)
+
+                if isinstance(results['net_return_pct'], str):
+                    roi_val = -999.0
+                else:
+                    roi_val = float(results['net_return_pct'])
+
+                latest_alpha = float(df_a['qlib_momentum_5d'].iloc[-1])
+                latest_rsi = float(df_a['rsi_14d'].iloc[-1])
+                latest_volume = float(df_m['volume'].iloc[-1])
+                latest_avg_vol = float(df_m['avg_volume_20d'].iloc[-1])
+
+                close_price = float(df_m['close'].iloc[-1])
+                daily_var_raw = float(df_m['var_95_threshold'].iloc[-1])
+                latest_ema200 = float(df_m['ema_200'].iloc[-1])
+
+                # 1. Base Strategy Rule Evaluation - same shared filter used for alerts,
+                #    so the JSON output can never disagree with what was actually alerted.
+                passes_base_strategy = passes_golden_rule(
+                    latest_alpha, roi_val, latest_rsi,
+                    latest_volume, latest_avg_vol,
+                    close_price, latest_ema200
+                )
+
+                # Informational only — does NOT change passes_base_strategy/action_status.
+                # The dashboard should keep showing a genuinely-qualifying ticker as BUY;
+                # this just explains why no fresh Telegram alert went out for it today.
+                alert_on_cooldown = ENABLE_ALERT_COOLDOWN and is_alert_on_cooldown(
+                    ticker_raw, df_m.index[-1], df_m, alert_cooldown_state, ALERT_COOLDOWN_TRADING_DAYS
+                )
+                last_alert_date_str = alert_cooldown_state.get(ticker_raw)
+
+                # 2. Extract Sector Mapping Assignment Safely
+                asset_sector = NSE_SECTOR_MAP.get(clean_name, "Other Diversified")
+
+                # 3. Apply Sector Overlay Constraints
+                if passes_base_strategy:
+                    if ENABLE_SECTOR_GUARD:
+                        current_sector_count = active_sector_exposure_registry.get(asset_sector, 0)
+                        if current_sector_count < MAX_ASSETS_PER_SECTOR:
+                            base_action = "BUY"
+                        else:
+                            base_action = "HOLD (Sector Cap Reached)"
+                    else:
+                        base_action = "BUY"
+                else:
+                    base_action = "HOLD"
+
+                # 4. Trailing Stop-Loss Evaluation Engine Overlay
+                trailing_stop_price = 0.0
+                highest_peak_price = close_price
+
+                if base_action == "BUY" and ENABLE_TRAILING_STOP:
+                    lookback_window = min(10, len(df_m))
+                    recent_closes = df_m['close'].iloc[-lookback_window:].tolist()
+
+                    highest_peak_price = max(recent_closes)
+                    trailing_stop_price = highest_peak_price * (1.0 - TRAILING_STOP_PCT)
+
+                    if close_price < trailing_stop_price:
+                        action_status = "HOLD (Trailing Stop Hit)"
+                    else:
+                        action_status = "BUY"
+                        if ENABLE_SECTOR_GUARD:
+                            active_sector_exposure_registry[asset_sector] = active_sector_exposure_registry.get(
+                                asset_sector, 0
+                            ) + 1
+                else:
+                    action_status = base_action
+
+                # Calculate Take-Profit Metrics
+                tp1_val = 0.0
+                tp2_val = 0.0
+                if action_status == "BUY" and ENABLE_TP_MATRIX:
+                    var_frac = abs(daily_var_raw)
+                    tp1_val = close_price * (1.0 + (2.0 * var_frac))
+                    tp2_val = close_price * (1.0 + (4.0 * var_frac))
+
+                # Dynamic Risk-Based Position Sizing Calculator
+                risk_per_share = close_price * abs(daily_var_raw)
+                if risk_per_share < 0.01:
+                    risk_per_share = close_price * 0.02
+
+                calculated_shares = int(np.floor(MAX_RUPEES_RISK / risk_per_share))
+                capital_required = float(calculated_shares * close_price)
+
+                if capital_required > TOTAL_ACCOUNT_CAPITAL:
+                    calculated_shares = int(np.floor(TOTAL_ACCOUNT_CAPITAL / close_price))
+                    capital_required = float(calculated_shares * close_price)
+
+                latest_scan_records.append({
+                    "ticker": clean_name,
+                    "raw_ticker": ticker_raw,
+                    "sector": asset_sector,
+                    "alert_on_cooldown": alert_on_cooldown,
+                    "last_alert_date": last_alert_date_str,
+                    "close_price": close_price,
+                    "ann_volatility_pct": float(df_m['rolling_volatility_ann'].iloc[-1]) * 100,
+                    "daily_var_95_pct": daily_var_raw * 100,
+                    "qlib_alpha_score": latest_alpha,
+                    "backtest_roi_pct": roi_val,
+                    "action_status": action_status,
+                    "recommended_shares_to_buy": calculated_shares if action_status == "BUY" else 0,
+                    "required_allocation_in_rupees": capital_required if action_status == "BUY" else 0.0,
+                    "highest_tracked_peak": float(highest_peak_price) if action_status == "BUY" else 0.0,
+                    "active_trailing_stop_floor": float(trailing_stop_price) if action_status == "BUY" else 0.0,
+                    "take_profit_target_1": float(tp1_val) if action_status == "BUY" else 0.0,
+                    "take_profit_target_2": float(tp2_val) if action_status == "BUY" else 0.0
+                })
+            except Exception as row_error:
+                logger.warning(f" ✕ [{ticker_raw}] Skipped in output writer: {row_error}")
+                continue
+
+    os.makedirs("data/output", exist_ok=True)
+    current_time_stamp = str(pd.Timestamp.now(tz='Asia/Kolkata'))
+
+    output_payload = {
+        "last_updated": current_time_stamp,
+        "total_scanned_assets": len(latest_scan_records),
+        "signals": latest_scan_records
+    }
+
+    with open("data/output/latest_market_signals.json", "w") as json_file:
+        json.dump(output_payload, json_file, indent=4)
+
+    logger.info("✓ Central output matrix overwritten successfully.")
