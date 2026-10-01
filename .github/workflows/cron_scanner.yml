@@ -3,16 +3,20 @@ name: Automated NSE/BSE Quantitative Daily Scanner
 
 on:
   schedule:
-    - cron: '0 11 * * 1-5'
-  workflow_dispatch: 
+    # 13:30 UTC = 7:00 PM IST (UTC+5:30), Monday-Friday.
+    # GitHub Actions schedules always run in UTC and can be queued a few
+    # minutes to (occasionally) a couple of hours late during busy periods —
+    # that's a platform-level delay, not something this cron expression controls.
+    - cron: '30 13 * * 1-5'
+  workflow_dispatch:
 
 jobs:
   run-quant-pipeline:
     runs-on: ubuntu-latest
-    
+
     permissions:
       contents: write
-    
+
     steps:
     - name: 1. Clone Current Repository Context
       uses: actions/checkout@v4
@@ -36,21 +40,13 @@ jobs:
       run: |
         python main.py
 
-    # 🔍 Locate Step 5 inside your workflow file and verify it looks exactly like this:
+    # Single commit/push step. No file_pattern is set on purpose: the default
+    # ('.') picks up every file main.py touched this run — the signals JSON,
+    # the alert cooldown state, the live portfolio ledger, and the per-ticker
+    # data/processed/*.csv files the dashboard's chart reads. Narrowing
+    # file_pattern to just the JSON files would silently stop those CSVs
+    # from being committed and break the chart.
     - name: 5. Securely Auto-Commit Overwritten Data Matrices
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "Automated Overwrite: Latest Market Signals and Alert History [Skip CI]"
-        
-    - name: 6. Commit and Push Overwritten JSON Signal Data File
-      run: |
-        git config --global user.name "GitHub Automation Runner"
-        git config --global user.email "actions@github.com"
-        git add data/output/latest_market_signals.json
-        # FIX: Added --force to ensure the cloud runner instantly overrides history mismatches
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Automated Overwrite: Latest Market Signals [Skip CI]" && git push --force origin main)
-
-    
-        # 🟢 CRITICAL TRACKING SYNC: Both targets must be declared in one space-separated string
-        file_pattern: 'data/output/latest_market_signals.json data/output/alert_history.json'
-    
