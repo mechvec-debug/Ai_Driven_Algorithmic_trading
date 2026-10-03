@@ -45,6 +45,19 @@ jobs:
       run: |
         python -c "import openbb"
 
+    - name: 3c. Diagnose OpenBB Router Availability
+      # TEMPORARY diagnostic step — safe to remove once obb.equity is confirmed working.
+      # Prints only package/version info and attribute names, never any stock data.
+      run: |
+        echo "----- pip show openbb -----"
+        pip show openbb
+        echo "----- pip show openbb-equity (or equivalent) -----"
+        pip show openbb-equity || echo "openbb-equity is NOT installed as a separate package"
+        echo "----- pip list | grep openbb -----"
+        pip list | grep -i openbb
+        echo "----- obb attribute check -----"
+        python -c "from openbb import obb; attrs = sorted(a for a in dir(obb) if not a.startswith('_')); print('obb attributes:', attrs); print('Has equity:', hasattr(obb, 'equity'))"
+
     - name: 4. Execute Main Analytics Core Engine
       env:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
