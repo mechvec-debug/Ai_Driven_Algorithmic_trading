@@ -3487,3 +3487,53 @@
 2026-10-03 05:04:02,546 [INFO]  -> [MARKSANS.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
 2026-10-03 05:04:02,546 [INFO] [Complete] Quant script loops finished successfully. Overwriting metrics...
 2026-10-03 05:04:15,299 [INFO] ✓ Central output matrix overwritten successfully.
+2026-10-03 05:20:45,189 [INFO] =================================================================
+2026-10-03 05:20:45,189 [INFO] RUNNING CONSOLIDATED SYSTEM SCRIPTS
+2026-10-03 05:20:45,189 [INFO] =================================================================
+2026-10-03 05:20:45,563 [WARNING] [AARTIDRUGS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 05:20:45,633 [INFO]  -> [AARTIDRUGS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:20:46,291 [WARNING] [ACE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 05:20:46,361 [INFO]  -> [ACE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:20:47,094 [WARNING] [AFFLE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 05:20:47,164 [INFO]  -> [AFFLE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:20:47,827 [WARNING] [AIAENG.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 05:20:47,895 [INFO]  -> [AIAENG.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:20:48,553 [WARNING] [ALKYLAMINE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 05:20:48,622 [INFO]  -> [ALKYLAMINE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:20:49,291 [WARNING] [ALLCARGO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 05:20:49,363 [INFO]  -> [ALLCARGO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:20:49,994 [WARNING] [AMBER.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 05:20:50,061 [INFO]  -> [AMBER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:20:50,784 [WARNING] [AMBUJACEM.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 05:20:50,853 [INFO]  -> [AMBUJACEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:20:51,508 [WARNING] [TEXRAIL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 05:20:51,576 [INFO]  -> [TEXRAIL.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 05:20:51,702 [WARNING] [STYLAMIND.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 05:20:51,771 [INFO]  -> [STYLAMIND.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 05:20:51,899 [WARNING] [SPARC.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 05:20:51,969 [INFO]  -> [SPARC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:20:52,606 [WARNING] [SONACOMS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 05:20:52,675 [INFO]  -> [SONACOMS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:20:53,345 [WARNING] [PHOENIXLTD.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 05:20:53,415 [INFO]  -> [PHOENIXLTD.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 05:20:53,584 [WARNING] [OLECTRA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 05:20:53,654 [INFO]  -> [OLECTRA.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 05:20:53,854 [WARNING] [MARKSANS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 05:20:53,924 [INFO]  -> [MARKSANS.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 05:20:53,924 [INFO] [Complete] Quant script loops finished successfully. Overwriting metrics...
+2026-10-03 05:21:06,826 [INFO] ✓ Central output matrix overwritten successfully.
