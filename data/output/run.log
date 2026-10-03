@@ -3467,3 +3467,23 @@
 2026-10-03 04:54:45,085 [INFO]  -> [MARKSANS.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
 2026-10-03 04:54:45,085 [INFO] [Complete] Quant script loops finished successfully. Overwriting metrics...
 2026-10-03 04:54:57,999 [INFO] ✓ Central output matrix overwritten successfully.
+2026-10-03 05:03:51,076 [INFO] =================================================================
+2026-10-03 05:03:51,076 [INFO] RUNNING CONSOLIDATED SYSTEM SCRIPTS
+2026-10-03 05:03:51,076 [INFO] =================================================================
+2026-10-03 05:03:51,860 [INFO]  -> [AARTIDRUGS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:03:52,805 [INFO]  -> [ACE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:03:53,716 [INFO]  -> [AFFLE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:03:54,698 [INFO]  -> [AIAENG.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:03:55,640 [INFO]  -> [ALKYLAMINE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:03:56,626 [INFO]  -> [ALLCARGO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:03:57,587 [INFO]  -> [AMBER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:03:58,534 [INFO]  -> [AMBUJACEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:03:59,472 [INFO]  -> [TEXRAIL.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 05:03:59,871 [INFO]  -> [STYLAMIND.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 05:04:00,283 [INFO]  -> [SPARC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 05:04:01,199 [INFO]  -> [SONACOMS.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 05:04:01,657 [INFO]  -> [PHOENIXLTD.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 05:04:02,108 [INFO]  -> [OLECTRA.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 05:04:02,546 [INFO]  -> [MARKSANS.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 05:04:02,546 [INFO] [Complete] Quant script loops finished successfully. Overwriting metrics...
+2026-10-03 05:04:15,299 [INFO] ✓ Central output matrix overwritten successfully.
