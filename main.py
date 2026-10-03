@@ -415,6 +415,14 @@ class YahooFinanceQuantPipeline:
             else:
                 combined_df = new_df.sort_index()
 
+            # 3b. Rolling 5-year retention window: drop candles older than 5 years so the
+            # raw/processed CSVs stay bounded in size as new days get appended indefinitely,
+            # instead of growing forever. 200-day EMA and other long-window indicators still
+            # have well over a year of headroom below this cutoff, so nothing downstream loses
+            # accuracy from the trim.
+            retention_cutoff = pd.Timestamp.now().normalize() - pd.DateOffset(years=5)
+            combined_df = combined_df[combined_df.index >= retention_cutoff]
+
             # 4. Save updated data locally to disk
             combined_df.to_csv(raw_path)
             return combined_df
@@ -443,6 +451,12 @@ class YahooFinanceQuantPipeline:
         df['ema_200'] = df['close'].ewm(span=200, adjust=False).mean()
 
         df = df.dropna()
+
+        # Same 5-year retention cutoff as run_ingestion, applied again here as a safety net
+        # in case this method is ever called on a dataframe that wasn't already trimmed.
+        retention_cutoff = pd.Timestamp.now().normalize() - pd.DateOffset(years=5)
+        df = df[df.index >= retention_cutoff]
+
         df.to_csv(f"data/processed/{ticker}_processed.csv")
         return df
 
