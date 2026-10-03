@@ -31,7 +31,12 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         # 🟢 UPGRADED: Added matplotlib to prevent the ModuleNotFoundError crash
-        pip install openbb openbb-yfinance yfinance pandas numpy pyyaml requests matplotlib pillow
+        # 🟢 FIXED: OpenBB 5.0.0's main `openbb` package no longer bundles the asset-class
+        # routers (equity, currency, crypto, economy, etc.) as default dependencies — each
+        # is now its own installable package. main.py only calls obb.equity.*, so
+        # openbb-equity is added explicitly here; without it, obb.equity simply doesn't
+        # exist, which is why every ticker failed with "'App' object has no attribute 'equity'".
+        pip install openbb openbb-equity openbb-yfinance yfinance pandas numpy pyyaml requests matplotlib pillow
 
     - name: 3b. Build OpenBB Extension Router Map
       # OpenBB generates its obb.equity / obb.economy / etc. routers on first import in a
@@ -44,19 +49,6 @@ jobs:
       # process (started fresh in Step 4) picks up the already-built routers.
       run: |
         python -c "import openbb"
-
-    - name: 3c. Diagnose OpenBB Router Availability
-      # TEMPORARY diagnostic step — safe to remove once obb.equity is confirmed working.
-      # Prints only package/version info and attribute names, never any stock data.
-      run: |
-        echo "----- pip show openbb -----"
-        pip show openbb
-        echo "----- pip show openbb-equity (or equivalent) -----"
-        pip show openbb-equity || echo "openbb-equity is NOT installed as a separate package"
-        echo "----- pip list | grep openbb -----"
-        pip list | grep -i openbb
-        echo "----- obb attribute check -----"
-        python -c "from openbb import obb; attrs = sorted(a for a in dir(obb) if not a.startswith('_')); print('obb attributes:', attrs); print('Has equity:', hasattr(obb, 'equity'))"
 
     - name: 4. Execute Main Analytics Core Engine
       env:
