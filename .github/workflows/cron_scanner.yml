@@ -33,6 +33,18 @@ jobs:
         # 🟢 UPGRADED: Added matplotlib to prevent the ModuleNotFoundError crash
         pip install openbb openbb-yfinance yfinance pandas numpy pyyaml requests matplotlib pillow
 
+    - name: 3b. Build OpenBB Extension Router Map
+      # OpenBB generates its obb.equity / obb.economy / etc. routers on first import in a
+      # fresh environment (the "Extensions to add: ... Building..." message you saw at the
+      # tail of Step 4's log). That build has to finish AND be picked up by a new Python
+      # process before those attributes exist — if main.py's own `from openbb import obb`
+      # is the process that triggers the build, it races the build and loses, which is why
+      # every ticker failed with "'App' object has no attribute 'equity'". Running the
+      # import here, in its own throwaway step, lets the build finish first so main.py's
+      # process (started fresh in Step 4) picks up the already-built routers.
+      run: |
+        python -c "import openbb"
+
     - name: 4. Execute Main Analytics Core Engine
       env:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
