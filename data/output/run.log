@@ -3397,3 +3397,38 @@
 2026-10-03 04:21:45,347 [INFO]  -> [ZYDUSWELL.NS] Bypassed status. Failed strict quantitative thresholds.
 2026-10-03 04:21:45,847 [INFO] [Complete] Quant script loops finished successfully. Overwriting metrics...
 2026-10-03 04:21:55,805 [INFO] ✓ Central output matrix overwritten successfully.
+2026-10-03 04:39:17,432 [INFO] =================================================================
+2026-10-03 04:39:17,432 [INFO] RUNNING CONSOLIDATED SYSTEM SCRIPTS
+2026-10-03 04:39:17,432 [INFO] =================================================================
+2026-10-03 04:39:17,440 [WARNING] [AARTIDRUGS.NS] Historical price fetch failed: AttributeError: 'App' object has no attribute 'equity'. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 04:39:17,524 [INFO]  -> [AARTIDRUGS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 04:39:18,028 [WARNING] [ACE.NS] Historical price fetch failed: AttributeError: 'App' object has no attribute 'equity'. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 04:39:18,106 [INFO]  -> [ACE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 04:39:18,610 [WARNING] [AFFLE.NS] Historical price fetch failed: AttributeError: 'App' object has no attribute 'equity'. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 04:39:18,689 [INFO]  -> [AFFLE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 04:39:19,194 [WARNING] [AIAENG.NS] Historical price fetch failed: AttributeError: 'App' object has no attribute 'equity'. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 04:39:19,271 [INFO]  -> [AIAENG.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 04:39:19,776 [WARNING] [ALKYLAMINE.NS] Historical price fetch failed: AttributeError: 'App' object has no attribute 'equity'. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 04:39:19,856 [INFO]  -> [ALKYLAMINE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 04:39:20,361 [WARNING] [ALLCARGO.NS] Historical price fetch failed: AttributeError: 'App' object has no attribute 'equity'. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 04:39:20,442 [INFO]  -> [ALLCARGO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 04:39:20,946 [WARNING] [AMBER.NS] Historical price fetch failed: AttributeError: 'App' object has no attribute 'equity'. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 04:39:21,023 [INFO]  -> [AMBER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 04:39:21,527 [WARNING] [AMBUJACEM.NS] Historical price fetch failed: AttributeError: 'App' object has no attribute 'equity'. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 04:39:21,607 [INFO]  -> [AMBUJACEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-10-03 04:39:22,111 [WARNING] [TEXRAIL.NS] Historical price fetch failed: AttributeError: 'App' object has no attribute 'equity'. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 04:39:22,197 [INFO]  -> [TEXRAIL.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 04:39:22,201 [WARNING] [STYLAMIND.NS] Historical price fetch failed: AttributeError: 'App' object has no attribute 'equity'. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 04:39:22,270 [INFO]  -> [STYLAMIND.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 04:39:22,274 [WARNING] [SPARC.NS] Historical price fetch failed: AttributeError: 'App' object has no attribute 'equity'. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 04:39:22,352 [INFO]  -> [SPARC.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 04:39:22,355 [WARNING] [SONACOMS.NS] Historical price fetch failed: AttributeError: 'App' object has no attribute 'equity'. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 04:39:22,427 [INFO]  -> [SONACOMS.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 04:39:22,431 [WARNING] [PHOENIXLTD.NS] Historical price fetch failed: AttributeError: 'App' object has no attribute 'equity'. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 04:39:22,512 [INFO]  -> [PHOENIXLTD.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 04:39:22,515 [WARNING] [OLECTRA.NS] Historical price fetch failed: AttributeError: 'App' object has no attribute 'equity'. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 04:39:22,593 [INFO]  -> [OLECTRA.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 04:39:22,596 [WARNING] [MARKSANS.NS] Historical price fetch failed: AttributeError: 'App' object has no attribute 'equity'. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-10-03 04:39:22,673 [INFO]  -> [MARKSANS.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-10-03 04:39:22,673 [INFO] [Complete] Quant script loops finished successfully. Overwriting metrics...
+2026-10-03 04:39:34,899 [INFO] ✓ Central output matrix overwritten successfully.
