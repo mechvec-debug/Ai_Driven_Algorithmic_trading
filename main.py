@@ -577,6 +577,14 @@ if __name__ == "__main__":
     ALERT_COOLDOWN_TRADING_DAYS = 24
     ALERT_COOLDOWN_STATE_PATH = "data/output/alert_cooldown_state.json"
 
+    # Backtest is evaluated over a recent, regime-relevant window (~12 months of trading
+    # sessions) rather than the full retained history. A multi-year backtest blends very
+    # different market regimes into one ROI figure, which doesn't represent how this
+    # short-to-mid-term momentum strategy performs under *current* conditions. Indicator
+    # calculations (EMA200, VaR, etc.) still use the full retained history as before —
+    # only the backtest's own evaluation window is being narrowed here.
+    BACKTEST_LOOKBACK_TRADING_DAYS = 252
+
     # Live Ticker-to-Sector allocation dictionary lookup mapping
     NSE_SECTOR_MAP = {
         "CHENNPETRO": "Energy & Refineries",
@@ -623,7 +631,9 @@ if __name__ == "__main__":
         alpha_score = qlib_engine.compute_predictive_score(qlib_df)
 
         # 3. Simulate LEAN Transaction Rules Backtest Results
-        results = backtester.run_backtest_from_dataframe(qlib_df)
+        # Evaluated over the last ~12 months only (see BACKTEST_LOOKBACK_TRADING_DAYS) so
+        # the ROI reflects recent market conditions, not a multi-year blended average.
+        results = backtester.run_backtest_from_dataframe(qlib_df.tail(BACKTEST_LOOKBACK_TRADING_DAYS))
 
         current_price = float(metrics_df['close'].iloc[-1])
         ann_vol = float(metrics_df['rolling_volatility_ann'].iloc[-1]) * 100
@@ -744,7 +754,9 @@ if __name__ == "__main__":
                 df_m = pd.read_csv(file_path, index_col=0, parse_dates=True)
                 df_a = pd.read_csv(alpha_path, index_col=0, parse_dates=True)
 
-                results = backtester.run_backtest_from_dataframe(df_a)
+                # Same recent-window backtest as the live scan loop, so the dashboard's
+                # ROI figure matches what the Telegram alert was based on.
+                results = backtester.run_backtest_from_dataframe(df_a.tail(BACKTEST_LOOKBACK_TRADING_DAYS))
 
                 if isinstance(results['net_return_pct'], str):
                     roi_val = -999.0
