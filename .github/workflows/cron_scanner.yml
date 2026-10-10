@@ -7,7 +7,7 @@ on:
     # GitHub Actions schedules always run in UTC and can be queued a few
     # minutes to (occasionally) a couple of hours late during busy periods —
     # that's a platform-level delay, not something this cron expression controls.
-    - cron: '30 13 * * 1-5'
+    - cron: '23 13 * * 1-5'
   workflow_dispatch:
 
 jobs:
