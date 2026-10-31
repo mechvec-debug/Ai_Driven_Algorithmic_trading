@@ -8,11 +8,6 @@ import yaml
 import requests
 import pandas as pd
 import numpy as np
-import matplotlib
-
-matplotlib.use('Agg')  # Enforces a headless backend for safe server execution environments
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
 from openbb import obb
 
 os.makedirs("data/output", exist_ok=True)
@@ -51,10 +46,13 @@ class TelegramAlertEngine:
             avg_volume: float,
             tp1: float = 0.0,
             tp2: float = 0.0
-    ):
-        """Transmits a traditional text configuration log payload via Telegram bot API."""
+    ) -> bool:
+        """Transmits the text alert via Telegram bot API.
+        Returns True only if Telegram confirmed delivery, so the caller can avoid
+        starting the cooldown clock for an alert that never actually reached the phone."""
         if not self.enabled:
-            return
+            logger.warning(" ✕ Telegram alerts are disabled (TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID not set).")
+            return False
 
         clean_name = str(ticker).replace(".NS", "").replace(".BO", "").strip()
         initial_capital = 100000.0
@@ -107,9 +105,10 @@ class TelegramAlertEngine:
 
             if response.status_code == 200 and response_data.get("ok") is True:
                 logger.info(f" ✓ Telegram text alert delivered successfully via bot for {clean_name}!")
-            else:
-                error_description = response_data.get("description", response.text)
-                logger.error(f" ✕ Telegram API Error: Status {response.status_code} | Description: {error_description}")
+                return True
+
+            error_description = response_data.get("description", response.text)
+            logger.error(f" ✕ Telegram API Error: Status {response.status_code} | Description: {error_description}")
 
         except requests.exceptions.Timeout:
             logger.error(f" ✕ Telegram request timed out while sending alert for {clean_name}.")
@@ -117,6 +116,9 @@ class TelegramAlertEngine:
             logger.error(f" ✕ Telegram connection failed: {net_error}")
         except Exception as unexpected_error:
             logger.error(f" ✕ Unexpected Telegram alert error: {unexpected_error}")
+
+        return False
+
 
 # =====================================================================
 # QUANT & MACHINE LEARNING FEATURE COMPUTE ENGINES
@@ -560,8 +562,9 @@ if __name__ == "__main__":
                 tp1_target = current_price * (1.0 + (2.0 * var_fraction))
                 tp2_target = current_price * (1.0 + (4.0 * var_fraction))
 
-            # Action 1: Dispatches traditional formatted text payload
-            notifier.send_buy_signal_alert(
+            # Dispatch the text alert (the visual card was removed — it duplicated the
+            # text message without adding information).
+            alert_delivered = notifier.send_buy_signal_alert(
                 ticker=wrapped_ticker,
                 price=current_price,
                 vol=ann_vol,
@@ -575,24 +578,20 @@ if __name__ == "__main__":
                 tp2=tp2_target
             )
 
-            # Action 2: Renders and uploads high-resolution visual signal card
-            notifier.generate_and_send_visual_card(
-                ticker=wrapped_ticker,
-                price=current_price,
-                vol=current_volume / 1000000.0,
-                var=daily_var,
-                alpha=alpha_score,
-                roi=strategy_roi,
-                rsi=current_rsi,
-                tp1=tp1_target,
-                tp2=tp2_target
-            )
-
             # Record the alert so the same ticker stays quiet for the next
-            # ALERT_COOLDOWN_TRADING_DAYS sessions. Saved immediately (not batched
-            # to the end of the run) so a later crash in this loop can't lose it.
-            alert_cooldown_state[wrapped_ticker] = str(latest_trading_date.date())
-            save_alert_cooldown_state(ALERT_COOLDOWN_STATE_PATH, alert_cooldown_state)
+            # ALERT_COOLDOWN_TRADING_DAYS sessions. Only done when Telegram confirmed
+            # delivery: if the send failed (network blip, bad token), the ticker stays
+            # eligible and gets retried on the next run instead of being silenced for
+            # ~a month without the alert ever reaching you. Saved immediately (not
+            # batched to the end of the run) so a later crash can't lose it.
+            if alert_delivered:
+                alert_cooldown_state[wrapped_ticker] = str(latest_trading_date.date())
+                save_alert_cooldown_state(ALERT_COOLDOWN_STATE_PATH, alert_cooldown_state)
+            else:
+                logger.warning(
+                    f" -> [{wrapped_ticker}] Alert was NOT delivered, so no cooldown was recorded "
+                    f"(it will be retried on the next run)."
+                )
 
         else:
             logger.info(f" -> [{wrapped_ticker}] Bypassed status. Failed strict quantitative thresholds.")
