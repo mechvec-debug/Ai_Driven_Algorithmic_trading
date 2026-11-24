@@ -14250,3 +14250,989 @@
 2026-11-24 01:06:42,765 [INFO]  -> [ZYDUSWELL.NS] Bypassed status. Failed strict quantitative thresholds.
 2026-11-24 01:06:43,265 [INFO] [Complete] Quant script loops finished successfully. Overwriting metrics...
 2026-11-24 01:06:48,848 [INFO] ✓ Central output matrix overwritten successfully.
+2026-11-24 23:06:42,824 [INFO] =================================================================
+2026-11-24 23:06:42,824 [INFO] RUNNING CONSOLIDATED SYSTEM SCRIPTS
+2026-11-24 23:06:42,824 [INFO] =================================================================
+2026-11-24 23:06:43,634 [WARNING] [AARTIDRUGS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:43,683 [INFO]  -> [AARTIDRUGS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:06:44,582 [WARNING] [ACE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:44,628 [INFO]  -> [ACE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:06:45,525 [WARNING] [AFFLE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:45,571 [INFO]  -> [AFFLE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:06:46,519 [WARNING] [AIAENG.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:46,565 [INFO]  -> [AIAENG.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:06:47,479 [WARNING] [ALKYLAMINE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:47,525 [INFO]  -> [ALKYLAMINE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:06:48,481 [WARNING] [ALLCARGO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:48,529 [INFO]  -> [ALLCARGO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:06:49,457 [WARNING] [AMBER.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:49,502 [INFO]  -> [AMBER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:06:50,491 [WARNING] [AMBUJACEM.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:50,537 [INFO]  -> [AMBUJACEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:06:51,415 [WARNING] [ANANTRAJ.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:51,462 [INFO]  -> [ANANTRAJ.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:06:52,404 [WARNING] [ANURAS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:52,451 [INFO]  -> [ANURAS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:06:53,361 [WARNING] [APLAPOLLO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:53,410 [INFO]  -> [APLAPOLLO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:06:54,306 [WARNING] [APLLTD.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:54,353 [INFO]  -> [APLLTD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:06:55,229 [WARNING] [APOLLO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:55,277 [INFO]  -> [APOLLO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:06:56,233 [WARNING] [APOLLOHOSP.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:56,278 [INFO]  -> [APOLLOHOSP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:06:57,242 [WARNING] [APOLLOTYRE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:57,288 [INFO]  -> [APOLLOTYRE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:06:58,180 [WARNING] [ARE&M.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:58,227 [INFO]  -> [ARE&M.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:06:59,108 [WARNING] [ARTEMISMED.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:06:59,156 [INFO]  -> [ARTEMISMED.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:00,156 [WARNING] [ASAHIINDIA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:00,202 [INFO]  -> [ASAHIINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:01,080 [WARNING] [ASIANENE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:01,126 [INFO]  -> [ASIANENE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:02,010 [WARNING] [ASIANPAINT.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:02,056 [INFO]  -> [ASIANPAINT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:02,957 [WARNING] [ASKAUTOLTD.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:02,990 [INFO]  -> [ASKAUTOLTD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:03,895 [WARNING] [ASTRAL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:03,943 [INFO]  -> [ASTRAL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:04,848 [WARNING] [ASTRAZEN.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:04,894 [INFO]  -> [ASTRAZEN.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:05,752 [WARNING] [ATGL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:05,799 [INFO]  -> [ATGL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:06,767 [WARNING] [ATUL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:06,812 [INFO]  -> [ATUL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:07,720 [WARNING] [AUROPHARMA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:07,767 [INFO]  -> [AUROPHARMA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:08,720 [WARNING] [AVANTIFEED.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:08,766 [INFO]  -> [AVANTIFEED.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:09,651 [WARNING] [AYMSYNTEX.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:09,699 [INFO]  -> [AYMSYNTEX.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:10,636 [WARNING] [BAJAJELEC.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:10,684 [INFO]  -> [BAJAJELEC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:11,584 [WARNING] [BAJAJHCARE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:11,631 [INFO]  -> [BAJAJHCARE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:12,546 [WARNING] [BALKRISIND.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:12,593 [INFO]  -> [BALKRISIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:13,507 [WARNING] [BASF.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:13,553 [INFO]  -> [BASF.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:14,445 [WARNING] [BATAINDIA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:14,492 [INFO]  -> [BATAINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:15,446 [WARNING] [BAYERCROP.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:15,492 [INFO]  -> [BAYERCROP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:16,411 [WARNING] [BBTC.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:16,458 [INFO]  -> [BBTC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:17,376 [WARNING] [BECTORFOOD.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:17,426 [INFO]  -> [BECTORFOOD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:18,418 [WARNING] [BERGEPAINT.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:18,466 [INFO]  -> [BERGEPAINT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:19,385 [WARNING] [BEPL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:19,434 [INFO]  -> [BEPL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:20,321 [WARNING] [BHARATRAS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:20,368 [INFO]  -> [BHARATRAS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:21,285 [WARNING] [BIKAJI.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:21,325 [INFO]  -> [BIKAJI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:22,278 [WARNING] [BIOCON.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:22,326 [INFO]  -> [BIOCON.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:23,187 [WARNING] [BIRLACORPN.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:23,235 [INFO]  -> [BIRLACORPN.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:24,195 [WARNING] [BLUESTARCO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:24,246 [INFO]  -> [BLUESTARCO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:25,108 [WARNING] [BORORENEW.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:25,156 [INFO]  -> [BORORENEW.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:26,102 [WARNING] [BRIGADE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:26,150 [INFO]  -> [BRIGADE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:27,043 [WARNING] [CAMPUS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:27,088 [INFO]  -> [CAMPUS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:27,990 [WARNING] [CAMLINFINE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:28,040 [INFO]  -> [CAMLINFINE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:29,063 [WARNING] [CAPLIPOINT.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:29,109 [INFO]  -> [CAPLIPOINT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:30,065 [WARNING] [CARBORUNIV.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:30,112 [INFO]  -> [CARBORUNIV.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:31,104 [WARNING] [CCL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:31,152 [INFO]  -> [CCL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:32,088 [WARNING] [CEATLTD.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:32,135 [INFO]  -> [CEATLTD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:33,113 [WARNING] [CENTURYPLY.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:33,160 [INFO]  -> [CENTURYPLY.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:34,090 [WARNING] [CERA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:34,135 [INFO]  -> [CERA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:35,010 [WARNING] [CGPOWER.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:35,057 [INFO]  -> [CGPOWER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:36,036 [WARNING] [CHAMBLFERT.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:36,083 [INFO]  -> [CHAMBLFERT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:37,009 [WARNING] [CHEMPLASTS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:37,057 [INFO]  -> [CHEMPLASTS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:37,998 [WARNING] [CHENNPETRO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:38,045 [INFO]  -> [CHENNPETRO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:39,035 [WARNING] [CIPLA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:39,083 [INFO]  -> [CIPLA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:40,008 [WARNING] [CLEAN.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:40,055 [INFO]  -> [CLEAN.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:41,043 [WARNING] [COALINDIA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:41,091 [INFO]  -> [COALINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:41,978 [WARNING] [COCHINSHIP.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:42,026 [INFO]  -> [COCHINSHIP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:42,907 [WARNING] [COLPAL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:42,954 [INFO]  -> [COLPAL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:43,945 [WARNING] [CONCOR.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:43,993 [INFO]  -> [CONCOR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:44,949 [WARNING] [COSMOFIRST.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:44,996 [INFO]  -> [COSMOFIRST.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:45,913 [WARNING] [CROMPTON.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:45,961 [INFO]  -> [CROMPTON.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:46,854 [WARNING] [CYIENT.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:46,902 [INFO]  -> [CYIENT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:47,869 [WARNING] [DABUR.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:47,917 [INFO]  -> [DABUR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:48,813 [WARNING] [DALBHARAT.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:48,861 [INFO]  -> [DALBHARAT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:49,933 [WARNING] [DCMSHRIRAM.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:49,980 [INFO]  -> [DCMSHRIRAM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:50,908 [WARNING] [DEEPAKFERT.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:50,956 [INFO]  -> [DEEPAKFERT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:51,873 [WARNING] [DEEPAKNTR.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:51,920 [INFO]  -> [DEEPAKNTR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:52,814 [WARNING] [DELHIVERY.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:52,858 [INFO]  -> [DELHIVERY.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:53,777 [WARNING] [DHANUKA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:53,824 [INFO]  -> [DHANUKA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:54,761 [WARNING] [DIVISLAB.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:54,807 [INFO]  -> [DIVISLAB.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:55,769 [WARNING] [DLINKINDIA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:55,816 [INFO]  -> [DLINKINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:56,819 [WARNING] [DLF.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:56,867 [INFO]  -> [DLF.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:57,749 [WARNING] [DMART.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:57,797 [INFO]  -> [DMART.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:58,813 [WARNING] [DOLLAR.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:58,860 [INFO]  -> [DOLLAR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:07:59,861 [WARNING] [DRREDDY.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:07:59,911 [INFO]  -> [DRREDDY.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:00,783 [WARNING] [DYCL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:00,830 [INFO]  -> [DYCL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:01,801 [WARNING] [ECLERX.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:01,849 [INFO]  -> [ECLERX.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:02,784 [WARNING] [EICHERMOT.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:02,829 [INFO]  -> [EICHERMOT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:03,778 [WARNING] [EIDPARRY.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:03,825 [INFO]  -> [EIDPARRY.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:04,766 [WARNING] [EKC.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:04,814 [INFO]  -> [EKC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:05,771 [WARNING] [ELGIEQUIP.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:05,818 [INFO]  -> [ELGIEQUIP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:06,742 [WARNING] [EMAMILTD.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:06,790 [INFO]  -> [EMAMILTD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:07,698 [WARNING] [EMUDHRA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:07,742 [INFO]  -> [EMUDHRA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:08,644 [WARNING] [ENDURANCE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:08,691 [INFO]  -> [ENDURANCE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:09,597 [WARNING] [EPL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:09,645 [INFO]  -> [EPL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:10,574 [WARNING] [EUROPRATIK.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:10,595 [INFO]  -> [EUROPRATIK.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:11,518 [WARNING] [FDC.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:11,567 [INFO]  -> [FDC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:12,514 [WARNING] [FINCABLES.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:12,561 [INFO]  -> [FINCABLES.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:13,451 [WARNING] [FINEORG.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:13,498 [INFO]  -> [FINEORG.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:14,361 [WARNING] [FINPIPE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:14,410 [INFO]  -> [FINPIPE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:15,368 [WARNING] [FLUOROCHEM.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:15,415 [INFO]  -> [FLUOROCHEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:16,296 [WARNING] [FMGOETZE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:16,343 [INFO]  -> [FMGOETZE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:17,333 [WARNING] [FORTIS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:17,382 [INFO]  -> [FORTIS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:18,339 [WARNING] [GABRIEL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:18,386 [INFO]  -> [GABRIEL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:19,393 [WARNING] [GAEL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:19,442 [INFO]  -> [GAEL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:20,387 [WARNING] [GAIL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:20,436 [INFO]  -> [GAIL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:21,312 [WARNING] [GALAXYSURF.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:21,359 [INFO]  -> [GALAXYSURF.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:22,305 [WARNING] [GANECOS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:22,357 [INFO]  -> [GANECOS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:23,280 [WARNING] [GARFIBRES.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:23,333 [INFO]  -> [GARFIBRES.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:24,244 [WARNING] [GENESYS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:24,299 [INFO]  -> [GENESYS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:25,212 [WARNING] [GHCLTEXTIL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:25,249 [INFO]  -> [GHCLTEXTIL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:26,151 [WARNING] [GLAND.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:26,198 [INFO]  -> [GLAND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:27,111 [WARNING] [GLENMARK.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:27,159 [INFO]  -> [GLENMARK.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-11-24 23:08:27,601 [WARNING] [GMMPFAUDLR.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:27,651 [INFO]  -> [GMMPFAUDLR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:28,661 [WARNING] [GODREJAGRO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:28,712 [INFO]  -> [GODREJAGRO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:29,666 [WARNING] [GODREJCP.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:29,717 [INFO]  -> [GODREJCP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:30,626 [WARNING] [GOKULAGRO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:30,674 [INFO]  -> [GOKULAGRO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:31,621 [WARNING] [GOODLUCK.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:31,671 [INFO]  -> [GOODLUCK.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:32,707 [WARNING] [GPPL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:32,755 [INFO]  -> [GPPL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:33,631 [WARNING] [GRANULES.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:33,678 [INFO]  -> [GRANULES.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:34,606 [WARNING] [GRAPHITE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:34,654 [INFO]  -> [GRAPHITE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:35,553 [WARNING] [GREENPANEL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:35,607 [INFO]  -> [GREENPANEL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:36,549 [WARNING] [GRINDWELL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:36,596 [INFO]  -> [GRINDWELL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:37,522 [WARNING] [GRWRHITECH.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:37,568 [INFO]  -> [GRWRHITECH.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:38,428 [WARNING] [GSPL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:38,895 [WARNING] [GUJALKALI.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:38,942 [INFO]  -> [GUJALKALI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:39,507 [INFO]  -> [GUJGASLTD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:40,458 [WARNING] [GULFOILLUB.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:40,505 [INFO]  -> [GULFOILLUB.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:41,518 [WARNING] [GVT&D.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:41,565 [INFO]  -> [GVT&D.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:42,468 [WARNING] [HARDWYN.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:42,514 [INFO]  -> [HARDWYN.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:43,431 [WARNING] [HAVELLS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:43,478 [INFO]  -> [HAVELLS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:44,538 [INFO]  -> [HEG.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:45,438 [WARNING] [HERANBA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:45,486 [INFO]  -> [HERANBA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:46,419 [WARNING] [HEROMOTOCO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:46,465 [INFO]  -> [HEROMOTOCO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:47,466 [WARNING] [HFCL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:47,514 [INFO]  -> [HFCL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:48,396 [WARNING] [HIKAL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:48,444 [INFO]  -> [HIKAL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:49,422 [WARNING] [HINDALCO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:49,469 [INFO]  -> [HINDALCO.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-11-24 23:08:49,885 [WARNING] [HINDCOPPER.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:49,947 [INFO]  -> [HINDCOPPER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:50,829 [WARNING] [HINDPETRO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:50,879 [INFO]  -> [HINDPETRO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:51,793 [WARNING] [HINDUNILVR.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:51,839 [INFO]  -> [HINDUNILVR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:52,747 [WARNING] [HLEGLAS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:52,794 [INFO]  -> [HLEGLAS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:53,711 [WARNING] [HUHTAMAKI.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:53,759 [INFO]  -> [HUHTAMAKI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:54,325 [INFO]  -> [IBREALEST.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:55,209 [WARNING] [IFBIND.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:55,256 [INFO]  -> [IFBIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:56,247 [WARNING] [IGL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:56,296 [INFO]  -> [IGL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:57,154 [WARNING] [INDIGOPNTS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:57,202 [INFO]  -> [INDIGOPNTS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:58,151 [WARNING] [INDNIPPON.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:58,199 [INFO]  -> [INDNIPPON.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:08:59,100 [WARNING] [INDOCO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:08:59,161 [INFO]  -> [INDOCO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:00,120 [WARNING] [INDUSTOWER.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:00,181 [INFO]  -> [INDUSTOWER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:01,103 [WARNING] [INNOVACAP.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:01,135 [INFO]  -> [INNOVACAP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:02,151 [WARNING] [IOC.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:02,202 [INFO]  -> [IOC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:03,179 [WARNING] [IPCALAB.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:03,228 [INFO]  -> [IPCALAB.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:04,144 [WARNING] [IPL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:04,192 [INFO]  -> [IPL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:05,103 [WARNING] [ISGEC.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:05,150 [INFO]  -> [ISGEC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:06,014 [WARNING] [ITI.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:06,062 [INFO]  -> [ITI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:07,026 [WARNING] [JAMNAAUTO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:07,074 [INFO]  -> [JAMNAAUTO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:07,927 [WARNING] [JBCHEPHARM.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:08,352 [WARNING] [JINDALSAW.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:08,400 [INFO]  -> [JINDALSAW.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:09,353 [WARNING] [JINDALSTEL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:09,409 [INFO]  -> [JINDALSTEL.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-11-24 23:09:09,814 [WARNING] [JKIL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:09,862 [INFO]  -> [JKIL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:10,768 [WARNING] [JKLAKSHMI.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:10,816 [INFO]  -> [JKLAKSHMI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:11,719 [WARNING] [JSL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:11,766 [INFO]  -> [JSL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:12,745 [WARNING] [JSWENERGY.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:12,792 [INFO]  -> [JSWENERGY.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:13,681 [WARNING] [JUBLINGREA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:13,728 [INFO]  -> [JUBLINGREA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:14,634 [WARNING] [JUBLPHARMA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:14,681 [INFO]  -> [JUBLPHARMA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:15,617 [WARNING] [KAJARIACER.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:15,664 [INFO]  -> [KAJARIACER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:16,230 [INFO]  -> [KALPATPOWR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:17,221 [WARNING] [KANSAINER.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:17,270 [INFO]  -> [KANSAINER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:18,221 [WARNING] [KEI.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:18,268 [INFO]  -> [KEI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:18,834 [INFO]  -> [KEPL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:19,758 [WARNING] [KIMS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:19,807 [INFO]  -> [KIMS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:20,735 [WARNING] [KIRLOSBROS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:20,782 [INFO]  -> [KIRLOSBROS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:21,682 [WARNING] [KIRLPNU.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:21,720 [INFO]  -> [KIRLPNU.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:22,603 [WARNING] [KPITTECH.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:22,650 [INFO]  -> [KPITTECH.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:23,601 [WARNING] [KPRMILL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:23,649 [INFO]  -> [KPRMILL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:24,557 [WARNING] [KRBL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:24,611 [INFO]  -> [KRBL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:25,521 [WARNING] [KRSNAA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:25,569 [INFO]  -> [KRSNAA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:26,479 [WARNING] [LALPATHLAB.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:26,527 [INFO]  -> [LALPATHLAB.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:27,422 [WARNING] [LAURUSLABS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:27,469 [INFO]  -> [LAURUSLABS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:28,318 [WARNING] [LGBBROSLTD.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:28,367 [INFO]  -> [LGBBROSLTD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:29,302 [WARNING] [LIKHITHA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:29,350 [INFO]  -> [LIKHITHA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:30,350 [WARNING] [LINC.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:30,398 [INFO]  -> [LINC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:31,401 [WARNING] [LINDEINDIA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:31,446 [INFO]  -> [LINDEINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:32,401 [WARNING] [LLOYDSENGG.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:32,450 [INFO]  -> [LLOYDSENGG.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:33,318 [WARNING] [LODHA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:33,366 [INFO]  -> [LODHA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:34,278 [WARNING] [LUMAXTECH.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:34,326 [INFO]  -> [LUMAXTECH.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-11-24 23:09:34,742 [WARNING] [LUPIN.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:34,789 [INFO]  -> [LUPIN.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:35,694 [WARNING] [LUXIND.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:35,740 [INFO]  -> [LUXIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:36,669 [WARNING] [LXCHEM.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:36,717 [INFO]  -> [LXCHEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:37,634 [WARNING] [MAHLOG.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:37,682 [INFO]  -> [MAHLOG.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-11-24 23:09:38,289 [WARNING] [MANKIND.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:38,326 [INFO]  -> [MANKIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:39,205 [WARNING] [MANYAVAR.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:39,250 [INFO]  -> [MANYAVAR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:40,167 [WARNING] [MARICO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:40,215 [INFO]  -> [MARICO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:41,221 [WARNING] [MARINE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:41,270 [INFO]  -> [MARINE.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-11-24 23:09:41,684 [WARNING] [MARKSANS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:41,731 [INFO]  -> [MARKSANS.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-11-24 23:09:42,095 [WARNING] [MARUTI.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:42,149 [INFO]  -> [MARUTI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:43,084 [WARNING] [MAXHEALTH.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:43,138 [INFO]  -> [MAXHEALTH.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:44,020 [WARNING] [MEDANTA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:44,060 [INFO]  -> [MEDANTA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:45,002 [WARNING] [MEDPLUS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:45,049 [INFO]  -> [MEDPLUS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:45,994 [WARNING] [METROBRAND.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:46,041 [INFO]  -> [METROBRAND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:46,973 [WARNING] [METROPOLIS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:47,021 [INFO]  -> [METROPOLIS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:47,910 [WARNING] [MBEL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:47,931 [INFO]  -> [MBEL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:48,910 [WARNING] [MGL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:48,957 [INFO]  -> [MGL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:49,850 [WARNING] [MINDACORP.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:49,898 [INFO]  -> [MINDACORP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:50,768 [WARNING] [MMTC.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:50,817 [INFO]  -> [MMTC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:51,770 [WARNING] [MOIL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:51,819 [INFO]  -> [MOIL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:52,840 [WARNING] [MONTECARLO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:52,887 [INFO]  -> [MONTECARLO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:53,834 [WARNING] [MOTHERSON.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:53,884 [INFO]  -> [MOTHERSON.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:54,816 [WARNING] [MOLBIO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:54,826 [INFO]  -> [MOLBIO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:55,758 [WARNING] [MSUMI.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:55,806 [INFO]  -> [MSUMI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:56,766 [WARNING] [NATCOPHARM.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:56,814 [INFO]  -> [NATCOPHARM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:57,785 [WARNING] [NATIONALUM.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:57,833 [INFO]  -> [NATIONALUM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:58,765 [WARNING] [NAZARA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:58,812 [INFO]  -> [NAZARA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:09:59,738 [WARNING] [NOCIL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:09:59,785 [INFO]  -> [NOCIL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:00,726 [WARNING] [NRBBEARING.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:00,773 [INFO]  -> [NRBBEARING.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:01,715 [WARNING] [NUVOCO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:01,762 [INFO]  -> [NUVOCO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:02,695 [WARNING] [NYKAA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:02,743 [INFO]  -> [NYKAA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:03,681 [WARNING] [OAL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:03,728 [INFO]  -> [OAL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:04,768 [WARNING] [OBEROIRLTY.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:04,815 [INFO]  -> [OBEROIRLTY.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:05,681 [WARNING] [OIL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:05,730 [INFO]  -> [OIL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:06,648 [WARNING] [OLECTRA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:06,701 [INFO]  -> [OLECTRA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:07,662 [WARNING] [ONGC.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:07,711 [INFO]  -> [ONGC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:08,667 [WARNING] [ORIENTELEC.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:08,723 [INFO]  -> [ORIENTELEC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:09,672 [WARNING] [PAGEIND.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:09,717 [INFO]  -> [PAGEIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:10,664 [WARNING] [PARACABLES.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:10,712 [INFO]  -> [PARACABLES.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:11,629 [WARNING] [PCBL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:11,678 [INFO]  -> [PCBL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:12,601 [WARNING] [PDMJEPAPER.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:12,648 [INFO]  -> [PDMJEPAPER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:13,518 [WARNING] [PDSL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:13,566 [INFO]  -> [PDSL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:14,493 [WARNING] [PERSISTENT.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:14,540 [INFO]  -> [PERSISTENT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:15,468 [WARNING] [PFIZER.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:15,513 [INFO]  -> [PFIZER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:16,478 [WARNING] [PGHH.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:16,524 [INFO]  -> [PGHH.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:17,497 [WARNING] [PGHL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:17,543 [INFO]  -> [PGHL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:18,598 [WARNING] [PHOENIXLTD.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:18,646 [INFO]  -> [PHOENIXLTD.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-11-24 23:10:19,167 [WARNING] [PIDILITIND.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:19,217 [INFO]  -> [PIDILITIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:20,131 [WARNING] [PIIND.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:20,178 [INFO]  -> [PIIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:21,085 [WARNING] [PIXTRANS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:21,129 [INFO]  -> [PIXTRANS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:22,004 [WARNING] [PNCINFRA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:22,052 [INFO]  -> [PNCINFRA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:22,977 [WARNING] [POCL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:23,024 [INFO]  -> [POCL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:23,947 [WARNING] [POKARNA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:23,996 [INFO]  -> [POKARNA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:24,943 [WARNING] [POLYCAB.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:24,989 [INFO]  -> [POLYCAB.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:25,900 [WARNING] [POLYMED.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:25,948 [INFO]  -> [POLYMED.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:26,813 [WARNING] [POLYPLEX.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:26,860 [INFO]  -> [POLYPLEX.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:27,755 [WARNING] [POWERINDIA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:27,801 [INFO]  -> [POWERINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:28,708 [WARNING] [PPLPHARMA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:28,750 [INFO]  -> [PPLPHARMA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:29,666 [WARNING] [PRAKASH.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:29,714 [INFO]  -> [PRAKASH.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:30,673 [WARNING] [PRESTIGE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:30,721 [INFO]  -> [PRESTIGE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:31,646 [WARNING] [PRINCEPIPE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:31,694 [INFO]  -> [PRINCEPIPE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:32,639 [WARNING] [PTC.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:32,687 [INFO]  -> [PTC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:33,633 [WARNING] [QUESS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:33,681 [INFO]  -> [QUESS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:34,581 [WARNING] [RAILTEL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:34,629 [INFO]  -> [RAILTEL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:35,509 [WARNING] [RAJESHEXPO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:35,556 [INFO]  -> [RAJESHEXPO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:36,448 [WARNING] [RALLIS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:36,496 [INFO]  -> [RALLIS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:37,450 [WARNING] [RAMCOCEM.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:37,498 [INFO]  -> [RAMCOCEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:38,417 [WARNING] [RATNAMANI.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:38,465 [INFO]  -> [RATNAMANI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:39,369 [WARNING] [RBA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:39,425 [INFO]  -> [RBA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:40,302 [WARNING] [RCF.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:40,350 [INFO]  -> [RCF.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:41,317 [WARNING] [REDINGTON.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:41,365 [INFO]  -> [REDINGTON.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:42,293 [WARNING] [RELAXO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:42,341 [INFO]  -> [RELAXO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:43,234 [WARNING] [RELIANCE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:43,283 [INFO]  -> [RELIANCE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:44,257 [WARNING] [RELINFRA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:44,304 [INFO]  -> [RELINFRA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:45,353 [WARNING] [RESPONIND.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:45,401 [INFO]  -> [RESPONIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:46,317 [WARNING] [RHIM.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:46,364 [INFO]  -> [RHIM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:47,262 [WARNING] [ROSSARI.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:47,309 [INFO]  -> [ROSSARI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:48,166 [WARNING] [ROUTE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:48,214 [INFO]  -> [ROUTE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:49,132 [WARNING] [SAIL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:49,181 [INFO]  -> [SAIL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:50,122 [WARNING] [SANDHAR.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:50,169 [INFO]  -> [SANDHAR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:51,119 [WARNING] [SANOFI.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:51,166 [INFO]  -> [SANOFI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:52,078 [WARNING] [SCHAEFFLER.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:52,126 [INFO]  -> [SCHAEFFLER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:53,130 [WARNING] [SCI.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:53,178 [INFO]  -> [SCI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:54,068 [WARNING] [SFL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:54,116 [INFO]  -> [SFL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:55,015 [WARNING] [SHAKTIPUMP.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:55,063 [INFO]  -> [SHAKTIPUMP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:56,017 [WARNING] [SHANTIGEAR.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:56,064 [INFO]  -> [SHANTIGEAR.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:56,988 [WARNING] [SHARDACROP.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:57,035 [INFO]  -> [SHARDACROP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:57,947 [WARNING] [SHANTIGOLD.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:57,970 [INFO]  -> [SHANTIGOLD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:58,944 [WARNING] [SHILPAMED.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:58,992 [INFO]  -> [SHILPAMED.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:10:59,866 [WARNING] [SHYAMMETL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:10:59,914 [INFO]  -> [SHYAMMETL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:00,832 [WARNING] [SIEMENS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:00,882 [INFO]  -> [SIEMENS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:01,823 [WARNING] [SIS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:01,870 [INFO]  -> [SIS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:02,823 [WARNING] [SJVN.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:02,872 [INFO]  -> [SJVN.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:03,865 [WARNING] [SKFINDIA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:03,912 [INFO]  -> [SKFINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:04,795 [WARNING] [SKIPPER.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:04,843 [INFO]  -> [SKIPPER.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:05,825 [WARNING] [SOBHA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:05,873 [INFO]  -> [SOBHA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:06,916 [WARNING] [SOLARINDS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:06,961 [INFO]  -> [SOLARINDS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:07,886 [WARNING] [SOLARA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:07,934 [INFO]  -> [SOLARA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:08,833 [WARNING] [SONACOMS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:08,882 [INFO]  -> [SONACOMS.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-11-24 23:11:09,332 [WARNING] [SPARC.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:09,380 [INFO]  -> [SPARC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:10,368 [WARNING] [SRF.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:10,417 [INFO]  -> [SRF.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:11,296 [WARNING] [STYLAMIND.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:11,342 [INFO]  -> [STYLAMIND.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-11-24 23:11:11,766 [WARNING] [SUBROS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:11,813 [INFO]  -> [SUBROS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:12,738 [WARNING] [SUDARSCHEM.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:12,786 [INFO]  -> [SUDARSCHEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:13,672 [WARNING] [SUMICHEM.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:13,720 [INFO]  -> [SUMICHEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:14,691 [WARNING] [SUNDRMFAST.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:14,739 [INFO]  -> [SUNDRMFAST.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:15,631 [WARNING] [SUNPHARMA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:15,679 [INFO]  -> [SUNPHARMA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:16,591 [WARNING] [SUNTECK.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:16,639 [INFO]  -> [SUNTECK.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:17,572 [WARNING] [SUPRAJIT.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:17,619 [INFO]  -> [SUPRAJIT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:18,515 [WARNING] [SUPREMEIND.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:18,562 [INFO]  -> [SUPREMEIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:19,434 [WARNING] [SUPRIYA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:19,482 [INFO]  -> [SUPRIYA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:20,414 [WARNING] [SYMPHONY.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:20,461 [INFO]  -> [SYMPHONY.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:21,352 [WARNING] [SYNGENE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:21,400 [INFO]  -> [SYNGENE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:22,432 [WARNING] [TARIL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:22,481 [INFO]  -> [TARIL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:23,455 [WARNING] [TATACHEM.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:23,504 [INFO]  -> [TATACHEM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:24,408 [WARNING] [TATACONSUM.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:24,458 [INFO]  -> [TATACONSUM.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:25,401 [WARNING] [TATASTEEL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:25,452 [INFO]  -> [TATASTEEL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:26,348 [WARNING] [TCI.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:26,396 [INFO]  -> [TCI.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:27,378 [WARNING] [TCIEXP.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:27,425 [INFO]  -> [TCIEXP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:28,295 [WARNING] [TEJASNET.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:28,342 [INFO]  -> [TEJASNET.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:29,326 [WARNING] [TEXRAIL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:29,374 [INFO]  -> [TEXRAIL.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-11-24 23:11:29,794 [WARNING] [THERMAX.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:29,841 [INFO]  -> [THERMAX.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:30,747 [WARNING] [THYROCARE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:30,797 [INFO]  -> [THYROCARE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:31,659 [WARNING] [TIINDIA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:31,706 [INFO]  -> [TIINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:32,688 [WARNING] [TIMETECHNO.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:32,738 [INFO]  -> [TIMETECHNO.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:33,646 [WARNING] [TIMKEN.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:33,694 [INFO]  -> [TIMKEN.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:34,687 [WARNING] [TRIDENT.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:34,736 [INFO]  -> [TRIDENT.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:35,610 [WARNING] [TRITURBINE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:35,659 [INFO]  -> [TRITURBINE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:36,581 [WARNING] [TTKPRESTIG.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:36,629 [INFO]  -> [TTKPRESTIG.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:37,498 [WARNING] [UNICHEMLAB.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:37,546 [INFO]  -> [UNICHEMLAB.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-11-24 23:11:37,964 [WARNING] [UNOMINDA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:38,012 [INFO]  -> [UNOMINDA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:38,953 [WARNING] [UPL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:39,001 [INFO]  -> [UPL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:39,950 [WARNING] [VAIBHAVGBL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:39,999 [INFO]  -> [VAIBHAVGBL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:40,920 [WARNING] [VARROC.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:40,967 [INFO]  -> [VARROC.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:41,842 [WARNING] [VBL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:41,892 [INFO]  -> [VBL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:42,888 [WARNING] [VEDL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:42,936 [INFO]  -> [VEDL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:43,841 [WARNING] [VGUARD.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:43,889 [INFO]  -> [VGUARD.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:44,809 [WARNING] [VIJAYA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:44,858 [INFO]  -> [VIJAYA.NS] Golden Rule Satisfied but alert is on cooldown (already alerted within the last 24 trading days). Skipping Telegram send.
+2026-11-24 23:11:45,264 [WARNING] [VINATIORGA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:45,311 [INFO]  -> [VINATIORGA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:46,261 [WARNING] [VIPIND.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:46,308 [INFO]  -> [VIPIND.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:47,210 [WARNING] [VMART.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:47,258 [INFO]  -> [VMART.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:48,177 [WARNING] [VOLTAS.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:48,225 [INFO]  -> [VOLTAS.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:49,269 [WARNING] [VTL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:49,318 [INFO]  -> [VTL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:50,231 [WARNING] [WELCORP.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:50,280 [INFO]  -> [WELCORP.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:51,206 [WARNING] [WELSPUNLIV.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:51,255 [INFO]  -> [WELSPUNLIV.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:52,186 [WARNING] [WHIRLPOOL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:52,234 [INFO]  -> [WHIRLPOOL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:53,091 [WARNING] [WOCKPHARMA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:53,139 [INFO]  -> [WOCKPHARMA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:54,048 [WARNING] [YUKEN.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:54,095 [INFO]  -> [YUKEN.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:55,111 [WARNING] [ZFCVINDIA.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:55,160 [INFO]  -> [ZFCVINDIA.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:56,037 [WARNING] [ZYDUSLIFE.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:56,085 [INFO]  -> [ZYDUSLIFE.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:56,963 [WARNING] [ZYDUSWELL.NS] Historical price fetch failed: EmptyDataError: 
+[Empty] -> No results found. Try adjusting the query parameters.. Falling back to cached/fail-safe data — price will NOT advance this run.
+2026-11-24 23:11:57,012 [INFO]  -> [ZYDUSWELL.NS] Bypassed status. Failed strict quantitative thresholds.
+2026-11-24 23:11:57,513 [INFO] [Complete] Quant script loops finished successfully. Overwriting metrics...
+2026-11-24 23:12:03,168 [INFO] ✓ Central output matrix overwritten successfully.

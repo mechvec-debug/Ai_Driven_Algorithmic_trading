@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-11-24 06:36:48.840366+05:30",
+    "last_updated": "2026-11-25 04:42:03.160846+05:30",
     "total_scanned_assets": 329,
     "signals": [
         {
@@ -4436,9 +4436,9 @@
             "alert_on_cooldown": false,
             "last_alert_date": null,
             "close_price": 244.3500061035156,
-            "ann_volatility_pct": 52.167934820980655,
+            "ann_volatility_pct": 52.16793482098067,
             "daily_var_95_pct": -3.671938529381,
-            "qlib_alpha_score": -0.0037915552854272,
+            "qlib_alpha_score": -0.0037915552854274,
             "backtest_roi_pct": -24.2561196546329,
             "action_status": "HOLD",
             "recommended_shares_to_buy": 0,
@@ -5632,10 +5632,10 @@
             "sector": "Other Diversified",
             "alert_on_cooldown": true,
             "last_alert_date": "2026-11-09",
-            "close_price": 186.80999755859372,
-            "ann_volatility_pct": 53.16703170219604,
+            "close_price": 186.8099975585937,
+            "ann_volatility_pct": 53.167031702196056,
             "daily_var_95_pct": -4.32628935000912,
-            "qlib_alpha_score": -0.0461090632565018,
+            "qlib_alpha_score": -0.0461090632565021,
             "backtest_roi_pct": -3.0559697752134527,
             "action_status": "HOLD",
             "recommended_shares_to_buy": 0,
